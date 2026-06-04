@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lucas Morales — Marketing Analytics & BI</title>
+  <meta name="description" content="Lucas Morales — Marketing Analytics, BI e Martech. Conectando mídia, dados e tecnologia para decisões melhores." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">LM<span class="accent">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#skills"     data-i18n="nav_skills">Skills</a></li>
+        <li><a href="#experience" data-i18n="nav_exp">Experiência</a></li>
+        <li><a href="#projects"   data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="#about"      data-i18n="nav_about">Sobre</a></li>
+      </ul>
+      <div class="nav-right">
+        <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+          <span id="langLabel">EN</span>
+        </button>
+        <button class="menu-btn" id="menuBtn" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#skills"     data-i18n="nav_skills">Skills</a>
+      <a href="#experience" data-i18n="nav_exp">Experiência</a>
+      <a href="#projects"   data-i18n="nav_projects">Projetos</a>
+      <a href="#about"      data-i18n="nav_about">Sobre</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-grid"></div>
+      <div class="hero-orb hero-orb--1"></div>
+      <div class="hero-orb hero-orb--2"></div>
+      <div class="hero-orb hero-orb--3"></div>
+    </div>
+
+    <div class="hero-layout">
+      <!-- LEFT -->
+      <div class="hero-left">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          <span data-i18n="hero_badge">Marketing Analytics · BI · Martech</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="hero-name">Lucas</span>
+          <span class="hero-name hero-name--accent">Morales</span>
+        </h1>
+
+        <p class="hero-tagline" data-i18n="hero_tagline">
+          Conectando mídia, dados e tecnologia para transformar informação em decisão.
+        </p>
+
+        <div class="hero-pills">
+          <span>Python</span><span>SQL</span><span>APIs de Mídia</span>
+          <span>BI</span><span>Tracking</span><span>Automação</span>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="#projects" class="btn btn-primary" data-i18n="hero_cta_proj">Ver Projetos</a>
+          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn ↗</a>
+          <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>
+        </div>
+      </div>
+
+      <!-- RIGHT — floating card stack -->
+      <div class="hero-right" aria-hidden="true">
+        <div class="hero-card hero-card--top">
+          <div class="hc-header">
+            <span class="hc-dot hc-dot--green"></span>
+            <span class="hc-label">pipeline.py</span>
+          </div>
+          <pre class="hc-code"><code><span class="t-kw">def</span> <span class="t-fn">run_pipeline</span>(<span class="t-var">date</span>):
+  data <span class="t-op">=</span> collect_all_platforms()
+  df   <span class="t-op">=</span> normalize(data)
+  kpis <span class="t-op">=</span> compute_kpis(df)
+  <span class="t-kw">return</span> export_to_sheets(kpis)</code></pre>
+        </div>
+
+        <div class="hero-metrics-card">
+          <div class="hm-item">
+            <span class="hm-value">9<span class="accent">+</span></span>
+            <span class="hm-label" data-i18n="hm_platforms">Plataformas</span>
+          </div>
+          <div class="hm-sep"></div>
+          <div class="hm-item">
+            <span class="hm-value">280<span class="accent">+</span></span>
+            <span class="hm-label" data-i18n="hm_stores">Lojas</span>
+          </div>
+          <div class="hm-sep"></div>
+          <div class="hm-item">
+            <span class="hm-value">90<span class="accent">%</span></span>
+            <span class="hm-label" data-i18n="hm_savings">↓ Tempo Manual</span>
+          </div>
+        </div>
+
+        <div class="hero-card hero-card--bottom">
+          <div class="hc-header">
+            <span class="hc-dot hc-dot--purple"></span>
+            <span class="hc-label">insights.sql</span>
+          </div>
+          <pre class="hc-code"><code><span class="t-kw">SELECT</span> regional,
+  <span class="t-fn">SUM</span>(spend) <span class="t-kw">AS</span> total,
+  <span class="t-fn">AVG</span>(cpl) <span class="t-kw">AS</span> avg_cpl
+<span class="t-kw">FROM</span> media_data
+<span class="t-kw">GROUP BY</span> regional</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-bar"></div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label" data-i18n="skills_tag">competências</span>
+        <h2 data-i18n="skills_title">Stack & Ferramentas</h2>
+      </div>
+
+      <div class="bento">
+
+        <!-- Analytics & BI — wide -->
+        <div class="bento-card bento-card--wide" data-reveal>
+          <div class="bento-icon bento-icon--purple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 data-i18n="sk_analytics_title">Analytics & BI</h3>
+          <p class="bento-desc" data-i18n="sk_analytics_desc">Análise de performance, dashboards e storytelling com dados.</p>
+          <div class="bento-tags">
+            <span>Looker Studio</span><span>Power BI</span><span>Excel Avançado</span>
+            <span>GA4</span><span>BigQuery</span><span>Cohort Analysis</span>
+            <span>A/B Testing</span><span>Funil de Conversão</span>
+          </div>
+        </div>
+
+        <!-- Data Engineering -->
+        <div class="bento-card" data-reveal>
+          <div class="bento-icon bento-icon--teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 data-i18n="sk_dev_title">Dev & Automação</h3>
+          <div class="bento-tags">
+            <span>Python</span><span>SQL</span><span>FastAPI</span>
+            <span>pandas</span><span>n8n</span><span>Make</span>
+            <span>GitHub Actions</span><span>ETL/ELT</span>
+          </div>
+        </div>
+
+        <!-- Tracking -->
+        <div class="bento-card" data-reveal>
+          <div class="bento-icon bento-icon--orange">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+          </div>
+          <h3 data-i18n="sk_tracking_title">Tracking & Martech</h3>
+          <div class="bento-tags">
+            <span>GTM</span><span>Meta Pixel + CAPI</span><span>TikTok Pixel + CAPI</span>
+            <span>Google Ads API</span><span>Meta Marketing API</span>
+          </div>
+        </div>
+
+        <!-- Paid Media — tall -->
+        <div class="bento-card bento-card--tall" data-reveal>
+          <div class="bento-icon bento-icon--purple">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 data-i18n="sk_media_title">Mídia Paga</h3>
+          <p class="bento-desc" data-i18n="sk_media_desc">Gestão e análise em múltiplas plataformas.</p>
+          <div class="bento-tags">
+            <span>Meta Ads</span><span>Google Ads</span><span>TikTok Ads</span>
+            <span>Taboola</span><span>Pinterest Ads</span><span>Kwai Ads</span>
+            <span>Bing Ads</span><span>X Ads</span>
+          </div>
+          <div class="bento-stat">
+            <span class="bento-stat-val">9<span class="accent">+</span></span>
+            <span class="bento-stat-label" data-i18n="sk_media_stat">plataformas integradas</span>
+          </div>
+        </div>
+
+        <!-- Infra -->
+        <div class="bento-card" data-reveal>
+          <div class="bento-icon bento-icon--teal">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+          </div>
+          <h3 data-i18n="sk_infra_title">Infra & Cloud</h3>
+          <div class="bento-tags">
+            <span>Oracle Cloud</span><span>Google Cloud</span>
+            <span>MySQL</span><span>Git</span><span>REST APIs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label" data-i18n="exp_tag">trajetória</span>
+        <h2 data-i18n="exp_title">Experiência</h2>
+      </div>
+
+      <div class="exp-list">
+
+        <!-- 1 — Media.k -->
+        <div class="exp-item" data-reveal>
+          <div class="exp-aside">
+            <div class="exp-line-dot exp-line-dot--active"></div>
+            <div class="exp-line-track"></div>
+            <span class="exp-period" data-i18n="exp1_period">Fev 2026 — presente</span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role" data-i18n="exp1_role">Analista de Mídia / BI</h3>
+                <span class="exp-company">Media.k</span>
+                <span class="exp-location" data-i18n="exp1_loc">Ourinhos, SP · Remoto · AudioNova Brasil</span>
+              </div>
+              <span class="exp-badge exp-badge--current" data-i18n="exp_current">Atual</span>
+            </div>
+            <p class="exp-desc" data-i18n="exp1_desc">
+              Atuo diretamente na conta AudioNova — operação de grande porte no setor de saúde auditiva com mais de 280 lojas no Brasil. Reúne mídia paga em múltiplas plataformas, análise de dados, tracking, BI, automação e desenvolvimento de soluções internas.
+            </p>
+            <ul class="exp-bullets">
+              <li data-i18n="exp1_b1">Gestão e análise de campanhas em 8 plataformas: Meta, Google, TikTok, Taboola, Pinterest, Kwai, Bing e X Ads</li>
+              <li data-i18n="exp1_b2">Desenvolvimento de ecossistema de automação (media-reports, media-reports-web, store-view) — 90% de redução em trabalho manual</li>
+              <li data-i18n="exp1_b3">Implementação e manutenção de tracking: GTM, GA4, Meta CAPI, TikTok CAPI, eventos personalizados</li>
+              <li data-i18n="exp1_b4">Apresentação de resultados e recomendações estratégicas diretamente ao cliente, traduzindo dados técnicos em decisões</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Python</span><span>SQL</span><span>APIs de Mídia</span><span>GTM</span><span>CAPI</span><span>FastAPI</span><span>Google Sheets API</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2 — Idiomus -->
+        <div class="exp-item" data-reveal>
+          <div class="exp-aside">
+            <div class="exp-line-dot"></div>
+            <div class="exp-line-track"></div>
+            <span class="exp-period" data-i18n="exp2_period">Mar 2025 — Out 2025</span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role" data-i18n="exp2_role">Analista de Dados e Growth Marketing</h3>
+                <span class="exp-company">Idiomus</span>
+                <span class="exp-location" data-i18n="exp2_loc">Educação Digital · Expansão Internacional</span>
+              </div>
+            </div>
+            <p class="exp-desc" data-i18n="exp2_desc">
+              Operação de educação digital em expansão internacional com campanhas de alto volume em múltiplos países. Atuei em análise de dados, performance de mídia e estruturação de processos de mensuração durante período de ~20% de crescimento no faturamento.
+            </p>
+            <ul class="exp-bullets">
+              <li data-i18n="exp2_b1">Gestão e análise de campanhas em Google Ads, Meta Ads e TikTok Ads para funis perpétuos e lançamentos (ROAS, CAC, CPA, taxa de conversão)</li>
+              <li data-i18n="exp2_b2">Desenvolvimento de dashboards em Looker Studio, Power BI e Excel para equipes de marketing, produto e gestão</li>
+              <li data-i18n="exp2_b3">Implementação de rastreamento avançado com GA4 e GTM, eventos customizados e auditorias de jornada</li>
+              <li data-i18n="exp2_b4">ETL/ELT com Python, Pandas e BigQuery; automações com n8n e Make; integração com Hotmart e CRMs</li>
+              <li data-i18n="exp2_b5">Análise de cohort, testes A/B, segmentações e análise de funil para identificação de oportunidades de crescimento</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Looker Studio</span><span>Power BI</span><span>BigQuery</span><span>GA4</span><span>GTM</span><span>Python</span><span>n8n</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3 — Senden -->
+        <div class="exp-item" data-reveal>
+          <div class="exp-aside">
+            <div class="exp-line-dot"></div>
+            <div class="exp-line-track"></div>
+            <span class="exp-period" data-i18n="exp3_period">Set 2024 — Mar 2025</span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role" data-i18n="exp3_role">Gestor de Tráfego e Funis de Venda</h3>
+                <span class="exp-company">Senden Mídias</span>
+                <span class="exp-location" data-i18n="exp3_loc">Clientes de Delivery · 13 contas simultâneas</span>
+              </div>
+            </div>
+            <p class="exp-desc" data-i18n="exp3_desc">
+              Gestão simultânea de até 13 clientes no setor de delivery. Responsável por campanhas, relatórios, análises e acompanhamento de performance com foco em ROAS, conversão e eficiência de investimento.
+            </p>
+            <ul class="exp-bullets">
+              <li data-i18n="exp3_b1">Gestão de campanhas em Google Ads e Meta Ads com acompanhamento de ROAS, CAC, CPA, CPC, CTR e conversão</li>
+              <li data-i18n="exp3_b2">Campanhas otimizadas atingiram ROAS entre 8x e 20x; contribuição para aumentos de até 25% em taxas de conversão</li>
+              <li data-i18n="exp3_b3">Análise de funil, criativos, ofertas e páginas para identificação de gargalos que impactavam conversão</li>
+              <li data-i18n="exp3_b4">Dashboards e relatórios em Excel, Notion e ClickUp — redução de ~50% no tempo de apresentação de resultados</li>
+            </ul>
+            <div class="exp-tags">
+              <span>Meta Ads</span><span>Google Ads</span><span>Excel</span><span>Análise de Funil</span><span>CRO</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 — Autônomo -->
+        <div class="exp-item" data-reveal>
+          <div class="exp-aside">
+            <div class="exp-line-dot exp-line-dot--dim"></div>
+            <span class="exp-period" data-i18n="exp4_period">Anterior a Set 2024</span>
+          </div>
+          <div class="exp-body">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role" data-i18n="exp4_role">Gestor de Tráfego e Marketing Digital</h3>
+                <span class="exp-company" data-i18n="exp4_company">Autônomo</span>
+                <span class="exp-location" data-i18n="exp4_loc">Empresas locais · Região de Ourinhos, SP</span>
+              </div>
+            </div>
+            <p class="exp-desc" data-i18n="exp4_desc">
+              Ciclo completo: campanhas em Google Ads e Meta Ads, criação de páginas e landing pages, copywriting, análise de métricas e otimização de conversão. Base prática em aquisição, comportamento do consumidor e análise de jornada com frameworks como BANT e 5 A's do Marketing.
+            </p>
+            <div class="exp-tags">
+              <span>Google Ads</span><span>Meta Ads</span><span>CRO</span><span>Copywriting</span><span>Landing Pages</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION (compact) -->
+  <section id="education">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label" data-i18n="edu_tag">formação</span>
+        <h2 data-i18n="edu_title">Educação & Certificações</h2>
+      </div>
+      <div class="edu-grid">
+        <div class="edu-card" data-reveal>
+          <div class="edu-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="edu1_title">Tecnólogo em ADS</h4>
+            <span class="edu-inst">Fatec Ourinhos</span>
+            <p class="edu-desc" data-i18n="edu1_desc">Análise e Desenvolvimento de Sistemas — banco de dados, eng. de software, desenvolvimento web.</p>
+          </div>
+        </div>
+        <div class="edu-card" data-reveal>
+          <div class="edu-icon edu-icon--teal">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="edu2_title">Certificações</h4>
+            <span class="edu-inst">DataCamp · Google · Meta · Sobral</span>
+            <p class="edu-desc" data-i18n="edu2_desc">Data Analyst Associate, Google Ads, Meta Ads, SQL, Python, Growth, BI, CRO.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label" data-i18n="proj_tag">portfólio</span>
+        <h2 data-i18n="proj_title">Projetos</h2>
+        <p class="section-desc" data-i18n="proj_desc">Clique em qualquer card para ver o case completo.</p>
+      </div>
+
+      <div class="proj-grid">
+
+        <!-- P1 -->
+        <article class="proj-card proj-card--featured" data-project="media-reports" data-reveal>
+          <div class="proj-glow"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
+            <span class="proj-stack">Python · APIs · GitHub Actions</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p1_title">Relatório de Mídia Automatizado</h3>
+          <p class="proj-desc" data-i18n="p1_desc">Pipeline que coleta spend de 9+ plataformas via API, agrega por regional e exporta para Google Sheets — diariamente, sem intervenção manual.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="proj-btn-gh" data-i18n="p_gh">GitHub</a>
+          </div>
+        </article>
+
+        <!-- P2 -->
+        <article class="proj-card" data-project="leads-processor" data-reveal>
+          <div class="proj-glow proj-glow--teal"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
+            <span class="proj-stack">JavaScript · HTML/CSS</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p2_title">Leads Processor</h3>
+          <p class="proj-desc" data-i18n="p2_desc">App estática que reconcilia leads cruzando bases MDK e Total com mapeamento determinístico de ~280 lojas e ~80 parceiros PV.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            <a href="https://github.com/Lucas-Mrl/leads-processor" target="_blank" rel="noopener" class="proj-btn-gh" data-i18n="p_gh">GitHub</a>
+          </div>
+        </article>
+
+        <!-- P3 -->
+        <article class="proj-card" data-project="ai-analytics" data-reveal>
+          <div class="proj-glow proj-glow--teal"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--personal" data-i18n="pt_personal">Projeto Pessoal</span>
+            <span class="proj-stack">Python · Streamlit · AI</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p3_title">AI Ad Metrics Analyzer</h3>
+          <p class="proj-desc" data-i18n="p3_desc">App com coleta automatizada de métricas de campanhas, tratamento de dados e geração de recomendações com suporte de inteligência artificial.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+        <!-- P4 -->
+        <article class="proj-card" data-project="meta-capi" data-reveal>
+          <div class="proj-glow"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="proj-stack">Meta CAPI · Python · Server-side</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p4_title">Meta CAPI — AudioNova</h3>
+          <p class="proj-desc" data-i18n="p4_desc">Implementação completa de Conversions API server-side para operação com 1.000+ anúncios ativos em 16 regionais.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+        <!-- P5 -->
+        <article class="proj-card" data-project="email-clickup" data-reveal>
+          <div class="proj-glow proj-glow--teal"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
+            <span class="proj-stack">n8n · Graph API · Oracle Cloud</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p5_title">Email → ClickUp Automation</h3>
+          <p class="proj-desc" data-i18n="p5_desc">Lê emails do FreshService via Microsoft Graph API, extrai dados estruturados com IA e cria tasks no ClickUp automaticamente.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+        <!-- P6 -->
+        <article class="proj-card" data-project="tiktok-capi" data-reveal>
+          <div class="proj-glow"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="proj-stack">TikTok Events API · Server-side</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p6_title">TikTok Pixel & CAPI V2</h3>
+          <p class="proj-desc" data-i18n="p6_desc">Reconfiguração completa do tracking server-side do TikTok com estrutura de eventos alinhada a campanhas de lead gen.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+        <!-- P7 -->
+        <article class="proj-card" data-project="ad-analytics" data-reveal>
+          <div class="proj-glow proj-glow--teal"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="proj-stack">FastAPI · Python · Cache</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p7_title">Ad-Level Analytics Web App</h3>
+          <p class="proj-desc" data-i18n="p7_desc">Dashboard para análise granular por anúncio com cache inteligente, cruzamento com CRM e exportação Excel.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+        <!-- P8 -->
+        <article class="proj-card" data-project="store-analytics" data-reveal>
+          <div class="proj-glow"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="proj-stack">FastAPI · MySQL · Auth</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p8_title">Store-Level Analytics</h3>
+          <p class="proj-desc" data-i18n="p8_desc">Dashboard por loja para 280+ unidades AudioNova com autenticação, drill-down regional e exportação Excel.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+        <!-- P9 -->
+        <article class="proj-card" data-project="exec-summary" data-reveal>
+          <div class="proj-glow proj-glow--teal"></div>
+          <div class="proj-top">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="proj-stack">Python · HTML · PDF · ReportLab</span>
+          </div>
+          <h3 class="proj-title" data-i18n="p9_title">Executive Summary HTML/PDF</h3>
+          <p class="proj-desc" data-i18n="p9_desc">Relatório executivo gerado automaticamente a partir de PowerPoint, entregue em HTML interativo e PDF para reuniões de performance.</p>
+          <div class="proj-bottom">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-wrap">
+
+        <div class="about-left" data-reveal>
+          <span class="section-label" data-i18n="about_tag">sobre</span>
+          <h2 class="about-heading" data-i18n="about_title">Analytics que<br>entende de mídia.</h2>
+          <p data-i18n="about_p1">
+            Meu diferencial é atuar nos dois extremos: execução técnica (APIs, Python, SQL, tracking, automações) e interpretação estratégica (análise de performance, recomendações de verba, otimização de funil).
+          </p>
+          <p data-i18n="about_p2">
+            Minha trajetória começou no marketing digital — tráfego pago, funis e CRO — e evoluiu para o lado técnico quando percebi que a maioria dos problemas de performance não estava nas campanhas, mas na falta de mensuração confiável e processos para transformar dados em decisão.
+          </p>
+          <p data-i18n="about_p3">
+            Baseado em Ourinhos, SP. Buscando posições em Marketing Analytics, BI, Growth Analytics ou Martech onde possa conectar dados, tecnologia e negócio.
+          </p>
+          <div class="contact-grid">
+            <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="contact-card contact-card--wa">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <span data-i18n="contact_wa">WhatsApp</span>
+            </a>
+            <button class="contact-card contact-card--email" id="copyEmailBtn" data-email="moraleslucas003@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+              <span class="contact-email-label">moraleslucas003@gmail.com</span>
+            </button>
+            <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="contact-card contact-card--li">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="contact-card contact-card--gh">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="about-right" data-reveal>
+          <div class="code-window">
+            <div class="cw-bar">
+              <span class="cw-dot cw-dot--r"></span>
+              <span class="cw-dot cw-dot--y"></span>
+              <span class="cw-dot cw-dot--g"></span>
+              <span class="cw-title">lucas_morales.js</span>
+            </div>
+            <pre class="cw-body"><code><span class="c-kw">const</span> <span class="c-var">lucas</span> <span class="c-op">=</span> <span class="c-br">{</span>
+  <span class="c-key">role</span><span class="c-p">:</span>      <span class="c-s">"Marketing Analytics + BI"</span><span class="c-p">,</span>
+  <span class="c-key">company</span><span class="c-p">:</span>   <span class="c-s">"Media.k"</span><span class="c-p">,</span>
+  <span class="c-key">client</span><span class="c-p">:</span>    <span class="c-s">"AudioNova Brasil"</span><span class="c-p">,</span>
+  <span class="c-key">location</span><span class="c-p">:</span>  <span class="c-s">"Ourinhos, SP 🇧🇷"</span><span class="c-p">,</span>
+
+  <span class="c-key">strengths</span><span class="c-p">:</span> <span class="c-br">[</span>
+    <span class="c-s">"data pipelines"</span><span class="c-p">,</span>
+    <span class="c-s">"media APIs"</span><span class="c-p">,</span>
+    <span class="c-s">"BI &amp; dashboards"</span><span class="c-p">,</span>
+    <span class="c-s">"server-side tracking"</span>
+  <span class="c-br">]</span><span class="c-p">,</span>
+
+  <span class="c-key">goal</span><span class="c-p">:</span> <span class="c-s">"data → decision → growth"</span><span class="c-p">,</span>
+
+  <span class="c-key">email</span><span class="c-p">:</span>    <span class="c-s">"moraleslucas003@gmail.com"</span><span class="c-p">,</span>
+  <span class="c-key">whatsapp</span><span class="c-p">:</span> <span class="c-s">"+55 (14) 9 9883-43594"</span><span class="c-p">,</span>
+  <span class="c-key">contact</span><span class="c-p">:</span> <span class="c-br">(</span><span class="c-br">)</span> <span class="c-op">=&gt;</span>
+    <span class="c-fn">open</span><span class="c-br">(</span><span class="c-s">"wa.me/55149988343594"</span><span class="c-br">)</span>
+<span class="c-br">}</span><span class="c-p">;</span>
+</code></pre>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <span class="nav-logo">LM<span class="accent">.</span></span>
+        <p class="footer-copy" data-i18n="footer_text">Feito com HTML, CSS & JS puro · 2025</p>
+        <div class="footer-links">
+          <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" data-i18n="contact_wa">WhatsApp</a>
+          <a href="mailto:moraleslucas003@gmail.com" data-i18n="contact_email">E-mail</a>
+          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-overlay" id="modalOverlay"></div>
+    <div class="modal-box">
+      <button class="modal-x" id="modalX" aria-label="Fechar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
