@@ -93,6 +93,11 @@
 
         <div class="hero-metrics-card">
           <div class="hm-item">
+            <span class="hm-value">R$15<span class="accent">M+</span></span>
+            <span class="hm-label" data-i18n="hm_budget">Verba Gerenciada</span>
+          </div>
+          <div class="hm-sep"></div>
+          <div class="hm-item">
             <span class="hm-value">9<span class="accent">+</span></span>
             <span class="hm-label" data-i18n="hm_platforms">Plataformas</span>
           </div>
@@ -100,11 +105,6 @@
           <div class="hm-item">
             <span class="hm-value">280<span class="accent">+</span></span>
             <span class="hm-label" data-i18n="hm_stores">Lojas</span>
-          </div>
-          <div class="hm-sep"></div>
-          <div class="hm-item">
-            <span class="hm-value">90<span class="accent">%</span></span>
-            <span class="hm-label" data-i18n="hm_savings">↓ Tempo Manual</span>
           </div>
         </div>
 
@@ -346,7 +346,7 @@
         <span class="section-label" data-i18n="edu_tag">formação</span>
         <h2 data-i18n="edu_title">Educação & Certificações</h2>
       </div>
-      <div class="edu-grid">
+      <div class="edu-grid edu-grid--3">
         <div class="edu-card" data-reveal>
           <div class="edu-icon">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
@@ -354,7 +354,8 @@
           <div>
             <h4 data-i18n="edu1_title">Tecnólogo em ADS</h4>
             <span class="edu-inst">Fatec Ourinhos</span>
-            <p class="edu-desc" data-i18n="edu1_desc">Análise e Desenvolvimento de Sistemas — banco de dados, eng. de software, desenvolvimento web.</p>
+            <span class="edu-status edu-status--done" data-i18n="edu1_status">Concluído · Diploma</span>
+            <p class="edu-desc" data-i18n="edu1_desc">Análise e Desenvolvimento de Sistemas — banco de dados, engenharia de software, desenvolvimento web, lógica de programação.</p>
           </div>
         </div>
         <div class="edu-card" data-reveal>
@@ -362,9 +363,23 @@
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
           </div>
           <div>
-            <h4 data-i18n="edu2_title">Certificações</h4>
-            <span class="edu-inst">DataCamp · Google · Meta · Sobral</span>
-            <p class="edu-desc" data-i18n="edu2_desc">Data Analyst Associate, Google Ads, Meta Ads, SQL, Python, Growth, BI, CRO.</p>
+            <h4 data-i18n="edu2_title">Certificações Principais</h4>
+            <span class="edu-inst">DataCamp · Google · Meta</span>
+            <ul class="edu-cert-list">
+              <li data-i18n="cert1">Data Analyst Associate — DataCamp</li>
+              <li data-i18n="cert2">Google Ads — Search, Display &amp; Performance Max</li>
+              <li data-i18n="cert3">Meta Blueprint — Meta Ads</li>
+            </ul>
+          </div>
+        </div>
+        <div class="edu-card" data-reveal>
+          <div class="edu-icon edu-icon--orange">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div>
+            <h4 data-i18n="edu3_title">Formação Complementar</h4>
+            <span class="edu-inst">Sobral · Cursos técnicos</span>
+            <p class="edu-desc" data-i18n="edu3_desc">Comunidade Sobral de Tráfego Pago · SQL · Python · BI · CRO · Growth · Automações · Engenharia de dados.</p>
           </div>
         </div>
       </div>
@@ -523,13 +538,13 @@
           <span class="section-label" data-i18n="about_tag">sobre</span>
           <h2 class="about-heading" data-i18n="about_title">Analytics que<br>entende de mídia.</h2>
           <p data-i18n="about_p1">
-            Meu diferencial é atuar nos dois extremos: execução técnica (APIs, Python, SQL, tracking, automações) e interpretação estratégica (análise de performance, recomendações de verba, otimização de funil).
+            Comecei gerenciando tráfego pago para negócios locais — Meta Ads, Google Ads, funis, landing pages, copywriting. O trabalho funcionava, mas em determinado momento percebi que o teto do que eu conseguia otimizar estava na qualidade dos dados, não nas campanhas em si.
           </p>
           <p data-i18n="about_p2">
-            Minha trajetória começou no marketing digital — tráfego pago, funis e CRO — e evoluiu para o lado técnico quando percebi que a maioria dos problemas de performance não estava nas campanhas, mas na falta de mensuração confiável e processos para transformar dados em decisão.
+            Anúncios bem configurados não salvam uma operação onde você não sabe de onde vêm os leads, qual loja converte mais, ou quanto custou cada agendamento por canal. Foi aí que comecei a construir os sistemas eu mesmo — dashboards, automações, pipelines conectando APIs de 9 plataformas, MySQL e Google Sheets.
           </p>
           <p data-i18n="about_p3">
-            Baseado em Ourinhos, SP. Buscando posições em Marketing Analytics, BI, Growth Analytics ou Martech onde possa conectar dados, tecnologia e negócio.
+            Hoje na Media.k gerencio a conta AudioNova: 280+ lojas, ~R$2M em verba mensal, 9+ plataformas simultâneas. A diferença não está só nas campanhas, mas na infraestrutura analítica que construí em torno delas.
           </p>
           <div class="contact-grid">
             <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="contact-card contact-card--wa">
@@ -575,9 +590,8 @@
   <span class="c-key">goal</span><span class="c-p">:</span> <span class="c-s">"data → decision → growth"</span><span class="c-p">,</span>
 
   <span class="c-key">email</span><span class="c-p">:</span>    <span class="c-s">"moraleslucas003@gmail.com"</span><span class="c-p">,</span>
-  <span class="c-key">whatsapp</span><span class="c-p">:</span> <span class="c-s">"+55 (14) 9 9883-43594"</span><span class="c-p">,</span>
   <span class="c-key">contact</span><span class="c-p">:</span> <span class="c-br">(</span><span class="c-br">)</span> <span class="c-op">=&gt;</span>
-    <span class="c-fn">open</span><span class="c-br">(</span><span class="c-s">"wa.me/55149988343594"</span><span class="c-br">)</span>
+    <span class="c-fn">open</span><span class="c-br">(</span><span class="c-s">"via WhatsApp ou e-mail"</span><span class="c-br">)</span>
 <span class="c-br">}</span><span class="c-p">;</span>
 </code></pre>
           </div>

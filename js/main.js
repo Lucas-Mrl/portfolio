@@ -10,9 +10,9 @@ const i18n = {
 
     hero_badge:     "Marketing Analytics · BI · Martech",
     hero_tagline:   "Conectando mídia, dados e tecnologia para transformar informação em decisão.",
+    hm_budget:      "Verba Gerenciada",
     hm_platforms:   "Plataformas",
     hm_stores:      "Lojas",
-    hm_savings:     "↓ Tempo Manual",
     hero_cta_proj:  "Ver Projetos",
 
     skills_tag:   "competências",
@@ -66,10 +66,15 @@ const i18n = {
 
     edu_tag:   "formação",
     edu_title: "Educação & Certificações",
-    edu1_title: "Tecnólogo em ADS",
-    edu1_desc:  "Análise e Desenvolvimento de Sistemas — banco de dados, eng. de software, desenvolvimento web.",
-    edu2_title: "Certificações",
-    edu2_desc:  "Data Analyst Associate, Google Ads, Meta Ads, SQL, Python, Growth, BI, CRO.",
+    edu1_title:  "Tecnólogo em ADS",
+    edu1_status: "Concluído · Diploma",
+    edu1_desc:   "Análise e Desenvolvimento de Sistemas — banco de dados, engenharia de software, desenvolvimento web, lógica de programação.",
+    edu2_title:  "Certificações Principais",
+    cert1: "Data Analyst Associate — DataCamp",
+    cert2: "Google Ads — Search, Display & Performance Max",
+    cert3: "Meta Blueprint — Meta Ads",
+    edu3_title: "Formação Complementar",
+    edu3_desc:  "Comunidade Sobral de Tráfego Pago · SQL · Python · BI · CRO · Growth · Automações · Engenharia de dados.",
 
     proj_tag:   "portfólio",
     proj_title: "Projetos",
@@ -103,9 +108,9 @@ const i18n = {
 
     about_tag:  "sobre",
     about_title: "Analytics que\nentende de mídia.",
-    about_p1:   "Meu diferencial é atuar nos dois extremos: execução técnica (APIs, Python, SQL, tracking, automações) e interpretação estratégica (análise de performance, recomendações de verba, otimização de funil).",
-    about_p2:   "Minha trajetória começou no marketing digital — tráfego pago, funis e CRO — e evoluiu para o lado técnico quando percebi que a maioria dos problemas de performance não estava nas campanhas, mas na falta de mensuração confiável e processos para transformar dados em decisão.",
-    about_p3:   "Baseado em Ourinhos, SP. Buscando posições em Marketing Analytics, BI, Growth Analytics ou Martech onde possa conectar dados, tecnologia e negócio.",
+    about_p1:   "Comecei gerenciando tráfego pago para negócios locais — Meta Ads, Google Ads, funis, landing pages, copywriting. O trabalho funcionava, mas em determinado momento percebi que o teto do que eu conseguia otimizar estava na qualidade dos dados, não nas campanhas em si.",
+    about_p2:   "Anúncios bem configurados não salvam uma operação onde você não sabe de onde vêm os leads, qual loja converte mais, ou quanto custou cada agendamento por canal. Foi aí que comecei a construir os sistemas eu mesmo — dashboards, automações, pipelines conectando APIs de 9 plataformas, MySQL e Google Sheets.",
+    about_p3:   "Hoje na Media.k gerencio a conta AudioNova: 280+ lojas, ~R$2M em verba mensal, 9+ plataformas simultâneas. A diferença não está só nas campanhas, mas na infraestrutura analítica que construí em torno delas.",
 
     contact_wa:    "WhatsApp",
     contact_email: "E-mail",
@@ -121,9 +126,9 @@ const i18n = {
 
     hero_badge:     "Marketing Analytics · BI · Martech",
     hero_tagline:   "Connecting media, data, and technology to turn information into decisions.",
+    hm_budget:      "Managed Budget",
     hm_platforms:   "Platforms",
     hm_stores:      "Stores",
-    hm_savings:     "↓ Manual Work",
     hero_cta_proj:  "See Projects",
 
     skills_tag:   "stack",
@@ -177,10 +182,15 @@ const i18n = {
 
     edu_tag:   "education",
     edu_title: "Education & Certifications",
-    edu1_title: "Systems Analysis and Development",
-    edu1_desc:  "Tecnólogo (Associate's degree) — databases, software engineering, web development.",
-    edu2_title: "Certifications",
-    edu2_desc:  "Data Analyst Associate, Google Ads, Meta Ads, SQL, Python, Growth, BI, CRO.",
+    edu1_title:  "Systems Analysis and Development",
+    edu1_status: "Completed · Degree",
+    edu1_desc:   "Tecnólogo (Associate's degree) — databases, software engineering, web development, programming logic.",
+    edu2_title:  "Main Certifications",
+    cert1: "Data Analyst Associate — DataCamp",
+    cert2: "Google Ads — Search, Display & Performance Max",
+    cert3: "Meta Blueprint — Meta Ads",
+    edu3_title: "Complementary Training",
+    edu3_desc:  "Sobral Paid Traffic Community · SQL · Python · BI · CRO · Growth · Automation · Data Engineering.",
 
     proj_tag:   "portfolio",
     proj_title: "Projects",
@@ -214,9 +224,9 @@ const i18n = {
 
     about_tag:  "about",
     about_title: "Analytics that\nunderstands media.",
-    about_p1:   "My edge is operating on both ends: technical execution (APIs, Python, SQL, tracking, automation) and strategic interpretation (performance analysis, budget recommendations, funnel optimization).",
-    about_p2:   "My journey started in digital marketing — paid traffic, funnels, and CRO — and evolved toward the technical side when I realized most performance problems weren't in the campaigns themselves, but in the lack of reliable measurement and processes to turn data into decisions.",
-    about_p3:   "Based in Ourinhos, SP (Brazil). Looking for positions in Marketing Analytics, BI, Growth Analytics or Martech where I can connect data, technology and business.",
+    about_p1:   "I started managing paid traffic for local businesses — Meta Ads, Google Ads, funnels, landing pages, copywriting. The work delivered results, but at some point I realized the ceiling on what I could optimize was the data quality, not the campaigns themselves.",
+    about_p2:   "Well-configured ads can't save an operation where you don't know where leads come from, which store converts best, or what each appointment cost per channel. That's when I started building the systems myself — dashboards, automations, pipelines connecting 9 platform APIs, MySQL, and Google Sheets.",
+    about_p3:   "Today at Media.k I manage the AudioNova account: 280+ stores, ~R$2M in monthly ad spend, 9+ simultaneous platforms. The difference isn't just in the campaigns, but in the analytics infrastructure I built around them.",
 
     contact_wa:    "WhatsApp",
     contact_email: "Email",

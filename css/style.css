@@ -859,6 +859,52 @@ section { padding: 108px 0; }
   line-height: 1.55;
 }
 
+.edu-status {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .62rem;
+  letter-spacing: .07em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 7px;
+}
+.edu-status--done {
+  color: #34d399;
+  background: rgba(52,211,153,.08);
+  border: 1px solid rgba(52,211,153,.2);
+}
+.edu-status--progress {
+  color: var(--or);
+  background: rgba(var(--or-rgb),.08);
+  border: 1px solid rgba(var(--or-rgb),.2);
+}
+
+.edu-cert-list {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.edu-cert-list li {
+  font-size: .78rem;
+  color: var(--tx2);
+  padding-left: 12px;
+  position: relative;
+  line-height: 1.5;
+}
+.edu-cert-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--tl-l);
+  font-size: .68rem;
+  top: 1px;
+}
+
+.edu-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* ====================================================
    PROJECTS
 ==================================================== */
@@ -1389,6 +1435,8 @@ footer {
   .proj-grid { grid-template-columns: 1fr 1fr; }
   .proj-card--featured { grid-column: span 2; }
 
+  .edu-grid--3 { grid-template-columns: 1fr 1fr; }
+
   .exp-item { grid-template-columns: 160px 1fr; gap: 20px; }
 }
 
@@ -1402,6 +1450,7 @@ footer {
 
   .about-wrap { grid-template-columns: 1fr; gap: 48px; }
   .edu-grid { grid-template-columns: 1fr; }
+  .edu-grid--3 { grid-template-columns: 1fr; }
 
   .nav-links { display: none; }
   .menu-btn { display: flex; }
