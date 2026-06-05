@@ -648,6 +648,7 @@ const projects = {
   },
 
   "ai-analytics": {
+    demo: "assets/demos/ai-metrics.html",
     pt: {
       tag: "Projeto Pessoal · Python · IA",
       title: "AI Ad Metrics Analyzer",
@@ -1062,6 +1063,7 @@ const projects = {
   },
 
   "ad-analytics": {
+    demo: "assets/demos/ad-analytics.html",
     pt: {
       tag: "Client Work · Web App",
       title: "Ad-Level Analytics Web App",
@@ -1179,6 +1181,7 @@ const projects = {
   },
 
   "store-analytics": {
+    demo: "assets/demos/store-analytics.html",
     pt: {
       tag: "Client Work · Web App",
       title: "Store-Level Analytics",
@@ -1296,6 +1299,7 @@ const projects = {
   },
 
   "looq-challenge": {
+    demo: "assets/demos/looq-challenge.html",
     pt: {
       tag: "Case Técnico · Data Analytics",
       title: "Desafio Técnico Looqbox",
@@ -1353,6 +1357,7 @@ const projects = {
   },
 
   "meta-tax-calc": {
+    demo: "assets/demos/meta-tax-calc.html",
     pt: {
       tag: "Open Source · React",
       title: "Calculadora de Imposto Meta Ads",
@@ -1412,6 +1417,7 @@ const projects = {
   },
 
   "whisper-transcriber": {
+    demo: "assets/demos/whisper-transcriber.html",
     pt: {
       tag: "Projeto Pessoal · AI · Python",
       title: "Transcritor de Call em Tempo Real",
@@ -1553,7 +1559,7 @@ const mContent = document.getElementById('modalContent');
 const mOverlay = document.getElementById('modalOverlay');
 const mX       = document.getElementById('modalX');
 
-function buildModal(data) {
+function buildModal(data, demo) {
   const bullets = data.solution.bullets.map(b => `<li>${b}</li>`).join('');
   const stack   = data.stack.map(s => `<span>${s}</span>`).join('');
   const impact  = data.impact.items.map(i => `
@@ -1563,6 +1569,8 @@ function buildModal(data) {
     </div>`).join('');
   const ghBtn = data.github
     ? `<a href="${data.github}" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>` : '';
+  const demoBtn = demo
+    ? `<a href="${demo}" target="_blank" rel="noopener" class="btn btn-primary">${lang === 'pt' ? '▶ Ver Demo' : '▶ View Demo'}</a>` : '';
   const closeLabel = lang === 'pt' ? 'Fechar' : 'Close';
 
   const contextSection = data.context ? `
@@ -1627,6 +1635,7 @@ function buildModal(data) {
     </div>
     ${learnSection}
     <div class="m-footer">
+      ${demoBtn}
       ${ghBtn}
       <button class="btn btn-outline" onclick="closeModal()">${closeLabel}</button>
     </div>`;
@@ -1635,7 +1644,7 @@ function buildModal(data) {
 function openModal(key) {
   const data = projects[key];
   if (!data) return;
-  mContent.innerHTML = buildModal(data[lang] || data['pt']);
+  mContent.innerHTML = buildModal(data[lang] || data['pt'], data.demo);
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
   mX.focus();
