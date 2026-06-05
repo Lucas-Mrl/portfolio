@@ -418,7 +418,7 @@ const projects = {
         bullets: [
           "9 conectores independentes: Meta, Google Ads, TikTok, Pinterest, Taboola, Bing, X, Kwai e YouTube",
           "Integração com MySQL interno para calcular CPL cruzando leads com spend por ferramenta",
-          "Agregação por 16 regionais via pattern-matching nos nomes de campanha (_RJ, _SPC1, _NE...)",
+          "Agregação por 16 regionais via pattern-matching nos nomes de campanha",
           "Rollover mensal automático: arquiva dados do mês anterior e reseta a planilha sem intervenção manual",
           "Error resilience: falhas individuais por plataforma não travam o pipeline inteiro",
           "Batch-write atômico: uma única chamada escreve a matriz completa, evitando rate limits",
@@ -451,7 +451,7 @@ const projects = {
         bullets: [
           "9 independent connectors: Meta, Google Ads, TikTok, Pinterest, Taboola, Bing, X, Kwai and YouTube",
           "Internal MySQL integration to calculate CPL by cross-referencing leads with spend per tool",
-          "16-regional aggregation via campaign name pattern-matching (_RJ, _SPC1, _NE...)",
+          "16-regional aggregation via campaign name pattern-matching",
           "Automatic monthly rollover: archives previous month and resets the sheet without manual intervention",
           "Error resilience: individual platform failures don't stop the entire pipeline",
           "Atomic batch-write: a single API call writes the full matrix, avoiding rate limits",
