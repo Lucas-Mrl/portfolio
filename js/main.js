@@ -1493,7 +1493,8 @@ let lang = 'pt';
 function setLang(l) {
   lang = l;
   document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en';
-  document.getElementById('langLabel').textContent = l === 'pt' ? 'EN' : 'PT';
+  document.getElementById('langPT').classList.toggle('lang-opt--active', l === 'pt');
+  document.getElementById('langEN').classList.toggle('lang-opt--active', l === 'en');
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const k = el.getAttribute('data-i18n');

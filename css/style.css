@@ -184,7 +184,10 @@ section { padding: 108px 0; }
   cursor: pointer;
   transition: var(--t);
 }
-.lang-toggle:hover { border-color: var(--p-l); color: var(--p-l); }
+.lang-toggle:hover { border-color: var(--p-l); }
+.lang-opt { color: var(--tx3); transition: var(--t); }
+.lang-opt--active { color: var(--tx1); font-weight: 600; }
+.lang-sep { color: var(--tx3); margin: 0 4px; }
 
 .menu-btn {
   display: none;
