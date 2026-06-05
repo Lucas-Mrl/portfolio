@@ -151,9 +151,6 @@ const i18n = {
     p7_desc:  "Dashboard interno para análise granular por campanha, conjunto e anúncio, cruzando dados de plataforma com leads e agendamentos do CRM — com cache inteligente e exportação Excel.",
     p8_title: "Store-Level Analytics",
     p8_desc:  "Aplicação interna para análise de performance por loja e regional, com filtros, comparações e exportação de dados de 280+ unidades — autenticação por domínio e drill-down operacional.",
-    p9_title: "Executive Summary HTML/PDF",
-    p9_desc:  "Relatório executivo gerado automaticamente a partir de PowerPoint — HTML interativo para reunião e PDF para arquivo, com KPIs, comparativos e recomendações.",
-
     // DIFERENCIAIS
     diff_tag:   "diferenciais",
     diff_title: "Por que não é o mesmo que o próximo analista",
@@ -345,9 +342,6 @@ const i18n = {
     p7_desc:  "Internal dashboard for granular analysis by campaign, ad set, and ad — cross-referencing platform data with CRM leads and appointments, with smart caching and Excel export.",
     p8_title: "Store-Level Analytics",
     p8_desc:  "Internal app for performance analysis by store and region across 280+ units — domain-based authentication, operational drill-down, and data export.",
-    p9_title: "Executive Summary HTML/PDF",
-    p9_desc:  "Executive report automatically generated from PowerPoint — interactive HTML for meetings and PDF for records, with KPIs, comparatives, and recommendations.",
-
     // DIFFERENTIALS
     diff_tag:   "differentials",
     diff_title: "Why I'm not just another analyst",
@@ -907,68 +901,6 @@ const projects = {
     }
   },
 
-  "exec-summary": {
-    pt: {
-      tag: "Client Work · Relatório Executivo",
-      title: "Executive Summary HTML/PDF",
-      stack: ["Python", "ReportLab", "python-pptx", "HTML/CSS", "pandas"],
-      problem: {
-        label: "O Contexto",
-        text: "Reuniões executivas de performance de mídia exigiam um relatório visualmente consistente, baseado nos dados das apresentações PowerPoint, entregue em formato navegável (HTML) para a reunião e arquivável (PDF). Montar isso manualmente era repetitivo e inconsistente entre períodos."
-      },
-      solution: {
-        label: "A Solução",
-        text: "Pipeline em Python que extrai dados de apresentações PowerPoint, processa e gera automaticamente um relatório executivo em HTML interativo e PDF formatado via ReportLab.",
-        bullets: [
-          "Extração de dados de slides PowerPoint com python-pptx",
-          "Processamento e normalização dos dados de performance",
-          "Geração de HTML interativo com navegação entre seções",
-          "PDF com ReportLab: layouts formatados para impressão e arquivo",
-          "Seções: KPIs do período, performance por plataforma, comparativo vs. meta, recomendações",
-          "Template padronizado para consistência visual entre reuniões"
-        ]
-      },
-      impact: {
-        label: "Resultado",
-        items: [
-          { value: "2x", label: "formatos (HTML + PDF)" },
-          { value: "↓", label: "tempo de preparação" },
-          { value: "100%", label: "consistência visual" },
-          { value: "↑", label: "profissionalismo na apresentação" }
-        ]
-      }
-    },
-    en: {
-      tag: "Client Work · Executive Report",
-      title: "Executive Summary HTML/PDF",
-      stack: ["Python", "ReportLab", "python-pptx", "HTML/CSS", "pandas"],
-      problem: {
-        label: "The Context",
-        text: "Executive media performance meetings required a visually consistent report based on PowerPoint data, delivered in navigable HTML format for the meeting and archivable PDF. Building this manually was repetitive and inconsistent between periods."
-      },
-      solution: {
-        label: "The Solution",
-        text: "A Python pipeline that extracts data from PowerPoint presentations, processes it, and automatically generates an executive report as interactive HTML and formatted PDF via ReportLab.",
-        bullets: [
-          "Data extraction from PowerPoint slides with python-pptx",
-          "Performance data processing and normalization",
-          "Interactive HTML generation with section navigation",
-          "PDF with ReportLab: print and archive-formatted layouts",
-          "Sections: period KPIs, platform performance, vs. target comparison, recommendations",
-          "Standardized template for visual consistency between meetings"
-        ]
-      },
-      impact: {
-        label: "Results",
-        items: [
-          { value: "2x", label: "formats (HTML + PDF)" },
-          { value: "↓", label: "preparation time" },
-          { value: "100%", label: "visual consistency" },
-          { value: "↑", label: "presentation professionalism" }
-        ]
-      }
-    }
-  }
 };
 
 /* ============================================================
