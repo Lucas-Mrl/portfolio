@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Imposto Meta Ads · Demo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0f14; --s1: #141720; --s2: #1c2030;
+      --bd: rgba(255,255,255,.08); --tx: #e8eaf0; --tx2: #9aa0b8; --tx3: #616880;
+      --p: #7c6ef5; --p-l: #a89af8; --p-rgb: 124,110,245;
+      --tl: #3ecfcf; --tl-l: #6ddfdf; --tl-rgb: 62,207,207;
+      --or: #f5a623; --or-rgb: 245,166,35;
+      --ok: #22c55e; --er: #ef4444;
+      --mono: 'JetBrains Mono','Fira Code','Consolas',monospace;
+      --t: .2s ease;
+    }
+    body { background: var(--bg); color: var(--tx); font-family: 'Inter',system-ui,sans-serif; min-height: 100vh; padding-bottom: 80px; }
+
+    /* Banner */
+    .demo-banner {
+      background: rgba(var(--or-rgb),.08); border-bottom: 1px solid rgba(var(--or-rgb),.2);
+      padding: 10px 24px; display: flex; align-items: center; gap: 12px;
+      font-size: .72rem; color: var(--or); font-family: var(--mono); flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: rgba(var(--or-rgb),.15); border: 1px solid rgba(var(--or-rgb),.3);
+      border-radius: 4px; padding: 2px 8px; font-size: .62rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .demo-banner .sep { opacity: .3; }
+
+    /* Layout */
+    .page { max-width: 760px; margin: 0 auto; padding: 52px 24px; }
+
+    .page-header { margin-bottom: 36px; }
+    .eyebrow {
+      font-family: var(--mono); font-size: .62rem; color: var(--or);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px;
+    }
+    h1 { font-size: 1.7rem; font-weight: 700; color: var(--tx); margin-bottom: 6px; }
+    .sub { font-size: .82rem; color: var(--tx2); font-family: var(--mono); }
+
+    /* Info */
+    .info-card {
+      background: rgba(var(--or-rgb),.05); border: 1px solid rgba(var(--or-rgb),.18);
+      border-radius: 10px; padding: 14px 18px; margin-bottom: 28px;
+      font-size: .82rem; color: var(--tx2); line-height: 1.7;
+    }
+    .info-card strong { color: var(--or); }
+
+    /* Card */
+    .calc-card {
+      background: var(--s1); border: 1px solid var(--bd); border-radius: 16px; padding: 32px;
+    }
+    .calc-card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 4px; }
+    .card-desc { font-size: .78rem; color: var(--tx3); margin-bottom: 22px; }
+
+    /* Input */
+    .input-row { display: flex; gap: 10px; align-items: stretch; margin-bottom: 24px; }
+    .currency-label {
+      flex: 1; display: flex; align-items: center;
+      background: var(--s2); border: 1px solid var(--bd);
+      border-radius: 8px; overflow: hidden; transition: border-color var(--t);
+    }
+    .currency-label:focus-within { border-color: rgba(var(--or-rgb),.5); }
+    .prefix {
+      padding: 11px 14px; font-family: var(--mono); font-size: .82rem;
+      color: var(--tx3); background: rgba(255,255,255,.03); border-right: 1px solid var(--bd);
+      flex-shrink: 0;
+    }
+    .currency-label input {
+      flex: 1; background: none; border: none; outline: none;
+      padding: 11px 14px; font-family: var(--mono); font-size: 1.05rem; color: var(--tx);
+      min-width: 0;
+    }
+    .currency-label input::placeholder { color: var(--tx3); }
+    .btn-ghost {
+      background: var(--s2); border: 1px solid var(--bd); border-radius: 8px;
+      padding: 11px 18px; font-size: .78rem; color: var(--tx2); cursor: pointer;
+      transition: all var(--t); white-space: nowrap; font-family: inherit;
+    }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.15); color: var(--tx); }
+
+    /* Results grid */
+    .results-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      border: 1px solid var(--bd); border-radius: 10px; overflow: hidden;
+    }
+    @media (max-width: 600px) {
+      .results-grid { grid-template-columns: 1fr 1fr; }
+      .results-grid .ritem:nth-child(5) { grid-column: 1 / -1; }
+    }
+    .ritem {
+      padding: 16px 14px; background: var(--s2);
+      border-right: 1px solid var(--bd);
+    }
+    .ritem:last-child { border-right: none; }
+    .ritem .rlabel {
+      font-size: .6rem; color: var(--tx3); text-transform: uppercase;
+      letter-spacing: .05em; margin-bottom: 8px; font-family: var(--mono); line-height: 1.5;
+    }
+    .ritem .rval {
+      font-family: var(--mono); font-size: .92rem; font-weight: 600; color: var(--tx);
+    }
+    .rval.teal { color: var(--tl-l); }
+    .rval.orange { color: var(--or); }
+    .rval.purple { color: var(--p-l); }
+
+    .note { margin-top: 14px; font-size: .72rem; color: var(--tx3); font-family: var(--mono); }
+
+    /* Divider */
+    .divider { border: none; border-top: 1px solid var(--bd); margin: 28px 0; }
+
+    /* Inverse section */
+    .calc-card h3 { font-size: .92rem; font-weight: 600; margin-bottom: 4px; }
+    .inverse-result {
+      background: rgba(var(--tl-rgb),.05); border: 1px solid rgba(var(--tl-rgb),.18);
+      border-radius: 10px; padding: 18px 20px; display: flex; align-items: center;
+      gap: 20px; flex-wrap: wrap; margin-top: 0;
+    }
+    .inv-item { flex: 1; min-width: 130px; }
+    .inv-item .il { font-size: .62rem; color: var(--tx3); font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+    .inv-item .iv { font-family: var(--mono); font-size: 1rem; font-weight: 700; color: var(--tl-l); }
+    .inv-item .iv.dim { color: var(--tx2); font-weight: 400; font-size: .9rem; }
+    .inv-item .iv.tax { color: var(--or); }
+    .arrow-sep { color: var(--tx3); font-size: 1.1rem; flex-shrink: 0; }
+
+    /* Back link */
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: .72rem; color: var(--tx3);
+      text-decoration: none; margin-bottom: 32px;
+      transition: color var(--t);
+    }
+    .back-link:hover { color: var(--tx2); }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <span class="demo-badge">Demo</span>
+  <span>Cálculo real (12,15%)</span>
+  <span class="sep">·</span>
+  <span>Ferramenta de uso interno</span>
+  <span class="sep">·</span>
+  <span>Sem dados sensíveis</span>
+</div>
+
+<div class="page">
+  <a href="../../index.html#projects" class="back-link">← voltar ao portfólio</a>
+
+  <div class="page-header">
+    <div class="eyebrow">Ferramenta Interna · React · Vite</div>
+    <h1>Calculadora de Imposto Meta Ads</h1>
+    <p class="sub">React · Vite · JavaScript</p>
+  </div>
+
+  <div class="info-card">
+    O Meta Ads desconta <strong>12,15%</strong> de imposto sobre todo valor inserido como
+    orçamento. Se você colocar <strong>R$ 1.000,00</strong>, seu investimento líquido real
+    é de <strong>R$ 878,50</strong> — os outros <strong>R$ 121,50</strong> são imposto.
+    Use a calculadora abaixo para converter entre orçamento bruto e investimento líquido.
+  </div>
+
+  <div class="calc-card">
+    <!-- Calculadora direta -->
+    <h2>Orçamento inserido na plataforma</h2>
+    <p class="card-desc">Digite o valor que você vai colocar no Meta Ads e veja o detalhamento</p>
+
+    <div class="input-row">
+      <label class="currency-label">
+        <span class="prefix">R$</span>
+        <input type="text" id="budgetInput" placeholder="0,00" inputmode="numeric" autocomplete="off" />
+      </label>
+      <button class="btn-ghost" id="clearBtn">Limpar</button>
+    </div>
+
+    <div class="results-grid">
+      <div class="ritem">
+        <div class="rlabel">1) Orçamento</div>
+        <div class="rval" id="r-budget">R$ 0,00</div>
+      </div>
+      <div class="ritem">
+        <div class="rlabel">2) Taxa Meta Ads</div>
+        <div class="rval purple">12,15%</div>
+      </div>
+      <div class="ritem">
+        <div class="rlabel">3) Valor para manter este orçamento líquido</div>
+        <div class="rval teal" id="r-corrected">R$ 0,00</div>
+      </div>
+      <div class="ritem">
+        <div class="rlabel">4) Imposto em R$</div>
+        <div class="rval orange" id="r-tax">R$ 0,00</div>
+      </div>
+      <div class="ritem">
+        <div class="rlabel">5) Investimento líquido</div>
+        <div class="rval" id="r-net">R$ 0,00</div>
+      </div>
+    </div>
+
+    <p class="note">* Alíquota de 12,15% conforme cobrança padrão do Meta Ads.</p>
+
+    <hr class="divider" />
+
+    <!-- Calculadora inversa -->
+    <h3>Calcular inversamente</h3>
+    <p class="card-desc">Quanto preciso inserir na plataforma para garantir um investimento líquido desejado?</p>
+
+    <div class="input-row" style="margin-bottom: 16px;">
+      <label class="currency-label">
+        <span class="prefix">R$</span>
+        <input type="text" id="netInput" placeholder="Investimento líquido desejado" inputmode="numeric" autocomplete="off" />
+      </label>
+    </div>
+
+    <div class="inverse-result">
+      <div class="inv-item">
+        <div class="il">Líquido desejado</div>
+        <div class="iv dim" id="inv-net">R$ 0,00</div>
+      </div>
+      <span class="arrow-sep">→</span>
+      <div class="inv-item">
+        <div class="il">Inserir na plataforma</div>
+        <div class="iv" id="inv-gross">R$ 0,00</div>
+      </div>
+      <span class="arrow-sep">→</span>
+      <div class="inv-item">
+        <div class="il">Imposto descontado</div>
+        <div class="iv tax" id="inv-tax">R$ 0,00</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const TAX = 0.1215;
+  const fmt = v => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(v || 0);
+
+  function parseCurrency(raw) {
+    const digits = raw.replace(/[^\d]/g, '');
+    return digits ? Number(digits) / 100 : 0;
+  }
+  function maskCurrency(raw) {
+    const digits = raw.replace(/[^\d]/g, '');
+    if (!digits) return '';
+    return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(Number(digits) / 100);
+  }
+
+  // Calculadora direta
+  document.getElementById('budgetInput').addEventListener('input', function() {
+    this.value = maskCurrency(this.value);
+    const v = parseCurrency(this.value);
+    document.getElementById('r-budget').textContent    = fmt(v);
+    document.getElementById('r-tax').textContent       = fmt(v * TAX);
+    document.getElementById('r-corrected').textContent = fmt(v / (1 - TAX));
+    document.getElementById('r-net').textContent       = fmt(v * (1 - TAX));
+  });
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    document.getElementById('budgetInput').value = '';
+    ['r-budget','r-tax','r-corrected','r-net'].forEach(id => document.getElementById(id).textContent = 'R$ 0,00');
+  });
+
+  // Calculadora inversa
+  document.getElementById('netInput').addEventListener('input', function() {
+    this.value = maskCurrency(this.value);
+    const net = parseCurrency(this.value);
+    const gross = net / (1 - TAX);
+    const tax   = gross - net;
+    document.getElementById('inv-net').textContent   = fmt(net);
+    document.getElementById('inv-gross').textContent = fmt(gross);
+    document.getElementById('inv-tax').textContent   = fmt(tax);
+  });
+</script>
+</body>
+</html>

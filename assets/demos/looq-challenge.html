@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio Técnico Looqbox · Demo</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0d0f14; --s1: #141720; --s2: #1c2030; --s3: #232840;
+      --bd: rgba(255,255,255,.08); --tx: #e8eaf0; --tx2: #9aa0b8; --tx3: #616880;
+      --p: #7c6ef5; --p-l: #a89af8; --p-rgb: 124,110,245;
+      --tl: #3ecfcf; --tl-l: #6ddfdf; --tl-rgb: 62,207,207;
+      --or: #f5a623; --or-rgb: 245,166,35;
+      --ok: #22c55e; --ok-rgb: 34,197,94;
+      --er: #ef4444;
+      --mono: 'JetBrains Mono','Fira Code','Consolas',monospace;
+      --t: .2s ease;
+    }
+    body { background: var(--bg); color: var(--tx); font-family: 'Inter',system-ui,sans-serif; min-height: 100vh; padding-bottom: 80px; }
+
+    /* Banner */
+    .demo-banner {
+      background: rgba(var(--p-rgb),.07); border-bottom: 1px solid rgba(var(--p-rgb),.2);
+      padding: 10px 24px; display: flex; align-items: center; gap: 12px;
+      font-size: .72rem; color: var(--p-l); font-family: var(--mono); flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: rgba(var(--p-rgb),.15); border: 1px solid rgba(var(--p-rgb),.3);
+      border-radius: 4px; padding: 2px 8px; font-size: .62rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .demo-banner .sep { opacity: .3; }
+
+    /* Layout */
+    .page { max-width: 960px; margin: 0 auto; padding: 48px 24px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: .72rem; color: var(--tx3);
+      text-decoration: none; margin-bottom: 32px; transition: color var(--t);
+    }
+    .back-link:hover { color: var(--tx2); }
+
+    .page-header { margin-bottom: 36px; }
+    .eyebrow { font-family: var(--mono); font-size: .62rem; color: var(--p-l); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+    h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+    .sub { font-size: .82rem; color: var(--tx2); font-family: var(--mono); }
+
+    /* Tabs */
+    .tabs { display: flex; gap: 4px; margin-bottom: 28px; border-bottom: 1px solid var(--bd); padding-bottom: 0; }
+    .tab-btn {
+      background: none; border: none; padding: 10px 20px; font-size: .82rem;
+      color: var(--tx3); cursor: pointer; border-bottom: 2px solid transparent;
+      margin-bottom: -1px; transition: all var(--t); font-family: inherit; font-weight: 500;
+    }
+    .tab-btn:hover { color: var(--tx2); }
+    .tab-btn.active { color: var(--p-l); border-bottom-color: var(--p-l); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* Cards */
+    .card {
+      background: var(--s1); border: 1px solid var(--bd);
+      border-radius: 14px; padding: 28px; margin-bottom: 20px;
+    }
+    .card h2 { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+    .card-desc { font-size: .8rem; color: var(--tx3); margin-bottom: 20px; line-height: 1.6; }
+
+    /* Case 1: controls */
+    .controls-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: flex-end; margin-bottom: 20px; }
+    .ctrl-group { display: flex; flex-direction: column; gap: 5px; }
+    .ctrl-group label { font-size: .68rem; color: var(--tx3); font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+    .ctrl-group select, .ctrl-group input[type="date"] {
+      background: var(--s2); border: 1px solid var(--bd); border-radius: 7px;
+      padding: 8px 12px; font-size: .8rem; color: var(--tx); outline: none;
+      font-family: var(--mono); transition: border-color var(--t); cursor: pointer;
+      min-width: 140px;
+    }
+    .ctrl-group select:focus, .ctrl-group input[type="date"]:focus { border-color: rgba(var(--p-rgb),.5); }
+    .ctrl-group select option { background: var(--s2); }
+
+    .btn-run {
+      background: rgba(var(--p-rgb),.1); border: 1px solid rgba(var(--p-rgb),.3);
+      border-radius: 8px; padding: 9px 20px; color: var(--p-l); font-size: .8rem;
+      cursor: pointer; transition: all var(--t); font-family: var(--mono); font-weight: 600;
+      align-self: flex-end;
+    }
+    .btn-run:hover { background: rgba(var(--p-rgb),.18); border-color: rgba(var(--p-rgb),.5); }
+
+    /* SQL preview */
+    .sql-box {
+      background: #0a0c10; border: 1px solid rgba(var(--ok-rgb),.2);
+      border-radius: 8px; padding: 14px 16px; margin-bottom: 18px;
+      font-family: var(--mono); font-size: .75rem; color: var(--ok); line-height: 1.8;
+      white-space: pre; overflow-x: auto;
+    }
+    .sql-kw { color: #7dd3fc; }
+    .sql-val { color: var(--or); }
+    .sql-cmt { color: var(--tx3); }
+
+    /* Tables */
+    .tbl-wrap { overflow-x: auto; border-radius: 10px; border: 1px solid var(--bd); }
+    table { width: 100%; border-collapse: collapse; font-size: .8rem; }
+    thead tr { background: var(--s2); }
+    thead th {
+      padding: 10px 14px; text-align: left; font-family: var(--mono);
+      font-size: .65rem; color: var(--tx3); text-transform: uppercase;
+      letter-spacing: .05em; font-weight: 500; white-space: nowrap;
+    }
+    tbody tr { border-top: 1px solid var(--bd); transition: background var(--t); }
+    tbody tr:hover { background: rgba(255,255,255,.02); }
+    td { padding: 9px 14px; color: var(--tx2); font-family: var(--mono); font-size: .78rem; white-space: nowrap; }
+    td.num { color: var(--tx); text-align: right; }
+    td.hl { color: var(--tl-l); text-align: right; font-weight: 600; }
+    td.or { color: var(--or); }
+
+    .row-count { font-size: .72rem; color: var(--tx3); font-family: var(--mono); margin-top: 10px; }
+
+    /* Charts */
+    .chart-wrap { position: relative; height: 280px; margin-bottom: 20px; }
+    .chart-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 640px) { .chart-row { grid-template-columns: 1fr; } }
+
+    /* Stats row */
+    .stats-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+    .stat-chip {
+      background: var(--s2); border: 1px solid var(--bd); border-radius: 8px;
+      padding: 10px 16px; flex: 1; min-width: 120px;
+    }
+    .stat-chip .sl { font-size: .62rem; color: var(--tx3); font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+    .stat-chip .sv { font-size: 1.1rem; font-weight: 700; color: var(--tx); font-family: var(--mono); }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <span class="demo-badge">Demo</span>
+  <span>Dados 100% fictícios</span>
+  <span class="sep">·</span>
+  <span>Sem conexão com banco de dados</span>
+  <span class="sep">·</span>
+  <span>Python · SQL · pandas · matplotlib simulados</span>
+</div>
+
+<div class="page">
+  <a href="../../index.html#projects" class="back-link">← voltar ao portfólio</a>
+
+  <div class="page-header">
+    <div class="eyebrow">Case Técnico · Looqbox</div>
+    <h1>Desafio Técnico Looqbox</h1>
+    <p class="sub">Python · pandas · SQLAlchemy · MySQL · matplotlib</p>
+  </div>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showTab('c1',this)">Case 1 — retrieve_data()</button>
+    <button class="tab-btn" onclick="showTab('c2',this)">Case 2 — Ticket Médio por Loja</button>
+    <button class="tab-btn" onclick="showTab('c3',this)">Case 3 — Análise IMDb</button>
+  </div>
+
+  <!-- ===================== CASE 1 ===================== -->
+  <div id="tab-c1" class="tab-pane active">
+    <div class="card">
+      <h2>Função <code style="color:var(--tl-l);font-size:.9rem">retrieve_data()</code> — Query Parametrizada</h2>
+      <p class="card-desc">
+        Implementação de uma função Python que consulta a tabela <code style="color:var(--or)">data_product_sales</code>
+        no MySQL com filtros opcionais por produto, loja e intervalo de datas — usando pandas + SQLAlchemy.
+        Selecione os filtros abaixo e veja o SQL gerado e os dados retornados.
+      </p>
+
+      <div class="controls-row">
+        <div class="ctrl-group">
+          <label>product_code</label>
+          <select id="f-product">
+            <option value="">None (todos)</option>
+            <option value="1">1 — Smartphone X Pro</option>
+            <option value="2">2 — Notebook Ultra 15</option>
+            <option value="3">3 — Café Premium 500g</option>
+            <option value="4">4 — Tênis Corrida Pro</option>
+            <option value="5">5 — Camiseta Básica</option>
+            <option value="6">6 — Tablet 10"</option>
+            <option value="7">7 — Whey Protein 1kg</option>
+            <option value="8">8 — Mochila Executiva</option>
+          </select>
+        </div>
+        <div class="ctrl-group">
+          <label>store_code</label>
+          <select id="f-store">
+            <option value="">None (todas)</option>
+            <option value="1">1 — Loja Alpha</option>
+            <option value="2">2 — Loja Beta</option>
+            <option value="3">3 — Loja Gamma</option>
+            <option value="4">4 — Loja Delta</option>
+            <option value="5">5 — Loja Epsilon</option>
+            <option value="6">6 — Loja Zeta</option>
+            <option value="7">7 — Loja Eta</option>
+            <option value="8">8 — Loja Theta</option>
+          </select>
+        </div>
+        <div class="ctrl-group">
+          <label>date[0] — início</label>
+          <input type="date" id="f-start" value="2019-01-01" />
+        </div>
+        <div class="ctrl-group">
+          <label>date[1] — fim</label>
+          <input type="date" id="f-end" value="2019-03-31" />
+        </div>
+        <button class="btn-run" onclick="runCase1()">▶ Executar Query</button>
+      </div>
+
+      <div class="sql-box" id="sql-preview">— configure os filtros e clique em Executar Query —</div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>PRODUCT_CODE</th><th>STORE_CODE</th><th>DATE</th>
+              <th style="text-align:right">SALES_VALUE</th><th style="text-align:right">SALES_QTY</th>
+            </tr>
+          </thead>
+          <tbody id="c1-tbody">
+            <tr><td colspan="5" style="text-align:center;color:var(--tx3);padding:24px">Configure os filtros e execute a query</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row-count" id="c1-count"></div>
+    </div>
+  </div>
+
+  <!-- ===================== CASE 2 ===================== -->
+  <div id="tab-c2" class="tab-pane">
+    <div class="card">
+      <h2>Ticket Médio por Loja — Q4 2019</h2>
+      <p class="card-desc">
+        Análise de Ticket Médio (TM = SALES_VALUE / SALES_QTY) por loja e categoria para o período
+        <strong style="color:var(--tx)">01/10/2019 – 31/12/2019</strong>.
+        Dados obtidos via join entre <code style="color:var(--or)">data_store_sales</code>
+        e <code style="color:var(--or)">data_store_cad</code>, agrupados por loja e categoria.
+      </p>
+
+      <div class="stats-row" id="c2-stats"></div>
+
+      <div class="chart-wrap">
+        <canvas id="chart-tm"></canvas>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>LOJA</th><th>CATEGORIA</th>
+              <th style="text-align:right">SALES_VALUE</th>
+              <th style="text-align:right">SALES_QTY</th>
+              <th style="text-align:right">TM (R$)</th>
+            </tr>
+          </thead>
+          <tbody id="c2-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== CASE 3 ===================== -->
+  <div id="tab-c3" class="tab-pane">
+    <div class="card">
+      <h2>Análise de Dados — IMDb Movies</h2>
+      <p class="card-desc">
+        Análise exploratória da tabela <code style="color:var(--or)">IMDB_movies</code>:
+        evolução da média de rating por ano (1950–2024) e relação entre número de votos e rating —
+        visualizações geradas com <strong style="color:var(--tx)">matplotlib</strong>
+        (simuladas aqui com Chart.js).
+      </p>
+
+      <div class="stats-row" id="c3-stats"></div>
+
+      <div class="chart-row">
+        <div>
+          <p style="font-size:.72rem;color:var(--tx3);font-family:var(--mono);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em">Média de Rating por Ano</p>
+          <div class="chart-wrap">
+            <canvas id="chart-rating-year"></canvas>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:.72rem;color:var(--tx3);font-family:var(--mono);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em">Votos × Rating (amostra)</p>
+          <div class="chart-wrap">
+            <canvas id="chart-scatter"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr><th>ANO</th><th style="text-align:right">FILMES</th><th style="text-align:right">RATING MÉDIO</th><th style="text-align:right">VOTOS MÉDIOS</th></tr>
+          </thead>
+          <tbody id="c3-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Seeded RNG ──────────────────────────────────────────────
+function seeded(seed) {
+  let s = seed;
+  return () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+}
+
+// ── Tab navigation ──────────────────────────────────────────
+function showTab(id, btn) {
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  btn.classList.add('active');
+  if (id === 'c2' && !window.c2done) initCase2();
+  if (id === 'c3' && !window.c3done) initCase3();
+}
+
+// ── FAKE DATA BASE ──────────────────────────────────────────
+const PRODUCTS = [
+  {code:1,name:'Smartphone X Pro'},   {code:2,name:'Notebook Ultra 15'},
+  {code:3,name:'Café Premium 500g'},  {code:4,name:'Tênis Corrida Pro'},
+  {code:5,name:'Camiseta Básica'},    {code:6,name:'Tablet 10"'},
+  {code:7,name:'Whey Protein 1kg'},   {code:8,name:'Mochila Executiva'},
+];
+const STORES = [
+  {code:1,name:'Loja Alpha',   cat:'Eletrônicos'},
+  {code:2,name:'Loja Beta',    cat:'Eletrônicos'},
+  {code:3,name:'Loja Gamma',   cat:'Alimentação'},
+  {code:4,name:'Loja Delta',   cat:'Esportes'},
+  {code:5,name:'Loja Epsilon', cat:'Vestuário'},
+  {code:6,name:'Loja Zeta',    cat:'Eletrônicos'},
+  {code:7,name:'Loja Eta',     cat:'Nutrição'},
+  {code:8,name:'Loja Theta',   cat:'Vestuário'},
+];
+const PRICE_BASE = [1800,3200,24,180,45,900,85,160];
+
+function genSalesDB() {
+  const rows = [];
+  const rand = seeded(42);
+  const start = new Date('2019-01-01');
+  for (let day = 0; day < 365; day++) {
+    const d = new Date(start); d.setDate(d.getDate() + day);
+    const dateStr = d.toISOString().slice(0,10);
+    for (let si = 0; si < 8; si++) {
+      for (let pi = 0; pi < 8; pi++) {
+        if (rand() > 0.35) continue; // not every store sells every product every day
+        const qty   = Math.max(1, Math.round(rand() * 12));
+        const price = PRICE_BASE[pi] * (0.85 + rand() * 0.3);
+        rows.push({
+          PRODUCT_CODE: pi + 1,
+          STORE_CODE: si + 1,
+          DATE: dateStr,
+          SALES_VALUE: Math.round(price * qty * 100) / 100,
+          SALES_QTY: qty,
+        });
+      }
+    }
+  }
+  return rows;
+}
+const DB = genSalesDB();
+
+const fmt = v => 'R$ ' + v.toFixed(2).replace('.',',').replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+const fmtNum = v => v.toFixed(2).replace('.',',');
+
+// ── CASE 1 ──────────────────────────────────────────────────
+function buildSQL(pc, sc, ds, de) {
+  const kw = s => `<span class="sql-kw">${s}</span>`;
+  const val = s => `<span class="sql-val">${s}</span>`;
+  const cmt = s => `<span class="sql-cmt">${s}</span>`;
+  let q = kw('SELECT') + '\n    *\n' + kw('FROM') + ' data_product_sales\n' + kw('WHERE') + ' 1=1';
+  if (pc) q += '\n' + kw('AND') + ' PRODUCT_CODE = ' + val(pc);
+  if (sc) q += '\n' + kw('AND') + ' STORE_CODE = ' + val(sc);
+  if (ds && de) q += '\n' + kw('AND') + ' DATE ' + kw('BETWEEN') + ' ' + val("'"+ds+"'") + ' ' + kw('AND') + ' ' + val("'"+de+"'");
+  return q;
+}
+
+function runCase1() {
+  const pc = document.getElementById('f-product').value;
+  const sc = document.getElementById('f-store').value;
+  const ds = document.getElementById('f-start').value;
+  const de = document.getElementById('f-end').value;
+
+  document.getElementById('sql-preview').innerHTML = buildSQL(pc, sc, ds, de);
+
+  let rows = DB.filter(r => {
+    if (pc && r.PRODUCT_CODE !== +pc) return false;
+    if (sc && r.STORE_CODE !== +sc) return false;
+    if (ds && r.DATE < ds) return false;
+    if (de && r.DATE > de) return false;
+    return true;
+  });
+
+  const display = rows.slice(0, 50);
+  const tbody = document.getElementById('c1-tbody');
+  if (!display.length) {
+    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center;color:var(--tx3);padding:24px">Nenhum resultado encontrado para os filtros aplicados</td></tr>';
+    document.getElementById('c1-count').textContent = '';
+    return;
+  }
+  tbody.innerHTML = display.map(r => `
+    <tr>
+      <td class="or">${r.PRODUCT_CODE}</td>
+      <td>${r.STORE_CODE}</td>
+      <td>${r.DATE}</td>
+      <td class="num">${fmt(r.SALES_VALUE)}</td>
+      <td class="num">${r.SALES_QTY}</td>
+    </tr>`).join('');
+  document.getElementById('c1-count').textContent =
+    `${rows.length} linha(s) retornadas${rows.length > 50 ? ' — exibindo as 50 primeiras' : ''}`;
+}
+
+// ── CASE 2 ──────────────────────────────────────────────────
+function initCase2() {
+  window.c2done = true;
+  const q4 = DB.filter(r => r.DATE >= '2019-10-01' && r.DATE <= '2019-12-31');
+
+  const byStore = {};
+  q4.forEach(r => {
+    const store = STORES[r.STORE_CODE - 1];
+    const key = store.code;
+    if (!byStore[key]) byStore[key] = { name: store.name, cat: store.cat, val: 0, qty: 0 };
+    byStore[key].val += r.SALES_VALUE;
+    byStore[key].qty += r.SALES_QTY;
+  });
+
+  const rows = Object.values(byStore).map(s => ({ ...s, tm: s.val / s.qty }));
+  rows.sort((a,b) => b.tm - a.tm);
+
+  // Stats
+  const totalVal = rows.reduce((s,r) => s+r.val,0);
+  const avgTM    = rows.reduce((s,r) => s+r.tm,0) / rows.length;
+  document.getElementById('c2-stats').innerHTML = [
+    {l:'Lojas analisadas', v: rows.length},
+    {l:'Receita total (Q4)', v: fmt(totalVal)},
+    {l:'TM médio', v: 'R$ '+fmtNum(avgTM)},
+    {l:'Período', v:'Q4 2019'},
+  ].map(s=>`<div class="stat-chip"><div class="sl">${s.l}</div><div class="sv">${s.v}</div></div>`).join('');
+
+  // Chart
+  const chart = new Chart(document.getElementById('chart-tm'), {
+    type: 'bar',
+    data: {
+      labels: rows.map(r => r.name),
+      datasets: [{
+        label: 'Ticket Médio (R$)',
+        data: rows.map(r => +r.tm.toFixed(2)),
+        backgroundColor: rows.map((r,i) => i===0 ? 'rgba(62,207,207,.7)' : 'rgba(124,110,245,.5)'),
+        borderColor: rows.map((r,i) => i===0 ? '#3ecfcf' : 'rgba(124,110,245,.8)'),
+        borderWidth: 1, borderRadius: 4,
+      }],
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: {
+        callbacks: { label: ctx => ' R$ ' + ctx.raw.toFixed(2).replace('.',',') }
+      }},
+      scales: {
+        x: { ticks: { color: '#616880', font: { family: 'monospace', size: 11 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+        y: { ticks: { color: '#616880', font: { family: 'monospace', size: 11 },
+              callback: v => 'R$ '+v.toFixed(0) }, grid: { color: 'rgba(255,255,255,.04)' } },
+      },
+    },
+  });
+
+  // Table
+  document.getElementById('c2-tbody').innerHTML = rows.map(r => `
+    <tr>
+      <td class="or">${r.name}</td>
+      <td>${r.cat}</td>
+      <td class="num">${fmt(r.val)}</td>
+      <td class="num">${r.qty.toLocaleString('pt-BR')}</td>
+      <td class="hl">R$ ${fmtNum(r.tm)}</td>
+    </tr>`).join('');
+}
+
+// ── CASE 3 ──────────────────────────────────────────────────
+function initCase3() {
+  window.c3done = true;
+  const rand = seeded(99);
+
+  // Generate year data 1950-2024
+  const yearData = [];
+  for (let yr = 1950; yr <= 2024; yr++) {
+    const base = 7.2 - (yr - 1950) * 0.006 + Math.sin((yr-1950)*0.3)*0.15;
+    const noise = (rand() - 0.5) * 0.4;
+    const count = Math.round(30 + rand() * 200 + Math.max(0,(yr-1990)*8));
+    const avgVotes = Math.round(500 + rand()*20000 + Math.max(0,(yr-1990)*800));
+    yearData.push({ year: yr, rating: Math.min(9, Math.max(4.5, base+noise)), count, avgVotes });
+  }
+
+  // Scatter: 180 movies
+  const scatter = [];
+  const rand2 = seeded(777);
+  for (let i = 0; i < 180; i++) {
+    const votes = Math.round(Math.pow(rand2(), 2.2) * 1800000 + 100);
+    const baseR = 5.5 + rand2() * 3;
+    const boost = Math.log10(votes+1) / 10;
+    scatter.push({ x: votes, y: Math.min(9.5, Math.max(1, baseR + boost * rand2())) });
+  }
+
+  // Stats
+  const allRatings = yearData.map(d=>d.rating);
+  document.getElementById('c3-stats').innerHTML = [
+    {l:'Anos analisados',  v: yearData.length},
+    {l:'Rating médio geral', v: (allRatings.reduce((a,b)=>a+b,0)/allRatings.length).toFixed(2)},
+    {l:'Rating máximo',   v: Math.max(...allRatings).toFixed(2)},
+    {l:'Filmes na amostra', v: scatter.length},
+  ].map(s=>`<div class="stat-chip"><div class="sl">${s.l}</div><div class="sv">${s.v}</div></div>`).join('');
+
+  // Chart 1: rating by year
+  new Chart(document.getElementById('chart-rating-year'), {
+    type: 'line',
+    data: {
+      labels: yearData.map(d=>d.year),
+      datasets: [{
+        label:'Avg Rating', data: yearData.map(d=>+d.rating.toFixed(2)),
+        borderColor:'#7c6ef5', backgroundColor:'rgba(124,110,245,.08)',
+        borderWidth:2, pointRadius:0, pointHoverRadius:4, fill:true, tension:0.3,
+      }],
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label: ctx=>' Rating: '+ctx.raw } } },
+      scales:{
+        x:{ ticks:{color:'#616880',font:{family:'monospace',size:10},maxTicksLimit:10}, grid:{color:'rgba(255,255,255,.04)'} },
+        y:{ min:4, max:9, ticks:{color:'#616880',font:{family:'monospace',size:10}}, grid:{color:'rgba(255,255,255,.04)'} },
+      },
+    },
+  });
+
+  // Chart 2: scatter
+  new Chart(document.getElementById('chart-scatter'), {
+    type: 'scatter',
+    data: {
+      datasets: [{
+        label:'Filmes', data: scatter,
+        backgroundColor:'rgba(62,207,207,.35)', borderColor:'rgba(62,207,207,.6)',
+        pointRadius:4, pointHoverRadius:6,
+      }],
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins:{legend:{display:false}, tooltip:{callbacks:{label: ctx=>`Votos: ${ctx.raw.x.toLocaleString()} | Rating: ${ctx.raw.y.toFixed(1)}`}}},
+      scales:{
+        x:{ ticks:{color:'#616880',font:{family:'monospace',size:10},callback:v=>v>=1e6?v/1e6+'M':v>=1e3?v/1e3+'K':v}, grid:{color:'rgba(255,255,255,.04)'} },
+        y:{ min:1, max:10, ticks:{color:'#616880',font:{family:'monospace',size:10}}, grid:{color:'rgba(255,255,255,.04)'} },
+      },
+    },
+  });
+
+  // Table (decade summary)
+  const decades = {};
+  yearData.forEach(d => {
+    const dec = Math.floor(d.year/10)*10;
+    if (!decades[dec]) decades[dec] = { years:0, totalRating:0, totalFilmes:0, totalVotes:0 };
+    decades[dec].years++;
+    decades[dec].totalRating += d.rating;
+    decades[dec].totalFilmes += d.count;
+    decades[dec].totalVotes  += d.avgVotes;
+  });
+  document.getElementById('c3-tbody').innerHTML = Object.entries(decades).map(([dec,d]) => `
+    <tr>
+      <td class="or">${dec}s</td>
+      <td class="num">${Math.round(d.totalFilmes/d.years).toLocaleString('pt-BR')}</td>
+      <td class="hl">${(d.totalRating/d.years).toFixed(2)}</td>
+      <td class="num">${Math.round(d.totalVotes/d.years).toLocaleString('pt-BR')}</td>
+    </tr>`).join('');
+}
+
+// Init Case 1 SQL preview
+document.getElementById('sql-preview').innerHTML = buildSQL('','','2019-01-01','2019-03-31');
+</script>
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transcritor de Call em Tempo Real · Demo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0c10; --term: #0d1117; --term-b: #161b22;
+      --bd: rgba(255,255,255,.08); --tx: #e8eaf0; --tx2: #9aa0b8; --tx3: #616880;
+      --p: #7c6ef5; --p-l: #a89af8; --p-rgb: 124,110,245;
+      --tl: #3ecfcf; --tl-l: #6ddfdf; --tl-rgb: 62,207,207;
+      --or: #f5a623; --or-rgb: 245,166,35;
+      --ok: #22c55e; --ok-rgb: 34,197,94;
+      --red: #ef4444; --red-rgb: 239,68,68;
+      --mono: 'JetBrains Mono','Fira Code','Consolas',monospace;
+      --t: .2s ease;
+    }
+    body { background: var(--bg); color: var(--tx); font-family: 'Inter',system-ui,sans-serif; min-height: 100vh; padding-bottom: 80px; }
+
+    /* Banner */
+    .demo-banner {
+      background: rgba(var(--tl-rgb),.06); border-bottom: 1px solid rgba(var(--tl-rgb),.2);
+      padding: 10px 24px; display: flex; align-items: center; gap: 12px;
+      font-size: .72rem; color: var(--tl-l); font-family: var(--mono); flex-wrap: wrap;
+    }
+    .demo-badge {
+      background: rgba(var(--tl-rgb),.12); border: 1px solid rgba(var(--tl-rgb),.3);
+      border-radius: 4px; padding: 2px 8px; font-size: .62rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase;
+    }
+    .demo-banner .sep { opacity: .3; }
+
+    /* Layout */
+    .page { max-width: 860px; margin: 0 auto; padding: 48px 24px; }
+    .back-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--mono); font-size: .72rem; color: var(--tx3);
+      text-decoration: none; margin-bottom: 32px; transition: color var(--t);
+    }
+    .back-link:hover { color: var(--tx2); }
+
+    .page-header { margin-bottom: 36px; }
+    .eyebrow { font-family: var(--mono); font-size: .62rem; color: var(--tl-l); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 10px; }
+    h1 { font-size: 1.6rem; font-weight: 700; margin-bottom: 6px; }
+    .sub { font-size: .82rem; color: var(--tx2); font-family: var(--mono); }
+
+    /* How-it-works */
+    .how-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .how-item {
+      flex: 1; min-width: 150px;
+      background: rgba(255,255,255,.03); border: 1px solid var(--bd);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .how-item .hi { font-size: .68rem; color: var(--tx3); font-family: var(--mono); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+    .how-item .hv { font-size: .82rem; color: var(--tx2); line-height: 1.5; }
+    .how-item .hv strong { color: var(--tl-l); }
+
+    /* Terminal window */
+    .terminal-window {
+      background: var(--term); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    }
+    .term-titlebar {
+      background: var(--term-b); padding: 12px 16px;
+      display: flex; align-items: center; gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .term-dot { width: 12px; height: 12px; border-radius: 50%; }
+    .term-dot.red   { background: #ff5f57; }
+    .term-dot.amber { background: #febc2e; }
+    .term-dot.green { background: #28c840; }
+    .term-title { font-family: var(--mono); font-size: .72rem; color: var(--tx3); margin-left: 8px; }
+
+    .term-body {
+      padding: 20px 24px; font-family: var(--mono); font-size: .82rem;
+      line-height: 1.8; min-height: 420px;
+    }
+
+    /* Terminal text colours */
+    .t-white   { color: #e8eaf0; }
+    .t-green   { color: #22c55e; }
+    .t-teal    { color: #3ecfcf; }
+    .t-amber   { color: #f5a623; }
+    .t-purple  { color: #a89af8; }
+    .t-dim     { color: #616880; }
+    .t-red     { color: #ef4444; }
+    .t-bold    { font-weight: 700; }
+
+    /* Device table */
+    .dev-table { margin: 6px 0; }
+    .dev-row {
+      display: flex; gap: 0; padding: 2px 0; cursor: pointer;
+      border-radius: 3px; transition: background var(--t);
+    }
+    .dev-row:hover { background: rgba(255,255,255,.05); }
+    .dev-row.selected { background: rgba(62,207,207,.08); }
+    .dev-idx { color: #616880; width: 28px; flex-shrink: 0; }
+    .dev-name { color: #e8eaf0; flex: 1; }
+    .dev-type { color: #616880; }
+    .dev-row.selected .dev-name { color: var(--tl-l); }
+    .dev-row.selected .dev-idx  { color: var(--tl-l); }
+
+    /* Input row */
+    .term-input-row {
+      display: flex; align-items: center; gap: 12px;
+      margin-top: 14px; padding: 10px 0;
+      border-top: 1px solid rgba(255,255,255,.05);
+    }
+    .term-prompt { color: var(--ok); }
+    .term-input {
+      background: none; border: none; outline: none;
+      font-family: var(--mono); font-size: .82rem; color: var(--tl-l);
+      width: 40px; caret-color: var(--tl-l);
+    }
+    .btn-confirm {
+      background: rgba(var(--tl-rgb),.1); border: 1px solid rgba(var(--tl-rgb),.3);
+      border-radius: 6px; padding: 6px 16px; color: var(--tl-l); font-size: .75rem;
+      cursor: pointer; font-family: var(--mono); font-weight: 600; transition: all var(--t);
+    }
+    .btn-confirm:hover { background: rgba(var(--tl-rgb),.2); }
+
+    /* Progress bar */
+    .progress-wrap { margin: 8px 0; height: 6px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
+    .progress-bar { height: 100%; background: var(--ok); border-radius: 3px; width: 0%; transition: width .1s linear; }
+
+    /* Stop button */
+    .btn-stop {
+      background: rgba(var(--red-rgb),.1); border: 1px solid rgba(var(--red-rgb),.3);
+      border-radius: 6px; padding: 7px 18px; color: var(--red); font-size: .78rem;
+      cursor: pointer; font-family: var(--mono); font-weight: 600; transition: all var(--t);
+      margin-top: 8px; display: inline-block;
+    }
+    .btn-stop:hover { background: rgba(var(--red-rgb),.2); }
+    .btn-stop:disabled { opacity: .4; cursor: not-allowed; }
+
+    /* Download button */
+    .btn-download {
+      background: rgba(var(--ok-rgb),.1); border: 1px solid rgba(var(--ok-rgb),.3);
+      border-radius: 6px; padding: 7px 18px; color: var(--ok); font-size: .78rem;
+      cursor: pointer; font-family: var(--mono); font-weight: 600; transition: all var(--t);
+      margin-top: 4px; text-decoration: none; display: inline-block;
+    }
+    .btn-download:hover { background: rgba(var(--ok-rgb),.2); }
+
+    /* Blinking cursor */
+    .cursor { display: inline-block; width: 8px; height: 14px; background: #22c55e; animation: blink 1s step-end infinite; vertical-align: middle; margin-left: 2px; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Recording indicator */
+    .rec-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--red); animation: pulse 1s ease-in-out infinite; margin-right: 4px; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.85)} }
+  </style>
+</head>
+<body>
+
+<div class="demo-banner">
+  <span class="demo-badge">Demo</span>
+  <span>Transcrição simulada</span>
+  <span class="sep">·</span>
+  <span>Whisper roda 100% local no projeto real</span>
+  <span class="sep">·</span>
+  <span>Sem gravação de áudio neste demo</span>
+</div>
+
+<div class="page">
+  <a href="../../index.html#projects" class="back-link">← voltar ao portfólio</a>
+
+  <div class="page-header">
+    <div class="eyebrow">Projeto Pessoal · AI · Python</div>
+    <h1>Transcritor de Call em Tempo Real</h1>
+    <p class="sub">Python · faster-whisper · sounddevice · scipy · threading</p>
+  </div>
+
+  <div class="how-row">
+    <div class="how-item">
+      <div class="hi">Entrada</div>
+      <div class="hv"><strong>Áudio do sistema</strong> (loopback) ou microfone via sounddevice</div>
+    </div>
+    <div class="how-item">
+      <div class="hi">Processamento</div>
+      <div class="hv">Chunks de 8s → <strong>Whisper large-v3</strong> local → texto com timestamp</div>
+    </div>
+    <div class="how-item">
+      <div class="hi">Saída</div>
+      <div class="hv">Transcrição em tempo real no terminal + <strong>.txt salvo</strong> automaticamente</div>
+    </div>
+    <div class="how-item">
+      <div class="hi">Privacidade</div>
+      <div class="hv"><strong>100% offline</strong> — sem bots, sem servidores, zero custo</div>
+    </div>
+  </div>
+
+  <div class="terminal-window">
+    <div class="term-titlebar">
+      <span class="term-dot red"></span>
+      <span class="term-dot amber"></span>
+      <span class="term-dot green"></span>
+      <span class="term-title">transcritor_call.py — Python 3.12</span>
+    </div>
+    <div class="term-body" id="termBody">
+      <!-- Content injected by JS -->
+    </div>
+  </div>
+</div>
+
+<script>
+const term = document.getElementById('termBody');
+const FILENAME = 'transcricao_20260605_143022.txt';
+
+const TRANSCRIPT = [
+  '[14:30:12] Bom, vamos começar. Alguém pode trazer os números de maio?',
+  '[14:30:19] Claro. Investimento total de 285 mil reais, 6.180 leads, CPL médio de 46 reais.',
+  '[14:30:31] Legal. Em relação a abril, como ficou o crescimento?',
+  '[14:30:38] Abril foi 271 mil investidos, 5.820 leads. Crescemos 6,2% em volume.',
+  '[14:30:51] Ótimo. E o Meta Ads especificamente?',
+  '[14:30:58] Meta teve 182 mil investidos. CPL de 44 reais, abaixo do target de 50.',
+  '[14:31:11] E o CTR das campanhas?',
+  '[14:31:18] CTR em 2,1%. Está baixo. Já subimos 4 criativos novos essa semana.',
+  '[14:31:30] Google Search como performou?',
+  '[14:31:37] Search foi o destaque do mês. CTR de 4,3%, CPC de 12 reais, CPL de 38.',
+  '[14:31:49] Excelente. E o TikTok?',
+  '[14:31:55] TikTok ainda em fase de aprendizado. CPL alto, 78 reais. Mais 15 dias.',
+  '[14:32:08] Alguma loja com queda que precisa de atenção?',
+  '[14:32:15] Sim, unidade 047 com queda de 18% em leads. Precisa investigar o funil.',
+  '[14:32:28] Entendido, vou checar no CRM ainda hoje. Mais algum ponto?',
+  '[14:32:35] Só avisar que o relatório completo sobe no Sheets até quinta-feira.',
+  '[14:32:42] Perfeito. Obrigado a todos, reunião encerrada.',
+];
+
+let phase = 0; // 0=devices, 1=loading, 2=recording, 3=done
+let transcriptIdx = 0;
+let recTimer = null;
+let stopped = false;
+
+function ln(html, extraClass) {
+  const d = document.createElement('div');
+  d.innerHTML = html;
+  if (extraClass) d.classList.add(extraClass);
+  term.appendChild(d);
+  term.scrollTop = term.scrollHeight;
+  return d;
+}
+
+function header() {
+  ln(`<span class="t-dim">${'='.repeat(60)}</span>`);
+  ln(`<span class="t-white t-bold">  🎙️  Transcritor de Call em Tempo Real</span>`);
+  ln(`<span class="t-dim">  Powered by Whisper (100% local, sem bots)</span>`);
+  ln(`<span class="t-dim">${'='.repeat(60)}</span>`);
+  ln('');
+  ln(`<span class="t-green">💾 Salvando em: ${FILENAME}</span>`);
+  ln('');
+}
+
+function deviceList() {
+  ln(`<span class="t-teal t-bold">📋 Dispositivos de áudio disponíveis:</span>`);
+  ln(`<span class="t-dim">${'─'.repeat(60)}</span>`);
+
+  const devices = [
+    { idx:' 0', name:'Microfone (Realtek Audio)               ', type:'(entrada)' },
+    { idx:' 1', name:'Speakers (Realtek Audio)                ', type:'(saída)' },
+    { idx:' 2', name:'Stereo Mix                              ', type:'(entrada, saída)' },
+    { idx:' 3', name:'CABLE Output (VB-Audio Virtual Cable)   ', type:'(entrada)' },
+  ];
+
+  const tableEl = document.createElement('div');
+  tableEl.className = 'dev-table';
+  devices.forEach((d, i) => {
+    const row = document.createElement('div');
+    row.className = 'dev-row' + (i === 2 ? ' selected' : '');
+    row.innerHTML = `<span class="dev-idx">  [${d.idx}]</span><span class="dev-name"> ${d.name}</span><span class="dev-type">${d.type}</span>`;
+    row.addEventListener('click', () => {
+      tableEl.querySelectorAll('.dev-row').forEach(r => r.classList.remove('selected'));
+      row.classList.add('selected');
+      document.getElementById('deviceInput').value = String(i);
+    });
+    tableEl.appendChild(row);
+  });
+  term.appendChild(tableEl);
+
+  ln(`<span class="t-dim">${'─'.repeat(60)}</span>`);
+  ln('');
+  ln(`<span class="t-amber">💡 Dica: Para capturar áudio de call use 'Stereo Mix'</span>`);
+  ln('');
+
+  // Input row
+  const inputRow = document.createElement('div');
+  inputRow.className = 'term-input-row';
+  inputRow.id = 'inputRow';
+  inputRow.innerHTML = `
+    <span class="term-prompt">❯</span>
+    <span class="t-dim">Dispositivo [padrão 0]:</span>
+    <input type="text" id="deviceInput" class="term-input" value="2" maxlength="1" />
+    <button class="btn-confirm" onclick="confirmDevice()">Confirmar →</button>
+  `;
+  term.appendChild(inputRow);
+  term.scrollTop = term.scrollHeight;
+}
+
+function confirmDevice() {
+  const val = document.getElementById('deviceInput').value.trim() || '0';
+  document.getElementById('inputRow').remove();
+
+  const devNames = ['Microfone (Realtek Audio)', 'Speakers (Realtek Audio)', 'Stereo Mix', 'CABLE Output (VB-Audio)'];
+  const devName = devNames[+val] || devNames[0];
+  ln('');
+  ln(`<span class="t-dim">❯ ${val}</span>`);
+  ln(`<span class="t-teal">✓ Usando: ${devName}</span>`);
+  ln('');
+
+  loadModel();
+}
+
+function loadModel() {
+  ln(`<span class="t-white">⚙️  Carregando modelo Whisper 'large-v3'...</span>`);
+  ln(`<span class="t-dim">   (primeira vez faz download ~150MB — aguarde)</span>`);
+
+  // Progress bar
+  const progressWrap = document.createElement('div');
+  progressWrap.className = 'progress-wrap';
+  const progressBar = document.createElement('div');
+  progressBar.className = 'progress-bar';
+  progressWrap.appendChild(progressBar);
+  term.appendChild(progressWrap);
+
+  let pct = 0;
+  const interval = setInterval(() => {
+    pct = Math.min(100, pct + 1.2 + Math.random() * 2);
+    progressBar.style.width = pct + '%';
+    if (pct >= 100) {
+      clearInterval(interval);
+      setTimeout(() => {
+        progressWrap.remove();
+        ln(`<span class="t-green t-bold">✅ Modelo carregado!</span>`);
+        ln('');
+        startRecording();
+      }, 400);
+    }
+  }, 40);
+}
+
+function startRecording() {
+  const recLine = document.createElement('div');
+  recLine.innerHTML = `<span class="rec-dot"></span><span class="t-red t-bold">Gravando...</span> <span class="t-dim">Pressione o botão para parar.</span>`;
+  term.appendChild(recLine);
+  ln(`<span class="t-dim">${'─'.repeat(60)}</span>`);
+  ln('');
+
+  const stopBtn = document.createElement('button');
+  stopBtn.className = 'btn-stop';
+  stopBtn.id = 'stopBtn';
+  stopBtn.textContent = '⏹ Parar Gravação';
+  stopBtn.onclick = stopRecording;
+  term.appendChild(stopBtn);
+  ln('');
+
+  term.scrollTop = term.scrollHeight;
+
+  // Start dripping transcript lines
+  function nextLine() {
+    if (stopped || transcriptIdx >= TRANSCRIPT.length) {
+      if (!stopped) stopRecording();
+      return;
+    }
+    const delay = 1800 + Math.random() * 1400;
+    recTimer = setTimeout(() => {
+      ln(`<span class="t-teal">🗣️  </span><span class="t-white">${TRANSCRIPT[transcriptIdx]}</span>`);
+      transcriptIdx++;
+      nextLine();
+    }, delay);
+  }
+  nextLine();
+}
+
+function stopRecording() {
+  stopped = true;
+  if (recTimer) clearTimeout(recTimer);
+
+  const btn = document.getElementById('stopBtn');
+  if (btn) btn.disabled = true;
+
+  ln('');
+  ln(`<span class="t-dim">${'─'.repeat(60)}</span>`);
+  ln(`<span class="t-amber t-bold">⏹️  Gravação encerrada.</span>`);
+  ln('');
+  ln(`<span class="t-white">📄 Transcrição completa (${transcriptIdx} falas):</span>`);
+  ln(`<span class="t-dim">${'─'.repeat(60)}</span>`);
+
+  TRANSCRIPT.slice(0, transcriptIdx).forEach(line => {
+    ln(`<span class="t-dim">${line}</span>`);
+  });
+
+  if (transcriptIdx === 0) {
+    ln(`<span class="t-dim">Nenhuma fala detectada.</span>`);
+  }
+
+  ln('');
+  ln(`<span class="t-green">💾 Arquivo salvo em: ./${FILENAME}</span>`);
+  ln('');
+
+  // Download button
+  const dlBtn = document.createElement('a');
+  dlBtn.className = 'btn-download';
+  dlBtn.textContent = '⬇ Baixar Transcrição (.txt)';
+  const content = TRANSCRIPT.slice(0, transcriptIdx).join('\n');
+  dlBtn.href = 'data:text/plain;charset=utf-8,' + encodeURIComponent(content);
+  dlBtn.download = FILENAME;
+  term.appendChild(dlBtn);
+  ln('');
+
+  term.scrollTop = term.scrollHeight;
+}
+
+// Boot sequence
+header();
+setTimeout(deviceList, 300);
+</script>
+</body>
+</html>
