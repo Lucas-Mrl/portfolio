@@ -405,7 +405,7 @@ const i18n = {
 const projects = {
   "media-reports": {
     pt: {
-      tag: "Open Source · Python · Automação",
+      tag: "Ferramenta Interna · Python · Automação",
       title: "Relatório de Mídia Automatizado",
       stack: ["Python", "GitHub Actions", "Google Sheets API", "Meta Marketing API", "Google Ads API (GAQL)", "TikTok Ads API", "Taboola API", "Bing Ads API", "X Ads API", "Pinterest API", "MySQL", "FastAPI"],
       problem: {
@@ -438,7 +438,7 @@ const projects = {
       github: "https://github.com/Lucas-Mrl"
     },
     en: {
-      tag: "Open Source · Python · Automation",
+      tag: "Internal Tool · Python · Automation",
       title: "Automated Media Report",
       stack: ["Python", "GitHub Actions", "Google Sheets API", "Meta Marketing API", "Google Ads API (GAQL)", "TikTok Ads API", "Taboola API", "Bing Ads API", "X Ads API", "Pinterest API", "MySQL", "FastAPI"],
       problem: {
@@ -974,7 +974,7 @@ const projects = {
 
   "meta-tax-calc": {
     pt: {
-      tag: "Ferramenta Interna · React",
+      tag: "Open Source · React",
       title: "Calculadora de Imposto Meta Ads",
       stack: ["React", "Vite", "JavaScript"],
       problem: {
@@ -1002,7 +1002,7 @@ const projects = {
       }
     },
     en: {
-      tag: "Internal Tool · React",
+      tag: "Open Source · React",
       title: "Meta Ads Tax Calculator",
       stack: ["React", "Vite", "JavaScript"],
       problem: {
