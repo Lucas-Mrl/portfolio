@@ -128,10 +128,11 @@ const i18n = {
     cat_tracking: "Tracking & Martech",
     cat_ai:       "AI & Experimentação",
 
-    pt_open:     "Open Source",
-    pt_client:   "Client Work",
-    pt_tool:     "Ferramenta Interna",
-    pt_personal: "Projeto Pessoal",
+    pt_open:      "Open Source",
+    pt_client:    "Client Work",
+    pt_tool:      "Ferramenta Interna",
+    pt_personal:  "Projeto Pessoal",
+    pt_challenge: "Case Técnico",
     p_case:      "Ver Case ↗",
     p_gh:        "GitHub",
 
@@ -149,8 +150,14 @@ const i18n = {
     p6_desc:  "Reconfiguração completa do tracking server-side do TikTok, com estrutura de eventos redesenhada para lead gen, parâmetros de matching e validação via Events Manager.",
     p7_title: "Ad-Level Analytics Web App",
     p7_desc:  "Dashboard interno para análise granular por campanha, conjunto e anúncio, cruzando dados de plataforma com leads e agendamentos do CRM — com cache inteligente e exportação Excel.",
-    p8_title: "Store-Level Analytics",
-    p8_desc:  "Aplicação interna para análise de performance por loja e regional, com filtros, comparações e exportação de dados de 280+ unidades — autenticação por domínio e drill-down operacional.",
+    p8_title:  "Store-Level Analytics",
+    p8_desc:   "Aplicação interna para análise de performance por loja e regional, com filtros, comparações e exportação de dados de 280+ unidades — autenticação por domínio e drill-down operacional.",
+    p10_title: "Desafio Técnico Looqbox",
+    p10_desc:  "3 cases progressivos de análise de dados: queries parametrizadas em MySQL com pandas/SQLAlchemy, análise de performance de vendas por produto e loja, e visualização de dados com matplotlib.",
+    p11_title: "Calculadora de Imposto Meta Ads",
+    p11_desc:  "App React que calcula em tempo real o imposto (12,15%) sobre investimentos no Meta Ads — exibe o valor total a inserir na plataforma para manter o investimento líquido desejado.",
+    p12_title: "Transcritor de Call em Tempo Real",
+    p12_desc:  "Script Python que captura áudio do sistema (loopback) ou microfone e transcreve calls em tempo real com Whisper rodando 100% local — sem bots, sem servidores externos, salva .txt com timestamps.",
     // DIFERENCIAIS
     diff_tag:   "diferenciais",
     diff_title: "Por que não é o mesmo que o próximo analista",
@@ -319,10 +326,11 @@ const i18n = {
     cat_tracking: "Tracking & Martech",
     cat_ai:       "AI & Experimentation",
 
-    pt_open:     "Open Source",
-    pt_client:   "Client Work",
-    pt_tool:     "Internal Tool",
-    pt_personal: "Personal Project",
+    pt_open:      "Open Source",
+    pt_client:    "Client Work",
+    pt_tool:      "Internal Tool",
+    pt_personal:  "Personal Project",
+    pt_challenge: "Tech Challenge",
     p_case:      "View Case ↗",
     p_gh:        "GitHub",
 
@@ -340,8 +348,14 @@ const i18n = {
     p6_desc:  "Full reconfiguration of TikTok server-side tracking with a redesigned event structure for lead gen, matching parameters, and validation via Events Manager.",
     p7_title: "Ad-Level Analytics Web App",
     p7_desc:  "Internal dashboard for granular analysis by campaign, ad set, and ad — cross-referencing platform data with CRM leads and appointments, with smart caching and Excel export.",
-    p8_title: "Store-Level Analytics",
-    p8_desc:  "Internal app for performance analysis by store and region across 280+ units — domain-based authentication, operational drill-down, and data export.",
+    p8_title:  "Store-Level Analytics",
+    p8_desc:   "Internal app for performance analysis by store and region across 280+ units — domain-based authentication, operational drill-down, and data export.",
+    p10_title: "Looqbox Technical Challenge",
+    p10_desc:  "3 progressive data analysis cases: parameterized MySQL queries with pandas/SQLAlchemy, sales performance analysis by product and store, and data visualization with matplotlib.",
+    p11_title: "Meta Ads Tax Calculator",
+    p11_desc:  "React app that calculates in real time the 12.15% tax on Meta Ads investments — shows the total amount to enter in the platform to maintain the desired net investment.",
+    p12_title: "Real-Time Call Transcriber",
+    p12_desc:  "Python script that captures system audio (loopback) or microphone and transcribes calls in real time with Whisper running 100% locally — no bots, no external servers, saves .txt with timestamps.",
     // DIFFERENTIALS
     diff_tag:   "differentials",
     diff_title: "Why I'm not just another analyst",
@@ -900,6 +914,185 @@ const projects = {
       }
     }
   },
+
+  "looq-challenge": {
+    pt: {
+      tag: "Case Técnico · Data Analytics",
+      title: "Desafio Técnico Looqbox",
+      stack: ["Python", "pandas", "SQLAlchemy", "MySQL", "matplotlib"],
+      problem: {
+        label: "O Desafio",
+        text: "Processo seletivo técnico da Looqbox com 3 cases progressivos: desde queries parametrizadas em MySQL com pandas até análise exploratória de dados de vendas e visualização de dados do IMDb."
+      },
+      solution: {
+        label: "A Solução",
+        text: "3 scripts Python independentes, cada um resolvendo um case com complexidade crescente, boas práticas de código e visualizações claras.",
+        bullets: [
+          "Case 1: função parametrizável para queries MySQL com pandas/SQLAlchemy, filtragem por produto, loja e data",
+          "Case 2: análise de performance de vendas por produto e loja — ranking, top performers, métricas por período",
+          "Case 3: análise exploratória + visualização de dados do IMDb com matplotlib"
+        ]
+      },
+      impact: {
+        label: "Resultado",
+        items: [
+          { value: "3", label: "cases entregues" },
+          { value: "MySQL", label: "queries parametrizadas" },
+          { value: "pandas", label: "manipulação de dados" },
+          { value: "matplotlib", label: "visualizações" }
+        ]
+      }
+    },
+    en: {
+      tag: "Tech Challenge · Data Analytics",
+      title: "Looqbox Technical Challenge",
+      stack: ["Python", "pandas", "SQLAlchemy", "MySQL", "matplotlib"],
+      problem: {
+        label: "The Challenge",
+        text: "Looqbox technical selection process with 3 progressive cases: from parameterized MySQL queries with pandas to sales data analysis and IMDb data visualization."
+      },
+      solution: {
+        label: "The Solution",
+        text: "3 independent Python scripts, each solving a case with increasing complexity, clean code, and clear visualizations.",
+        bullets: [
+          "Case 1: parameterizable function for MySQL queries with pandas/SQLAlchemy, filtering by product, store, and date",
+          "Case 2: sales performance analysis by product and store — ranking, top performers, metrics by period",
+          "Case 3: exploratory analysis + IMDb data visualization with matplotlib"
+        ]
+      },
+      impact: {
+        label: "Results",
+        items: [
+          { value: "3", label: "cases delivered" },
+          { value: "MySQL", label: "parameterized queries" },
+          { value: "pandas", label: "data manipulation" },
+          { value: "matplotlib", label: "visualizations" }
+        ]
+      }
+    }
+  },
+
+  "meta-tax-calc": {
+    pt: {
+      tag: "Ferramenta Interna · React",
+      title: "Calculadora de Imposto Meta Ads",
+      stack: ["React", "Vite", "JavaScript"],
+      problem: {
+        label: "O Problema",
+        text: "O imposto de 12,15% sobre investimentos no Meta Ads é descontado do valor inserido na plataforma — gerando confusão entre o valor bruto e o investimento líquido real. Gestores precisavam de uma forma rápida de calcular quanto inserir para manter o orçamento desejado."
+      },
+      solution: {
+        label: "A Solução",
+        text: "App React que calcula em tempo real o imposto, o valor total a inserir na plataforma para manter o orçamento líquido desejado, e o valor do imposto em reais.",
+        bullets: [
+          "Input com máscara de moeda brasileira em tempo real",
+          "Cálculo automático: orçamento → imposto (12,15%) → correção → líquido",
+          "Interface limpa, sem instalação — acesso via browser",
+          "Build com Vite para performance máxima"
+        ]
+      },
+      impact: {
+        label: "Resultado",
+        items: [
+          { value: "12,15%", label: "imposto calculado automaticamente" },
+          { value: "3", label: "métricas exibidas simultaneamente" },
+          { value: "↓", label: "erros de cálculo de orçamento" },
+          { value: "React", label: "interface reativa" }
+        ]
+      }
+    },
+    en: {
+      tag: "Internal Tool · React",
+      title: "Meta Ads Tax Calculator",
+      stack: ["React", "Vite", "JavaScript"],
+      problem: {
+        label: "The Problem",
+        text: "The 12.15% tax on Meta Ads investments is deducted from the amount entered in the platform — causing confusion between gross value and actual net investment. Managers needed a quick way to calculate how much to enter to maintain the desired budget."
+      },
+      solution: {
+        label: "The Solution",
+        text: "React app that calculates in real time the tax, the total amount to enter in the platform to maintain the desired net budget, and the tax amount in BRL.",
+        bullets: [
+          "Input with Brazilian currency mask in real time",
+          "Automatic calculation: budget → tax (12.15%) → correction → net",
+          "Clean interface, no installation — browser access",
+          "Vite build for maximum performance"
+        ]
+      },
+      impact: {
+        label: "Results",
+        items: [
+          { value: "12.15%", label: "tax calculated automatically" },
+          { value: "3", label: "metrics displayed simultaneously" },
+          { value: "↓", label: "budget calculation errors" },
+          { value: "React", label: "reactive interface" }
+        ]
+      }
+    }
+  },
+
+  "whisper-transcriber": {
+    pt: {
+      tag: "Projeto Pessoal · AI · Python",
+      title: "Transcritor de Call em Tempo Real",
+      stack: ["Python", "faster-whisper", "sounddevice", "scipy", "threading"],
+      problem: {
+        label: "O Problema",
+        text: "Transcrever calls de trabalho em tempo real sem depender de bots, integrações externas ou serviços pagos. A solução precisava funcionar 100% local, capturar qualquer áudio tocando no sistema e salvar a transcrição com timestamps."
+      },
+      solution: {
+        label: "A Solução",
+        text: "Script Python que captura áudio via loopback do sistema ou microfone e transcreve em tempo real com o modelo Whisper rodando localmente, sem enviar dados para nenhum servidor.",
+        bullets: [
+          "Captura de áudio do sistema (loopback) com sounddevice — sem bot, sem gravação de terceiros",
+          "Transcrição em tempo real com faster-whisper (modelo large-v3, 100% local)",
+          "Thread separada para captura e transcrição sem blocking",
+          "VAD filter embutido: ignora silêncio automaticamente",
+          "Resampling automático para 16kHz com scipy",
+          "Salva transcrição em .txt com timestamps por fala"
+        ]
+      },
+      impact: {
+        label: "Resultado",
+        items: [
+          { value: "100%", label: "offline — zero servidores externos" },
+          { value: "large-v3", label: "modelo Whisper de alta precisão" },
+          { value: "R$ 0", label: "custo operacional" },
+          { value: "real-time", label: "transcrição durante a call" }
+        ]
+      }
+    },
+    en: {
+      tag: "Personal Project · AI · Python",
+      title: "Real-Time Call Transcriber",
+      stack: ["Python", "faster-whisper", "sounddevice", "scipy", "threading"],
+      problem: {
+        label: "The Problem",
+        text: "Transcribe work calls in real time without relying on bots, external integrations, or paid services. The solution needed to run 100% locally, capture any audio playing on the system, and save the transcription with timestamps."
+      },
+      solution: {
+        label: "The Solution",
+        text: "Python script that captures audio via system loopback or microphone and transcribes in real time using Whisper running locally, without sending data to any server.",
+        bullets: [
+          "System audio capture (loopback) with sounddevice — no bot, no third-party recording",
+          "Real-time transcription with faster-whisper (large-v3 model, 100% local)",
+          "Separate thread for audio capture and transcription without blocking",
+          "Built-in VAD filter: automatically ignores silence",
+          "Automatic resampling to 16kHz with scipy",
+          "Saves transcription to .txt with timestamps per speech segment"
+        ]
+      },
+      impact: {
+        label: "Results",
+        items: [
+          { value: "100%", label: "offline — zero external servers" },
+          { value: "large-v3", label: "high-accuracy Whisper model" },
+          { value: "R$ 0", label: "operational cost" },
+          { value: "real-time", label: "transcription during the call" }
+        ]
+      }
+    }
+  }
 
 };
 
