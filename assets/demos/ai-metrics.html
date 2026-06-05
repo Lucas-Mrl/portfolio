@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Ad Metrics Analyser — Demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:    #0ea5e9;
+      --indigo:  #6366f1;
+      --gray-50: #f8fafc;
+      --gray-100:#f1f5f9;
+      --gray-200:#e2e8f0;
+      --gray-300:#cbd5e1;
+      --gray-400:#94a3b8;
+      --gray-500:#64748b;
+      --gray-700:#334155;
+      --gray-800:#1e293b;
+      --gray-900:#0f172a;
+      --surface: #fff;
+      --radius:  10px;
+      --shadow:  0 4px 20px rgba(0,0,0,.08);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-50);
+      color: var(--gray-800);
+      min-height: 100vh;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* ── Demo banner ── */
+    .demo-banner {
+      background: #1e1b4b;
+      color: #c7d2fe;
+      padding: 7px 20px;
+      text-align: center;
+      font-size: .75rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+    }
+    .demo-badge {
+      background: #f59e0b;
+      color: #1e1b4b;
+      border-radius: 4px;
+      padding: 1px 7px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .4px;
+    }
+    .demo-banner-close {
+      position: absolute; right: 14px;
+      background: none; border: none;
+      color: rgba(199,210,254,.5); cursor: pointer; font-size: .95rem;
+    }
+    .demo-banner-close:hover { color: #c7d2fe; }
+
+    /* ── Layout ── */
+    .app-wrap { display: flex; min-height: calc(100vh - 34px); }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      width: 260px;
+      flex-shrink: 0;
+      background: var(--surface);
+      border-right: 1px solid var(--gray-200);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .sidebar-section { padding-bottom: 16px; margin-bottom: 16px; border-bottom: 1px solid var(--gray-200); }
+    .sidebar-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+    .sidebar-label {
+      font-size: .7rem; font-weight: 700; color: var(--gray-400);
+      text-transform: uppercase; letter-spacing: .5px; margin-bottom: 10px;
+    }
+    .sidebar h2 { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 16px; }
+
+    .radio-group { display: flex; gap: 6px; margin-bottom: 12px; }
+    .radio-btn {
+      flex: 1; padding: 5px 10px; border: 1.5px solid var(--gray-200);
+      border-radius: 8px; font-size: .78rem; font-weight: 600;
+      color: var(--gray-500); background: var(--surface);
+      cursor: pointer; text-align: center; transition: all .15s;
+      font-family: inherit;
+    }
+    .radio-btn.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+    .radio-btn:hover:not(.active) { border-color: var(--blue); color: var(--blue); }
+
+    .select-input {
+      width: 100%; border: 1.5px solid var(--gray-200); border-radius: 8px;
+      padding: 8px 10px; font-size: .88rem; color: var(--gray-800);
+      background: var(--surface); outline: none; font-family: inherit;
+      transition: border-color .15s, box-shadow .15s;
+    }
+    .select-input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(14,165,233,.15); }
+
+    .checkbox-row {
+      display: flex; align-items: center; gap: 8px;
+      padding: 5px 0; cursor: pointer; font-size: .88rem; color: var(--gray-700);
+    }
+    .checkbox-row input[type="checkbox"] { accent-color: var(--indigo); width: 15px; height: 15px; cursor: pointer; }
+
+    .backend-label {
+      font-size: .7rem; color: var(--gray-400); font-family: monospace;
+      background: var(--gray-100); border-radius: 6px; padding: 5px 9px; margin-top: 8px;
+    }
+
+    /* ── Main ── */
+    .main { flex: 1; padding: 0; overflow: hidden; }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(90deg, #0ea5e9 0%, #6366f1 100%);
+      padding: 18px 28px;
+      color: #fff;
+    }
+    .hero h1 { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+    .hero p { font-size: .85rem; opacity: .9; }
+    .hero-meta { font-size: .72rem; opacity: .65; margin-top: 4px; }
+
+    .main-content { padding: 20px 28px; }
+
+    /* Buttons row */
+    .btn-row { display: flex; gap: 12px; margin-bottom: 20px; }
+    .btn {
+      padding: 9px 22px; border: none; border-radius: var(--radius);
+      font-size: .88rem; font-weight: 700; cursor: pointer;
+      transition: all .15s; font-family: inherit;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(99,102,241,.35);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,.45); }
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--indigo);
+      border: 1.5px solid rgba(99,102,241,.35);
+    }
+    .btn-secondary:hover { background: #f0f0ff; border-color: var(--indigo); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none !important; }
+    .btn-spinner {
+      display: none; width: 14px; height: 14px;
+      border: 2px solid rgba(255,255,255,.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .6s linear infinite;
+    }
+    .btn-spinner.indigo { border-color: rgba(99,102,241,.25); border-top-color: var(--indigo); }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Tabs */
+    .tabs-nav {
+      display: flex;
+      border-bottom: 2px solid var(--gray-200);
+      margin-bottom: 16px;
+      gap: 0;
+    }
+    .tab-nav-btn {
+      padding: 8px 18px; font-size: .85rem; font-weight: 600;
+      color: var(--gray-400); border: none; background: none; cursor: pointer;
+      border-bottom: 2px solid transparent; margin-bottom: -2px;
+      transition: color .15s, border-color .15s; font-family: inherit;
+    }
+    .tab-nav-btn.active { color: var(--indigo); border-bottom-color: var(--indigo); }
+    .tab-nav-btn:hover:not(.active) { color: var(--gray-600); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .tab-empty {
+      padding: 24px 0; text-align: center;
+      color: var(--gray-400); font-size: .88rem;
+      background: var(--gray-50); border-radius: var(--radius);
+      border: 1px dashed var(--gray-200);
+    }
+    .tab-empty span { font-size: 1.5rem; display: block; margin-bottom: 6px; }
+
+    /* Data table */
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .82rem;
+    }
+    .data-table thead th {
+      background: var(--gray-800);
+      color: #fff;
+      padding: 9px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: .72rem;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      cursor: pointer;
+      user-select: none;
+    }
+    .data-table thead th:hover { background: #0f172a; }
+    .data-table tbody tr { transition: background .1s; }
+    .data-table tbody tr:nth-child(even) { background: var(--gray-50); }
+    .data-table tbody tr:hover { background: #eef2ff; }
+    .data-table tbody td {
+      padding: 8px 14px;
+      border-bottom: 1px solid var(--gray-200);
+      white-space: nowrap;
+    }
+    .data-table tfoot td {
+      padding: 9px 14px;
+      font-weight: 700;
+      color: var(--gray-800);
+      background: linear-gradient(90deg, #eef2ff, #f0f9ff);
+      border-top: 2px solid var(--gray-200);
+      white-space: nowrap;
+    }
+    .cell-name { font-weight: 600; color: var(--gray-800); min-width: 180px; }
+    .cell-id { font-size: .72rem; color: var(--gray-400); font-family: monospace; }
+    .cell-num { text-align: right; color: var(--gray-600); }
+    .cell-good { color: #16a34a; font-weight: 600; }
+    .cell-warn { color: #d97706; font-weight: 600; }
+    .cell-bad  { color: #dc2626; font-weight: 600; }
+
+    /* AI Section */
+    .section-title {
+      font-size: .78rem; font-weight: 700; color: var(--gray-500);
+      text-transform: uppercase; letter-spacing: .5px;
+      margin-bottom: 10px; margin-top: 20px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--gray-200); }
+
+    .ai-box {
+      background: linear-gradient(135deg, #fafbff, #f8f0ff);
+      border: 1px solid rgba(99,102,241,.2);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      font-size: .88rem;
+      line-height: 1.7;
+      color: var(--gray-700);
+      min-height: 80px;
+    }
+    .ai-box.empty { color: var(--gray-400); font-style: italic; }
+    .ai-box p { margin-bottom: 10px; }
+    .ai-box p:last-child { margin-bottom: 0; }
+    .ai-box strong { color: var(--gray-800); }
+
+    /* Chat */
+    .chat-wrap {
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius);
+      overflow: hidden;
+      margin-top: 8px;
+    }
+    .chat-messages {
+      min-height: 100px;
+      max-height: 320px;
+      overflow-y: auto;
+      padding: 14px 16px;
+      background: var(--gray-50);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chat-msg { display: flex; gap: 10px; align-items: flex-start; }
+    .chat-msg.user { flex-direction: row-reverse; }
+    .chat-avatar {
+      width: 30px; height: 30px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .75rem; font-weight: 700; flex-shrink: 0;
+    }
+    .chat-msg.user .chat-avatar { background: linear-gradient(135deg, #0ea5e9, #6366f1); color: #fff; }
+    .chat-msg.assistant .chat-avatar { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; font-size: .9rem; }
+    .chat-bubble {
+      max-width: 75%;
+      padding: 9px 13px;
+      border-radius: 12px;
+      font-size: .85rem;
+      line-height: 1.55;
+    }
+    .chat-msg.user .chat-bubble {
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff;
+      border-radius: 12px 2px 12px 12px;
+    }
+    .chat-msg.assistant .chat-bubble {
+      background: var(--surface);
+      color: var(--gray-700);
+      border: 1px solid var(--gray-200);
+      border-radius: 2px 12px 12px 12px;
+    }
+    .chat-bubble strong { color: var(--gray-800); }
+    .chat-input-row {
+      display: flex; gap: 0;
+      border-top: 1px solid var(--gray-200);
+      background: var(--surface);
+    }
+    .chat-input {
+      flex: 1; border: none; padding: 12px 16px;
+      font-size: .88rem; color: var(--gray-800); outline: none;
+      font-family: inherit; background: transparent;
+    }
+    .chat-input::placeholder { color: var(--gray-400); }
+    .chat-send {
+      padding: 10px 18px; border: none;
+      background: linear-gradient(135deg, #0ea5e9, #6366f1);
+      color: #fff; font-size: .82rem; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: opacity .15s;
+    }
+    .chat-send:hover { opacity: .9; }
+    .chat-send:disabled { opacity: .45; cursor: not-allowed; }
+
+    .typing-dots {
+      display: inline-flex; align-items: center; gap: 4px;
+      padding: 9px 13px;
+      background: var(--surface); border: 1px solid var(--gray-200);
+      border-radius: 2px 12px 12px 12px;
+    }
+    .typing-dots span {
+      width: 7px; height: 7px; background: var(--gray-400); border-radius: 50%;
+      animation: bounce 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: .2s; }
+    .typing-dots span:nth-child(3) { animation-delay: .4s; }
+    @keyframes bounce { 0%,80%,100%{transform:translateY(0)} 40%{transform:translateY(-6px)} }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sidebar { width: 220px; }
+      .main-content { padding: 16px; }
+    }
+    @media (max-width: 600px) {
+      .app-wrap { flex-direction: column; }
+      .sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--gray-200); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Demo Banner -->
+<div class="demo-banner" id="demo-banner">
+  <span class="demo-badge">DEMO</span>
+  <span>Dados 100% fictícios · Respostas da IA pré-escritas · Sem conexão com Meta Ads ou OpenAI</span>
+  <button class="demo-banner-close" onclick="this.parentElement.style.display='none'">✕</button>
+</div>
+
+<div class="app-wrap">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>⚙️ Configuração</h2>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Período</div>
+      <div class="radio-group">
+        <button class="radio-btn active" id="mode-preset" onclick="setMode('preset')">Preset</button>
+        <button class="radio-btn" id="mode-custom" onclick="setMode('custom')">Personalizado</button>
+      </div>
+      <div id="preset-section">
+        <select class="select-input" id="date-preset" onchange="onPresetChange()">
+          <option value="today">Hoje</option>
+          <option value="last_7d" selected>Últimos 7 dias</option>
+          <option value="last_14d">Últimos 14 dias</option>
+          <option value="last_30d">Últimos 30 dias</option>
+          <option value="this_month">Este mês</option>
+          <option value="last_month">Mês passado</option>
+          <option value="maximum">Máximo</option>
+        </select>
+      </div>
+      <div id="custom-section" style="display:none">
+        <div style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+          <div style="font-size:.78rem;color:var(--gray-500)">Data inicial</div>
+          <input type="date" class="select-input" id="date-since" />
+          <div style="font-size:.78rem;color:var(--gray-500)">Data final</div>
+          <input type="date" class="select-input" id="date-until" />
+        </div>
+      </div>
+      <div class="backend-label">Backend: FastAPI · localhost:3000</div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Níveis para visualizar/analisar</div>
+      <label class="checkbox-row"><input type="checkbox" id="chk-campaigns" checked /> Campanhas</label>
+      <label class="checkbox-row"><input type="checkbox" id="chk-adsets" checked /> Conjuntos</label>
+      <label class="checkbox-row"><input type="checkbox" id="chk-ads" checked /> Anúncios</label>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Foco da resposta</div>
+      <select class="select-input" id="focus-select">
+        <option value="auto">auto</option>
+        <option value="criativos">criativos</option>
+        <option value="orcamento">orçamento</option>
+        <option value="diagnostico">diagnóstico</option>
+        <option value="lancamento">lançamento</option>
+        <option value="estrutura">estrutura</option>
+      </select>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="hero">
+      <h1>📊 Análise de campanhas com IA</h1>
+      <p>Insights de campanhas com análise conversacional — GPT‑4o‑mini</p>
+      <div class="hero-meta">Backend: FastAPI · Frontend: Streamlit</div>
+    </div>
+
+    <div class="main-content">
+
+      <!-- Action buttons -->
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btn-load" onclick="loadCampaigns()">
+          <div class="btn-spinner" id="spin-load"></div>
+          <span>Ver campanhas</span>
+        </button>
+        <button class="btn btn-secondary" id="btn-analyze" onclick="analyzeWithAI()">
+          <div class="btn-spinner indigo" id="spin-analyze"></div>
+          <span>✨ Analisar com IA</span>
+        </button>
+      </div>
+
+      <!-- Data tabs -->
+      <div class="section-title">Dados</div>
+      <div class="tabs-nav">
+        <button class="tab-nav-btn active" data-tab="campaigns" onclick="switchTab('campaigns')">Campanhas</button>
+        <button class="tab-nav-btn" data-tab="adsets" onclick="switchTab('adsets')">Conjuntos</button>
+        <button class="tab-nav-btn" data-tab="ads" onclick="switchTab('ads')">Anúncios</button>
+      </div>
+
+      <div id="tab-campaigns" class="tab-panel active">
+        <div class="tab-empty" id="empty-campaigns">
+          <span>📈</span>
+          Clique em "Ver campanhas" para carregar os dados.
+        </div>
+        <div id="table-campaigns" style="display:none"></div>
+      </div>
+      <div id="tab-adsets" class="tab-panel">
+        <div class="tab-empty" id="empty-adsets">
+          <span>🗂️</span>
+          Carregue os conjuntos pelo botão "Ver campanhas".
+        </div>
+        <div id="table-adsets" style="display:none"></div>
+      </div>
+      <div id="tab-ads" class="tab-panel">
+        <div class="tab-empty" id="empty-ads">
+          <span>🖼️</span>
+          Carregue os anúncios pelo botão "Ver campanhas".
+        </div>
+        <div id="table-ads" style="display:none"></div>
+      </div>
+
+      <!-- AI Analysis -->
+      <div class="section-title">Análise da IA</div>
+      <div class="ai-box empty" id="ai-box">
+        Clique em "Analisar com IA" para gerar insights sobre as campanhas carregadas.
+      </div>
+
+      <!-- Chat -->
+      <div class="section-title">Converse com a aplicação</div>
+      <div class="chat-wrap">
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-msg assistant">
+            <div class="chat-avatar">🤖</div>
+            <div class="chat-bubble">
+              Olá! Carregue as campanhas e me faça uma pergunta sobre os dados — por exemplo: <em>"Quais campanhas estão com ROAS abaixo da média?"</em>, <em>"O que devo pausar?"</em> ou <em>"Como está a performance dos criativos?"</em>
+            </div>
+          </div>
+        </div>
+        <div class="chat-input-row">
+          <input type="text" class="chat-input" id="chat-input"
+                 placeholder="Faça uma pergunta sobre suas campanhas..."
+                 onkeydown="if(event.key==='Enter') sendChat()" />
+          <button class="chat-send" id="chat-send" onclick="sendChat()">Enviar ↑</button>
+        </div>
+      </div>
+
+    </div><!-- /main-content -->
+  </div><!-- /main -->
+</div><!-- /app-wrap -->
+
+<script>
+  // ── Fake data ────────────────────────────────────────────────
+  const FAKE_CAMPAIGNS = [
+    { campaign_name: 'Prospecção — Público Frio',    campaign_id: 'cmp_001', impressions: 284500, clicks: 4267, spend: 3820.50, cpm: 13.43, cpc: 0.90, ctr: 1.50, purchases: 84, purchase_value: 14280.00, roas: 3.74 },
+    { campaign_name: 'Retargeting — Visitantes 7d',  campaign_id: 'cmp_002', impressions: 96300,  clicks: 2890, spend: 2150.00, cpm: 22.32, cpc: 0.74, ctr: 3.00, purchases: 98, purchase_value: 16660.00, roas: 7.75 },
+    { campaign_name: 'Lookalike 1% — Compradores',   campaign_id: 'cmp_003', impressions: 142000, clicks: 2272, spend: 2640.00, cpm: 18.59, cpc: 1.16, ctr: 1.60, purchases: 61, purchase_value: 9760.00,  roas: 3.70 },
+    { campaign_name: 'Awareness — Engajamento',      campaign_id: 'cmp_004', impressions: 510000, clicks: 3570, spend: 1980.00, cpm: 3.88,  cpc: 0.55, ctr: 0.70, purchases: 12, purchase_value: 1440.00,  roas: 0.73 },
+    { campaign_name: 'Conversão — Oferta Relâmpago', campaign_id: 'cmp_005', impressions: 78400,  clicks: 2195, spend: 1740.00, cpm: 22.19, cpc: 0.79, ctr: 2.80, purchases: 74, purchase_value: 11840.00, roas: 6.81 },
+    { campaign_name: 'Prospecção — Interesse Amplo', campaign_id: 'cmp_006', impressions: 320000, clicks: 2880, spend: 2240.00, cpm: 7.00,  cpc: 0.78, ctr: 0.90, purchases: 29, purchase_value: 3480.00,  roas: 1.55 },
+  ];
+
+  const FAKE_ADSETS = [
+    { adset_name: 'Público Frio — M 25-45',     adset_id: 'ads_001', campaign_id: 'cmp_001', impressions: 148000, clicks: 2220, spend: 1980.00, cpm: 13.38, cpc: 0.89, ctr: 1.50, purchases: 44, purchase_value: 7480.00,  roas: 3.78 },
+    { adset_name: 'Público Frio — F 25-45',     adset_id: 'ads_002', campaign_id: 'cmp_001', impressions: 136500, clicks: 2047, spend: 1840.50, cpm: 13.48, cpc: 0.90, ctr: 1.50, purchases: 40, purchase_value: 6800.00,  roas: 3.69 },
+    { adset_name: 'Visitantes — 7d Todos',       adset_id: 'ads_003', campaign_id: 'cmp_002', impressions: 51200,  clicks: 1664, spend: 1120.00, cpm: 21.88, cpc: 0.67, ctr: 3.25, purchases: 58, purchase_value: 9860.00,  roas: 8.80 },
+    { adset_name: 'Visitantes — Página Produto', adset_id: 'ads_004', campaign_id: 'cmp_002', impressions: 45100,  clicks: 1226, spend: 1030.00, cpm: 22.84, cpc: 0.84, ctr: 2.72, purchases: 40, purchase_value: 6800.00,  roas: 6.60 },
+    { adset_name: 'Lookalike 1% — Recentes',    adset_id: 'ads_005', campaign_id: 'cmp_003', impressions: 142000, clicks: 2272, spend: 2640.00, cpm: 18.59, cpc: 1.16, ctr: 1.60, purchases: 61, purchase_value: 9760.00,  roas: 3.70 },
+    { adset_name: 'Awareness — Interesse Geral', adset_id: 'ads_006', campaign_id: 'cmp_004', impressions: 510000, clicks: 3570, spend: 1980.00, cpm: 3.88,  cpc: 0.55, ctr: 0.70, purchases: 12, purchase_value: 1440.00,  roas: 0.73 },
+    { adset_name: 'Oferta — Compradores 30d',    adset_id: 'ads_007', campaign_id: 'cmp_005', impressions: 42000,  clicks: 1344, spend: 960.00,  cpm: 22.86, cpc: 0.71, ctr: 3.20, purchases: 44, purchase_value: 7040.00,  roas: 7.33 },
+    { adset_name: 'Oferta — Engajados 14d',      adset_id: 'ads_008', campaign_id: 'cmp_005', impressions: 36400,  clicks: 851,  spend: 780.00,  cpm: 21.43, cpc: 0.92, ctr: 2.34, purchases: 30, purchase_value: 4800.00,  roas: 6.15 },
+    { adset_name: 'Interesse Amplo — M+F',       adset_id: 'ads_009', campaign_id: 'cmp_006', impressions: 320000, clicks: 2880, spend: 2240.00, cpm: 7.00,  cpc: 0.78, ctr: 0.90, purchases: 29, purchase_value: 3480.00,  roas: 1.55 },
+  ];
+
+  const FAKE_ADS = [
+    { ad_name: 'Vídeo 30s — Depoimento Cliente A', ad_id: 'ad_001', adset_id: 'ads_001', campaign_id: 'cmp_001', impressions: 76000, clicks: 1140, spend: 1020.00, cpm: 13.42, cpc: 0.89, ctr: 1.50, purchases: 26, purchase_value: 4420.00, roas: 4.33 },
+    { ad_name: 'Carrossel — 5 Benefícios',         ad_id: 'ad_002', adset_id: 'ads_001', campaign_id: 'cmp_001', impressions: 72000, clicks: 1080, spend: 960.00,  cpm: 13.33, cpc: 0.89, ctr: 1.50, purchases: 18, purchase_value: 3060.00, roas: 3.19 },
+    { ad_name: 'Imagem Estática — Oferta Direta',  ad_id: 'ad_003', adset_id: 'ads_002', campaign_id: 'cmp_001', impressions: 68000, clicks: 952,  spend: 910.50,  cpm: 13.39, cpc: 0.96, ctr: 1.40, purchases: 16, purchase_value: 2720.00, roas: 2.99 },
+    { ad_name: 'Story — CTA Urgência',             ad_id: 'ad_004', adset_id: 'ads_002', campaign_id: 'cmp_001', impressions: 68500, clicks: 1095, spend: 930.00,  cpm: 13.58, cpc: 0.85, ctr: 1.60, purchases: 24, purchase_value: 4080.00, roas: 4.39 },
+    { ad_name: 'Vídeo 15s — Resultado Rápido',     ad_id: 'ad_005', adset_id: 'ads_003', campaign_id: 'cmp_002', impressions: 28000, clicks: 980,  spend: 620.00,  cpm: 22.14, cpc: 0.63, ctr: 3.50, purchases: 36, purchase_value: 6120.00, roas: 9.87 },
+    { ad_name: 'Carrossel — Antes e Depois',       ad_id: 'ad_006', adset_id: 'ads_003', campaign_id: 'cmp_002', impressions: 23200, clicks: 684,  spend: 500.00,  cpm: 21.55, cpc: 0.73, ctr: 2.95, purchases: 22, purchase_value: 3740.00, roas: 7.48 },
+    { ad_name: 'Imagem — Prova Social',             ad_id: 'ad_007', adset_id: 'ads_004', campaign_id: 'cmp_002', impressions: 45100, clicks: 1226, spend: 1030.00, cpm: 22.84, cpc: 0.84, ctr: 2.72, purchases: 40, purchase_value: 6800.00, roas: 6.60 },
+    { ad_name: 'Vídeo 30s — Lookalike Versão A',   ad_id: 'ad_008', adset_id: 'ads_005', campaign_id: 'cmp_003', impressions: 78000, clicks: 1170, spend: 1440.00, cpm: 18.46, cpc: 1.23, ctr: 1.50, purchases: 32, purchase_value: 5120.00, roas: 3.56 },
+    { ad_name: 'Carrossel — Lookalike Versão B',   ad_id: 'ad_009', adset_id: 'ads_005', campaign_id: 'cmp_003', impressions: 64000, clicks: 1102, spend: 1200.00, cpm: 18.75, cpc: 1.09, ctr: 1.72, purchases: 29, purchase_value: 4640.00, roas: 3.87 },
+    { ad_name: 'Banner Awareness — Imagem',        ad_id: 'ad_010', adset_id: 'ads_006', campaign_id: 'cmp_004', impressions: 510000,clicks: 3570, spend: 1980.00, cpm: 3.88,  cpc: 0.55, ctr: 0.70, purchases: 12, purchase_value: 1440.00, roas: 0.73 },
+    { ad_name: 'Vídeo Oferta — Compradores',       ad_id: 'ad_011', adset_id: 'ads_007', campaign_id: 'cmp_005', impressions: 42000, clicks: 1344, spend: 960.00,  cpm: 22.86, cpc: 0.71, ctr: 3.20, purchases: 44, purchase_value: 7040.00, roas: 7.33 },
+    { ad_name: 'Story Oferta — Engajados',         ad_id: 'ad_012', adset_id: 'ads_008', campaign_id: 'cmp_005', impressions: 36400, clicks: 851,  spend: 780.00,  cpm: 21.43, cpc: 0.92, ctr: 2.34, purchases: 30, purchase_value: 4800.00, roas: 6.15 },
+    { ad_name: 'Imagem Ampla — Interesse Geral',   ad_id: 'ad_013', adset_id: 'ads_009', campaign_id: 'cmp_006', impressions: 320000,clicks: 2880, spend: 2240.00, cpm: 7.00,  cpc: 0.78, ctr: 0.90, purchases: 29, purchase_value: 3480.00, roas: 1.55 },
+  ];
+
+  // ── AI responses (scripted) ───────────────────────────────────
+  const AI_ANALYSIS_DEFAULT = `As campanhas do período mostram uma performance polarizada: o núcleo de retargeting e conversão está entregando bem, enquanto as campanhas de awareness e prospecção ampla apresentam ROAS crítico.
+
+**Destaques positivos:** "Retargeting — Visitantes 7d" lidera com ROAS de 7,75 e 98 compras, sustentada principalmente pelo conjunto "Visitantes — 7d Todos" (ROAS 8,80). O anúncio "Vídeo 15s — Resultado Rápido" é o melhor criativo da conta com ROAS de 9,87 — merece escala prioritária.
+
+**Ponto crítico:** "Awareness — Engajamento" tem ROAS de apenas 0,73, gastando R$ 1.980 para gerar R$ 1.440 em receita. Se o objetivo é awareness puro, o investimento precisa de justificativa estratégica clara; caso contrário, realocar esse budget para retargeting ou conversão tende a ser mais eficiente. "Prospecção — Interesse Amplo" também está abaixo do break-even com ROAS 1,55.`;
+
+  const AI_RESPONSES = [
+    {
+      keywords: ['pausar', 'desligar', 'cortar', 'desativar', 'parar'],
+      response: `Com base nos dados, as prioridades para pausar são claras: **"Awareness — Engajamento" (ROAS 0,73)** está destruindo valor — cada R$1,00 investido retorna apenas R$0,73. Sem objetivo de awareness justificado, pausar imediatamente e realocar o budget é o movimento mais defensável. **"Prospecção — Interesse Amplo" (ROAS 1,55)** está no limiar do break-even; se o produto tem margem abaixo de 55%, também não cobre os custos. O conjunto "Awareness — Interesse Geral" (ads_006) concentra toda a ineficiência da campanha 4 — pausar o conjunto já encerra o sangramento. Nas outras campanhas, o desempenho está acima de 3,5x ROAS, o que não justifica pausas.`,
+    },
+    {
+      keywords: ['escalar', 'aumentar', 'crescer', 'investir mais', 'dobrar'],
+      response: `Os candidatos mais sólidos para escala são **"Retargeting — Visitantes 7d"** e a campanha **"Conversão — Oferta Relâmpago"**. O conjunto "Visitantes — 7d Todos" (ROAS 8,80) tem o melhor índice de eficiência da conta; o risco de saturação de audiência é real com retargeting, então vale monitorar frequência — se passar de 4,5 no período, diminuir o orçamento em vez de aumentar. Para o anúncio "Vídeo 15s — Resultado Rápido" (ROAS 9,87), vale duplicar o conjunto e aumentar budget em 20–30% ao dia, evitando saltos bruscos que reiniciam a fase de aprendizado. A campanha "Prospecção — Público Frio" (ROAS 3,74) também é escalável, mas com aumento gradual — não mais de 20% a cada 48h.`,
+    },
+    {
+      keywords: ['criativo', 'criativos', 'anúncio', 'anúncios', 'formato', 'vídeo', 'carrossel', 'imagem'],
+      response: `O padrão mais claro nos dados é que **vídeo curto supera imagem estática na conta**. O "Vídeo 15s — Resultado Rápido" (ROAS 9,87, CTR 3,50%) e o "Vídeo Oferta — Compradores" (ROAS 7,33, CTR 3,20%) dominam. O "Story — CTA Urgência" (ROAS 4,39) também mostra que mensagem de urgência no story performa melhor que benefícios genéricos. Carrosséis têm resultado inconsistente: "Antes e Depois" (ROAS 7,48) funciona bem em retargeting, mas "5 Benefícios" (ROAS 3,19) em público frio é mediocre. Recomendação: criar 2–3 variações de vídeo curto (15s) focadas em prova social e resultado rápido para os conjuntos de prospecção que ainda não testaram esse formato.`,
+    },
+    {
+      keywords: ['diagnóstico', 'problema', 'caindo', 'queda', 'piorou', 'ruim', 'baixo'],
+      response: `O principal problema estrutural da conta está na **segmentação de público frio**. As campanhas "Prospecção — Público Frio" e "Prospecção — Interesse Amplo" juntas gastam R$ 6.060,50 com ROAS médio de 2,6x — abaixo do desejável para prospecção, que idealmente deveria estar acima de 3x. Isso indica que os públicos frios não estão qualificados o suficiente, ou que os criativos não estão fazendo o trabalho de educação necessário no topo do funil. O contraste com o retargeting (ROAS médio 7,3x) sugere que o produto converte bem — o gargalo está na atração inicial. Hipóteses: audiência muito ampla nos conjuntos de prospecção, ou anúncios com mensagem focada em conversão direta para quem ainda não conhece a marca.`,
+    },
+    {
+      keywords: ['roas', 'melhor', 'top', 'performance', 'resultado', 'campanha'],
+      response: `**Ranking por ROAS** no período: (1) "Vídeo 15s — Resultado Rápido" — 9,87 · (2) "Visitantes — 7d Todos" — 8,80 · (3) "Retargeting — Visitantes 7d" campanha — 7,75 · (4) "Vídeo Oferta — Compradores" — 7,33 · (5) "Conversão — Oferta Relâmpago" campanha — 6,81. A mediana de ROAS da conta toda é ~3,7x. Campanhas acima disso: retargeting e oferta relâmpago. Abaixo: awareness (0,73), interesse amplo (1,55) e lookalike (3,70 — borderline). O budget está relativamente bem concentrado nas campanhas produtivas, mas os R$ 4.220 alocados nas duas campanhas ineficientes representam capital sub-ótimo.`,
+    },
+    {
+      keywords: ['orçamento', 'budget', 'alocar', 'realocação', 'distribuição', 'dividir'],
+      response: `Proposta de realocação com base nos dados: **pausar ou reduzir em 70%** "Awareness — Engajamento" (libera ~R$ 1.980) e **reduzir em 40%** "Prospecção — Interesse Amplo" (libera ~R$ 900). Total liberado: ~R$ 2.880. Redistribuição sugerida: +R$ 1.200 em "Retargeting — Visitantes 7d" (manter frequência abaixo de 5), +R$ 900 em "Conversão — Oferta Relâmpago" (ampliar conjuntos), +R$ 780 em novos testes de criativo na campanha de lookalike. Essa movimentação não garante resultado — retargeting tem audiência limitada e pode saturar — mas melhora o ROAS médio da conta de ~3,2x para ~4,8x sem aumentar budget total.`,
+    },
+    {
+      keywords: ['ctr', 'clique', 'cpc', 'custo por clique', 'taxa de clique'],
+      response: `Os CTRs mais altos estão no retargeting e na campanha de oferta, o que é esperado — público quente clica mais. O destaque é o conjunto "Visitantes — 7d Todos" com CTR de 3,25% e o anúncio "Vídeo 15s — Resultado Rápido" com 3,50% — excelente para público frio. A campanha "Awareness — Engajamento" tem CTR de 0,70%, que isoladamente poderia ser aceitável para awareness, mas combinado com ROAS 0,73 indica que nem quem clica está comprando. No CPL (custo por clique), a conta está saudável na média (~R$ 0,85), com o pior CPC sendo R$ 1,16 no lookalike — ainda dentro do razoável se o ROAS compensar.`,
+    },
+  ];
+
+  const AI_DEFAULT_RESPONSE = `Com base nos dados carregados, o ponto mais relevante que consigo identificar é a diferença de eficiência entre os públicos quentes e frios. O retargeting está entregando ~2x o ROAS da prospecção, o que é um padrão normal, mas a magnitude da diferença (0,73–1,55 vs 6–9x) sugere que as campanhas de topo de funil precisam de revisão. Tente fazer uma pergunta mais específica — por exemplo sobre criativos, orçamento, quais pausar ou como escalar.`;
+
+  // ── State ─────────────────────────────────────────────────────
+  let dataLoaded = false;
+  let chatHistory = [];
+
+  // ── Sidebar mode ──────────────────────────────────────────────
+  function setMode(mode) {
+    document.getElementById('mode-preset').classList.toggle('active', mode === 'preset');
+    document.getElementById('mode-custom').classList.toggle('active', mode === 'custom');
+    document.getElementById('preset-section').style.display = mode === 'preset' ? '' : 'none';
+    document.getElementById('custom-section').style.display = mode === 'custom' ? '' : 'none';
+  }
+
+  function onPresetChange() { /* just UI */ }
+
+  // ── Tab switch ────────────────────────────────────────────────
+  function switchTab(name) {
+    document.querySelectorAll('.tab-nav-btn').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.toggle('active', p.id === 'tab-' + name));
+  }
+
+  // ── Format helpers ────────────────────────────────────────────
+  const fmtNum = n => n.toLocaleString('pt-BR');
+  const fmtCur = n => 'R$ ' + n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtPct = n => n.toFixed(2) + '%';
+  const fmtRoas = n => n.toFixed(2) + 'x';
+  function roasClass(v) { return v >= 4 ? 'cell-good' : v >= 2 ? 'cell-warn' : 'cell-bad'; }
+  function ctrClass(v)  { return v >= 2 ? 'cell-good' : v >= 1 ? 'cell-warn' : 'cell-bad'; }
+
+  // ── Build table ───────────────────────────────────────────────
+  function buildCampaignTable(rows) {
+    const totals = rows.reduce((acc, r) => {
+      acc.impressions    += r.impressions;
+      acc.clicks         += r.clicks;
+      acc.spend          += r.spend;
+      acc.purchases      += r.purchases;
+      acc.purchase_value += r.purchase_value;
+      return acc;
+    }, { impressions: 0, clicks: 0, spend: 0, purchases: 0, purchase_value: 0 });
+    const totalRoas = totals.spend > 0 ? totals.purchase_value / totals.spend : 0;
+
+    const thead = `<thead><tr>
+      <th>Campanha</th>
+      <th>Impressões</th><th>Cliques</th><th>Gasto</th>
+      <th>CPM</th><th>CPC</th><th>CTR</th>
+      <th>Compras</th><th>Receita</th><th>ROAS</th>
+    </tr></thead>`;
+
+    const tbodyRows = rows.map(r => `<tr>
+      <td class="cell-name">${r.campaign_name}<br><span class="cell-id">${r.campaign_id}</span></td>
+      <td class="cell-num">${fmtNum(r.impressions)}</td>
+      <td class="cell-num">${fmtNum(r.clicks)}</td>
+      <td class="cell-num">${fmtCur(r.spend)}</td>
+      <td class="cell-num">${fmtCur(r.cpm)}</td>
+      <td class="cell-num">${fmtCur(r.cpc)}</td>
+      <td class="cell-num ${ctrClass(r.ctr)}">${fmtPct(r.ctr)}</td>
+      <td class="cell-num">${fmtNum(r.purchases)}</td>
+      <td class="cell-num">${fmtCur(r.purchase_value)}</td>
+      <td class="cell-num ${roasClass(r.roas)}">${fmtRoas(r.roas)}</td>
+    </tr>`).join('');
+
+    const tfoot = `<tfoot><tr>
+      <td><strong>TOTAL</strong></td>
+      <td class="cell-num">${fmtNum(totals.impressions)}</td>
+      <td class="cell-num">${fmtNum(totals.clicks)}</td>
+      <td class="cell-num">${fmtCur(totals.spend)}</td>
+      <td>—</td><td>—</td><td>—</td>
+      <td class="cell-num">${fmtNum(totals.purchases)}</td>
+      <td class="cell-num">${fmtCur(totals.purchase_value)}</td>
+      <td class="cell-num ${roasClass(totalRoas)}">${fmtRoas(totalRoas)}</td>
+    </tr></tfoot>`;
+
+    return `<div class="table-wrap"><table class="data-table">${thead}<tbody>${tbodyRows}</tbody>${tfoot}</table></div>`;
+  }
+
+  function buildAdsetTable(rows) {
+    const thead = `<thead><tr>
+      <th>Conjunto</th><th>Campanha</th>
+      <th>Impressões</th><th>Cliques</th><th>Gasto</th>
+      <th>CTR</th><th>CPC</th><th>Compras</th><th>ROAS</th>
+    </tr></thead>`;
+    const tbodyRows = rows.map(r => `<tr>
+      <td class="cell-name">${r.adset_name}<br><span class="cell-id">${r.adset_id}</span></td>
+      <td class="cell-id">${r.campaign_id}</td>
+      <td class="cell-num">${fmtNum(r.impressions)}</td>
+      <td class="cell-num">${fmtNum(r.clicks)}</td>
+      <td class="cell-num">${fmtCur(r.spend)}</td>
+      <td class="cell-num ${ctrClass(r.ctr)}">${fmtPct(r.ctr)}</td>
+      <td class="cell-num">${fmtCur(r.cpc)}</td>
+      <td class="cell-num">${fmtNum(r.purchases)}</td>
+      <td class="cell-num ${roasClass(r.roas)}">${fmtRoas(r.roas)}</td>
+    </tr>`).join('');
+    return `<div class="table-wrap"><table class="data-table">${thead}<tbody>${tbodyRows}</tbody></table></div>`;
+  }
+
+  function buildAdsTable(rows) {
+    const thead = `<thead><tr>
+      <th>Anúncio</th><th>Conjunto</th>
+      <th>Impressões</th><th>Cliques</th><th>Gasto</th>
+      <th>CTR</th><th>CPC</th><th>Compras</th><th>Receita</th><th>ROAS</th>
+    </tr></thead>`;
+    const tbodyRows = rows.map(r => `<tr>
+      <td class="cell-name">${r.ad_name}<br><span class="cell-id">${r.ad_id}</span></td>
+      <td class="cell-id">${r.adset_id}</td>
+      <td class="cell-num">${fmtNum(r.impressions)}</td>
+      <td class="cell-num">${fmtNum(r.clicks)}</td>
+      <td class="cell-num">${fmtCur(r.spend)}</td>
+      <td class="cell-num ${ctrClass(r.ctr)}">${fmtPct(r.ctr)}</td>
+      <td class="cell-num">${fmtCur(r.cpc)}</td>
+      <td class="cell-num">${fmtNum(r.purchases)}</td>
+      <td class="cell-num">${fmtCur(r.purchase_value)}</td>
+      <td class="cell-num ${roasClass(r.roas)}">${fmtRoas(r.roas)}</td>
+    </tr>`).join('');
+    return `<div class="table-wrap"><table class="data-table">${thead}<tbody>${tbodyRows}</tbody></table></div>`;
+  }
+
+  // ── Load campaigns ────────────────────────────────────────────
+  function loadCampaigns() {
+    const btn = document.getElementById('btn-load');
+    const spin = document.getElementById('spin-load');
+    btn.disabled = true;
+    spin.style.display = 'block';
+
+    setTimeout(() => {
+      const showCampaigns = document.getElementById('chk-campaigns').checked;
+      const showAdsets    = document.getElementById('chk-adsets').checked;
+      const showAds       = document.getElementById('chk-ads').checked;
+
+      if (showCampaigns) {
+        document.getElementById('empty-campaigns').style.display = 'none';
+        document.getElementById('table-campaigns').style.display = 'block';
+        document.getElementById('table-campaigns').innerHTML = buildCampaignTable(FAKE_CAMPAIGNS);
+      }
+      if (showAdsets) {
+        document.getElementById('empty-adsets').style.display = 'none';
+        document.getElementById('table-adsets').style.display = 'block';
+        document.getElementById('table-adsets').innerHTML = buildAdsetTable(FAKE_ADSETS);
+      }
+      if (showAds) {
+        document.getElementById('empty-ads').style.display = 'none';
+        document.getElementById('table-ads').style.display = 'block';
+        document.getElementById('table-ads').innerHTML = buildAdsTable(FAKE_ADS);
+      }
+
+      dataLoaded = true;
+      btn.disabled = false;
+      spin.style.display = 'none';
+    }, 800);
+  }
+
+  // ── Analyze with AI ───────────────────────────────────────────
+  function analyzeWithAI() {
+    const btn = document.getElementById('btn-analyze');
+    const spin = document.getElementById('spin-analyze');
+    btn.disabled = true;
+    spin.style.display = 'block';
+
+    const aiBox = document.getElementById('ai-box');
+    aiBox.classList.add('empty');
+    aiBox.innerHTML = '⏳ Analisando campanhas com IA…';
+
+    setTimeout(() => {
+      aiBox.classList.remove('empty');
+      aiBox.innerHTML = markdownToHtml(AI_ANALYSIS_DEFAULT);
+      btn.disabled = false;
+      spin.style.display = 'none';
+
+      if (!dataLoaded) loadCampaigns();
+    }, 1800);
+  }
+
+  // ── Chat ──────────────────────────────────────────────────────
+  function markdownToHtml(text) {
+    return text
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+      .replace(/\n\n/g, '</p><p>')
+      .replace(/\n/g, '<br>')
+      .replace(/^/, '<p>').replace(/$/, '</p>');
+  }
+
+  function getAIResponse(question) {
+    const q = question.toLowerCase();
+    for (const item of AI_RESPONSES) {
+      if (item.keywords.some(k => q.includes(k))) {
+        return item.response;
+      }
+    }
+    return AI_DEFAULT_RESPONSE;
+  }
+
+  function addMessage(role, content) {
+    const container = document.getElementById('chat-messages');
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg ' + role;
+
+    const avatar = document.createElement('div');
+    avatar.className = 'chat-avatar';
+    avatar.textContent = role === 'user' ? 'LM' : '🤖';
+
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.innerHTML = markdownToHtml(content);
+
+    msg.appendChild(avatar);
+    msg.appendChild(bubble);
+    container.appendChild(msg);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function showTyping() {
+    const container = document.getElementById('chat-messages');
+    const typing = document.createElement('div');
+    typing.className = 'chat-msg assistant';
+    typing.id = 'typing-indicator';
+
+    const avatar = document.createElement('div');
+    avatar.className = 'chat-avatar';
+    avatar.textContent = '🤖';
+
+    const dots = document.createElement('div');
+    dots.className = 'typing-dots';
+    dots.innerHTML = '<span></span><span></span><span></span>';
+
+    typing.appendChild(avatar);
+    typing.appendChild(dots);
+    container.appendChild(typing);
+    container.scrollTop = container.scrollHeight;
+  }
+
+  function removeTyping() {
+    const el = document.getElementById('typing-indicator');
+    if (el) el.remove();
+  }
+
+  function sendChat() {
+    const input = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send');
+    const text = input.value.trim();
+    if (!text) return;
+
+    input.value = '';
+    sendBtn.disabled = true;
+    addMessage('user', text);
+    chatHistory.push({ role: 'user', content: text });
+    showTyping();
+
+    const delay = 1200 + Math.random() * 1000;
+    setTimeout(() => {
+      removeTyping();
+      const response = getAIResponse(text);
+      addMessage('assistant', response);
+      chatHistory.push({ role: 'assistant', content: response });
+      sendBtn.disabled = false;
+      document.getElementById('ai-box').classList.remove('empty');
+      document.getElementById('ai-box').innerHTML = markdownToHtml(response);
+    }, delay);
+  }
+
+  // ── Init ──────────────────────────────────────────────────────
+  (function() {
+    const today = new Date().toISOString().slice(0, 10);
+    const weekAgo = new Date(Date.now() - 7 * 86400000).toISOString().slice(0, 10);
+    document.getElementById('date-since').value = weekAgo;
+    document.getElementById('date-until').value = today;
+  })();
+</script>
+</body>
+</html>
