@@ -17,6 +17,7 @@ const i18n = {
     hm_budget:     "Verba Gerenciada",
     hm_platforms:  "Plataformas",
     hm_stores:     "Lojas",
+    hm_context:   "Indicadores aproximados de operações em que atuei diretamente, com dados sensíveis preservados por confidencialidade.",
     cta_cases:     "Ver Cases",
     cta_cv:        "Baixar CV",
     cta_contact:   "Falar Comigo",
@@ -137,30 +138,30 @@ const i18n = {
     p_gh:        "GitHub",
 
     p1_title: "Relatório de Mídia Automatizado",
-    p1_desc:  "Pipeline automatizado que consolida investimento de mídia de 9+ plataformas, padroniza os dados por regional e atualiza relatórios diariamente sem intervenção manual.",
+    p1_desc:  "Pipeline que automatiza a consolidação diária de verba de 9+ plataformas de mídia em um único relatório estruturado por regional — eliminando horas de trabalho manual e garantindo dados consistentes para tomada de decisão.",
     p2_title: "Leads Processor",
-    p2_desc:  "Aplicação client-side que cruza relatórios de leads de duas fontes distintas, aplicando mapeamento determinístico para reconciliar nomenclaturas de 280+ lojas e 80+ parceiros.",
+    p2_desc:  "Ferramenta que cruza automaticamente relatórios de leads de duas fontes com nomenclaturas diferentes — reconciliando nomes de 280+ lojas e 80+ parceiros sem intervenção manual.",
     p3_title: "AI Ad Metrics Analyzer",
-    p3_desc:  "Aplicação com coleta automatizada de métricas de campanhas via API, tratamento de dados com Pandas e geração de recomendações com suporte de inteligência artificial — o que cortar, o que escalar, onde redistribuir verba.",
+    p3_desc:  "Aplicação que conecta a API do Meta Ads, coleta métricas de campanhas automaticamente e usa IA para gerar recomendações práticas — o que pausar, o que escalar e onde redistribuir verba.",
     p4_title: "Meta CAPI — AudioNova",
-    p4_desc:  "Implementação server-side completa de Conversions API em paralelo com Pixel, para operação com 1.000+ anúncios ativos e múltiplas regionais — deduplicação, parâmetros de qualidade e monitoramento contínuo.",
+    p4_desc:  "Implementação server-side da Conversions API do Meta em paralelo com o Pixel — melhorando a qualidade do sinal de conversão, reduzindo sub-reporte e aumentando o match rate para algoritmos de lances.",
     p5_title: "Email → ClickUp Automation",
-    p5_desc:  "Automação que lê emails do FreshService via Microsoft Graph API, classifica e extrai dados com IA, e cria ou atualiza tasks no ClickUp — Oracle Cloud Free Tier, zero custo.",
+    p5_desc:  "Automação que lê emails de suporte, extrai dados estruturados com IA e cria ou atualiza tasks no ClickUp automaticamente — eliminando o processo manual de triagem e registro.",
     p6_title: "TikTok Pixel & CAPI V2",
-    p6_desc:  "Reconfiguração completa do tracking server-side do TikTok, com estrutura de eventos redesenhada para lead gen, parâmetros de matching e validação via Events Manager.",
+    p6_desc:  "Reconfiguração completa do tracking server-side do TikTok: estrutura de eventos redesenhada para lead gen, parâmetros de matching corretos e validação sistemática — garantindo dados confiáveis no Ads Manager.",
     p7_title: "Ad-Level Analytics Web App",
-    p7_desc:  "Dashboard interno para análise granular por campanha, conjunto e anúncio, cruzando dados de plataforma com leads e agendamentos do CRM — com cache inteligente e exportação Excel.",
+    p7_desc:  "Dashboard que cruza dados de plataforma com leads e agendamentos do CRM — permitindo análise granular por campanha, conjunto e anúncio, com drill-down e exportação Excel.",
     p8_title:  "Store-Level Analytics",
-    p8_desc:   "Aplicação interna para análise de performance por loja e regional, com filtros, comparações e exportação de dados de 280+ unidades — autenticação por domínio e drill-down operacional.",
+    p8_desc:   "Aplicação que centraliza a análise de performance de 280+ lojas em 16 regionais, com filtros por canal e período, controle de acesso por regional e exportação — eliminando planilhas fragmentadas.",
     p10_title: "Desafio Técnico Looqbox",
-    p10_desc:  "3 cases progressivos de análise de dados: queries parametrizadas em MySQL com pandas/SQLAlchemy, análise de performance de vendas por produto e loja, e visualização de dados com matplotlib.",
+    p10_desc:  "Três cases de análise de dados entregues como processo seletivo técnico: query parametrizada com MySQL e pandas, análise de ticket médio por loja, e visualização exploratória de dados com matplotlib.",
     p11_title: "Calculadora de Imposto Meta Ads",
-    p11_desc:  "App React que calcula em tempo real o imposto (12,15%) sobre investimentos no Meta Ads — exibe o valor total a inserir na plataforma para manter o investimento líquido desejado.",
+    p11_desc:  "Calculadora que resolve um problema cotidiano de operações de mídia: o imposto de 12,15% do Meta Ads. Calcula o valor correto a inserir na plataforma para manter o investimento líquido desejado.",
     p12_title: "Transcritor de Call em Tempo Real",
-    p12_desc:  "Script Python que captura áudio do sistema (loopback) ou microfone e transcreve calls em tempo real com Whisper rodando 100% local — sem bots, sem servidores externos, salva .txt com timestamps.",
+    p12_desc:  "Script que transcreve calls de trabalho em tempo real usando Whisper rodando localmente — sem bots, sem servidores externos, sem custo. Captura áudio do sistema e salva a transcrição com timestamps.",
     // DIFERENCIAIS
     diff_tag:   "diferenciais",
-    diff_title: "Por que não é o mesmo que o próximo analista",
+    diff_title: "Diferenciais da minha atuação",
     d1_title: "Não analiso mídia isolada",
     d1_desc:  "Conecto investimento, leads, lojas, CRM e jornada do usuário. O número da plataforma precisa dialogar com o que chegou no CRM e o que virou venda.",
     d2_title: "Não dependo só de dashboard",
@@ -168,7 +169,7 @@ const i18n = {
     d3_title: "Tenho visão de negócio",
     d3_desc:  "Traduzo métricas técnicas em recomendações práticas. CPL alto não é um número — é um sinal de onde o funil está quebrando ou onde a segmentação errou.",
     d4_title: "Base técnica para executar",
-    d4_desc:  "Python, SQL, APIs, tracking server-side, BI e automação — quando não existe ferramenta pronta, eu construo. Sem depender de engenharia para resolver problemas de dados de marketing.",
+    d4_desc:  "Python, SQL, APIs, tracking server-side, BI e automação — quando não existe ferramenta pronta, eu construo. Isso reduz a dependência de engenharia em problemas analíticos e operacionais de marketing.",
     d5_title: "Entendo os dois extremos",
     d5_desc:  "Tanto a operação de mídia — estratégia, criativos, lances, budget — quanto a infraestrutura analítica por trás dela. Isso evita a lacuna entre \"quem analisa\" e \"quem executa\".",
 
@@ -187,10 +188,10 @@ const i18n = {
     test_title: "O que dizem",
     t1_text:  "Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.",
     t1_name:  "Colega de equipe",
-    t1_role:  "Media.k · LinkedIn",
+    t1_role:  "Depoimento anonimizado · Media.k · LinkedIn",
     t2_text:  "A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.",
     t2_name:  "Gestor de conta",
-    t2_role:  "AudioNova · LinkedIn",
+    t2_role:  "Depoimento anonimizado · AudioNova · LinkedIn",
 
     // CTA
     cta_tag:   "contato",
@@ -215,6 +216,7 @@ const i18n = {
     hm_budget:     "Managed Budget",
     hm_platforms:  "Platforms",
     hm_stores:     "Stores",
+    hm_context:   "Approximate figures from operations I worked on directly. Sensitive data preserved for confidentiality.",
     cta_cases:     "See Cases",
     cta_cv:        "Download CV",
     cta_contact:   "Get in Touch",
@@ -335,30 +337,30 @@ const i18n = {
     p_gh:        "GitHub",
 
     p1_title: "Automated Media Report",
-    p1_desc:  "Automated pipeline that consolidates media spend from 9+ platforms, standardizes data by region, and updates reports daily without manual intervention.",
+    p1_desc:  "Pipeline that automates daily consolidation of media spend from 9+ platforms into a single structured report by region — eliminating hours of manual work and ensuring consistent data for decision-making.",
     p2_title: "Leads Processor",
-    p2_desc:  "Client-side app that cross-references lead reports from two distinct sources using deterministic mapping to reconcile naming conventions across 280+ stores and 80+ partners.",
+    p2_desc:  "Tool that automatically cross-references lead reports from two sources with different naming conventions — reconciling 280+ store names and 80+ partners without manual intervention.",
     p3_title: "AI Ad Metrics Analyzer",
-    p3_desc:  "App with automated campaign metrics collection via API, data processing with Pandas, and AI-powered recommendations — what to cut, what to scale, where to reallocate budget.",
+    p3_desc:  "App that connects to the Meta Ads API, collects campaign metrics automatically, and uses AI to generate practical recommendations — what to pause, what to scale, and where to reallocate budget.",
     p4_title: "Meta CAPI — AudioNova",
-    p4_desc:  "Full server-side Conversions API implementation running in parallel with Pixel for an operation with 1,000+ active ads and multiple regions — deduplication, quality parameters, and continuous monitoring.",
+    p4_desc:  "Server-side implementation of Meta's Conversions API running alongside the Pixel — improving conversion signal quality, reducing under-reporting, and increasing match rate for bidding algorithms.",
     p5_title: "Email → ClickUp Automation",
-    p5_desc:  "Automation that reads FreshService emails via Microsoft Graph API, classifies and extracts data with AI, and creates or updates ClickUp tasks — Oracle Cloud Free Tier, zero cost.",
+    p5_desc:  "Automation that reads support emails, extracts structured data with AI, and creates or updates ClickUp tasks automatically — eliminating the manual triage and logging process.",
     p6_title: "TikTok Pixel & CAPI V2",
-    p6_desc:  "Full reconfiguration of TikTok server-side tracking with a redesigned event structure for lead gen, matching parameters, and validation via Events Manager.",
+    p6_desc:  "Full reconfiguration of TikTok server-side tracking: redesigned event structure for lead gen, correct matching parameters, and systematic validation — ensuring reliable data in Ads Manager.",
     p7_title: "Ad-Level Analytics Web App",
-    p7_desc:  "Internal dashboard for granular analysis by campaign, ad set, and ad — cross-referencing platform data with CRM leads and appointments, with smart caching and Excel export.",
+    p7_desc:  "Dashboard that cross-references platform data with CRM leads and appointments — enabling granular analysis by campaign, ad set, and ad, with drill-down and Excel export.",
     p8_title:  "Store-Level Analytics",
-    p8_desc:   "Internal app for performance analysis by store and region across 280+ units — domain-based authentication, operational drill-down, and data export.",
+    p8_desc:   "App that centralizes performance analysis for 280+ stores across 16 regions, with channel and period filters, region-based access control, and export — replacing fragmented spreadsheets.",
     p10_title: "Looqbox Technical Challenge",
-    p10_desc:  "3 progressive data analysis cases: parameterized MySQL queries with pandas/SQLAlchemy, sales performance analysis by product and store, and data visualization with matplotlib.",
+    p10_desc:  "Three data analysis cases delivered as a technical selection process: parameterized MySQL query with pandas, average ticket analysis by store, and exploratory data visualization with matplotlib.",
     p11_title: "Meta Ads Tax Calculator",
-    p11_desc:  "React app that calculates in real time the 12.15% tax on Meta Ads investments — shows the total amount to enter in the platform to maintain the desired net investment.",
+    p11_desc:  "Calculator that solves a daily media operations problem: Meta Ads' 12.15% tax. Calculates the exact amount to enter in the platform to maintain the desired net investment.",
     p12_title: "Real-Time Call Transcriber",
-    p12_desc:  "Python script that captures system audio (loopback) or microphone and transcribes calls in real time with Whisper running 100% locally — no bots, no external servers, saves .txt with timestamps.",
+    p12_desc:  "Script that transcribes work calls in real time using Whisper running locally — no bots, no external servers, no cost. Captures system audio and saves the transcript with timestamps.",
     // DIFFERENTIALS
     diff_tag:   "differentials",
-    diff_title: "Why I'm not just another analyst",
+    diff_title: "What sets my work apart",
     d1_title: "I don't analyze media in isolation",
     d1_desc:  "I connect spend, leads, stores, CRM, and user journey. Platform numbers need to align with what hit the CRM and what turned into a sale.",
     d2_title: "I don't depend solely on dashboards",
@@ -366,7 +368,7 @@ const i18n = {
     d3_title: "I have a business mindset",
     d3_desc:  "I translate technical metrics into practical recommendations. A high CPL isn't just a number — it's a signal of where the funnel is breaking or where targeting went wrong.",
     d4_title: "Technical foundation to execute",
-    d4_desc:  "Python, SQL, APIs, server-side tracking, BI and automation — when there's no ready-made tool, I build it. No dependency on engineering to solve marketing data problems.",
+    d4_desc:  "Python, SQL, APIs, server-side tracking, BI and automation — when there's no ready-made tool, I build it. This reduces dependency on engineering for analytical and operational marketing problems.",
     d5_title: "I understand both ends",
     d5_desc:  "Both the media operation — strategy, creatives, bids, budget — and the analytics infrastructure behind it. This closes the gap between \"who analyzes\" and \"who executes\".",
 
@@ -384,11 +386,11 @@ const i18n = {
     test_tag:   "references",
     test_title: "What they say",
     t1_text:  "Lucas managed to turn a complex manual routine into a much faster and more reliable process. What used to take hours started running automatically — with no loss in data quality.",
-    t1_name:  "Team member",
-    t1_role:  "Media.k · LinkedIn",
+    t1_name:  "Teammate",
+    t1_role:  "Anonymous testimonial · Media.k · LinkedIn",
     t2_text:  "The store and regional breakdown made it much easier to read the operation's performance. We were able to identify specific bottlenecks that were previously hidden in consolidated numbers.",
-    t2_name:  "Account manager",
-    t2_role:  "AudioNova · LinkedIn",
+    t2_name:  "Account Manager",
+    t2_role:  "Anonymous testimonial · AudioNova · LinkedIn",
 
     // CTA
     cta_tag:   "contact",
@@ -435,7 +437,34 @@ const projects = {
           { value: "90%", label: "redução de tempo em tarefas manuais" }
         ]
       },
-      github: "https://github.com/Lucas-Mrl"
+      github: "https://github.com/Lucas-Mrl",
+      context: {
+        label: "Contexto",
+        text: "Operação de mídia paga em 9+ plataformas, cada uma com API própria, estrutura de dados diferente e autenticação distinta. A consolidação por regional era feita manualmente, com alto risco de erro e custo de horas semanais."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Desenvolvi o pipeline completo do zero: arquitetura de connectors por plataforma, normalização e padronização dos dados, lógica de agregação por regional, integração com Google Sheets via API e automação do fluxo com GitHub Actions."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Consolidação manual por plataforma, em planilhas separadas",
+          "Processo demorava horas a cada atualização",
+          "Inconsistência entre períodos e fontes",
+          "Sem visibilidade comparativa entre plataformas"
+        ],
+        after: [
+          "Pipeline automatizado, atualização diária sem intervenção",
+          "Dados normalizados e comparáveis entre todas as plataformas",
+          "Relatório estruturado por regional disponível toda manhã",
+          "Equipe focada em análise, não em consolidação"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "Cada API tem rate limits, estrutura de resposta e autenticação distintos. Abstrair os connectors com uma interface comum tornou possível escalar de 3 para 9+ plataformas sem reescrever o core do pipeline. A decisão mais importante foi separar coleta, normalização e escrita em camadas independentes."
+      }
     },
     en: {
       tag: "Internal Tool · Python · Automation",
@@ -468,7 +497,34 @@ const projects = {
           { value: "90%", label: "reduction in manual task time" }
         ]
       },
-      github: "https://github.com/Lucas-Mrl"
+      github: "https://github.com/Lucas-Mrl",
+      context: {
+        label: "Context",
+        text: "Paid media operation across 9+ platforms, each with its own API, data structure, and authentication. Regional consolidation was done manually, with high error risk and a weekly cost of several hours."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Built the full pipeline from scratch: per-platform connector architecture, data normalization and standardization, regional aggregation logic, Google Sheets API integration, and GitHub Actions automation."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Manual consolidation per platform, in separate spreadsheets",
+          "Process took hours at every update",
+          "Inconsistencies between periods and sources",
+          "No comparative visibility across platforms"
+        ],
+        after: [
+          "Automated pipeline, daily update with no intervention",
+          "Normalized, comparable data across all platforms",
+          "Structured regional report available every morning",
+          "Team focused on analysis, not consolidation"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "Each API has different rate limits, response structures, and authentication. Abstracting connectors with a common interface made it possible to scale from 3 to 9+ platforms without rewriting the pipeline core. The most important decision was separating collection, normalization, and writing into independent layers."
+      }
     }
   },
 
@@ -502,7 +558,34 @@ const projects = {
           { value: "0", label: "dependências externas" }
         ]
       },
-      github: "https://github.com/Lucas-Mrl/leads-processor"
+      github: "https://github.com/Lucas-Mrl/leads-processor",
+      context: {
+        label: "Contexto",
+        text: "A operação utilizava dois sistemas distintos para gestão de leads — um CRM interno e um sistema de parceiros — cada um com nomenclatura própria para as mesmas lojas. O cruzamento manual entre os dois relatórios consumia tempo e gerava erros de atribuição."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Construí a aplicação client-side completa: algoritmo de mapeamento determinístico para reconciliar nomenclaturas, lógica de cruzamento entre os dois arquivos, interface de upload e exibição dos resultados unificados."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Dois relatórios separados, sem conexão automática",
+          "Reconciliação manual de nomes por analista",
+          "Erros de atribuição por variações de nomenclatura",
+          "Processo repetido toda semana"
+        ],
+        after: [
+          "Upload dos dois arquivos, cruzamento automático",
+          "Mapeamento determinístico de 280+ lojas e 80+ parceiros",
+          "Resultado unificado com atribuição correta",
+          "Processo que levava horas resolvido em segundos"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "O problema não era tecnológico — era de nomenclatura inconsistente entre sistemas. Modelar o mapeamento como dado (não como código hardcoded) tornou a solução resiliente a novos casos sem necessidade de redeployment."
+      }
     },
     en: {
       tag: "Open Source · JavaScript",
@@ -533,7 +616,34 @@ const projects = {
           { value: "0", label: "external dependencies" }
         ]
       },
-      github: "https://github.com/Lucas-Mrl/leads-processor"
+      github: "https://github.com/Lucas-Mrl/leads-processor",
+      context: {
+        label: "Context",
+        text: "The operation used two distinct systems for lead management — an internal CRM and a partner system — each with its own naming convention for the same stores. Manual cross-referencing between the two reports was time-consuming and caused attribution errors."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Built the full client-side application: deterministic mapping algorithm to reconcile naming conventions, cross-referencing logic between the two files, upload interface, and unified results display."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Two separate reports with no automatic connection",
+          "Manual name reconciliation by analysts",
+          "Attribution errors due to naming variations",
+          "Process repeated every week"
+        ],
+        after: [
+          "Upload both files, automatic cross-referencing",
+          "Deterministic mapping for 280+ stores and 80+ partners",
+          "Unified result with correct attribution",
+          "Process that took hours resolved in seconds"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "The problem wasn't technical — it was inconsistent naming between systems. Modeling the mapping as data (not hardcoded logic) made the solution resilient to new cases without requiring redeployment."
+      }
     }
   },
 
@@ -629,6 +739,33 @@ const projects = {
           { value: "↓", label: "sub-reporte de conversões" },
           { value: "1k+", label: "anúncios cobertos" }
         ]
+      },
+      context: {
+        label: "Contexto",
+        text: "Operação com 1.000+ anúncios ativos e múltiplas regionais, dependendo exclusivamente do Pixel para mensuração de conversões. Com restrições crescentes de cookies e browsers, o sub-reporte aumentava — afetando a qualidade dos sinais para os algoritmos de lances do Meta."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Implementei a Conversions API server-side completa em paralelo com o Pixel existente: configuração dos eventos, lógica de deduplicação, definição dos parâmetros de qualidade de match (email hash, phone hash, fbp, fbc) e monitoramento contínuo via Events Manager."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Mensuração dependente exclusivamente do Pixel client-side",
+          "Sub-reporte crescente por bloqueios de cookies e navegadores",
+          "Sinais fracos para os algoritmos de lances",
+          "Match rate abaixo do ideal"
+        ],
+        after: [
+          "CAPI server-side rodando em paralelo com o Pixel",
+          "Menor sub-reporte de conversões",
+          "Dados mais completos para os algoritmos do Meta",
+          "Match rate melhorado com parâmetros de qualidade"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "A deduplicação de eventos é tão crítica quanto a implementação em si — eventos duplicados prejudicam os algoritmos tanto quanto eventos ausentes. A qualidade dos parâmetros de matching (não apenas a quantidade de eventos) é o fator que mais impacta o resultado prático."
       }
     },
     en: {
@@ -659,6 +796,33 @@ const projects = {
           { value: "↓", label: "conversion under-reporting" },
           { value: "1k+", label: "ads covered" }
         ]
+      },
+      context: {
+        label: "Context",
+        text: "Operation with 1,000+ active ads and multiple regions, relying exclusively on the Pixel for conversion measurement. With growing cookie and browser restrictions, under-reporting was increasing — affecting the quality of signals for Meta's bidding algorithms."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Implemented the full server-side Conversions API in parallel with the existing Pixel: event configuration, deduplication logic, definition of match quality parameters (email hash, phone hash, fbp, fbc), and continuous monitoring via Events Manager."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Measurement relying exclusively on client-side Pixel",
+          "Growing under-reporting due to cookie and browser blocking",
+          "Weak signals for bidding algorithms",
+          "Below-target match rate"
+        ],
+        after: [
+          "Server-side CAPI running in parallel with Pixel",
+          "Reduced conversion under-reporting",
+          "More complete data for Meta's algorithms",
+          "Improved match rate with quality parameters"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "Event deduplication is as critical as the implementation itself — duplicate events harm algorithms as much as missing ones. The quality of matching parameters (not just event volume) is the factor with the most practical impact."
       }
     }
   },
@@ -692,6 +856,33 @@ const projects = {
           { value: "R$0", label: "custo de hospedagem" },
           { value: "100%", label: "rastreabilidade das demandas" }
         ]
+      },
+      context: {
+        label: "Contexto",
+        text: "A equipe recebia chamados de suporte por email que precisavam ser manualmente convertidos em tasks estruturadas no ClickUp — com campos de prioridade, categoria e prazo extraídos do corpo do email. Processo lento, sujeito a perda de informações e consumindo tempo operacional desnecessário."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Orquestrei o fluxo completo no n8n: configurei a leitura de emails via Microsoft Graph API, integrei IA para extração e classificação dos dados, e implementei a criação/atualização automática de tasks no ClickUp. Configurei e hospedei a instância na Oracle Cloud Free Tier."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Leitura manual de cada email de suporte",
+          "Criação manual de tasks no ClickUp",
+          "Risco de perda ou atraso no registro",
+          "Dados não estruturados, difíceis de acompanhar"
+        ],
+        after: [
+          "Emails processados automaticamente ao chegar",
+          "Tasks criadas com campos estruturados via IA",
+          "Zero intervenção manual no fluxo padrão",
+          "Custo operacional zero (Oracle Cloud Free Tier)"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "A maior dificuldade foi lidar com variações no formato dos emails. Usar IA para extração em vez de regex tornou o sistema muito mais robusto a emails fora do padrão — uma decisão de arquitetura que economizou retrabalho."
       }
     },
     en: {
@@ -722,6 +913,33 @@ const projects = {
           { value: "$0", label: "hosting cost" },
           { value: "100%", label: "demand traceability" }
         ]
+      },
+      context: {
+        label: "Context",
+        text: "The team received support requests by email that needed to be manually converted into structured ClickUp tasks — with priority, category, and deadline fields extracted from the email body. A slow process prone to information loss and unnecessary operational overhead."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Orchestrated the full flow in n8n: set up email reading via Microsoft Graph API, integrated AI for data extraction and classification, and implemented automatic task creation/update in ClickUp. Configured and hosted the instance on Oracle Cloud Free Tier."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Manual reading of each support email",
+          "Manual task creation in ClickUp",
+          "Risk of lost or delayed records",
+          "Unstructured data, difficult to track"
+        ],
+        after: [
+          "Emails processed automatically on arrival",
+          "Tasks created with structured fields via AI",
+          "Zero manual intervention in standard flow",
+          "Zero operational cost (Oracle Cloud Free Tier)"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "The main challenge was handling email format variations. Using AI for extraction instead of regex made the system far more robust to non-standard emails — an architectural decision that saved significant rework."
       }
     }
   },
@@ -755,6 +973,33 @@ const projects = {
           { value: "↓", label: "eventos perdidos vs. V1" },
           { value: "↑", label: "eficiência de otimização de lances" }
         ]
+      },
+      context: {
+        label: "Contexto",
+        text: "O tracking V1 do TikTok Ads tinha problemas de cobertura de eventos e baixa qualidade de match, gerando dados fragmentados no TikTok Ads Manager e limitando a eficiência dos algoritmos de lances para campanhas de geração de leads."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Reconcebi a estrutura de eventos do zero: redefinição do mapeamento de eventos para o funil de lead gen, implementação da CAPI V2 com parâmetros de matching corretos, e validação sistemática via Events Manager até estabilização dos dados."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Cobertura de eventos incompleta no funil",
+          "Match quality abaixo do recomendado pelo TikTok",
+          "Dados fragmentados no Ads Manager",
+          "Algoritmos de lances com informação insuficiente"
+        ],
+        after: [
+          "Estrutura de eventos correta para o funil de lead gen",
+          "CAPI V2 implementada com parâmetros de matching adequados",
+          "Match quality melhorado após validação",
+          "Dados mais consistentes para os algoritmos"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "O TikTok tem particularidades de implementação bem diferentes do Meta — a estrutura de eventos é mais rígida e os parâmetros de matching têm pesos distintos. Documentar e validar o mapeamento antes de implementar em produção evitou retrabalho."
       }
     },
     en: {
@@ -785,6 +1030,33 @@ const projects = {
           { value: "↓", label: "lost events vs. V1" },
           { value: "↑", label: "bid optimization efficiency" }
         ]
+      },
+      context: {
+        label: "Context",
+        text: "V1 TikTok Ads tracking had event coverage issues and low match quality, generating fragmented data in TikTok Ads Manager and limiting bidding algorithm efficiency for lead generation campaigns."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Redesigned the event structure from scratch: redefined the event mapping for the lead gen funnel, implemented CAPI V2 with correct matching parameters, and systematically validated via Events Manager until data stabilized."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Incomplete event coverage in the funnel",
+          "Match quality below TikTok's recommendations",
+          "Fragmented data in Ads Manager",
+          "Bidding algorithms with insufficient information"
+        ],
+        after: [
+          "Correct event structure for the lead gen funnel",
+          "CAPI V2 implemented with proper matching parameters",
+          "Improved match quality after validation",
+          "More consistent data for algorithms"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "TikTok has implementation quirks very different from Meta — the event structure is more rigid and matching parameters carry different weights. Documenting and validating the mapping before deploying to production avoided significant rework."
       }
     }
   },
@@ -818,6 +1090,33 @@ const projects = {
           { value: "↓", label: "tempo de acesso a dados granulares" },
           { value: "0", label: "código de conector duplicado" }
         ]
+      },
+      context: {
+        label: "Contexto",
+        text: "A operação precisava analisar performance a nível de anúncio individual, cruzando dados de plataforma com leads e agendamentos reais vindos do CRM — informação que nenhuma plataforma de mídia fornecia nativamente. A análise manual era lenta e limitada ao nível de campanha."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Desenvolvi a aplicação completa do zero: backend FastAPI com conexão a múltiplas fontes de dados, camada de cache para viabilizar a performance, lógica de drill-down por campanha/conjunto/anúncio, interface de visualização e exportação Excel com dados cruzados."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Dados isolados por plataforma, sem cruzamento com CRM",
+          "Análise limitada ao nível de campanha",
+          "Cruzamento manual demorado e sujeito a erro",
+          "Sem exportação estruturada para compartilhar"
+        ],
+        after: [
+          "Dashboard centralizado com dados de plataforma + CRM",
+          "Drill-down até o nível de anúncio individual",
+          "Cruzamento automático com leads e agendamentos reais",
+          "Exportação Excel com todos os dados combinados"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "Cache inteligente foi a decisão técnica mais crítica para viabilizar a aplicação — sem ele, o tempo de resposta tornaria o uso impraticável. Aprendi a equilibrar granularidade de dados com performance de resposta, e a importância de desenhar a API pensando no padrão de uso real."
       }
     },
     en: {
@@ -848,6 +1147,33 @@ const projects = {
           { value: "↓", label: "time to access granular data" },
           { value: "0", label: "duplicated connector code" }
         ]
+      },
+      context: {
+        label: "Context",
+        text: "The operation needed to analyze performance at the individual ad level, cross-referencing platform data with actual leads and appointments from the CRM — information no media platform provided natively. Manual analysis was slow and limited to the campaign level."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Built the full application from scratch: FastAPI backend connecting to multiple data sources, caching layer to ensure performance, drill-down logic by campaign/ad set/ad, visualization interface, and Excel export with cross-referenced data."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Platform data isolated, no CRM cross-referencing",
+          "Analysis limited to campaign level",
+          "Manual cross-referencing — slow and error-prone",
+          "No structured export to share results"
+        ],
+        after: [
+          "Centralized dashboard with platform + CRM data",
+          "Drill-down to individual ad level",
+          "Automatic cross-referencing with actual leads and appointments",
+          "Excel export with all combined data"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "Smart caching was the most critical technical decision to make the application viable — without it, response times would have made it unusable. I learned to balance data granularity with response performance, and the importance of designing the API around actual usage patterns."
       }
     }
   },
@@ -881,6 +1207,33 @@ const projects = {
           { value: "14", label: "canais de mídia rastreados" },
           { value: "↑", label: "autonomia dos gestores regionais" }
         ]
+      },
+      context: {
+        label: "Contexto",
+        text: "Rede com 280+ lojas em 16 regionais onde gestores regionais precisavam analisar performance de cada unidade sem acesso a dados de outras regionais — exigindo controle de acesso granular por domínio, além da complexidade dos joins necessários para cruzar dados de leads com informações cadastrais das lojas."
+      },
+      responsibility: {
+        label: "Minha responsabilidade",
+        text: "Desenvolvi o sistema completo: queries MySQL com múltiplos joins para cruzar dados de leads com cadastro de lojas, estrutura de autenticação por domínio de email, interface de filtros com drill-down por loja, comparativos por período e canal, e exportação de dados."
+      },
+      before_after: {
+        label: "Antes & Depois",
+        before: [
+          "Análise por loja dependia de cruzamentos manuais em Excel",
+          "Sem visibilidade centralizada por regional",
+          "Sem controle de acesso — gestor via dados de outra regional",
+          "Comparação entre lojas era manual e demorada"
+        ],
+        after: [
+          "Dashboard com acesso controlado por regional",
+          "Filtros por canal, período e loja em tempo real",
+          "Visão consolidada e individual por unidade",
+          "Exportação estruturada para análises externas"
+        ]
+      },
+      learnings: {
+        label: "Aprendizados",
+        text: "O controle de acesso por domínio de email foi a decisão técnica mais impactante — permitiu escalar para todas as regionais sem criar um sistema complexo de usuários e senhas. Definir claramente os limites de acesso antes de desenvolver economizou retrabalho e evitou problemas de privacidade operacional."
       }
     },
     en: {
@@ -911,6 +1264,33 @@ const projects = {
           { value: "14", label: "media channels tracked" },
           { value: "↑", label: "regional manager autonomy" }
         ]
+      },
+      context: {
+        label: "Context",
+        text: "Network with 280+ stores across 16 regions where regional managers needed to analyze each unit's performance without access to other regions' data — requiring granular domain-based access control, plus the complexity of joins needed to cross-reference lead data with store records."
+      },
+      responsibility: {
+        label: "My responsibility",
+        text: "Built the full system: MySQL queries with multiple joins to cross-reference lead data with store records, email domain-based authentication, drill-down filter interface by store, period and channel comparisons, and data export."
+      },
+      before_after: {
+        label: "Before & After",
+        before: [
+          "Store-level analysis required manual Excel cross-referencing",
+          "No centralized regional visibility",
+          "No access control — managers could see other regions' data",
+          "Comparing stores was manual and time-consuming"
+        ],
+        after: [
+          "Dashboard with region-based access control",
+          "Real-time filters by channel, period, and store",
+          "Consolidated and individual unit views",
+          "Structured export for external analyses"
+        ]
+      },
+      learnings: {
+        label: "Learnings",
+        text: "Email domain-based access control was the most impactful technical decision — it allowed scaling to all regions without building a complex user/password system. Clearly defining access boundaries before development saved rework and avoided operational privacy issues."
       }
     }
   },
@@ -1174,17 +1554,53 @@ const mOverlay = document.getElementById('modalOverlay');
 const mX       = document.getElementById('modalX');
 
 function buildModal(data) {
-  const bullets   = data.solution.bullets.map(b => `<li>${b}</li>`).join('');
-  const stack     = data.stack.map(s => `<span>${s}</span>`).join('');
-  const impact    = data.impact.items.map(i => `
+  const bullets = data.solution.bullets.map(b => `<li>${b}</li>`).join('');
+  const stack   = data.stack.map(s => `<span>${s}</span>`).join('');
+  const impact  = data.impact.items.map(i => `
     <div class="m-impact-item">
       <span class="m-impact-val">${i.value}</span>
       <span class="m-impact-label">${i.label}</span>
     </div>`).join('');
   const ghBtn = data.github
-    ? `<a href="${data.github}" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>`
-    : '';
+    ? `<a href="${data.github}" target="_blank" rel="noopener" class="btn btn-outline">GitHub ↗</a>` : '';
   const closeLabel = lang === 'pt' ? 'Fechar' : 'Close';
+
+  const contextSection = data.context ? `
+    <div class="m-hr"></div>
+    <div class="m-section">
+      <div class="m-section-label">${data.context.label}</div>
+      <p>${data.context.text}</p>
+    </div>` : '';
+
+  const respSection = data.responsibility ? `
+    <div class="m-hr"></div>
+    <div class="m-section">
+      <div class="m-section-label">${data.responsibility.label}</div>
+      <p>${data.responsibility.text}</p>
+    </div>` : '';
+
+  const baSection = data.before_after ? `
+    <div class="m-hr"></div>
+    <div class="m-section">
+      <div class="m-section-label">${data.before_after.label}</div>
+      <div class="m-ba">
+        <div class="m-ba-col m-ba-before">
+          <div class="m-ba-title">${lang === 'pt' ? 'Antes' : 'Before'}</div>
+          <ul>${data.before_after.before.map(b => `<li>${b}</li>`).join('')}</ul>
+        </div>
+        <div class="m-ba-col m-ba-after">
+          <div class="m-ba-title">${lang === 'pt' ? 'Depois' : 'After'}</div>
+          <ul>${data.before_after.after.map(a => `<li>${a}</li>`).join('')}</ul>
+        </div>
+      </div>
+    </div>` : '';
+
+  const learnSection = data.learnings ? `
+    <div class="m-hr"></div>
+    <div class="m-section">
+      <div class="m-section-label">${data.learnings.label}</div>
+      <p>${data.learnings.text}</p>
+    </div>` : '';
 
   return `
     <span class="m-tag">${data.tag}</span>
@@ -1195,17 +1611,21 @@ function buildModal(data) {
       <div class="m-section-label">${data.problem.label}</div>
       <p>${data.problem.text}</p>
     </div>
+    ${contextSection}
+    ${respSection}
     <div class="m-hr"></div>
     <div class="m-section">
       <div class="m-section-label">${data.solution.label}</div>
       <p>${data.solution.text}</p>
       <ul class="m-bullets">${bullets}</ul>
     </div>
+    ${baSection}
     <div class="m-hr"></div>
     <div class="m-section">
       <div class="m-section-label">${data.impact.label}</div>
       <div class="m-impact">${impact}</div>
     </div>
+    ${learnSection}
     <div class="m-footer">
       ${ghBtn}
       <button class="btn btn-outline" onclick="closeModal()">${closeLabel}</button>
