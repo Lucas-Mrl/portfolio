@@ -1059,6 +1059,27 @@ section { padding: 108px 0; }
 }
 .proj-btn-gh:hover { border-color: var(--tl); color: var(--tl-l); }
 
+.proj-btn-demo {
+  font-family: var(--mono);
+  font-size: .72rem;
+  color: var(--tl-l);
+  padding: 6px 12px;
+  border: 1px solid rgba(var(--tl-rgb),.3);
+  border-radius: 8px;
+  background: rgba(var(--tl-rgb),.06);
+  transition: var(--t);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+.proj-btn-demo:hover {
+  border-color: var(--tl);
+  background: rgba(var(--tl-rgb),.12);
+  color: var(--tl-l);
+}
+
 /* ====================================================
    ABOUT
 ==================================================== */
