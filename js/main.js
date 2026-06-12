@@ -1666,6 +1666,7 @@ document.querySelectorAll('.proj-card').forEach(card => {
   const key = card.getAttribute('data-project');
   card.addEventListener('click', e => {
     if (e.target.closest('.proj-btn-gh')) return;
+    if (e.target.closest('.proj-btn-demo')) return;
     openModal(key);
   });
   const btn = card.querySelector('.proj-btn-case');
