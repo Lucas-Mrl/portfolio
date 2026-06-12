@@ -1104,12 +1104,6 @@ section { padding: 108px 0; }
   align-items: center;
 }
 
-.about-intro {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
 .about-photo {
   width: 40px;
   height: 40px;
@@ -1117,12 +1111,9 @@ section { padding: 108px 0; }
   object-fit: cover;
   object-position: center top;
   border: 1px solid var(--bdr2);
-  flex-shrink: 0;
+  display: block;
+  margin-bottom: 20px;
 }
-.about-intro-info { display: flex; flex-direction: column; gap: 3px; }
-.about-intro-name { font-size: .95rem; font-weight: 600; color: var(--tx1); margin: 0; }
-.about-intro-role { font-size: .72rem; font-family: var(--mono); color: var(--p-l); margin: 0; }
-.about-intro-loc  { font-size: .72rem; color: var(--tx3); margin: 0; }
 
 .about-left .section-label { margin-bottom: 10px; }
 
