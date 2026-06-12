@@ -437,6 +437,10 @@ const projects = {
           { value: "90%", label: "redução de tempo em tarefas manuais" }
         ]
       },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "O pipeline eliminou aproximadamente 4 horas de trabalho manual diário de consolidação — tempo que passou a ser investido em análise e otimização. Com dados disponíveis toda manhã (antes chegavam com 1–2 dias de atraso), a equipe passou a tomar decisões de realocação de verba com base no desempenho do dia anterior, não da semana passada. Em uma operação com verba mensal na casa dos 7 dígitos distribuída entre 9+ plataformas, esse ganho de velocidade tem impacto direto na eficiência do investimento."
+      },
       github: "https://github.com/Lucas-Mrl",
       context: {
         label: "Contexto",
@@ -526,6 +530,10 @@ def normalize_by_regional(rows):
           { value: "16", label: "regions aggregated automatically" },
           { value: "90%", label: "reduction in manual task time" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "The pipeline eliminated approximately 4 hours of daily manual consolidation work — time redirected toward analysis and optimization. With data available every morning (previously delayed by 1–2 days), the team started making budget reallocation decisions based on yesterday's performance, not last week's. In an operation with a 7-figure monthly budget spread across 9+ platforms, that speed gain directly impacts investment efficiency."
       },
       github: "https://github.com/Lucas-Mrl",
       context: {
@@ -617,6 +625,10 @@ def normalize_by_regional(rows):
           { value: "~80", label: "parceiros PV mapeados" },
           { value: "0", label: "dependências externas" }
         ]
+      },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "Erros de conciliação anteriores distorciam as métricas de performance por loja — atribuindo leads incorretamente entre unidades com nomes parecidos. Com reconciliação precisa, o CPL real por loja passou a ser calculado sem ruído, permitindo decisões mais confiáveis de alocação de verba regional. O processo que consumia horas semanais passou a ser executado em segundos, eliminando gargalo operacional recorrente."
       },
       github: "https://github.com/Lucas-Mrl/leads-processor",
       context: {
@@ -712,6 +724,10 @@ function reconcile(mdkRows, totalRows) {
           { value: "~80", label: "PV partners mapped" },
           { value: "0", label: "external dependencies" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "Previous reconciliation errors were distorting per-store performance metrics — misattributing leads between similarly named units. With accurate reconciliation, real CPL per store could be calculated without noise, enabling more reliable regional budget allocation decisions. A process that consumed hours every week was reduced to seconds, eliminating a recurring operational bottleneck."
       },
       github: "https://github.com/Lucas-Mrl/leads-processor",
       context: {
@@ -811,6 +827,10 @@ function reconcile(mdkRows, totalRows) {
           { value: "↓", label: "tempo de análise manual" },
           { value: "1 app", label: "coleta + análise + recomendação" }
         ]
+      },
+      business_impact: {
+        label: "Impacto prático",
+        text: "Automatiza a etapa mais demorada da análise de performance: coleta de dados de múltiplas APIs + interpretação inicial. O tempo que seria gasto abrindo plataforma por plataforma e construindo uma visão consolidada manualmente é reduzido a segundos. As recomendações geradas por IA servem como ponto de partida estruturado para decisões de otimização — o que cortar, o que escalar, onde redistribuir verba."
       }
     },
     en: {
@@ -841,6 +861,10 @@ function reconcile(mdkRows, totalRows) {
           { value: "↓", label: "manual analysis time" },
           { value: "1 app", label: "collect + analyze + recommend" }
         ]
+      },
+      business_impact: {
+        label: "Practical impact",
+        text: "Automates the most time-consuming step of performance analysis: multi-API data collection + initial interpretation. Time that would be spent opening platform after platform and manually building a consolidated view is reduced to seconds. AI-generated recommendations serve as a structured starting point for optimization decisions — what to cut, what to scale, where to redistribute budget."
       }
     }
   },
@@ -874,6 +898,10 @@ function reconcile(mdkRows, totalRows) {
           { value: "↓", label: "sub-reporte de conversões" },
           { value: "1k+", label: "anúncios cobertos" }
         ]
+      },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "Com match rate melhorado, os algoritmos de lances do Meta passaram a receber sinais de conversão mais completos e confiáveis. Em operações com 1.000+ anúncios ativos e verba mensal na casa dos 7 dígitos, melhorar a qualidade do sinal de conversão impacta diretamente a eficiência dos lances automáticos — o algoritmo passa a otimizar com base em dados reais, não em dados parcialmente bloqueados por restrições de browser e iOS 14+."
       },
       context: {
         label: "Contexto",
@@ -968,6 +996,10 @@ def send_capi_event(lead_data, event_name="Lead"):
           { value: "↓", label: "conversion under-reporting" },
           { value: "1k+", label: "ads covered" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "With an improved match rate, Meta's bidding algorithms started receiving more complete and reliable conversion signals. In operations with 1,000+ active ads and a 7-figure monthly budget, improving signal quality directly impacts the efficiency of automated bidding — the algorithm optimizes based on real data, not data partially blocked by browser restrictions and iOS 14+."
       },
       context: {
         label: "Context",
@@ -1066,6 +1098,10 @@ def send_capi_event(lead_data, event_name="Lead"):
           { value: "100%", label: "rastreabilidade das demandas" }
         ]
       },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "A automação eliminou o processo manual de triagem e registro de chamados — aproximadamente 20–30 minutos por dia redirecionados para trabalho de maior valor. Com tasks estruturadas automaticamente no ClickUp (prioridade, categoria, prazo), o tempo médio de resposta aos chamados diminuiu e passou a ser mensurável por categoria e remetente. O custo de infraestrutura zero (Oracle Cloud Free Tier) foi um diferencial importante para justificar a implementação."
+      },
       context: {
         label: "Contexto",
         text: "A equipe recebia chamados de suporte por email que precisavam ser manualmente convertidos em tasks estruturadas no ClickUp — com campos de prioridade, categoria e prazo extraídos do corpo do email. Processo lento, sujeito a perda de informações e consumindo tempo operacional desnecessário."
@@ -1142,6 +1178,10 @@ def send_capi_event(lead_data, event_name="Lead"):
           { value: "$0", label: "hosting cost" },
           { value: "100%", label: "demand traceability" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "The automation eliminated the manual triage and logging process — approximately 20–30 minutes per day redirected to higher-value work. With tasks automatically structured in ClickUp (priority, category, deadline), average response time to requests decreased and became measurable by category and sender. Zero infrastructure cost (Oracle Cloud Free Tier) was a key factor in justifying the implementation."
       },
       context: {
         label: "Context",
@@ -1222,6 +1262,10 @@ def send_capi_event(lead_data, event_name="Lead"):
           { value: "↓", label: "eventos perdidos vs. V1" },
           { value: "↑", label: "eficiência de otimização de lances" }
         ]
+      },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "A reestruturação da V1 para V2 corrigiu a cobertura de eventos no funil de lead gen, fornecendo ao TikTok sinais mais completos para otimização. Com eventos bem estruturados por etapa (Awareness → Conversão → Retargeting), as campanhas passaram a receber sinais de qualidade para os algoritmos de lances — o que é especialmente crítico em campanhas de geração de leads onde o volume de conversões é menor e cada sinal conta mais."
       },
       context: {
         label: "Contexto",
@@ -1313,6 +1357,10 @@ def send_tiktok_event(lead_data, event_name="SubmitForm"):
           { value: "↓", label: "lost events vs. V1" },
           { value: "↑", label: "bid optimization efficiency" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "The V1-to-V2 restructure fixed event coverage across the lead gen funnel, giving TikTok more complete signals for optimization. With events properly mapped by stage (Awareness → Conversion → Retargeting), campaigns started receiving quality signals for bidding algorithms — especially critical in lead gen campaigns where conversion volume is lower and each signal carries more weight."
       },
       context: {
         label: "Context",
@@ -1409,6 +1457,10 @@ def send_tiktok_event(lead_data, event_name="SubmitForm"):
           { value: "0", label: "código de conector duplicado" }
         ]
       },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "Com visibilidade de CPA por anúncio individual — e não apenas por campanha —, foi possível identificar criativos com CPA 2–3× acima da média e concentrar verba nos top performers. O cruzamento com agendamentos reais do CRM revelou que criativos com menor CPL nem sempre tinham o melhor CPA de agendamento — o que mudou diretamente a lógica de otimização e a priorização de budget entre criativos."
+      },
       context: {
         label: "Contexto",
         text: "A operação precisava analisar performance a nível de anúncio individual, cruzando dados de plataforma com leads e agendamentos reais vindos do CRM — informação que nenhuma plataforma de mídia fornecia nativamente. A análise manual era lenta e limitada ao nível de campanha."
@@ -1494,6 +1546,10 @@ ORDER BY leads_crm DESC`,
           { value: "↓", label: "time to access granular data" },
           { value: "0", label: "duplicated connector code" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "With CPA visibility at the individual ad level — not just campaign level — it became possible to identify creatives with CPA 2–3× above average and concentrate budget on top performers. Cross-referencing with actual CRM appointments revealed that lower-CPL creatives didn't always have the best cost-per-appointment — directly changing optimization logic and how budget was prioritized across creatives."
       },
       context: {
         label: "Context",
@@ -1585,6 +1641,10 @@ ORDER BY crm_leads DESC`,
           { value: "↑", label: "autonomia dos gestores regionais" }
         ]
       },
+      business_impact: {
+        label: "Impacto de negócio",
+        text: "Gestores regionais passaram a identificar lojas com queda de performance semana a semana — antes invisível nos relatórios consolidados. Em uma operação com 280+ lojas e verba mensal na casa dos 7 dígitos, identificar uma loja com CPL 2–3× acima da média permite realocação imediata de budget para unidades mais eficientes. O controle de acesso por regional também eliminou erros de interpretação causados por gestores analisando dados fora de seu escopo."
+      },
       context: {
         label: "Contexto",
         text: "Rede com 280+ lojas em 16 regionais onde gestores regionais precisavam analisar performance de cada unidade sem acesso a dados de outras regionais — exigindo controle de acesso granular por domínio, além da complexidade dos joins necessários para cruzar dados de leads com informações cadastrais das lojas."
@@ -1673,6 +1733,10 @@ ORDER BY total_leads DESC`,
           { value: "14", label: "media channels tracked" },
           { value: "↑", label: "regional manager autonomy" }
         ]
+      },
+      business_impact: {
+        label: "Business impact",
+        text: "Regional managers started identifying underperforming stores week over week — previously invisible in consolidated reports. In an operation with 280+ stores and a 7-figure monthly budget, spotting a store with CPL 2–3× above average enables immediate budget reallocation to more efficient units. Regional access control also eliminated misreading caused by managers analyzing data outside their scope."
       },
       context: {
         label: "Context",
@@ -1763,6 +1827,10 @@ ORDER BY total_leads DESC`,
           { value: "pandas", label: "manipulação de dados" },
           { value: "matplotlib", label: "visualizações" }
         ]
+      },
+      business_impact: {
+        label: "Resultado do processo",
+        text: "Os 3 cases foram entregues com código limpo, documentado e funcionando — demonstrando capacidade de trabalhar com SQL + pandas em cenários reais de análise de dados. O desafio foi usado como processo seletivo técnico, avaliando precisamente as habilidades mais relevantes para o papel de analista de dados."
       }
     },
     en: {
@@ -1790,6 +1858,10 @@ ORDER BY total_leads DESC`,
           { value: "pandas", label: "data manipulation" },
           { value: "matplotlib", label: "visualizations" }
         ]
+      },
+      business_impact: {
+        label: "Process outcome",
+        text: "All 3 cases were delivered with clean, documented, working code — demonstrating ability to work with SQL + pandas in real data analysis scenarios. The challenge was used as a technical selection process, evaluating precisely the most relevant skills for a data analyst role."
       }
     }
   },
@@ -1822,6 +1894,10 @@ ORDER BY total_leads DESC`,
           { value: "↓", label: "erros de cálculo de orçamento" },
           { value: "React", label: "interface reativa" }
         ]
+      },
+      business_impact: {
+        label: "Impacto prático",
+        text: "Resolve um erro comum de operação: inserir R$10.000 no Meta Ads achando que o investimento líquido será R$10.000, quando na verdade será R$8.785 (desconto de 12,15%). Com a calculadora, o gestor insere R$11.381 para garantir exatamente R$10.000 de investimento líquido. Em operações de alto volume, esse erro de cálculo representa diferença real de budget ao longo do mês."
       }
     },
     en: {
@@ -1850,6 +1926,10 @@ ORDER BY total_leads DESC`,
           { value: "↓", label: "budget calculation errors" },
           { value: "React", label: "reactive interface" }
         ]
+      },
+      business_impact: {
+        label: "Practical impact",
+        text: "Solves a common operational error: entering R$10,000 in Meta Ads expecting R$10,000 in net investment, when the actual net is R$8,785 (12.15% deducted). With the calculator, the manager enters R$11,381 to guarantee exactly R$10,000 in net investment. In high-volume operations, this calculation error represents a real budget difference over the month."
       }
     }
   },
@@ -1884,6 +1964,10 @@ ORDER BY total_leads DESC`,
           { value: "R$ 0", label: "custo operacional" },
           { value: "real-time", label: "transcrição durante a call" }
         ]
+      },
+      business_impact: {
+        label: "Impacto prático",
+        text: "Transcrição automática de calls de trabalho sem custo operacional e sem enviar dados para terceiros. O tempo de revisão pós-call diminuiu — o texto transcrito com timestamps permite localizar trechos específicos sem reouvir a gravação completa. Solução aplicável a qualquer contexto que envolva calls frequentes e necessidade de registro estruturado."
       }
     },
     en: {
@@ -1914,6 +1998,10 @@ ORDER BY total_leads DESC`,
           { value: "R$ 0", label: "operational cost" },
           { value: "real-time", label: "transcription during the call" }
         ]
+      },
+      business_impact: {
+        label: "Practical impact",
+        text: "Automatic work call transcription with zero operational cost and no data sent to third parties. Post-call review time decreased — timestamped transcripts allow locating specific segments without replaying the full recording. Applicable to any context involving frequent calls and a need for structured records."
       }
     }
   }
@@ -2026,6 +2114,12 @@ function buildModal(data, demo) {
       <p>${data.responsibility.text}</p>
     </div>` : '';
 
+  const bizSection = data.business_impact ? `
+  <div class="m-biz">
+    <div class="m-biz-label">${data.business_impact.label}</div>
+    <p class="m-biz-text">${data.business_impact.text}</p>
+  </div>` : '';
+
   const baSection = data.before_after ? `
     <div class="m-hr"></div>
     <div class="m-section">
@@ -2079,12 +2173,13 @@ function buildModal(data, demo) {
       <p>${data.solution.text}</p>
       <ul class="m-bullets">${bullets}</ul>
     </div>
-    ${baSection}
     <div class="m-hr"></div>
     <div class="m-section">
       <div class="m-section-label">${data.impact.label}</div>
       <div class="m-impact">${impact}</div>
     </div>
+    ${bizSection}
+    ${baSection}
     ${learnSection}
     ${technicalSection}
     <div class="m-footer">

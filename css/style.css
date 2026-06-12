@@ -1505,6 +1505,9 @@ footer {
   color: rgba(34,197,94,.7);
   font-size: .7rem;
 }
+.m-biz { background: rgba(99,102,241,.06); border: 1px solid rgba(99,102,241,.18); border-radius: 10px; padding: 16px 18px; margin-top: 18px; }
+.m-biz-label { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--p-l); margin-bottom: 8px; }
+.m-biz-text { font-size: .875rem; color: var(--tx1); line-height: 1.7; margin: 0; }
 .m-tech-flow { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin: 12px 0; }
 .m-tech-step { background: var(--bg3); border: 1px solid var(--bdr2); border-radius: 6px; padding: 6px 12px; font-family: var(--mono); font-size: .75rem; color: var(--tx2); }
 .m-tech-arrow { color: var(--tx3); font-size: .85rem; }
