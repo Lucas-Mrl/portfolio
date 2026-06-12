@@ -176,9 +176,9 @@ const i18n = {
     // SOBRE
     about_tag:   "sobre",
     about_title: "Analytics que\nentende de mídia.",
-    about_p1:    "Comecei no marketing digital operando campanhas, funis e landing pages para negócios locais. Com o tempo, percebi que muitas decisões de mídia eram limitadas não pela campanha em si, mas pela qualidade dos dados disponíveis.",
-    about_p2:    "Foi nesse ponto que passei a construir a infraestrutura analítica por trás da performance: dashboards, pipelines, automações, tracking server-side e integrações com APIs de mídia.",
-    about_p3:    "Hoje atuo conectando mídia, BI e tecnologia para transformar dados dispersos em decisões mais rápidas, confiáveis e acionáveis.",
+    about_p1:    "Comecei no marketing digital operando campanhas, funis e landing pages para negócios locais. Com o tempo, percebi que muitas das limitações nas decisões de mídia não vinham da estratégia — vinham da qualidade dos dados disponíveis.",
+    about_p2:    "Gosto de trabalhar onde existe problema real de operação: dado quebrado, relatório manual, tracking inconsistente, funil mal explicado ou decisão tomada no escuro. Meu foco é transformar isso em processo, automação e clareza.",
+    about_p3:    "Hoje atuo na intersecção entre mídia, BI e tecnologia — construindo a infraestrutura analítica que transforma dados dispersos em decisões mais rápidas, confiáveis e acionáveis.",
 
     contact_wa:    "WhatsApp",
     contact_email: "E-mail",
@@ -375,9 +375,9 @@ const i18n = {
     // ABOUT
     about_tag:   "about",
     about_title: "Analytics that\nunderstands media.",
-    about_p1:    "I started in digital marketing running campaigns, funnels, and landing pages for local businesses. Over time, I realized many media decisions were limited not by the campaigns themselves, but by the quality of available data.",
-    about_p2:    "That's when I started building the analytics infrastructure behind performance: dashboards, pipelines, automations, server-side tracking, and media API integrations.",
-    about_p3:    "Today I work at the intersection of media, BI, and technology — turning scattered data into faster, more reliable, and more actionable decisions.",
+    about_p1:    "I started in digital marketing running campaigns, funnels, and landing pages for local businesses. Over time, I realized most media limitations weren't coming from strategy — they were coming from the quality of available data.",
+    about_p2:    "I like working where there's a real operational problem: broken data, manual reporting, inconsistent tracking, a poorly explained funnel, or decisions made in the dark. My focus is turning that into process, automation, and clarity.",
+    about_p3:    "Today I work at the intersection of media, BI, and technology — building the analytics infrastructure that turns scattered data into faster, more reliable, and more actionable decisions.",
 
     contact_wa:    "WhatsApp",
     contact_email: "Email",
@@ -464,6 +464,36 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "Cada API tem rate limits, estrutura de resposta e autenticação distintos. Abstrair os connectors com uma interface comum tornou possível escalar de 3 para 9+ plataformas sem reescrever o core do pipeline. A decisão mais importante foi separar coleta, normalização e escrita em camadas independentes."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["APIs de 9 plataformas", "Connectors Python por plataforma", "Normalização + pattern-matching", "Batch-write Google Sheets", "CPL via MySQL"],
+        code: `# Exemplo de conector (estrutura simplificada)
+def fetch_meta_spend(date_start, date_end):
+    params = {
+        "time_range": {"since": date_start, "until": date_end},
+        "fields": "campaign_name,spend",
+        "level": "campaign",
+        "filtering": [{"field": "spend", "operator": "GREATER_THAN", "value": "0"}]
+    }
+    # Retorna lista de {regional, spend} após pattern-matching no nome da campanha
+    return normalize_by_regional(response.json()["data"])
+
+# Lógica de agregação por regional
+def normalize_by_regional(rows):
+    result = {}
+    for row in rows:
+        regional = extract_regional(row["campaign_name"])  # pattern-matching
+        result[regional] = result.get(regional, 0) + float(row["spend"])
+    return result`,
+        notes: [
+          "Cada conector é independente: falha de um não interrompe os demais",
+          "Batch-write atômico: uma única chamada escreve toda a matriz no Sheets, evitando rate limit",
+          "CPL calculado cruzando spend por ferramenta com leads do MySQL via JOIN por regional e data",
+          "Layout-aware: detecta a linha de cabeçalho dinamicamente, sem células hardcoded"
+        ],
+        limitations: "Pattern-matching depende de nomenclatura consistente nas campanhas. Plataformas com API instável (ex: X Ads) podem gerar gaps pontuais que são logados mas não travam o pipeline.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -524,6 +554,36 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "Each API has different rate limits, response structures, and authentication. Abstracting connectors with a common interface made it possible to scale from 3 to 9+ platforms without rewriting the pipeline core. The most important decision was separating collection, normalization, and writing into independent layers."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["9 platform APIs", "Per-platform Python connectors", "Normalization + pattern-matching", "Atomic Sheets batch-write", "CPL via MySQL"],
+        code: `# Connector structure (simplified)
+def fetch_meta_spend(date_start, date_end):
+    params = {
+        "time_range": {"since": date_start, "until": date_end},
+        "fields": "campaign_name,spend",
+        "level": "campaign",
+        "filtering": [{"field": "spend", "operator": "GREATER_THAN", "value": "0"}]
+    }
+    # Returns list of {regional, spend} after campaign name pattern-matching
+    return normalize_by_regional(response.json()["data"])
+
+# Regional aggregation logic
+def normalize_by_regional(rows):
+    result = {}
+    for row in rows:
+        regional = extract_regional(row["campaign_name"])  # pattern-matching
+        result[regional] = result.get(regional, 0) + float(row["spend"])
+    return result`,
+        notes: [
+          "Each connector is independent: one failure doesn't stop the others",
+          "Atomic batch-write: a single call writes the entire matrix to Sheets, avoiding rate limits",
+          "CPL calculated by joining spend per tool with MySQL leads via regional + date",
+          "Layout-aware: dynamically detects the header row without hardcoded cell references"
+        ],
+        limitations: "Pattern-matching depends on consistent campaign naming. Platforms with unstable APIs (e.g. X Ads) may generate occasional gaps — these are logged but don't halt the pipeline.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -585,6 +645,43 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "O problema não era tecnológico — era de nomenclatura inconsistente entre sistemas. Modelar o mapeamento como dado (não como código hardcoded) tornou a solução resiliente a novos casos sem necessidade de redeployment."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["Upload CSV base MDK", "Upload CSV base Total", "Algoritmo de reconciliação JS", "Resultado consolidado", "Download CSV"],
+        code: `// Algoritmo de reconciliação de nomenclaturas (simplificado)
+const STORE_MAP = {
+  "loja centro sp": "Loja Centro - São Paulo",
+  "loja ctr sp":    "Loja Centro - São Paulo",
+  "centro - sp":    "Loja Centro - São Paulo",
+  // ~280 entradas com variações mapeadas
+};
+
+function normalizeStoreName(raw) {
+  const key = raw.toLowerCase().trim()
+    .replace(/[^a-z0-9 ]/g, '')  // remove caracteres especiais
+    .replace(/\\s+/g, ' ');        // normaliza espaços
+  return STORE_MAP[key] || raw;   // fallback: mantém o nome original
+}
+
+function reconcile(mdkRows, totalRows) {
+  const totalByStore = Object.fromEntries(
+    totalRows.map(r => [normalizeStoreName(r.store), r.leads])
+  );
+  return mdkRows.map(r => ({
+    ...r,
+    store_normalized: normalizeStoreName(r.store),
+    leads_total: totalByStore[normalizeStoreName(r.store)] ?? 0
+  }));
+}`,
+        notes: [
+          "Mapeamento como dado, não lógica: adicionar nova loja é editar o objeto STORE_MAP, sem alterar o algoritmo",
+          "Fallback para nome original: lojas não mapeadas aparecem no resultado sem quebrar o processamento",
+          "100% client-side: os arquivos não saem do browser do usuário — zero upload para servidor",
+          "~280 lojas e ~80 parceiros PV com todas as variações de nomenclatura mapeadas manualmente"
+        ],
+        limitations: "Lojas novas ou com nomenclatura fora do mapeamento atual são tratadas pelo fallback, mas não reconciliadas. Requerem atualização manual do STORE_MAP antes do próximo uso.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -643,6 +740,43 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "The problem wasn't technical — it was inconsistent naming between systems. Modeling the mapping as data (not hardcoded logic) made the solution resilient to new cases without requiring redeployment."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["Upload MDK base CSV", "Upload Total base CSV", "JS reconciliation algorithm", "Consolidated result", "CSV download"],
+        code: `// Name reconciliation algorithm (simplified)
+const STORE_MAP = {
+  "loja centro sp": "Store Centro - São Paulo",
+  "loja ctr sp":    "Store Centro - São Paulo",
+  "centro - sp":    "Store Centro - São Paulo",
+  // ~280 entries with mapped variations
+};
+
+function normalizeStoreName(raw) {
+  const key = raw.toLowerCase().trim()
+    .replace(/[^a-z0-9 ]/g, '')  // remove special chars
+    .replace(/\\s+/g, ' ');        // normalize spaces
+  return STORE_MAP[key] || raw;   // fallback: keep original name
+}
+
+function reconcile(mdkRows, totalRows) {
+  const totalByStore = Object.fromEntries(
+    totalRows.map(r => [normalizeStoreName(r.store), r.leads])
+  );
+  return mdkRows.map(r => ({
+    ...r,
+    store_normalized: normalizeStoreName(r.store),
+    leads_total: totalByStore[normalizeStoreName(r.store)] ?? 0
+  }));
+}`,
+        notes: [
+          "Mapping as data, not logic: adding a new store means editing the STORE_MAP object, not the algorithm",
+          "Fallback to original name: unmapped stores appear in the result without breaking processing",
+          "100% client-side: files never leave the user's browser — zero server upload",
+          "~280 stores and ~80 PV partners with all naming variations manually mapped"
+        ],
+        limitations: "New stores or names outside the current mapping are handled by the fallback but not reconciled — they require a manual STORE_MAP update before the next use.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -767,6 +901,43 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "A deduplicação de eventos é tão crítica quanto a implementação em si — eventos duplicados prejudicam os algoritmos tanto quanto eventos ausentes. A qualidade dos parâmetros de matching (não apenas a quantidade de eventos) é o fator que mais impacta o resultado prático."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["Evento no browser (Pixel)", "Evento server-side (CAPI via Python)", "event_id único para deduplicação", "Meta Events Manager", "Auditoria vs. CRM"],
+        code: `# Envio server-side simplificado (Facebook Business SDK)
+from facebook_business.adobjects.serverside.event import Event
+from facebook_business.adobjects.serverside.user_data import UserData
+from facebook_business.adobjects.serverside.event_request import EventRequest
+import hashlib, uuid
+
+def send_capi_event(lead_data, event_name="Lead"):
+    user_data = UserData(
+        email=hashlib.sha256(lead_data["email"].lower().encode()).hexdigest(),
+        phone=hashlib.sha256(lead_data["phone"].encode()).hexdigest(),
+        client_ip_address=lead_data["ip"],
+        client_user_agent=lead_data["user_agent"],
+        fbc=lead_data.get("fbc"),
+        fbp=lead_data.get("fbp"),
+        external_id=str(lead_data["crm_id"])
+    )
+    event = Event(
+        event_name=event_name,
+        event_time=int(lead_data["timestamp"]),
+        event_id=lead_data["event_id"],  # mesmo event_id do Pixel
+        user_data=user_data,
+        action_source="website"
+    )
+    EventRequest(access_token=ACCESS_TOKEN, pixel_id=PIXEL_ID,
+                 events=[event]).execute()`,
+        notes: [
+          "O mesmo event_id é gerado no frontend (Pixel) e enviado ao backend (CAPI) — o Meta usa isso para deduplicar",
+          "Parâmetros de matching enviados: email hash, phone hash, fbp, fbc, client_ip, user_agent, external_id (CRM ID)",
+          "Auditoria semanal: comparação entre eventos reportados pelo Meta e leads registrados no CRM por data e regional",
+          "Eventos mapeados: Lead, CompleteRegistration, Contact — alinhados com as etapas do funil de agendamento"
+        ],
+        limitations: "O fbc (click ID do Facebook) só está disponível quando o usuário chega via anúncio com fbclid na URL. Sessões orgânicas ou diretas têm match rate naturalmente menor.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -824,6 +995,43 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "Event deduplication is as critical as the implementation itself — duplicate events harm algorithms as much as missing ones. The quality of matching parameters (not just event volume) is the factor with the most practical impact."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["Browser event (Pixel)", "Server-side event (CAPI via Python)", "Unique event_id for dedup", "Meta Events Manager", "Audit vs. CRM"],
+        code: `# Simplified server-side send (Facebook Business SDK)
+from facebook_business.adobjects.serverside.event import Event
+from facebook_business.adobjects.serverside.user_data import UserData
+from facebook_business.adobjects.serverside.event_request import EventRequest
+import hashlib, uuid
+
+def send_capi_event(lead_data, event_name="Lead"):
+    user_data = UserData(
+        email=hashlib.sha256(lead_data["email"].lower().encode()).hexdigest(),
+        phone=hashlib.sha256(lead_data["phone"].encode()).hexdigest(),
+        client_ip_address=lead_data["ip"],
+        client_user_agent=lead_data["user_agent"],
+        fbc=lead_data.get("fbc"),
+        fbp=lead_data.get("fbp"),
+        external_id=str(lead_data["crm_id"])
+    )
+    event = Event(
+        event_name=event_name,
+        event_time=int(lead_data["timestamp"]),
+        event_id=lead_data["event_id"],  # same event_id as Pixel
+        user_data=user_data,
+        action_source="website"
+    )
+    EventRequest(access_token=ACCESS_TOKEN, pixel_id=PIXEL_ID,
+                 events=[event]).execute()`,
+        notes: [
+          "The same event_id is generated on the frontend (Pixel) and sent to the backend (CAPI) — Meta uses this to deduplicate",
+          "Matching parameters sent: email hash, phone hash, fbp, fbc, client_ip, user_agent, external_id (CRM ID)",
+          "Weekly audit: comparison of events reported by Meta vs. CRM leads by date and region",
+          "Events mapped: Lead, CompleteRegistration, Contact — aligned with the booking funnel stages"
+        ],
+        limitations: "fbc (Facebook click ID) is only available when the user arrives via an ad with fbclid in the URL. Organic or direct sessions naturally have lower match rates.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -884,6 +1092,26 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "A maior dificuldade foi lidar com variações no formato dos emails. Usar IA para extração em vez de regex tornou o sistema muito mais robusto a emails fora do padrão — uma decisão de arquitetura que economizou retrabalho."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["Email FreshService (Outlook)", "Microsoft Graph API", "n8n (Oracle Cloud ARM)", "LLM extrai campos", "ClickUp REST API"],
+        code: `// Fluxo n8n — nós principais (pseudocódigo)
+[Microsoft Graph: GET /messages?$filter=isRead eq false]
+  → [Função: extrair assunto, corpo, remetente]
+  → [LLM: extrair prioridade, categoria, prazo, solicitante]
+  → [IF: task já existe? (busca por subject hash no ClickUp)]
+      → SIM: [ClickUp: PATCH /task/{id} — atualiza status]
+      → NÃO: [ClickUp: POST /task — cria com campos mapeados]
+  → [Microsoft Graph: PATCH /message — marca como lido]`,
+        notes: [
+          "Deduplicação por hash do subject: evita criar tasks duplicadas para o mesmo email",
+          "LLM extrai campos semi-estruturados do corpo do email — mais robusto que regex para variações de formato",
+          "Hospedado em Oracle Cloud Free Tier (ARM, região São Paulo) — R$0 de custo operacional",
+          "n8n com retry automático em caso de falha de API (3 tentativas com backoff exponencial)"
+        ],
+        limitations: "Emails com corpo muito curto ou extremamente informal podem ter extração de campos incompleta pelo LLM. Nesses casos, a task é criada com campos padrão e sinalizada para revisão manual.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -941,6 +1169,26 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "The main challenge was handling email format variations. Using AI for extraction instead of regex made the system far more robust to non-standard emails — an architectural decision that saved significant rework."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["FreshService email (Outlook)", "Microsoft Graph API", "n8n (Oracle Cloud ARM)", "LLM extracts fields", "ClickUp REST API"],
+        code: `// n8n flow — main nodes (pseudocode)
+[Microsoft Graph: GET /messages?$filter=isRead eq false]
+  → [Function: extract subject, body, sender]
+  → [LLM: extract priority, category, deadline, requester]
+  → [IF: task already exists? (search by subject hash in ClickUp)]
+      → YES: [ClickUp: PATCH /task/{id} — update status]
+      → NO:  [ClickUp: POST /task — create with mapped fields]
+  → [Microsoft Graph: PATCH /message — mark as read]`,
+        notes: [
+          "Deduplication via subject hash: prevents duplicate tasks for the same email",
+          "LLM extracts semi-structured fields from email body — more robust than regex for format variations",
+          "Hosted on Oracle Cloud Free Tier (ARM, São Paulo region) — zero operational cost",
+          "n8n with automatic retry on API failure (3 attempts with exponential backoff)"
+        ],
+        limitations: "Emails with very short or informal bodies may result in incomplete field extraction by the LLM. In those cases, the task is created with default fields and flagged for manual review.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -1001,6 +1249,40 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "O TikTok tem particularidades de implementação bem diferentes do Meta — a estrutura de eventos é mais rígida e os parâmetros de matching têm pesos distintos. Documentar e validar o mapeamento antes de implementar em produção evitou retrabalho."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["Evento no browser (TikTok Pixel via GTM)", "Evento server-side (Events API)", "event_id para deduplicação", "TikTok Events Manager", "Validação de match quality"],
+        code: `# Envio via TikTok Events API (simplificado)
+import requests, hashlib, time
+
+def send_tiktok_event(lead_data, event_name="SubmitForm"):
+    payload = {
+        "pixel_code": PIXEL_CODE,
+        "event": event_name,
+        "event_time": int(time.time()),
+        "event_id": lead_data["event_id"],  # mesmo do Pixel para dedup
+        "user": {
+            "email": [hashlib.sha256(lead_data["email"].encode()).hexdigest()],
+            "phone_number": [hashlib.sha256(lead_data["phone"].encode()).hexdigest()],
+            "external_id": [str(lead_data["crm_id"])]
+        },
+        "page": {"url": lead_data["page_url"]},
+        "properties": {"content_type": "lead"}
+    }
+    requests.post(
+        f"https://business-api.tiktok.com/open_api/v1.3/pixel/track/",
+        headers={"Access-Token": ACCESS_TOKEN},
+        json={"data": [payload]}
+    )`,
+        notes: [
+          "Estrutura de eventos alinhada com o funil: ViewContent (visitou página) → ClickButton (clicou no form) → SubmitForm (enviou lead)",
+          "event_id compartilhado entre Pixel (GTM) e Events API — TikTok usa para deduplicar automaticamente",
+          "Parâmetros de matching: email hash, phone hash, external_id — sem dados em texto claro",
+          "Validação sistemática no Events Manager: match quality monitorada semanalmente até estabilizar acima do recomendado"
+        ],
+        limitations: "O TikTok Events API tem latência maior que o Meta CAPI para refletir no Ads Manager. Dados do dia atual podem aparecer com atraso de até 2h. Estrutura de eventos mais rígida que o Meta — mudanças no funil exigem revisão do mapeamento.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -1058,6 +1340,40 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "TikTok has implementation quirks very different from Meta — the event structure is more rigid and matching parameters carry different weights. Documenting and validating the mapping before deploying to production avoided significant rework."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["Browser event (TikTok Pixel via GTM)", "Server-side event (Events API)", "event_id for deduplication", "TikTok Events Manager", "Match quality validation"],
+        code: `# TikTok Events API send (simplified)
+import requests, hashlib, time
+
+def send_tiktok_event(lead_data, event_name="SubmitForm"):
+    payload = {
+        "pixel_code": PIXEL_CODE,
+        "event": event_name,
+        "event_time": int(time.time()),
+        "event_id": lead_data["event_id"],  # same as Pixel for dedup
+        "user": {
+            "email": [hashlib.sha256(lead_data["email"].encode()).hexdigest()],
+            "phone_number": [hashlib.sha256(lead_data["phone"].encode()).hexdigest()],
+            "external_id": [str(lead_data["crm_id"])]
+        },
+        "page": {"url": lead_data["page_url"]},
+        "properties": {"content_type": "lead"}
+    }
+    requests.post(
+        f"https://business-api.tiktok.com/open_api/v1.3/pixel/track/",
+        headers={"Access-Token": ACCESS_TOKEN},
+        json={"data": [payload]}
+    )`,
+        notes: [
+          "Event structure aligned with the funnel: ViewContent (visited page) → ClickButton (clicked form) → SubmitForm (submitted lead)",
+          "event_id shared between Pixel (GTM) and Events API — TikTok uses this for automatic deduplication",
+          "Matching parameters: email hash, phone hash, external_id — no plaintext PII",
+          "Systematic Events Manager validation: match quality monitored weekly until stabilized above recommended threshold"
+        ],
+        limitations: "TikTok Events API has higher latency than Meta CAPI for reflecting in Ads Manager — today's data may appear with up to 2h delay. Event structure is more rigid than Meta — funnel changes require mapping revision.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -1119,6 +1435,35 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "Cache inteligente foi a decisão técnica mais crítica para viabilizar a aplicação — sem ele, o tempo de resposta tornaria o uso impraticável. Aprendi a equilibrar granularidade de dados com performance de resposta, e a importância de desenhar a API pensando no padrão de uso real."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["APIs de plataformas (Meta, Google, TikTok)", "Connectors reutilizados do pipeline", "JOIN com CRM MySQL por anúncio", "Cache TTL diferenciado", "FastAPI + Export Excel"],
+        code: `-- Cruzamento: spend por anúncio × leads do CRM
+SELECT
+    ad.ad_name,
+    ad.campaign_name,
+    ad.spend,
+    COUNT(l.id) AS leads_crm,
+    COUNT(a.id) AS agendamentos,
+    ROUND(ad.spend / NULLIF(COUNT(l.id), 0), 2) AS cpl,
+    ROUND(ad.spend / NULLIF(COUNT(a.id), 0), 2) AS cpa_agendamento
+FROM ad_metrics ad
+LEFT JOIN leads l
+    ON l.ad_id = ad.ad_id
+    AND l.created_at BETWEEN :date_start AND :date_end
+LEFT JOIN appointments a ON a.lead_id = l.id
+WHERE ad.date BETWEEN :date_start AND :date_end
+GROUP BY ad.ad_id
+ORDER BY leads_crm DESC`,
+        notes: [
+          "Single-flight cache: se duas requests chegam ao mesmo tempo para o mesmo período, a segunda aguarda o resultado da primeira",
+          "Anúncios renomeados na plataforma são tratados pelo ad_id estável — o nome exibido é o mais recente",
+          "Diferenças de janela de atribuição entre plataformas e CRM são documentadas no rodapé do relatório",
+          "TTL de 5 min para datas passadas, 60s para today — dados de hoje invalidam o cache a cada minuto"
+        ],
+        limitations: "O cruzamento por ad_id depende de o CRM registrar o identificador de anúncio corretamente no momento do lead. Casos onde o campo está nulo são contabilizados como 'leads não atribuídos' e exibidos separadamente.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -1176,6 +1521,35 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "Smart caching was the most critical technical decision to make the application viable — without it, response times would have made it unusable. I learned to balance data granularity with response performance, and the importance of designing the API around actual usage patterns."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["Platform APIs (Meta, Google, TikTok)", "Reused pipeline connectors", "JOIN with MySQL CRM per ad", "Differentiated TTL cache", "FastAPI + Excel export"],
+        code: `-- Cross-reference: ad-level spend × CRM leads
+SELECT
+    ad.ad_name,
+    ad.campaign_name,
+    ad.spend,
+    COUNT(l.id) AS crm_leads,
+    COUNT(a.id) AS appointments,
+    ROUND(ad.spend / NULLIF(COUNT(l.id), 0), 2) AS cpl,
+    ROUND(ad.spend / NULLIF(COUNT(a.id), 0), 2) AS cpa_per_appointment
+FROM ad_metrics ad
+LEFT JOIN leads l
+    ON l.ad_id = ad.ad_id
+    AND l.created_at BETWEEN :date_start AND :date_end
+LEFT JOIN appointments a ON a.lead_id = l.id
+WHERE ad.date BETWEEN :date_start AND :date_end
+GROUP BY ad.ad_id
+ORDER BY crm_leads DESC`,
+        notes: [
+          "Single-flight cache: concurrent requests for the same period wait for the first result",
+          "Renamed ads handled by stable ad_id — the displayed name is always the most recent",
+          "Attribution window differences between platforms and CRM are documented in the report footer",
+          "TTL: 5 min for past dates, 60s for today — current-day data invalidates cache every minute"
+        ],
+        limitations: "The ad_id join depends on the CRM correctly recording the ad identifier at lead creation time. Cases where this field is null are counted as 'unattributed leads' and shown separately.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -1237,6 +1611,38 @@ const projects = {
       learnings: {
         label: "Aprendizados",
         text: "O controle de acesso por domínio de email foi a decisão técnica mais impactante — permitiu escalar para todas as regionais sem criar um sistema complexo de usuários e senhas. Definir claramente os limites de acesso antes de desenvolver economizou retrabalho e evitou problemas de privacidade operacional."
+      },
+      technical: {
+        label: "Prova Técnica",
+        flow: ["MySQL CRM", "JOIN lojas + leads + campanhas", "Classificação de canal (Python)", "FastAPI + Jinja2", "Export Excel"],
+        code: `-- Query simplificada: leads por loja e canal de mídia
+SELECT
+    s.store_name,
+    s.regional,
+    CASE
+        WHEN l.id_origin = 1 AND l.id_campaign_type = 3 THEN 'Meta - Prospecting'
+        WHEN l.id_origin = 1 AND l.id_campaign_type = 7 THEN 'Meta - Retargeting'
+        WHEN l.id_origin = 2 THEN 'Google Ads'
+        WHEN l.id_origin = 4 THEN 'TikTok Ads'
+        ELSE 'Outros'
+    END AS canal,
+    COUNT(l.id) AS total_leads,
+    COUNT(a.id) AS agendamentos,
+    ROUND(COUNT(a.id) / NULLIF(COUNT(l.id), 0) * 100, 1) AS taxa_agendamento
+FROM leads l
+JOIN stores s ON l.store_id = s.id
+LEFT JOIN appointments a ON a.lead_id = l.id
+WHERE l.created_at BETWEEN :date_start AND :date_end
+GROUP BY s.store_name, s.regional, canal
+ORDER BY total_leads DESC`,
+        notes: [
+          "Autenticação por domínio de email: @regional-sp.empresa.com acessa apenas dados de SP",
+          "14 canais classificados combinando id_origin (plataforma) e id_campaign_type (objetivo)",
+          "Cache TTL de 5 min para histórico, 60s para o dia atual — evita sobrecarga no MySQL",
+          "Leads com campos nulos tratados com COALESCE e NULLIF para não distorcer taxas"
+        ],
+        limitations: "Acesso controlado apenas por domínio de email corporativo — não há sistema de permissões granular. Lojas criadas no CRM com nomenclatura fora do padrão podem não ser associadas corretamente.",
+        limits_label: "Limitações"
       }
     },
     en: {
@@ -1294,6 +1700,38 @@ const projects = {
       learnings: {
         label: "Learnings",
         text: "Email domain-based access control was the most impactful technical decision — it allowed scaling to all regions without building a complex user/password system. Clearly defining access boundaries before development saved rework and avoided operational privacy issues."
+      },
+      technical: {
+        label: "Technical Proof",
+        flow: ["MySQL CRM", "JOIN stores + leads + campaigns", "Channel classification (Python)", "FastAPI + Jinja2", "Excel export"],
+        code: `-- Simplified query: leads by store and media channel
+SELECT
+    s.store_name,
+    s.regional,
+    CASE
+        WHEN l.id_origin = 1 AND l.id_campaign_type = 3 THEN 'Meta - Prospecting'
+        WHEN l.id_origin = 1 AND l.id_campaign_type = 7 THEN 'Meta - Retargeting'
+        WHEN l.id_origin = 2 THEN 'Google Ads'
+        WHEN l.id_origin = 4 THEN 'TikTok Ads'
+        ELSE 'Other'
+    END AS channel,
+    COUNT(l.id) AS total_leads,
+    COUNT(a.id) AS appointments,
+    ROUND(COUNT(a.id) / NULLIF(COUNT(l.id), 0) * 100, 1) AS booking_rate
+FROM leads l
+JOIN stores s ON l.store_id = s.id
+LEFT JOIN appointments a ON a.lead_id = l.id
+WHERE l.created_at BETWEEN :date_start AND :date_end
+GROUP BY s.store_name, s.regional, channel
+ORDER BY total_leads DESC`,
+        notes: [
+          "Email domain auth: @regional-sp.company.com only accesses SP data",
+          "14 channels classified by combining id_origin (platform) and id_campaign_type (objective)",
+          "Cache TTL: 5 min for historical data, 60s for today — prevents MySQL overload",
+          "Null-field leads handled with COALESCE and NULLIF to avoid distorting rates"
+        ],
+        limitations: "Access control is based solely on corporate email domain — no granular permission system. Stores created in the CRM with non-standard naming may not be correctly matched.",
+        limits_label: "Limitations"
       }
     }
   },
@@ -1611,6 +2049,19 @@ function buildModal(data, demo) {
       <p>${data.learnings.text}</p>
     </div>` : '';
 
+  const technicalSection = data.technical ? `
+    <div class="m-hr"></div>
+    <div class="m-section">
+      <div class="m-section-label">${data.technical.label}</div>
+      ${data.technical.flow ? `
+        <div class="m-tech-flow">
+          ${data.technical.flow.map(step => `<div class="m-tech-step">${step}</div>`).join('<div class="m-tech-arrow">→</div>')}
+        </div>` : ''}
+      ${data.technical.code ? `<pre class="m-code"><code>${data.technical.code}</code></pre>` : ''}
+      ${data.technical.notes ? `<ul class="m-bullets">${data.technical.notes.map(n => `<li>${n}</li>`).join('')}</ul>` : ''}
+      ${data.technical.limitations ? `<p class="m-tech-limits"><strong>${data.technical.limits_label || 'Limitações'}:</strong> ${data.technical.limitations}</p>` : ''}
+    </div>` : '';
+
   return `
     <span class="m-tag">${data.tag}</span>
     <h2 class="m-title">${data.title}</h2>
@@ -1635,6 +2086,7 @@ function buildModal(data, demo) {
       <div class="m-impact">${impact}</div>
     </div>
     ${learnSection}
+    ${technicalSection}
     <div class="m-footer">
       ${demoBtn}
       ${ghBtn}
