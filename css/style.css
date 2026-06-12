@@ -1104,6 +1104,17 @@ section { padding: 108px 0; }
   align-items: center;
 }
 
+.about-photo {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 2px solid var(--bdr2);
+  margin-bottom: 22px;
+  display: block;
+}
+
 .about-left .section-label { margin-bottom: 10px; }
 
 .about-heading {
