@@ -1107,20 +1107,16 @@ section { padding: 108px 0; }
 .about-intro {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 28px;
-  padding: 16px;
-  background: var(--bg2);
-  border: 1px solid var(--bdr);
-  border-radius: 14px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 .about-photo {
-  width: 64px;
-  height: 64px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  border: 2px solid var(--bdr2);
+  border: 1px solid var(--bdr2);
   flex-shrink: 0;
 }
 .about-intro-info { display: flex; flex-direction: column; gap: 3px; }
