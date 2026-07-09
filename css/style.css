@@ -2077,7 +2077,7 @@ footer {
 ==================================================== */
 .skills-context-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
 }
 
@@ -2148,6 +2148,79 @@ footer {
   transition: var(--t);
 }
 .sc-tags span:hover { border-color: var(--tl); color: var(--tl-l); }
+
+/* ====================================================
+   O QUE CONSTRUO
+==================================================== */
+#what-i-build { background: var(--bg0); }
+
+.wib-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.wib-card {
+  background: var(--bg2);
+  border: 1px solid var(--bdr);
+  border-radius: var(--r2);
+  padding: 26px 28px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  transition: border-color var(--t), transform var(--t);
+}
+.wib-card:hover {
+  border-color: rgba(var(--p-rgb),.25);
+  transform: translateY(-2px);
+}
+
+.wib-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.wib-icon--purple {
+  background: rgba(var(--p-rgb),.1);
+  border: 1px solid rgba(var(--p-rgb),.2);
+  color: var(--p-l);
+}
+.wib-icon--teal {
+  background: rgba(var(--tl-rgb),.1);
+  border: 1px solid rgba(var(--tl-rgb),.2);
+  color: var(--tl-l);
+}
+.wib-icon--indigo {
+  background: rgba(var(--p-rgb),.08);
+  border: 1px solid rgba(var(--p-rgb),.18);
+  color: var(--p-l);
+}
+.wib-icon--orange {
+  background: rgba(var(--or-rgb),.1);
+  border: 1px solid rgba(var(--or-rgb),.2);
+  color: var(--or);
+}
+
+.wib-body h3 {
+  font-family: var(--disp);
+  font-size: .95rem;
+  font-weight: 700;
+  letter-spacing: -.015em;
+  margin-bottom: 6px;
+}
+.wib-body p {
+  font-size: .82rem;
+  color: var(--tx2);
+  line-height: 1.65;
+}
+
+/* sc-icon--indigo variant */
+.sc-icon--indigo {
+  background: rgba(var(--p-rgb),.08);
+  border: 1px solid rgba(var(--p-rgb),.18);
+  color: var(--p-l);
+}
 
 /* ====================================================
    COMO TRABALHO
@@ -2405,6 +2478,7 @@ footer {
   .exp-item { grid-template-columns: 160px 1fr; gap: 20px; }
 
   .resolve-grid { grid-template-columns: 1fr 1fr; }
+  .wib-grid { grid-template-columns: 1fr 1fr; }
   .skills-context-grid { grid-template-columns: 1fr 1fr; }
   .proj-cat-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -2456,6 +2530,7 @@ footer {
   .contact-grid { grid-template-columns: 1fr; }
 
   .resolve-grid { grid-template-columns: 1fr; }
+  .wib-grid { grid-template-columns: 1fr; }
   .skills-context-grid { grid-template-columns: 1fr; }
   .proj-cat-grid { grid-template-columns: 1fr; }
   .proj-cat-grid--2 { grid-template-columns: 1fr; }
