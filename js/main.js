@@ -22,9 +22,17 @@ const i18n = {
     cta_cv:        "Baixar CV",
     cta_contact:   "Falar Comigo",
 
+    // CASES EM DESTAQUE
+    cd_tag:       "cases",
+    cd_title:     "Cases de dados, mídia e automação",
+    cd_desc:      "Projetos reais com problema definido, solução construída e impacto mensurável.",
+    cd_p1_problem: "Análise de 280+ lojas espalhadas em 16 regionais era manual, lenta e sem visão granular por unidade.",
+    cd_p2_problem: "Análise por anúncio cruzando dados de plataforma com leads e agendamentos do CRM — tudo manual até ser automatizado.",
+    cd_p3_problem: "Consolidação de 9+ plataformas de mídia era feita manualmente — horas de trabalho diário por regional.",
+
     // O QUE RESOLVO
-    resolve_tag:   "problemas",
-    resolve_title: "O que eu resolvo",
+    resolve_tag:   "clareza",
+    resolve_title: "Onde gero clareza",
     resolve_desc:  "Problemas reais que já apareceram em operações de marketing — e que eu sei resolver.",
     r1_title: "Dados espalhados entre plataformas",
     r1_desc:  "Consolido dados de mídia, CRM, lojas e planilhas em visões únicas e estruturadas para análise — sem copiar e colar entre abas.",
@@ -71,7 +79,7 @@ const i18n = {
 
     // EXPERIÊNCIA
     exp_tag:     "trajetória",
-    exp_title:   "Experiência",
+    exp_title:   "Operações reais",
     exp_current: "Atual",
 
     exp1_period: "Fev 2026 — presente",
@@ -121,7 +129,7 @@ const i18n = {
 
     // PROJETOS
     proj_tag:   "portfólio",
-    proj_title: "Projetos",
+    proj_title: "Todos os projetos",
     proj_desc:  "Clique em qualquer card para ver o case completo.",
     conf_text:  "Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.",
     cat_bi:       "BI & Analytics",
@@ -221,9 +229,17 @@ const i18n = {
     cta_cv:        "Download CV",
     cta_contact:   "Get in Touch",
 
+    // CASES EM DESTAQUE
+    cd_tag:       "cases",
+    cd_title:     "Data, media & automation cases",
+    cd_desc:      "Real projects with a defined problem, a built solution and measurable impact.",
+    cd_p1_problem: "Analysing 280+ stores across 16 regions was manual, slow and had no granular per-unit visibility.",
+    cd_p2_problem: "Ad-level analysis crossing platform data with CRM leads and appointments — all manual until automated.",
+    cd_p3_problem: "Consolidating 9+ media platforms was done manually — hours of daily work per region.",
+
     // WHAT I SOLVE
-    resolve_tag:   "problems",
-    resolve_title: "What I solve",
+    resolve_tag:   "clarity",
+    resolve_title: "Where I create clarity",
     resolve_desc:  "Real problems that show up in marketing operations — and that I know how to fix.",
     r1_title: "Data scattered across platforms",
     r1_desc:  "I consolidate media, CRM, store, and spreadsheet data into unified, structured views for analysis — no more copy-pasting between tabs.",
@@ -270,7 +286,7 @@ const i18n = {
 
     // EXPERIENCE
     exp_tag:     "career",
-    exp_title:   "Experience",
+    exp_title:   "Real operations",
     exp_current: "Current",
 
     exp1_period: "Feb 2026 — present",
@@ -320,7 +336,7 @@ const i18n = {
 
     // PROJECTS
     proj_tag:   "portfolio",
-    proj_title: "Projects",
+    proj_title: "All projects",
     proj_desc:  "Click any card to see the full case study.",
     conf_text:  "Sensitive data has been anonymized for confidentiality. The case studies preserve the logic and structure of each solution without exposing private client information.",
     cat_bi:       "BI & Analytics",

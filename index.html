@@ -51,12 +51,20 @@
   ========================================================= -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">LM<span class="accent">.</span></a>
+      <a href="#hero" class="nav-logo">
+        <svg class="nav-logo-mark" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+          <rect x="0" y="8" width="2.5" height="6" opacity=".5"/>
+          <rect x="3.5" y="5.5" width="2.5" height="8.5" opacity=".65"/>
+          <rect x="7" y="3" width="2.5" height="11" opacity=".8"/>
+          <rect x="10.5" y="0" width="2.5" height="14"/>
+        </svg>
+        LM<span class="accent">.</span>
+      </a>
       <ul class="nav-links">
-        <li><a href="#resolve"    data-i18n="nav_resolve">O que resolvo</a></li>
-        <li><a href="#projects"   data-i18n="nav_projects">Projetos</a></li>
-        <li><a href="#experience" data-i18n="nav_exp">Experiência</a></li>
-        <li><a href="#about"      data-i18n="nav_about">Sobre</a></li>
+        <li><a href="#resolve"         data-i18n="nav_resolve">O que resolvo</a></li>
+        <li><a href="#cases-destaque"  data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="#experience"      data-i18n="nav_exp">Experiência</a></li>
+        <li><a href="#about"           data-i18n="nav_about">Sobre</a></li>
       </ul>
       <div class="nav-right">
         <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn-cv-nav" data-i18n="nav_cv">Baixar CV</a>
@@ -65,10 +73,10 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#resolve"    data-i18n="nav_resolve">O que resolvo</a>
-      <a href="#projects"   data-i18n="nav_projects">Projetos</a>
-      <a href="#experience" data-i18n="nav_exp">Experiência</a>
-      <a href="#about"      data-i18n="nav_about">Sobre</a>
+      <a href="#resolve"        data-i18n="nav_resolve">O que resolvo</a>
+      <a href="#cases-destaque" data-i18n="nav_projects">Projetos</a>
+      <a href="#experience"     data-i18n="nav_exp">Experiência</a>
+      <a href="#about"          data-i18n="nav_about">Sobre</a>
       <a href="assets/Lucas_Morales_CV_Geral.pdf" download data-i18n="nav_cv">Baixar CV</a>
     </div>
   </nav>
@@ -174,13 +182,102 @@
   </section>
 
   <!-- =========================================================
+     CASES EM DESTAQUE
+========================================================= -->
+<section id="cases-destaque">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <span class="section-label" data-i18n="cd_tag">cases</span>
+      <h2 data-i18n="cd_title">Cases de dados, mídia e automação</h2>
+      <p class="section-desc" data-i18n="cd_desc">Projetos reais com problema definido, solução construída e impacto mensurável.</p>
+    </div>
+
+    <div class="cd-grid">
+
+      <article class="cd-card cd-card--main proj-card" data-project="store-analytics" data-reveal>
+        <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
+        <div class="cd-visual">
+          <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics">
+        </div>
+        <div class="cd-body">
+          <div class="cd-meta">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="cd-stack">FastAPI · MySQL · SQL · Auth</span>
+          </div>
+          <h3 class="cd-title" data-i18n="p8_title">Store-Level Analytics</h3>
+          <p class="cd-problem" data-i18n="cd_p1_problem">Análise de 280+ lojas espalhadas em 16 regionais era manual, lenta e sem visão granular por unidade.</p>
+          <div class="cd-impacts">
+            <div class="cd-impact-item"><span class="cd-impact-val">280+</span><span class="cd-impact-lbl" data-i18n="hm_stores">Lojas</span></div>
+            <div class="cd-impact-item"><span class="cd-impact-val">16</span><span class="cd-impact-lbl">Regionais</span></div>
+            <div class="cd-impact-item"><span class="cd-impact-val">14</span><span class="cd-impact-lbl">Canais</span></div>
+          </div>
+          <div class="cd-actions">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            <a href="assets/demos/store-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cd-card proj-card" data-project="ad-analytics" data-reveal>
+        <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
+        <div class="cd-visual">
+          <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics">
+        </div>
+        <div class="cd-body">
+          <div class="cd-meta">
+            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+            <span class="cd-stack">FastAPI · Cache · MySQL</span>
+          </div>
+          <h3 class="cd-title" data-i18n="p7_title">Ad-Level Analytics</h3>
+          <p class="cd-problem" data-i18n="cd_p2_problem">Análise por anúncio cruzando dados de plataforma com leads e agendamentos do CRM — tudo manual até ser automatizado.</p>
+          <div class="cd-impacts">
+            <div class="cd-impact-item"><span class="cd-impact-val">9+</span><span class="cd-impact-lbl">Plataformas</span></div>
+            <div class="cd-impact-item"><span class="cd-impact-val">↑</span><span class="cd-impact-lbl">Granularidade</span></div>
+          </div>
+          <div class="cd-actions">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="cd-card proj-card" data-project="media-reports" data-reveal>
+        <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
+        <div class="cd-visual cd-visual--ph proj-ph proj-ph--teal">
+          <div class="proj-ph-body">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Python · APIs · GitHub Actions</span>
+          </div>
+        </div>
+        <div class="cd-body">
+          <div class="cd-meta">
+            <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
+            <span class="cd-stack">Python · APIs · GitHub Actions</span>
+          </div>
+          <h3 class="cd-title" data-i18n="p1_title">Relatório de Mídia Automatizado</h3>
+          <p class="cd-problem" data-i18n="cd_p3_problem">Consolidação de 9+ plataformas de mídia era feita manualmente — horas de trabalho diário por regional.</p>
+          <div class="cd-impacts">
+            <div class="cd-impact-item"><span class="cd-impact-val">90%</span><span class="cd-impact-lbl">↓ Trabalho manual</span></div>
+            <div class="cd-impact-item"><span class="cd-impact-val">9+</span><span class="cd-impact-lbl">APIs</span></div>
+          </div>
+          <div class="cd-actions">
+            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- =========================================================
        O QUE EU RESOLVO
   ========================================================= -->
   <section id="resolve">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="resolve_tag">problemas</span>
-        <h2 data-i18n="resolve_title">O que eu resolvo</h2>
+        <span class="section-label" data-i18n="resolve_tag">clareza</span>
+        <h2 data-i18n="resolve_title">Onde gero clareza</h2>
         <p class="section-desc" data-i18n="resolve_desc">Problemas reais que já apareceram em operações de marketing — e que eu sei resolver.</p>
       </div>
       <div class="resolve-grid">
@@ -236,7 +333,7 @@
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="section-label" data-i18n="proj_tag">portfólio</span>
-        <h2 data-i18n="proj_title">Projetos</h2>
+        <h2 data-i18n="proj_title">Todos os projetos</h2>
         <p class="section-desc" data-i18n="proj_desc">Clique em qualquer card para ver o case completo.</p>
       </div>
 
@@ -256,6 +353,7 @@
         </div>
         <div class="proj-cat-grid">
           <article class="proj-card proj-card--featured" data-project="store-analytics" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow"></div>
             <div class="proj-screenshot">
               <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Screenshot Store-Level Analytics">
@@ -275,6 +373,7 @@
             </div>
           </article>
           <article class="proj-card proj-card--featured" data-project="ad-analytics" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow proj-glow--teal"></div>
             <div class="proj-screenshot">
               <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Screenshot Ad-Level Analytics">
@@ -291,6 +390,7 @@
             </div>
           </article>
           <article class="proj-card" data-project="looq-challenge" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow"></div>
             <div class="proj-screenshot">
               <img src="assets/screenshots/looq-challenge.png" loading="lazy" alt="Screenshot Desafio Técnico Looqbox">
@@ -319,6 +419,7 @@
         </div>
         <div class="proj-cat-grid">
           <article class="proj-card proj-card--featured" data-project="media-reports" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow proj-glow--teal"></div>
             <div class="proj-screenshot proj-ph proj-ph--teal">
               <div class="proj-ph-body">
@@ -340,6 +441,7 @@
             </div>
           </article>
           <article class="proj-card" data-project="leads-processor" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow"></div>
             <div class="proj-screenshot proj-ph proj-ph--purple">
               <div class="proj-ph-body">
@@ -359,6 +461,7 @@
             </div>
           </article>
           <article class="proj-card" data-project="email-clickup" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow proj-glow--teal"></div>
             <div class="proj-screenshot proj-ph proj-ph--teal">
               <div class="proj-ph-body">
@@ -377,6 +480,7 @@
             </div>
           </article>
           <article class="proj-card" data-project="meta-tax-calc" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow"></div>
             <div class="proj-screenshot">
               <img src="assets/screenshots/meta-tax-calc.png" loading="lazy" alt="Screenshot Calculadora de Imposto Meta Ads">
@@ -405,6 +509,7 @@
         </div>
         <div class="proj-cat-grid proj-cat-grid--2">
           <article class="proj-card" data-project="meta-capi" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow"></div>
             <div class="proj-screenshot proj-ph proj-ph--orange">
               <div class="proj-ph-body">
@@ -426,6 +531,7 @@
             </div>
           </article>
           <article class="proj-card" data-project="tiktok-capi" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow proj-glow--teal"></div>
             <div class="proj-screenshot proj-ph proj-ph--teal">
               <div class="proj-ph-body">
@@ -456,6 +562,7 @@
         </div>
         <div class="proj-cat-grid">
           <article class="proj-card" data-project="whisper-transcriber" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow proj-glow--teal"></div>
             <div class="proj-screenshot">
               <img src="assets/screenshots/whisper-transcriber.png" loading="lazy" alt="Screenshot Transcritor de Call">
@@ -472,6 +579,7 @@
             </div>
           </article>
           <article class="proj-card" data-project="ai-analytics" data-reveal>
+            <div class="proj-overlay"><span class="proj-overlay-cta">Ver case ↗</span></div>
             <div class="proj-glow proj-glow--teal"></div>
             <div class="proj-screenshot">
               <img src="assets/screenshots/ai-analytics.png" loading="lazy" alt="Screenshot AI Ad Metrics Analyzer">
@@ -570,70 +678,13 @@
   </section>
 
   <!-- =========================================================
-       COMO TRABALHO
-  ========================================================= -->
-  <section id="process">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="proc_tag">método</span>
-        <h2 data-i18n="proc_title">Como trabalho</h2>
-        <p class="section-desc" data-i18n="proc_desc">Do problema à recomendação — como estruturo o trabalho analítico na prática.</p>
-      </div>
-      <div class="process-steps">
-        <div class="ps-item" data-reveal>
-          <div class="ps-num">01</div>
-          <div class="ps-body">
-            <h4 data-i18n="ps1_title">Entendo a decisão que precisa ser tomada</h4>
-            <p data-i18n="ps1_desc">Antes de qualquer dado ou ferramenta: qual pergunta de negócio precisa ser respondida? Qual decisão vai mudar com esse análise?</p>
-          </div>
-        </div>
-        <div class="ps-item" data-reveal>
-          <div class="ps-num">02</div>
-          <div class="ps-body">
-            <h4 data-i18n="ps2_title">Mapeio as fontes de dados disponíveis</h4>
-            <p data-i18n="ps2_desc">Plataformas de mídia, CRM, banco de dados, planilhas, APIs — identifico o que existe, o que está confiável e o que precisa ser estruturado.</p>
-          </div>
-        </div>
-        <div class="ps-item" data-reveal>
-          <div class="ps-num">03</div>
-          <div class="ps-body">
-            <h4 data-i18n="ps3_title">Estruturo coleta, tratamento e padronização</h4>
-            <p data-i18n="ps3_desc">ETL, normalização, deduplicação, reconciliação entre fontes — os dados precisam ser confiáveis antes de virarem análise.</p>
-          </div>
-        </div>
-        <div class="ps-item" data-reveal>
-          <div class="ps-num">04</div>
-          <div class="ps-body">
-            <h4 data-i18n="ps4_title">Crio visualizações e indicadores acionáveis</h4>
-            <p data-i18n="ps4_desc">Dashboards, relatórios, exportações Excel — projetados para quem vai tomar a decisão, não para impressionar tecnicamente.</p>
-          </div>
-        </div>
-        <div class="ps-item" data-reveal>
-          <div class="ps-num">05</div>
-          <div class="ps-body">
-            <h4 data-i18n="ps5_title">Automatizo o que for recorrente</h4>
-            <p data-i18n="ps5_desc">Se uma tarefa vai se repetir toda semana, ela vira script, pipeline ou automação. Tempo manual é o recurso mais caro de uma operação de dados.</p>
-          </div>
-        </div>
-        <div class="ps-item" data-reveal>
-          <div class="ps-num">06</div>
-          <div class="ps-body">
-            <h4 data-i18n="ps6_title">Transformo análise em recomendação prática</h4>
-            <p data-i18n="ps6_desc">O entregável final não é um gráfico — é uma resposta: o que fazer, onde cortar, o que escalar, o que investigar mais.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
        EXPERIENCE
   ========================================================= -->
   <section id="experience">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="section-label" data-i18n="exp_tag">trajetória</span>
-        <h2 data-i18n="exp_title">Experiência</h2>
+        <h2 data-i18n="exp_title">Operações reais</h2>
       </div>
       <div class="exp-list">
 
@@ -944,7 +995,15 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <span class="nav-logo">LM<span class="accent">.</span></span>
+        <span class="nav-logo">
+          <svg class="nav-logo-mark" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
+            <rect x="0" y="8" width="2.5" height="6" opacity=".5"/>
+            <rect x="3.5" y="5.5" width="2.5" height="8.5" opacity=".65"/>
+            <rect x="7" y="3" width="2.5" height="11" opacity=".8"/>
+            <rect x="10.5" y="0" width="2.5" height="14"/>
+          </svg>
+          LM<span class="accent">.</span>
+        </span>
         <p class="footer-copy" data-i18n="footer_text">Feito com HTML, CSS &amp; JS puro · Atualizado em junho/2026</p>
         <div class="footer-links">
           <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" data-i18n="contact_wa">WhatsApp</a>
