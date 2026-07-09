@@ -124,6 +124,18 @@
       </div>
 
       <div class="hero-right" aria-hidden="true">
+        <div class="hero-card hero-card--top">
+          <div class="hc-header">
+            <span class="hc-dot hc-dot--green"></span>
+            <span class="hc-label">pipeline.py</span>
+          </div>
+          <pre class="hc-code"><code><span class="t-kw">def</span> <span class="t-fn">run_pipeline</span>(<span class="t-var">date</span>):
+  data <span class="t-op">=</span> collect_all_platforms()
+  df   <span class="t-op">=</span> normalize(data)
+  kpis <span class="t-op">=</span> compute_kpis(df)
+  <span class="t-kw">return</span> export_to_sheets(kpis)</code></pre>
+        </div>
+
         <div class="hero-metrics-card">
           <div class="hm-row">
             <div class="hm-item">
@@ -142,6 +154,18 @@
             </div>
           </div>
           <p class="hero-metrics-context" data-i18n="hm_context">Indicadores aproximados de operações em que atuei diretamente, com dados sensíveis preservados por confidencialidade.</p>
+        </div>
+
+        <div class="hero-card hero-card--bottom">
+          <div class="hc-header">
+            <span class="hc-dot hc-dot--purple"></span>
+            <span class="hc-label">insights.sql</span>
+          </div>
+          <pre class="hc-code"><code><span class="t-kw">SELECT</span> regional,
+  <span class="t-fn">SUM</span>(spend) <span class="t-kw">AS</span> total,
+  <span class="t-fn">AVG</span>(cpl) <span class="t-kw">AS</span> avg_cpl
+<span class="t-kw">FROM</span> media_data
+<span class="t-kw">GROUP BY</span> regional</code></pre>
         </div>
       </div>
     </div>
