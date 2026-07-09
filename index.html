@@ -19,7 +19,7 @@
   <meta name="twitter:card"       content="summary_large_image" />
 
   <!-- Favicon inline SVG -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%237c3aed'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800' font-size='14'>LM</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%234F46E5'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800' font-size='14'>LM</text></svg>" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -52,11 +52,17 @@
   <nav id="navbar">
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">
-        <svg class="nav-logo-mark" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
-          <rect x="0" y="8" width="2.5" height="6" opacity=".5"/>
-          <rect x="3.5" y="5.5" width="2.5" height="8.5" opacity=".65"/>
-          <rect x="7" y="3" width="2.5" height="11" opacity=".8"/>
-          <rect x="10.5" y="0" width="2.5" height="14"/>
+        <svg class="nav-logo-mark" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <!-- nodes -->
+          <circle cx="2"  cy="8"  r="2"   fill="currentColor" opacity=".5"/>
+          <circle cx="8"  cy="2"  r="2"   fill="currentColor" opacity=".8"/>
+          <circle cx="14" cy="8"  r="2"   fill="currentColor"/>
+          <circle cx="8"  cy="14" r="1.5" fill="currentColor" opacity=".6"/>
+          <!-- edges -->
+          <line x1="3.4"  y1="7.3"  x2="6.6"  y2="3"   stroke="currentColor" stroke-width="1"   opacity=".45"/>
+          <line x1="9.4"  y1="2.7"  x2="12.6" y2="7.3"  stroke="currentColor" stroke-width="1"   opacity=".6"/>
+          <line x1="3.4"  y1="8.7"  x2="6.9"  y2="12.8" stroke="currentColor" stroke-width=".85" opacity=".35"/>
+          <line x1="9.1"  y1="13.3" x2="12.6" y2="8.7"  stroke="currentColor" stroke-width=".85" opacity=".35"/>
         </svg>
         LM<span class="accent">.</span>
       </a>
@@ -118,7 +124,7 @@
         </div>
 
         <div class="hero-ctas">
-          <a href="#projects" class="btn btn-primary" data-i18n="cta_cases">Ver Cases</a>
+          <a href="#cases-destaque" class="btn btn-primary" data-i18n="cta_cases">Ver Cases</a>
           <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn btn-secondary" data-i18n="cta_cv">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             Baixar CV
@@ -132,18 +138,43 @@
       </div>
 
       <div class="hero-right" aria-hidden="true">
+
+        <!-- Dashboard KPI card -->
         <div class="hero-card hero-card--top">
           <div class="hc-header">
             <span class="hc-dot hc-dot--green"></span>
-            <span class="hc-label">pipeline.py</span>
+            <span class="hc-label">performance.dash</span>
+            <span class="hc-badge">live</span>
           </div>
-          <pre class="hc-code"><code><span class="t-kw">def</span> <span class="t-fn">run_pipeline</span>(<span class="t-var">date</span>):
-  data <span class="t-op">=</span> collect_all_platforms()
-  df   <span class="t-op">=</span> normalize(data)
-  kpis <span class="t-op">=</span> compute_kpis(df)
-  <span class="t-kw">return</span> export_to_sheets(kpis)</code></pre>
+          <div class="hd-kpis">
+            <div class="hd-kpi">
+              <span class="hd-kpi-val">4.2<span class="accent">×</span></span>
+              <span class="hd-kpi-lbl">ROAS</span>
+              <span class="hd-kpi-delta hd-kpi-delta--pos">↑ 12%</span>
+            </div>
+            <div class="hd-kpi">
+              <span class="hd-kpi-val">R$38</span>
+              <span class="hd-kpi-lbl">CPL</span>
+              <span class="hd-kpi-delta hd-kpi-delta--neg">↓ 8%</span>
+            </div>
+            <div class="hd-kpi">
+              <span class="hd-kpi-val">1.4<span class="accent">k</span></span>
+              <span class="hd-kpi-lbl">Leads</span>
+              <span class="hd-kpi-delta hd-kpi-delta--pos">↑ 24%</span>
+            </div>
+          </div>
+          <div class="hd-chart">
+            <div class="hd-bar" style="--h:52%"></div>
+            <div class="hd-bar" style="--h:68%"></div>
+            <div class="hd-bar" style="--h:44%"></div>
+            <div class="hd-bar hd-bar--hi" style="--h:85%"></div>
+            <div class="hd-bar" style="--h:61%"></div>
+            <div class="hd-bar hd-bar--hi" style="--h:90%"></div>
+            <div class="hd-bar hd-bar--active" style="--h:75%"></div>
+          </div>
         </div>
 
+        <!-- Metrics highlight -->
         <div class="hero-metrics-card">
           <div class="hm-row">
             <div class="hm-item">
@@ -164,17 +195,30 @@
           <p class="hero-metrics-context" data-i18n="hm_context">Indicadores aproximados de operações em que atuei diretamente, com dados sensíveis preservados por confidencialidade.</p>
         </div>
 
+        <!-- Pipeline flow card -->
         <div class="hero-card hero-card--bottom">
           <div class="hc-header">
             <span class="hc-dot hc-dot--purple"></span>
-            <span class="hc-label">insights.sql</span>
+            <span class="hc-label">etl.pipeline</span>
           </div>
-          <pre class="hc-code"><code><span class="t-kw">SELECT</span> regional,
-  <span class="t-fn">SUM</span>(spend) <span class="t-kw">AS</span> total,
-  <span class="t-fn">AVG</span>(cpl) <span class="t-kw">AS</span> avg_cpl
-<span class="t-kw">FROM</span> media_data
-<span class="t-kw">GROUP BY</span> regional</code></pre>
+          <div class="hd-flow">
+            <div class="hd-flow-node hd-flow-node--done">
+              <span class="hd-flow-dot hd-flow-dot--green"></span>
+              Meta · Google<br>CRM APIs
+            </div>
+            <span class="hd-flow-arr">→</span>
+            <div class="hd-flow-node hd-flow-node--done">
+              <span class="hd-flow-dot hd-flow-dot--green"></span>
+              Normalize<br>&amp; Merge
+            </div>
+            <span class="hd-flow-arr">→</span>
+            <div class="hd-flow-node hd-flow-node--active">
+              <span class="hd-flow-dot hd-flow-dot--indigo"></span>
+              Dashboard<br>+ Alerts
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
 
