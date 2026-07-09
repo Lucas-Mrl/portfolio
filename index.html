@@ -124,46 +124,24 @@
       </div>
 
       <div class="hero-right" aria-hidden="true">
-        <div class="hero-card hero-card--top">
-          <div class="hc-header">
-            <span class="hc-dot hc-dot--green"></span>
-            <span class="hc-label">pipeline.py</span>
-          </div>
-          <pre class="hc-code"><code><span class="t-kw">def</span> <span class="t-fn">run_pipeline</span>(<span class="t-var">date</span>):
-  data <span class="t-op">=</span> collect_all_platforms()
-  df   <span class="t-op">=</span> normalize(data)
-  kpis <span class="t-op">=</span> compute_kpis(df)
-  <span class="t-kw">return</span> export_to_sheets(kpis)</code></pre>
-        </div>
-
         <div class="hero-metrics-card">
-          <div class="hm-item">
-            <span class="hm-value">R$15<span class="accent">M+</span></span>
-            <span class="hm-label" data-i18n="hm_budget">Verba Gerenciada</span>
+          <div class="hm-row">
+            <div class="hm-item">
+              <span class="hm-value">R$15<span class="accent">M+</span></span>
+              <span class="hm-label" data-i18n="hm_budget">Verba Gerenciada</span>
+            </div>
+            <div class="hm-sep"></div>
+            <div class="hm-item">
+              <span class="hm-value">9<span class="accent">+</span></span>
+              <span class="hm-label" data-i18n="hm_platforms">Plataformas</span>
+            </div>
+            <div class="hm-sep"></div>
+            <div class="hm-item">
+              <span class="hm-value">280<span class="accent">+</span></span>
+              <span class="hm-label" data-i18n="hm_stores">Lojas</span>
+            </div>
           </div>
-          <div class="hm-sep"></div>
-          <div class="hm-item">
-            <span class="hm-value">9<span class="accent">+</span></span>
-            <span class="hm-label" data-i18n="hm_platforms">Plataformas</span>
-          </div>
-          <div class="hm-sep"></div>
-          <div class="hm-item">
-            <span class="hm-value">280<span class="accent">+</span></span>
-            <span class="hm-label" data-i18n="hm_stores">Lojas</span>
-          </div>
-        </div>
-        <p class="hero-metrics-context" data-i18n="hm_context">Indicadores aproximados de operações em que atuei diretamente, com dados sensíveis preservados por confidencialidade.</p>
-
-        <div class="hero-card hero-card--bottom">
-          <div class="hc-header">
-            <span class="hc-dot hc-dot--purple"></span>
-            <span class="hc-label">insights.sql</span>
-          </div>
-          <pre class="hc-code"><code><span class="t-kw">SELECT</span> regional,
-  <span class="t-fn">SUM</span>(spend) <span class="t-kw">AS</span> total,
-  <span class="t-fn">AVG</span>(cpl) <span class="t-kw">AS</span> avg_cpl
-<span class="t-kw">FROM</span> media_data
-<span class="t-kw">GROUP BY</span> regional</code></pre>
+          <p class="hero-metrics-context" data-i18n="hm_context">Indicadores aproximados de operações em que atuei diretamente, com dados sensíveis preservados por confidencialidade.</p>
         </div>
       </div>
     </div>
@@ -318,6 +296,12 @@
         <div class="proj-cat-grid">
           <article class="proj-card proj-card--featured" data-project="media-reports" data-reveal>
             <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot proj-ph proj-ph--teal">
+              <div class="proj-ph-body">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                <span>Python · APIs · GitHub Actions</span>
+              </div>
+            </div>
             <div class="proj-top">
               <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
               <span class="proj-stack">Python · APIs · GitHub Actions</span>
@@ -333,6 +317,12 @@
           </article>
           <article class="proj-card" data-project="leads-processor" data-reveal>
             <div class="proj-glow"></div>
+            <div class="proj-screenshot proj-ph proj-ph--purple">
+              <div class="proj-ph-body">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9l3 3-3 3m5 0h3"/></svg>
+                <span>JavaScript · Client-side</span>
+              </div>
+            </div>
             <div class="proj-top">
               <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
               <span class="proj-stack">JavaScript · Client-side</span>
@@ -346,6 +336,12 @@
           </article>
           <article class="proj-card" data-project="email-clickup" data-reveal>
             <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot proj-ph proj-ph--teal">
+              <div class="proj-ph-body">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+                <span>n8n · Graph API · Oracle Cloud</span>
+              </div>
+            </div>
             <div class="proj-top">
               <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
               <span class="proj-stack">n8n · Graph API · Oracle Cloud</span>
@@ -386,6 +382,12 @@
         <div class="proj-cat-grid proj-cat-grid--2">
           <article class="proj-card" data-project="meta-capi" data-reveal>
             <div class="proj-glow"></div>
+            <div class="proj-screenshot proj-ph proj-ph--orange">
+              <div class="proj-ph-body">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4M4.22 19.78l2.83-2.83m9.9-9.9 2.83-2.83"/></svg>
+                <span>Meta CAPI · Python · Server-side</span>
+              </div>
+            </div>
             <div class="proj-top">
               <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
               <span class="proj-stack">Meta CAPI · Python · Server-side</span>
@@ -401,6 +403,12 @@
           </article>
           <article class="proj-card" data-project="tiktok-capi" data-reveal>
             <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot proj-ph proj-ph--teal">
+              <div class="proj-ph-body">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                <span>TikTok Events API · Server-side</span>
+              </div>
+            </div>
             <div class="proj-top">
               <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
               <span class="proj-stack">TikTok Events API · Server-side</span>
@@ -774,9 +782,15 @@
     <div class="container">
       <div class="about-wrap">
         <div class="about-left" data-reveal>
-          <img src="assets/lucas-morales.jpg" alt="Lucas Morales" class="about-photo">
-          <span class="section-label" data-i18n="about_tag">sobre</span>
-          <h2 class="about-heading" data-i18n="about_title">Analytics que<br>entende de mídia.</h2>
+          <div class="about-profile">
+            <div class="about-photo-wrap">
+              <img src="assets/lucas-morales.jpg" alt="Lucas Morales" class="about-photo">
+            </div>
+            <div class="about-profile-text">
+              <span class="section-label" data-i18n="about_tag">sobre</span>
+              <h2 class="about-heading" data-i18n="about_title">Analytics que<br>entende de mídia.</h2>
+            </div>
+          </div>
           <p data-i18n="about_p1">
             Comecei no marketing digital operando campanhas, funis e landing pages para negócios locais. Com o tempo, percebi que muitas decisões de mídia eram limitadas não pela campanha em si, mas pela qualidade dos dados disponíveis.
           </p>
@@ -857,7 +871,7 @@
           <div class="test-quote">"</div>
           <p class="test-text" data-i18n="t1_text">Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.</p>
           <div class="test-author">
-            <div class="test-avatar">C</div>
+            <div class="test-avatar">J</div>
             <div>
               <span class="test-name" data-i18n="t1_name">Colega de equipe</span>
               <span class="test-role" data-i18n="t1_role">Media.k · LinkedIn</span>
@@ -868,7 +882,7 @@
           <div class="test-quote">"</div>
           <p class="test-text" data-i18n="t2_text">A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.</p>
           <div class="test-author">
-            <div class="test-avatar">G</div>
+            <div class="test-avatar">M</div>
             <div>
               <span class="test-name" data-i18n="t2_name">Gestor de conta</span>
               <span class="test-role" data-i18n="t2_role">AudioNova · LinkedIn</span>
