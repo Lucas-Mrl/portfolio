@@ -2101,10 +2101,10 @@ function buildModal(data, demo, slug) {
     ? `<a href="${demo}" target="_blank" rel="noopener" class="btn btn-primary">${lang === 'pt' ? '▶ Ver Demo' : '▶ View Demo'}</a>` : '';
   const closeLabel = lang === 'pt' ? 'Fechar' : 'Close';
 
-  const screenshotSlugs = ['store-analytics','ad-analytics','looq-challenge','meta-tax-calc','whisper-transcriber','ai-analytics'];
-  const screenshotSection = screenshotSlugs.includes(slug) ? `
+  const gifSlugs = ['store-analytics','ad-analytics','looq-challenge','meta-tax-calc','whisper-transcriber','ai-analytics'];
+  const screenshotSection = gifSlugs.includes(slug) ? `
     <div class="m-screenshot">
-      <img src="assets/screenshots/${slug}.png" alt="Screenshot ${data.title}" loading="lazy">
+      <img src="assets/screenshots/${slug}.gif" alt="Demo ${data.title}">
     </div>` : '';
 
   const contextSection = data.context ? `
