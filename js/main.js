@@ -2087,7 +2087,7 @@ const mContent = document.getElementById('modalContent');
 const mOverlay = document.getElementById('modalOverlay');
 const mX       = document.getElementById('modalX');
 
-function buildModal(data, demo) {
+function buildModal(data, demo, slug) {
   const bullets = data.solution.bullets.map(b => `<li>${b}</li>`).join('');
   const stack   = data.stack.map(s => `<span>${s}</span>`).join('');
   const impact  = data.impact.items.map(i => `
@@ -2100,6 +2100,12 @@ function buildModal(data, demo) {
   const demoBtn = demo
     ? `<a href="${demo}" target="_blank" rel="noopener" class="btn btn-primary">${lang === 'pt' ? '▶ Ver Demo' : '▶ View Demo'}</a>` : '';
   const closeLabel = lang === 'pt' ? 'Fechar' : 'Close';
+
+  const screenshotSlugs = ['store-analytics','ad-analytics','looq-challenge','meta-tax-calc','whisper-transcriber','ai-analytics'];
+  const screenshotSection = screenshotSlugs.includes(slug) ? `
+    <div class="m-screenshot">
+      <img src="assets/screenshots/${slug}.png" alt="Screenshot ${data.title}" loading="lazy">
+    </div>` : '';
 
   const contextSection = data.context ? `
     <div class="m-hr"></div>
@@ -2161,6 +2167,7 @@ function buildModal(data, demo) {
     <span class="m-tag">${data.tag}</span>
     <h2 class="m-title">${data.title}</h2>
     <div class="m-stack">${stack}</div>
+    ${screenshotSection}
     <div class="m-hr"></div>
     <div class="m-section">
       <div class="m-section-label">${data.problem.label}</div>
@@ -2194,7 +2201,7 @@ function openModal(key) {
   const data = projects[key];
   if (!data) return;
   _lastFocused = document.activeElement;
-  mContent.innerHTML = buildModal(data[lang] || data['pt'], data.demo);
+  mContent.innerHTML = buildModal(data[lang] || data['pt'], data.demo, key);
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
   mX.focus();
