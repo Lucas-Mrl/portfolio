@@ -27,6 +27,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Lucas Morales",
+    "jobTitle": "Marketing Analytics / BI Analyst",
+    "url": "https://lucas-mrl.github.io/portfolio/",
+    "email": "moraleslucas003@gmail.com",
+    "sameAs": [
+      "https://linkedin.com/in/lucas-morales-267202271",
+      "https://github.com/Lucas-Mrl"
+    ],
+    "knowsAbout": ["Marketing Analytics", "BI", "Data Pipelines", "Server-side Tracking", "Martech", "Python", "SQL"]
+  }
+  </script>
 </head>
 <body>
 
@@ -208,6 +224,255 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PROJECTS
+  ========================================================= -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="section-label" data-i18n="proj_tag">portfólio</span>
+        <h2 data-i18n="proj_title">Projetos</h2>
+        <p class="section-desc" data-i18n="proj_desc">Clique em qualquer card para ver o case completo.</p>
+      </div>
+
+      <!-- Confidentiality notice -->
+      <div class="conf-notice" data-reveal>
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span data-i18n="conf_text">Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.</span>
+      </div>
+
+      <!-- BI & Analytics -->
+      <div class="proj-category" data-reveal>
+        <div class="proj-cat-header">
+          <div class="proj-cat-icon proj-cat-icon--purple">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <span data-i18n="cat_bi">BI &amp; Analytics</span>
+        </div>
+        <div class="proj-cat-grid">
+          <article class="proj-card proj-card--featured" data-project="store-analytics" data-reveal>
+            <div class="proj-glow"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Screenshot Store-Level Analytics" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+              <span class="proj-stack">FastAPI · MySQL · SQL · Auth</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p8_title">Store-Level Analytics</h3>
+            <p class="proj-desc" data-i18n="p8_desc">Aplicação interna para análise de performance por loja e regional, com filtros, comparações e exportação de dados de 280+ unidades — autenticação por domínio e drill-down operacional.</p>
+            <div class="proj-metrics">
+              <span>280+ lojas</span><span>16 regionais</span><span>14 canais</span>
+            </div>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="assets/demos/store-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+            </div>
+          </article>
+          <article class="proj-card proj-card--featured" data-project="ad-analytics" data-reveal>
+            <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Screenshot Ad-Level Analytics" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+              <span class="proj-stack">FastAPI · Cache · MySQL</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p7_title">Ad-Level Analytics Web App</h3>
+            <p class="proj-desc" data-i18n="p7_desc">Dashboard interno para análise granular por campanha, conjunto e anúncio, cruzando dados de plataforma com leads e agendamentos do CRM — com cache inteligente e exportação Excel.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+            </div>
+          </article>
+          <article class="proj-card" data-project="looq-challenge" data-reveal>
+            <div class="proj-glow"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/looq-challenge.png" loading="lazy" alt="Screenshot Desafio Técnico Looqbox" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--personal" data-i18n="pt_challenge">Case Técnico</span>
+              <span class="proj-stack">Python · SQL · pandas · matplotlib</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p10_title">Desafio Técnico Looqbox</h3>
+            <p class="proj-desc" data-i18n="p10_desc">3 cases progressivos de análise de dados: queries parametrizadas em MySQL com pandas/SQLAlchemy, análise de performance de vendas por produto e loja, e visualização de dados com matplotlib.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="assets/demos/looq-challenge.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Data Pipelines & Automação -->
+      <div class="proj-category" data-reveal>
+        <div class="proj-cat-header">
+          <div class="proj-cat-icon proj-cat-icon--teal">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span data-i18n="cat_pipeline">Data Pipelines &amp; Automação</span>
+        </div>
+        <div class="proj-cat-grid">
+          <article class="proj-card proj-card--featured" data-project="media-reports" data-reveal>
+            <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/media-reports.png" loading="lazy" alt="Screenshot Relatório de Mídia Automatizado" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
+              <span class="proj-stack">Python · APIs · GitHub Actions</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p1_title">Relatório de Mídia Automatizado</h3>
+            <p class="proj-desc" data-i18n="p1_desc">Pipeline automatizado que consolida investimento de mídia de 9+ plataformas, padroniza os dados por regional e atualiza relatórios diariamente sem intervenção manual.</p>
+            <div class="proj-metrics">
+              <span>9+ APIs</span><span>16 regionais</span><span>90% ↓ trabalho manual</span>
+            </div>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            </div>
+          </article>
+          <article class="proj-card" data-project="leads-processor" data-reveal>
+            <div class="proj-glow"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/leads-processor.png" loading="lazy" alt="Screenshot Leads Processor" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
+              <span class="proj-stack">JavaScript · Client-side</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p2_title">Leads Processor</h3>
+            <p class="proj-desc" data-i18n="p2_desc">Aplicação client-side que cruza relatórios de leads de duas fontes distintas, aplicando mapeamento determinístico para reconciliar nomenclaturas de 280+ lojas e 80+ parceiros.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="https://github.com/Lucas-Mrl/leads-processor" target="_blank" rel="noopener" class="proj-btn-gh" data-i18n="p_gh">GitHub</a>
+            </div>
+          </article>
+          <article class="proj-card" data-project="email-clickup" data-reveal>
+            <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/email-clickup.png" loading="lazy" alt="Screenshot Email → ClickUp Automation" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
+              <span class="proj-stack">n8n · Graph API · Oracle Cloud</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p5_title">Email → ClickUp Automation</h3>
+            <p class="proj-desc" data-i18n="p5_desc">Automação que lê emails do FreshService via Microsoft Graph API, classifica e extrai dados com IA, e cria ou atualiza tasks no ClickUp — Oracle Cloud Free Tier, zero custo.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            </div>
+          </article>
+          <article class="proj-card" data-project="meta-tax-calc" data-reveal>
+            <div class="proj-glow"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/meta-tax-calc.png" loading="lazy" alt="Screenshot Calculadora de Imposto Meta Ads" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
+              <span class="proj-stack">React · Vite · JavaScript</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p11_title">Calculadora de Imposto Meta Ads</h3>
+            <p class="proj-desc" data-i18n="p11_desc">App React que calcula em tempo real o imposto (12,15%) sobre investimentos no Meta Ads — exibe o valor total a inserir na plataforma para manter o investimento líquido desejado.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="assets/demos/meta-tax-calc.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Tracking & Martech -->
+      <div class="proj-category" data-reveal>
+        <div class="proj-cat-header">
+          <div class="proj-cat-icon proj-cat-icon--orange">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4"/></svg>
+          </div>
+          <span data-i18n="cat_tracking">Tracking &amp; Martech</span>
+        </div>
+        <div class="proj-cat-grid proj-cat-grid--2">
+          <article class="proj-card" data-project="meta-capi" data-reveal>
+            <div class="proj-glow"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/meta-capi.png" loading="lazy" alt="Screenshot Meta CAPI" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+              <span class="proj-stack">Meta CAPI · Python · Server-side</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p4_title">Meta CAPI — AudioNova</h3>
+            <p class="proj-desc" data-i18n="p4_desc">Implementação server-side completa de Conversions API em paralelo com Pixel, para operação com 1.000+ anúncios ativos e múltiplas regionais — deduplicação, parâmetros de qualidade e monitoramento contínuo.</p>
+            <div class="proj-metrics">
+              <span>1.000+ anúncios</span><span>↑ match rate</span><span>↓ sub-reporte</span>
+            </div>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            </div>
+          </article>
+          <article class="proj-card" data-project="tiktok-capi" data-reveal>
+            <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/tiktok-capi.png" loading="lazy" alt="Screenshot TikTok Pixel &amp; CAPI" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
+              <span class="proj-stack">TikTok Events API · Server-side</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p6_title">TikTok Pixel &amp; CAPI V2</h3>
+            <p class="proj-desc" data-i18n="p6_desc">Reconfiguração completa do tracking server-side do TikTok, com estrutura de eventos redesenhada para lead gen, parâmetros de matching e validação via Events Manager.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- AI & Experimentação -->
+      <div class="proj-category" data-reveal>
+        <div class="proj-cat-header">
+          <div class="proj-cat-icon proj-cat-icon--purple">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1 0-2h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
+          </div>
+          <span data-i18n="cat_ai">AI &amp; Experimentação</span>
+        </div>
+        <div class="proj-cat-grid">
+          <article class="proj-card" data-project="whisper-transcriber" data-reveal>
+            <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/whisper-transcriber.png" loading="lazy" alt="Screenshot Transcritor de Call" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--personal" data-i18n="pt_personal">Projeto Pessoal</span>
+              <span class="proj-stack">Python · Whisper · Audio</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p12_title">Transcritor de Call em Tempo Real</h3>
+            <p class="proj-desc" data-i18n="p12_desc">Script Python que captura áudio do sistema (loopback) ou microfone e transcreve calls em tempo real com Whisper rodando 100% local — sem bots, sem servidores externos, salva .txt com timestamps.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="assets/demos/whisper-transcriber.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+            </div>
+          </article>
+          <article class="proj-card" data-project="ai-analytics" data-reveal>
+            <div class="proj-glow proj-glow--teal"></div>
+            <div class="proj-screenshot">
+              <img src="assets/screenshots/ai-analytics.png" loading="lazy" alt="Screenshot AI Ad Metrics Analyzer" onerror="this.src='assets/screenshots/_placeholder.svg'">
+            </div>
+            <div class="proj-top">
+              <span class="proj-type proj-type--personal" data-i18n="pt_personal">Projeto Pessoal</span>
+              <span class="proj-stack">Python · Streamlit · AI · APIs</span>
+            </div>
+            <h3 class="proj-title" data-i18n="p3_title">AI Ad Metrics Analyzer</h3>
+            <p class="proj-desc" data-i18n="p3_desc">Aplicação com coleta automatizada de métricas de campanhas via API, tratamento de dados com Pandas e geração de recomendações com suporte de inteligência artificial — o que cortar, o que escalar, onde redistribuir verba.</p>
+            <div class="proj-bottom">
+              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
+              <a href="assets/demos/ai-metrics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -518,281 +783,6 @@
   </section>
 
   <!-- =========================================================
-       PROJECTS
-  ========================================================= -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="proj_tag">portfólio</span>
-        <h2 data-i18n="proj_title">Projetos</h2>
-        <p class="section-desc" data-i18n="proj_desc">Clique em qualquer card para ver o case completo.</p>
-      </div>
-
-      <!-- Confidentiality notice -->
-      <div class="conf-notice" data-reveal>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span data-i18n="conf_text">Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.</span>
-      </div>
-
-      <!-- BI & Analytics -->
-      <div class="proj-category" data-reveal>
-        <div class="proj-cat-header">
-          <div class="proj-cat-icon proj-cat-icon--purple">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-          </div>
-          <span data-i18n="cat_bi">BI &amp; Analytics</span>
-        </div>
-        <div class="proj-cat-grid">
-          <article class="proj-card proj-card--featured" data-project="store-analytics" data-reveal>
-            <div class="proj-glow"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-              <span class="proj-stack">FastAPI · MySQL · SQL · Auth</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p8_title">Store-Level Analytics</h3>
-            <p class="proj-desc" data-i18n="p8_desc">Aplicação interna para análise de performance por loja e regional, com filtros, comparações e exportação de dados de 280+ unidades — autenticação por domínio e drill-down operacional.</p>
-            <div class="proj-metrics">
-              <span>280+ lojas</span><span>16 regionais</span><span>14 canais</span>
-            </div>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="assets/demos/store-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-            </div>
-          </article>
-          <article class="proj-card proj-card--featured" data-project="ad-analytics" data-reveal>
-            <div class="proj-glow proj-glow--teal"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-              <span class="proj-stack">FastAPI · Cache · MySQL</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p7_title">Ad-Level Analytics Web App</h3>
-            <p class="proj-desc" data-i18n="p7_desc">Dashboard interno para análise granular por campanha, conjunto e anúncio, cruzando dados de plataforma com leads e agendamentos do CRM — com cache inteligente e exportação Excel.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-            </div>
-          </article>
-          <article class="proj-card" data-project="looq-challenge" data-reveal>
-            <div class="proj-glow"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--personal" data-i18n="pt_challenge">Case Técnico</span>
-              <span class="proj-stack">Python · SQL · pandas · matplotlib</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p10_title">Desafio Técnico Looqbox</h3>
-            <p class="proj-desc" data-i18n="p10_desc">3 cases progressivos de análise de dados: queries parametrizadas em MySQL com pandas/SQLAlchemy, análise de performance de vendas por produto e loja, e visualização de dados com matplotlib.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="assets/demos/looq-challenge.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Data Pipelines & Automação -->
-      <div class="proj-category" data-reveal>
-        <div class="proj-cat-header">
-          <div class="proj-cat-icon proj-cat-icon--teal">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          </div>
-          <span data-i18n="cat_pipeline">Data Pipelines &amp; Automação</span>
-        </div>
-        <div class="proj-cat-grid">
-          <article class="proj-card proj-card--featured" data-project="media-reports" data-reveal>
-            <div class="proj-glow proj-glow--teal"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
-              <span class="proj-stack">Python · APIs · GitHub Actions</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p1_title">Relatório de Mídia Automatizado</h3>
-            <p class="proj-desc" data-i18n="p1_desc">Pipeline automatizado que consolida investimento de mídia de 9+ plataformas, padroniza os dados por regional e atualiza relatórios diariamente sem intervenção manual.</p>
-            <div class="proj-metrics">
-              <span>9+ APIs</span><span>16 regionais</span><span>90% ↓ trabalho manual</span>
-            </div>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-            </div>
-          </article>
-          <article class="proj-card" data-project="leads-processor" data-reveal>
-            <div class="proj-glow"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
-              <span class="proj-stack">JavaScript · Client-side</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p2_title">Leads Processor</h3>
-            <p class="proj-desc" data-i18n="p2_desc">Aplicação client-side que cruza relatórios de leads de duas fontes distintas, aplicando mapeamento determinístico para reconciliar nomenclaturas de 280+ lojas e 80+ parceiros.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="https://github.com/Lucas-Mrl/leads-processor" target="_blank" rel="noopener" class="proj-btn-gh" data-i18n="p_gh">GitHub</a>
-            </div>
-          </article>
-          <article class="proj-card" data-project="email-clickup" data-reveal>
-            <div class="proj-glow proj-glow--teal"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
-              <span class="proj-stack">n8n · Graph API · Oracle Cloud</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p5_title">Email → ClickUp Automation</h3>
-            <p class="proj-desc" data-i18n="p5_desc">Automação que lê emails do FreshService via Microsoft Graph API, classifica e extrai dados com IA, e cria ou atualiza tasks no ClickUp — Oracle Cloud Free Tier, zero custo.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-            </div>
-          </article>
-          <article class="proj-card" data-project="meta-tax-calc" data-reveal>
-            <div class="proj-glow"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--open" data-i18n="pt_open">Open Source</span>
-              <span class="proj-stack">React · Vite · JavaScript</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p11_title">Calculadora de Imposto Meta Ads</h3>
-            <p class="proj-desc" data-i18n="p11_desc">App React que calcula em tempo real o imposto (12,15%) sobre investimentos no Meta Ads — exibe o valor total a inserir na plataforma para manter o investimento líquido desejado.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="assets/demos/meta-tax-calc.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- Tracking & Martech -->
-      <div class="proj-category" data-reveal>
-        <div class="proj-cat-header">
-          <div class="proj-cat-icon proj-cat-icon--orange">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4m0 14v4M4.22 4.22l2.83 2.83m9.9 9.9 2.83 2.83M1 12h4m14 0h4"/></svg>
-          </div>
-          <span data-i18n="cat_tracking">Tracking &amp; Martech</span>
-        </div>
-        <div class="proj-cat-grid proj-cat-grid--2">
-          <article class="proj-card" data-project="meta-capi" data-reveal>
-            <div class="proj-glow"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-              <span class="proj-stack">Meta CAPI · Python · Server-side</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p4_title">Meta CAPI — AudioNova</h3>
-            <p class="proj-desc" data-i18n="p4_desc">Implementação server-side completa de Conversions API em paralelo com Pixel, para operação com 1.000+ anúncios ativos e múltiplas regionais — deduplicação, parâmetros de qualidade e monitoramento contínuo.</p>
-            <div class="proj-metrics">
-              <span>1.000+ anúncios</span><span>↑ match rate</span><span>↓ sub-reporte</span>
-            </div>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-            </div>
-          </article>
-          <article class="proj-card" data-project="tiktok-capi" data-reveal>
-            <div class="proj-glow proj-glow--teal"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-              <span class="proj-stack">TikTok Events API · Server-side</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p6_title">TikTok Pixel &amp; CAPI V2</h3>
-            <p class="proj-desc" data-i18n="p6_desc">Reconfiguração completa do tracking server-side do TikTok, com estrutura de eventos redesenhada para lead gen, parâmetros de matching e validação via Events Manager.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-            </div>
-          </article>
-        </div>
-      </div>
-
-      <!-- AI & Experimentação -->
-      <div class="proj-category" data-reveal>
-        <div class="proj-cat-header">
-          <div class="proj-cat-icon proj-cat-icon--purple">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 0 2h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1 0-2h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/></svg>
-          </div>
-          <span data-i18n="cat_ai">AI &amp; Experimentação</span>
-        </div>
-        <div class="proj-cat-grid">
-          <article class="proj-card" data-project="whisper-transcriber" data-reveal>
-            <div class="proj-glow proj-glow--teal"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--personal" data-i18n="pt_personal">Projeto Pessoal</span>
-              <span class="proj-stack">Python · Whisper · Audio</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p12_title">Transcritor de Call em Tempo Real</h3>
-            <p class="proj-desc" data-i18n="p12_desc">Script Python que captura áudio do sistema (loopback) ou microfone e transcreve calls em tempo real com Whisper rodando 100% local — sem bots, sem servidores externos, salva .txt com timestamps.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="assets/demos/whisper-transcriber.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-            </div>
-          </article>
-          <article class="proj-card" data-project="ai-analytics" data-reveal>
-            <div class="proj-glow proj-glow--teal"></div>
-            <div class="proj-top">
-              <span class="proj-type proj-type--personal" data-i18n="pt_personal">Projeto Pessoal</span>
-              <span class="proj-stack">Python · Streamlit · AI · APIs</span>
-            </div>
-            <h3 class="proj-title" data-i18n="p3_title">AI Ad Metrics Analyzer</h3>
-            <p class="proj-desc" data-i18n="p3_desc">Aplicação com coleta automatizada de métricas de campanhas via API, tratamento de dados com Pandas e geração de recomendações com suporte de inteligência artificial — o que cortar, o que escalar, onde redistribuir verba.</p>
-            <div class="proj-bottom">
-              <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-              <a href="assets/demos/ai-metrics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-            </div>
-          </article>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- =========================================================
-       DIFERENCIAIS
-  ========================================================= -->
-  <section id="differentials">
-    <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="diff_tag">diferenciais</span>
-        <h2 data-i18n="diff_title">Por que não é o mesmo que o próximo analista</h2>
-      </div>
-      <div class="diff-list">
-        <div class="diff-item" data-reveal>
-          <div class="diff-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <h4 data-i18n="d1_title">Não analiso mídia isolada</h4>
-            <p data-i18n="d1_desc">Conecto investimento, leads, lojas, CRM e jornada do usuário. O número da plataforma precisa dialogar com o que chegou no CRM e o que virou venda.</p>
-          </div>
-        </div>
-        <div class="diff-item" data-reveal>
-          <div class="diff-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <h4 data-i18n="d2_title">Não dependo só de dashboard</h4>
-            <p data-i18n="d2_desc">Quando os dados precisam ser estruturados antes de virar análise, eu construo o pipeline. Não terceirizo o problema técnico para depois poder fazer a análise.</p>
-          </div>
-        </div>
-        <div class="diff-item" data-reveal>
-          <div class="diff-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <h4 data-i18n="d3_title">Tenho visão de negócio</h4>
-            <p data-i18n="d3_desc">Traduzo métricas técnicas em recomendações práticas. CPL alto não é um número — é um sinal de onde o funil está quebrando ou onde a segmentação errou.</p>
-          </div>
-        </div>
-        <div class="diff-item" data-reveal>
-          <div class="diff-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <h4 data-i18n="d4_title">Base técnica para executar</h4>
-            <p data-i18n="d4_desc">Python, SQL, APIs, tracking server-side, BI e automação — quando não existe ferramenta pronta, eu construo. Sem depender de engenharia para resolver problemas de dados de marketing.</p>
-          </div>
-        </div>
-        <div class="diff-item" data-reveal>
-          <div class="diff-icon">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <h4 data-i18n="d5_title">Entendo os dois extremos</h4>
-            <p data-i18n="d5_desc">Tanto a operação de mídia — estratégia, criativos, lances, budget — quanto a infraestrutura analítica por trás dela. Isso evita a lacuna entre "quem analisa" e "quem executa".</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- =========================================================
        ABOUT
   ========================================================= -->
   <section id="about">
@@ -811,6 +801,12 @@
           <p data-i18n="about_p3">
             Hoje atuo conectando mídia, BI e tecnologia para transformar dados dispersos em decisões mais rápidas, confiáveis e acionáveis.
           </p>
+          <!-- Diferenciais fundidos na seção Sobre (consolidação de #differentials) -->
+          <ul class="about-diffs">
+            <li data-i18n="d2_title">Não dependo só de dashboard</li>
+            <li data-i18n="d4_title">Base técnica para executar</li>
+            <li data-i18n="d5_title">Entendo os dois extremos</li>
+          </ul>
           <div class="contact-grid">
             <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="contact-card contact-card--wa">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -948,6 +944,6 @@
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

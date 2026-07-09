@@ -2012,6 +2012,7 @@ ORDER BY total_leads DESC`,
    STATE
 ============================================================ */
 let lang = 'pt';
+let _lastFocused = null;
 
 /* ============================================================
    LANGUAGE
@@ -2192,6 +2193,7 @@ function buildModal(data, demo) {
 function openModal(key) {
   const data = projects[key];
   if (!data) return;
+  _lastFocused = document.activeElement;
   mContent.innerHTML = buildModal(data[lang] || data['pt'], data.demo);
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -2201,6 +2203,7 @@ function openModal(key) {
 function closeModal() {
   modal.classList.remove('open');
   document.body.style.overflow = '';
+  if (_lastFocused) { _lastFocused.focus(); _lastFocused = null; }
 }
 
 mX.addEventListener('click', closeModal);
