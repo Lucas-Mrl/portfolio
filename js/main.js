@@ -186,12 +186,12 @@ const i18n = {
     // DEPOIMENTOS
     test_tag:   "referências",
     test_title: "O que dizem",
-    t1_text:  "Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.",
-    t1_name:  "Colega de equipe",
-    t1_role:  "Depoimento anonimizado · Media.k · LinkedIn",
-    t2_text:  "A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.",
-    t2_name:  "Gestor de conta",
-    t2_role:  "Depoimento anonimizado · AudioNova · LinkedIn",
+    t1_text:  "Trabalhei com o Lucas por alguns meses na empresa. Nesse tempo ele se destacou pela agilidade e inteligência em executar e propor melhorias. Recomendo tranquilamente, é um ótimo companheiro de equipe e um ótimo profissional.",
+    t1_name:  "João Azevedo",
+    t1_role:  "Gestor de Tráfego · Analista de Performance · LinkedIn",
+    t2_text:  "Lucas é espetacular! Uma pessoa que aprende rápido, adora dados, esforçado, dá o melhor de si e sempre busca trazer insights e novas opções para melhorar os resultados, além da experiência e aprendizado contínuo sobre mídia paga. Agregará em qualquer lugar que trabalhar.",
+    t2_name:  "Mikael França",
+    t2_role:  "Especialista em Marketing Digital · Gestor de Performance e Growth · LinkedIn",
 
     // CTA
     cta_tag:   "contato",
@@ -385,12 +385,12 @@ const i18n = {
     // TESTIMONIALS
     test_tag:   "references",
     test_title: "What they say",
-    t1_text:  "Lucas managed to turn a complex manual routine into a much faster and more reliable process. What used to take hours started running automatically — with no loss in data quality.",
-    t1_name:  "Teammate",
-    t1_role:  "Anonymous testimonial · Media.k · LinkedIn",
-    t2_text:  "The store and regional breakdown made it much easier to read the operation's performance. We were able to identify specific bottlenecks that were previously hidden in consolidated numbers.",
-    t2_name:  "Account Manager",
-    t2_role:  "Anonymous testimonial · AudioNova · LinkedIn",
+    t1_text:  "I worked with Lucas for a few months at the company. During that time, he stood out for his agility and intelligence in executing and proposing improvements. I highly recommend him — he's a great teammate and a great professional.",
+    t1_name:  "João Azevedo",
+    t1_role:  "Traffic Manager · Performance Analyst · LinkedIn",
+    t2_text:  "Lucas is spectacular! Someone who learns fast, loves data, is hardworking, gives his best and always seeks to bring insights and new options to improve results, in addition to continuous experience and learning in paid media. He will add value wherever he works.",
+    t2_name:  "Mikael França",
+    t2_role:  "Digital Marketing Specialist · Performance & Growth Manager · LinkedIn",
 
     // CTA
     cta_tag:   "contact",
