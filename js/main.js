@@ -5,6 +5,7 @@ const i18n = {
   pt: {
     // NAV
     nav_resolve:  "Soluções",
+    nav_capabilities: "Capacidades",
     nav_exp:      "Experiência",
     nav_projects: "Projetos",
     nav_about:    "Sobre",
@@ -14,6 +15,8 @@ const i18n = {
     hero_badge:    "Data Analytics · BI · Automação · Integração de Dados",
     hero_tagline:  "Transformo dados operacionais em clareza, automação e decisão.",
     hero_focus:    "Aberto a oportunidades em Data Analytics, BI, Automação e Integração de Dados.",
+    hero_availability: "→ Aberto a oportunidades · Ourinhos, SP",
+    hero_stats_context: "¹ Indicadores aproximados de operações em que atuei diretamente, dados sensíveis preservados.",
     hm_budget:     "Verba Gerenciada",
     hm_platforms:  "Plataformas",
     hm_stores:     "Lojas",
@@ -22,9 +25,47 @@ const i18n = {
     cta_cv:        "Baixar CV",
     cta_contact:   "Falar Comigo",
 
+    // LINEAGE MAP
+    lineage_n1: "Fontes & APIs",
+    lineage_n2: "Normalização",
+    lineage_n3: "Modelagem",
+    lineage_n4: "BI & Alertas",
+    lineage_n5: "Decisão",
+    lineage_l1: "ingestão",
+    lineage_l2: "tratamento",
+    lineage_l3: "estrutura",
+    lineage_l4: "visualização",
+    lineage_l5: "output",
+    lineage_t1: "Sistemas, CRMs, APIs de mídia, planilhas e bancos de dados",
+    lineage_t2: "Normalização, deduplicação e reconciliação entre fontes",
+    lineage_t3: "Modelagem, agregação por regional, pattern-matching e CPL cruzado",
+    lineage_t4: "Dashboards, relatórios automáticos e alertas operacionais",
+    lineage_t5: "Análise acionável e recomendações práticas para o negócio",
+
+    // CAPABILITIES
+    cap_tag:    "capacidades",
+    cap_title:  "O que construo e como penso",
+    cap1_title: "BI e análise operacional",
+    cap1_desc:  "Estruturo modelos de dados e crio dashboards executivos e operacionais — projetados para quem toma decisão, não para impressionar tecnicamente. O foco é na leitura de performance, identificação de gargalos e apoio à decisão de negócio.",
+    cap1_ex:    "Ex: Dashboard de 280+ lojas com drill-down por regional, canal e período.",
+    cap2_title: "Pipelines e automação",
+    cap2_desc:  "Automatizo rotinas recorrentes de coleta, tratamento e consolidação de dados — eliminando trabalho manual e garantindo disponibilidade de informação no início de cada dia operacional.",
+    cap2_ex:    "Ex: Pipeline que conecta 9 plataformas de mídia e entrega relatório regional às 3h da manhã.",
+    cap3_title: "Integração e confiabilidade de dados",
+    cap3_desc:  "Conecto fontes díspares — APIs, CRMs, bancos, planilhas — e estruturo regras de validação e padronização para que os dados reflitam a realidade operacional, não o que o sistema assumiu.",
+    cap3_ex:    "Ex: Meta CAPI + TikTok CAPI server-side, auditoria de divergências entre plataforma e CRM.",
+
+    // PROJECT INDEX
+    idx_tag:      "índice",
+    idx_title:    "Todos os projetos",
+    idx_desc:     "Clique em qualquer linha para ver o case completo.",
+    idx_col_name: "Projeto",
+    idx_col_stack:"Stack",
+    idx_col_type: "Tipo",
+
     // CASES EM DESTAQUE
-    cd_tag:       "projetos",
-    cd_title:     "Projetos de Dados, BI e Automação",
+    cd_tag:       "trabalho selecionado",
+    cd_title:     "Trabalho Selecionado",
     cd_desc:      "Projetos reais com problema definido, solução construída e impacto mensurável.",
     cd_p1_problem: "Dashboard operacional para análise de 280+ unidades, 16 regionais e múltiplas fontes de dados — tudo centralizado e acessível por perfil de acesso.",
     cd_p2_problem: "Integração de dados externos e internos para análise granular de performance, conversão e eficiência operacional por item e canal.",
@@ -91,8 +132,8 @@ const i18n = {
     ps6_desc:  "O entregável final não é um gráfico — é uma resposta: o que fazer, onde cortar, o que escalar, o que investigar mais.",
 
     // EXPERIÊNCIA
-    exp_tag:     "trajetória",
-    exp_title:   "Operações reais",
+    exp_tag:     "experiência",
+    exp_title:   "Onde atuei",
     exp_current: "Atual",
 
     exp1_period: "Fev 2026 — presente",
@@ -219,12 +260,13 @@ const i18n = {
     cta_title: "Aberto a oportunidades em dados, BI, automação e integração de sistemas.",
     cta_desc:  "Data Analytics · BI · Automação · Integração de Dados",
 
-    footer_text: "Feito com HTML, CSS & JS puro · Atualizado em junho/2026",
+    footer_text: "HTML, CSS & JS puro · 2026",
   },
 
   en: {
     // NAV
     nav_resolve:  "Solutions",
+    nav_capabilities: "Capabilities",
     nav_exp:      "Experience",
     nav_projects: "Projects",
     nav_about:    "About",
@@ -234,6 +276,8 @@ const i18n = {
     hero_badge:    "Data Analytics · BI · Automation · Data Integration",
     hero_tagline:  "I turn operational data into clarity, automation, and decisions.",
     hero_focus:    "Open to roles in Data Analytics, BI, Automation, and Data Integration.",
+    hero_availability: "→ Open to opportunities · Ourinhos, SP",
+    hero_stats_context: "¹ Approximate figures from operations I worked on directly. Sensitive data preserved for confidentiality.",
     hm_budget:     "Managed Budget",
     hm_platforms:  "Platforms",
     hm_stores:     "Stores",
@@ -242,9 +286,47 @@ const i18n = {
     cta_cv:        "Download CV",
     cta_contact:   "Get in Touch",
 
+    // LINEAGE MAP
+    lineage_n1: "Sources & APIs",
+    lineage_n2: "Normalization",
+    lineage_n3: "Modeling",
+    lineage_n4: "BI & Alerts",
+    lineage_n5: "Decision",
+    lineage_l1: "ingestion",
+    lineage_l2: "processing",
+    lineage_l3: "structure",
+    lineage_l4: "visualization",
+    lineage_l5: "output",
+    lineage_t1: "Systems, CRMs, media APIs, spreadsheets and databases",
+    lineage_t2: "Normalization, deduplication and cross-source reconciliation",
+    lineage_t3: "Modeling, regional aggregation, pattern-matching and cross-source CPL",
+    lineage_t4: "Dashboards, automated reports and operational alerts",
+    lineage_t5: "Actionable analysis and practical business recommendations",
+
+    // CAPABILITIES
+    cap_tag:    "capabilities",
+    cap_title:  "What I build and how I think",
+    cap1_title: "BI and operational analytics",
+    cap1_desc:  "I structure data models and build executive and operational dashboards — designed for decision-makers, not to impress technically. The focus is on performance reading, bottleneck identification and business decision support.",
+    cap1_ex:    "Ex: Dashboard for 280+ stores with drill-down by region, channel, and period.",
+    cap2_title: "Pipelines and automation",
+    cap2_desc:  "I automate recurring routines of data collection, processing, and consolidation — eliminating manual work and ensuring information availability at the start of every operational day.",
+    cap2_ex:    "Ex: Pipeline connecting 9 media platforms delivering a regional report at 3am.",
+    cap3_title: "Data integration and reliability",
+    cap3_desc:  "I connect disparate sources — APIs, CRMs, databases, spreadsheets — and structure validation and standardization rules so data reflects operational reality, not what the system assumed.",
+    cap3_ex:    "Ex: Meta CAPI + TikTok CAPI server-side, auditing divergences between platform and CRM.",
+
+    // PROJECT INDEX
+    idx_tag:      "index",
+    idx_title:    "All projects",
+    idx_desc:     "Click any row to see the full case study.",
+    idx_col_name: "Project",
+    idx_col_stack:"Stack",
+    idx_col_type: "Type",
+
     // CASES EM DESTAQUE
-    cd_tag:       "projects",
-    cd_title:     "Data, BI & Automation Projects",
+    cd_tag:       "selected work",
+    cd_title:     "Selected Work",
     cd_desc:      "Real projects with a defined problem, a built solution and measurable impact.",
     cd_p1_problem: "Operational dashboard for 280+ units across 16 regions and multiple data sources — all centralized and accessible by access profile.",
     cd_p2_problem: "Integration of external and internal data for granular analysis of performance, conversion, and operational efficiency per item and channel.",
@@ -311,8 +393,8 @@ const i18n = {
     ps6_desc:  "The final deliverable isn't a chart — it's an answer: what to do, where to cut, what to scale, what to investigate further.",
 
     // EXPERIENCE
-    exp_tag:     "career",
-    exp_title:   "Real operations",
+    exp_tag:     "experience",
+    exp_title:   "Where I've worked",
     exp_current: "Current",
 
     exp1_period: "Feb 2026 — present",
@@ -439,7 +521,7 @@ const i18n = {
     cta_title: "Open to opportunities in data, BI, automation, and system integration.",
     cta_desc:  "Data Analytics · BI · Automation · Data Integration",
 
-    footer_text: "Built with pure HTML, CSS & JS · Updated June 2026",
+    footer_text: "Pure HTML, CSS & JS · 2026",
   }
 };
 
@@ -2064,6 +2146,8 @@ function setLang(l) {
   document.documentElement.lang = l === 'pt' ? 'pt-BR' : 'en';
   document.getElementById('langPT').classList.toggle('lang-opt--active', l === 'pt');
   document.getElementById('langEN').classList.toggle('lang-opt--active', l === 'en');
+  document.getElementById('langPT').setAttribute('aria-pressed', l === 'pt' ? 'true' : 'false');
+  document.getElementById('langEN').setAttribute('aria-pressed', l === 'en' ? 'true' : 'false');
 
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const k = el.getAttribute('data-i18n');
@@ -2073,6 +2157,13 @@ function setLang(l) {
       el.innerHTML = val.replace('\n', '<br>');
     } else {
       el.textContent = val;
+    }
+  });
+
+  document.querySelectorAll('[data-tooltip-key]').forEach(el => {
+    const key = el.getAttribute('data-tooltip-key');
+    if (i18n[l] && i18n[l][key]) {
+      el.setAttribute('data-tooltip', i18n[l][key]);
     }
   });
 }
@@ -2092,8 +2183,14 @@ window.addEventListener('scroll', () => {
 ============================================================ */
 const menuBtn = document.getElementById('menuBtn');
 const mMenu   = document.getElementById('mobileMenu');
-menuBtn.addEventListener('click', () => mMenu.classList.toggle('open'));
-mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mMenu.classList.remove('open')));
+menuBtn.addEventListener('click', () => {
+  const isOpen = mMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+mMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  mMenu.classList.remove('open');
+  menuBtn.setAttribute('aria-expanded', 'false');
+}));
 
 /* ============================================================
    SMOOTH SCROLL
@@ -2207,7 +2304,7 @@ function buildModal(data, demo, slug) {
 
   return `
     <span class="m-tag">${data.tag}</span>
-    <h2 class="m-title">${data.title}</h2>
+    <h2 class="m-title" id="modal-title">${data.title}</h2>
     <div class="m-stack">${stack}</div>
     ${screenshotSection}
     <div class="m-hr"></div>
@@ -2239,6 +2336,34 @@ function buildModal(data, demo, slug) {
     </div>`;
 }
 
+/* ============================================================
+   FOCUS TRAP — modal accessibility
+============================================================ */
+function trapFocus(container) {
+  const focusableSelectors = 'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input, textarea, select';
+  const focusable = Array.from(container.querySelectorAll(focusableSelectors));
+  if (!focusable.length) return;
+  const first = focusable[0];
+  const last  = focusable[focusable.length - 1];
+  function handleTrap(e) {
+    if (e.key !== 'Tab') return;
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  }
+  container.addEventListener('keydown', handleTrap);
+  container._trapHandler = handleTrap;
+}
+
+function removeFocusTrap(container) {
+  if (container && container._trapHandler) {
+    container.removeEventListener('keydown', container._trapHandler);
+    delete container._trapHandler;
+  }
+}
+
 function openModal(key) {
   const data = projects[key];
   if (!data) return;
@@ -2246,12 +2371,19 @@ function openModal(key) {
   mContent.innerHTML = buildModal(data[lang] || data['pt'], data.demo, key);
   modal.classList.add('open');
   document.body.style.overflow = 'hidden';
-  mX.focus();
+  const mBox = document.querySelector('.modal-box');
+  trapFocus(mBox);
+  mBox.focus();
+  _openingFromHash = true;
+  history.pushState({ project: key }, '', '#project/' + key);
+  setTimeout(() => { _openingFromHash = false; }, 50);
 }
 
 function closeModal() {
+  removeFocusTrap(document.querySelector('.modal-box'));
   modal.classList.remove('open');
   document.body.style.overflow = '';
+  history.pushState({}, '', location.pathname + location.search);
   if (_lastFocused) { _lastFocused.focus(); _lastFocused = null; }
 }
 
@@ -2270,6 +2402,15 @@ document.querySelectorAll('.proj-card').forEach(card => {
   });
   const btn = card.querySelector('.proj-btn-case');
   if (btn) btn.addEventListener('click', e => { e.stopPropagation(); openModal(key); });
+});
+
+document.querySelectorAll('.proj-index-row[data-project]').forEach(row => {
+  row.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openModal(row.getAttribute('data-project'));
+    }
+  });
 });
 
 /* ============================================================
@@ -2295,3 +2436,21 @@ copyBtn.addEventListener('click', () => {
    INIT
 ============================================================ */
 setLang('pt');
+
+/* ============================================================
+   DEEP LINK — #project/slug URL support
+============================================================ */
+let _openingFromHash = false;
+
+function handleDeepLink() {
+  if (_openingFromHash) return;
+  const hash = window.location.hash;
+  if (!hash.startsWith('#project/')) return;
+  const slug = hash.slice('#project/'.length);
+  if (projects[slug]) {
+    setTimeout(() => openModal(slug), 150);
+  }
+}
+
+handleDeepLink();
+window.addEventListener('hashchange', handleDeepLink);
