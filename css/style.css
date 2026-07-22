@@ -27,23 +27,24 @@ a:focus-visible {
   --bg0:  #0B0D12;
   --bg1:  #11141B;
   --bg2:  #161A23;
-  --bg3:  #1A2233;
-  --bg4:  #253044;
+  /* Legacy aliases — kept for backward-compat, use bg0/bg1/bg2 for new code */
+  --bg3:  #1D2030;
+  --bg4:  #252A38;
   --tx:   #F2F3F5;
   --tx2:  #A9AFBA;
   --tx3:  #5C6370;
   --bdr:  #292D36;
   --bdr2: #292D36;
-  --bdr3: #3A3F4A;
+  --bdr3: #363B48;
   --p:    #6768E8;
-  --p-l:  #818CF8;
-  --p-d:  #4F46E5;
+  --p-l:  #6768E8;   /* alias → same as --p */
+  --p-d:  #5051C4;
   --tl:   #42A99B;
-  --tl-l: #2DD4BF;
+  --tl-l: #42A99B;   /* alias → same as --tl */
   --p-rgb:  103, 104, 232;
   --tl-rgb: 66, 169, 155;
-  --or:     #F59E0B;
-  --or-rgb: 245,158,11;
+  --or:     #6768E8;  /* orange removed — redirect to indigo */
+  --or-rgb: 103,104,232;
 
   --r:     4px;
   --r2:    4px;
@@ -1436,10 +1437,9 @@ section { padding: 84px 0; }
 
 .about-wrap {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 48px;
+  grid-template-columns: 1fr 320px;
+  gap: 56px;
   align-items: start;
-  max-width: 720px;
 }
 
 .about-profile {
