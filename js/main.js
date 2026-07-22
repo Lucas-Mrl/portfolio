@@ -191,6 +191,12 @@ const i18n = {
     cat_tracking: "Integração & Eventos Server-Side",
     cat_ai:       "AI & Experimentação",
 
+    filter_all:      "Todos",
+    filter_bi:       "BI & Analytics",
+    filter_pipeline: "Pipelines",
+    filter_tracking: "Integração",
+    filter_ai:       "AI",
+
     pt_open:      "Open Source",
     pt_client:    "Client Work",
     pt_tool:      "Ferramenta Interna",
@@ -451,6 +457,12 @@ const i18n = {
     cat_pipeline: "Data Pipelines & Automation",
     cat_tracking: "Integration & Server-Side Events",
     cat_ai:       "AI & Experimentation",
+
+    filter_all:      "All",
+    filter_bi:       "BI & Analytics",
+    filter_pipeline: "Pipelines",
+    filter_tracking: "Integration",
+    filter_ai:       "AI",
 
     pt_open:      "Open Source",
     pt_client:    "Client Work",
@@ -2412,6 +2424,68 @@ document.querySelectorAll('.proj-index-row[data-project]').forEach(row => {
     }
   });
 });
+
+/* ============================================================
+   GIF HOVER — main project cards only
+============================================================ */
+(function () {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.cd-card[data-gif]').forEach(card => {
+    const img = card.querySelector('.cd-visual img');
+    if (!img) return;
+    const staticSrc = img.getAttribute('src');
+    const gifSrc = card.getAttribute('data-gif');
+    let observer;
+    let isVisible = false;
+    let isHovered = false;
+
+    function activate() { if (!reduceMotion && isVisible) img.src = gifSrc; }
+    function deactivate() { img.src = staticSrc; }
+
+    observer = new IntersectionObserver(entries => {
+      isVisible = entries[0].isIntersecting;
+      if (!isVisible && isHovered) deactivate();
+    }, { threshold: 0.1 });
+    observer.observe(card);
+
+    card.addEventListener('mouseenter', () => { isHovered = true; activate(); });
+    card.addEventListener('mouseleave', () => { isHovered = false; deactivate(); });
+    card.addEventListener('focusin', () => { isHovered = true; activate(); });
+    card.addEventListener('focusout', () => { isHovered = false; deactivate(); });
+  });
+})();
+
+/* ============================================================
+   PROJECT INDEX FILTERS
+============================================================ */
+(function () {
+  const filterBtns = document.querySelectorAll('.proj-filter-btn');
+  const rows = document.querySelectorAll('.proj-index-row[data-category]');
+  const cats = document.querySelectorAll('.proj-index-cat[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      filterBtns.forEach(b => b.classList.remove('proj-filter-btn--active'));
+      btn.classList.add('proj-filter-btn--active');
+
+      if (filter === 'all') {
+        rows.forEach(r => r.removeAttribute('hidden'));
+        cats.forEach(c => c.removeAttribute('hidden'));
+      } else {
+        rows.forEach(r => {
+          if (r.getAttribute('data-category') === filter) r.removeAttribute('hidden');
+          else r.setAttribute('hidden', '');
+        });
+        cats.forEach(c => {
+          if (c.getAttribute('data-category') === filter) c.removeAttribute('hidden');
+          else c.setAttribute('hidden', '');
+        });
+      }
+    });
+  });
+})();
 
 /* ============================================================
    COPY EMAIL

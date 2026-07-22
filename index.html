@@ -185,7 +185,7 @@
 
     <div class="cd-grid">
 
-      <article class="cd-card cd-card--main proj-card" data-project="store-analytics">
+      <article class="cd-card cd-card--main proj-card" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif">
         <div class="proj-overlay"><span class="proj-overlay-cta">Ver projeto ↗</span></div>
         <div class="cd-visual">
           <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics">
@@ -209,7 +209,7 @@
         </div>
       </article>
 
-      <article class="cd-card cd-card--vertical proj-card" data-project="ad-analytics">
+      <article class="cd-card cd-card--vertical proj-card" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
         <div class="proj-overlay"><span class="proj-overlay-cta">Ver projeto ↗</span></div>
         <div class="cd-visual">
           <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics">
@@ -472,6 +472,14 @@
         <span data-i18n="conf_text">Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.</span>
       </div>
 
+      <div class="proj-filters" role="group" aria-label="Filtrar projetos por categoria">
+        <button class="proj-filter-btn proj-filter-btn--active" data-filter="all" data-i18n="filter_all">Todos</button>
+        <button class="proj-filter-btn" data-filter="bi" data-i18n="filter_bi">BI &amp; Analytics</button>
+        <button class="proj-filter-btn" data-filter="pipeline" data-i18n="filter_pipeline">Pipelines</button>
+        <button class="proj-filter-btn" data-filter="tracking" data-i18n="filter_tracking">Integração</button>
+        <button class="proj-filter-btn" data-filter="ai" data-i18n="filter_ai">AI</button>
+      </div>
+
       <div class="proj-index-table">
 
         <div class="proj-index-row proj-index-row--header" aria-hidden="true">
@@ -481,9 +489,9 @@
           <span></span>
         </div>
 
-        <div class="proj-index-cat" data-i18n="cat_bi">BI &amp; Analytics</div>
+        <div class="proj-index-cat" data-category="bi" data-i18n="cat_bi">BI &amp; Analytics</div>
 
-        <div class="proj-index-row proj-card" data-project="looq-challenge" tabindex="0" role="button" aria-label="Abrir case: Desafio Técnico Looqbox">
+        <div class="proj-index-row proj-card" data-project="looq-challenge" data-category="bi" tabindex="0" role="button" aria-label="Abrir case: Desafio Técnico Looqbox">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/looq-challenge.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p10_title">Desafio Técnico Looqbox</span>
@@ -496,9 +504,9 @@
           </span>
         </div>
 
-        <div class="proj-index-cat" data-i18n="cat_pipeline">Data Pipelines &amp; Automação</div>
+        <div class="proj-index-cat" data-category="pipeline" data-i18n="cat_pipeline">Data Pipelines &amp; Automação</div>
 
-        <div class="proj-index-row proj-card" data-project="leads-processor" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Tratamento de Dados">
+        <div class="proj-index-row proj-card" data-project="leads-processor" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Tratamento de Dados">
           <span class="proj-index-name">
             <span data-i18n="p2_title">Pipeline de Tratamento de Dados</span>
           </span>
@@ -510,7 +518,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="email-clickup" tabindex="0" role="button" aria-label="Abrir case: Automação de Workflow Operacional">
+        <div class="proj-index-row proj-card" data-project="email-clickup" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Automação de Workflow Operacional">
           <span class="proj-index-name">
             <span data-i18n="p5_title">Automação de Workflow Operacional</span>
           </span>
@@ -521,7 +529,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="meta-tax-calc" tabindex="0" role="button" aria-label="Abrir case: Calculadora de Imposto Meta Ads">
+        <div class="proj-index-row proj-card" data-project="meta-tax-calc" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Calculadora de Imposto Meta Ads">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/meta-tax-calc.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p11_title">Calculadora de Imposto Meta Ads</span>
@@ -534,9 +542,9 @@
           </span>
         </div>
 
-        <div class="proj-index-cat" data-i18n="cat_tracking">Integração &amp; Eventos Server-Side</div>
+        <div class="proj-index-cat" data-category="tracking" data-i18n="cat_tracking">Integração &amp; Eventos Server-Side</div>
 
-        <div class="proj-index-row proj-card" data-project="meta-capi" tabindex="0" role="button" aria-label="Abrir case: Meta Conversions API">
+        <div class="proj-index-row proj-card" data-project="meta-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: Meta Conversions API">
           <span class="proj-index-name">
             <span data-i18n="p4_title">Pipeline de Eventos Server-Side · Meta</span>
           </span>
@@ -547,7 +555,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="tiktok-capi" tabindex="0" role="button" aria-label="Abrir case: TikTok Events API">
+        <div class="proj-index-row proj-card" data-project="tiktok-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: TikTok Events API">
           <span class="proj-index-name">
             <span data-i18n="p6_title">Pipeline de Eventos Server-Side · TikTok</span>
           </span>
@@ -558,9 +566,9 @@
           </span>
         </div>
 
-        <div class="proj-index-cat" data-i18n="cat_ai">AI &amp; Experimentação</div>
+        <div class="proj-index-cat" data-category="ai" data-i18n="cat_ai">AI &amp; Experimentação</div>
 
-        <div class="proj-index-row proj-card" data-project="whisper-transcriber" tabindex="0" role="button" aria-label="Abrir case: Transcritor de Call em Tempo Real">
+        <div class="proj-index-row proj-card" data-project="whisper-transcriber" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: Transcritor de Call em Tempo Real">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/whisper-transcriber.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p12_title">Transcritor de Call em Tempo Real</span>
@@ -573,7 +581,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="ai-analytics" tabindex="0" role="button" aria-label="Abrir case: AI Ad Metrics Analyzer">
+        <div class="proj-index-row proj-card" data-project="ai-analytics" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: AI Ad Metrics Analyzer">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/ai-analytics.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p3_title">AI Ad Metrics Analyzer</span>
