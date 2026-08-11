@@ -324,6 +324,14 @@ section { padding: 84px 0; }
 }
 .hero-name { display: block; }
 
+.hero-subtitle {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--p);
+  letter-spacing: .04em;
+  margin-bottom: 16px;
+}
+
 .hero-tagline {
   font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: var(--tx2);
