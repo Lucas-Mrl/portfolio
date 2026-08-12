@@ -2534,10 +2534,11 @@ if (projPreview && projPreviewImg) {
 
     row.addEventListener('mouseenter', () => {
       projPreviewImg.src = src;
-      // position preview relative to hovered row
       const rowRect = row.getBoundingClientRect();
-      const tableRect = row.closest('.proj-index-table').getBoundingClientRect();
-      projPreview.style.top = (rowRect.top - tableRect.top - 20) + 'px';
+      const previewH = 198;
+      let topPos = rowRect.top + (rowRect.height / 2) - (previewH / 2);
+      topPos = Math.max(20, Math.min(topPos, window.innerHeight - previewH - 20));
+      projPreview.style.top = topPos + 'px';
       projPreview.classList.add('visible');
     });
     row.addEventListener('mouseleave', () => {

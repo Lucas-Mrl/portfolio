@@ -228,40 +228,39 @@
   <!-- CAPACIDADES -->
   <section id="capabilities">
     <div class="container">
-      <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="cap_tag">capacidades</span>
-        <h2 data-i18n="cap_title">O que construo<br>e como penso</h2>
-      </div>
-      <div class="cap-grid">
+      <div class="cap-list">
 
-        <div class="cap-area">
-          <div class="cap-area-header">
-            <span class="cap-area-num">01</span>
-            <h3 class="cap-area-title" data-i18n="cap1_title">BI e análise operacional</h3>
+        <div class="cap-row" data-reveal>
+          <div class="cap-row-head">
+            <h3 class="cap-row-title" data-i18n="cap1_title">Analytics &amp; BI</h3>
           </div>
-          <p class="cap-area-desc" data-i18n="cap1_desc">Estruturo modelos de dados e crio dashboards executivos e operacionais — projetados para quem toma decisão, não para impressionar tecnicamente.</p>
-          <p class="cap-area-ex" data-i18n="cap1_ex">Ex: Dashboard de 280+ lojas com drill-down por regional, canal e período.</p>
-          <p class="cap-tech">SQL / BigQuery / Python / Power BI / Looker Studio / MySQL / FastAPI</p>
+          <div class="cap-row-body">
+            <p class="cap-row-desc" data-i18n="cap1_desc">Estruturo modelos de dados e crio dashboards executivos e operacionais — projetados para quem toma decisão, não para impressionar tecnicamente.</p>
+            <p class="cap-row-ex" data-i18n="cap1_ex">Ex: Dashboard de 280+ lojas com drill-down por regional, canal e período.</p>
+            <p class="cap-tech">SQL / BigQuery / Python / Power BI / Looker Studio / MySQL / FastAPI</p>
+          </div>
         </div>
 
-        <div class="cap-area">
-          <div class="cap-area-header">
-            <span class="cap-area-num">02</span>
-            <h3 class="cap-area-title" data-i18n="cap2_title">Pipelines e automação</h3>
+        <div class="cap-row" data-reveal>
+          <div class="cap-row-head">
+            <h3 class="cap-row-title" data-i18n="cap2_title">Data Pipelines &amp; Automação</h3>
           </div>
-          <p class="cap-area-desc" data-i18n="cap2_desc">Automatizo rotinas recorrentes de coleta, tratamento e consolidação de dados — eliminando trabalho manual e garantindo disponibilidade de informação no início de cada dia operacional.</p>
-          <p class="cap-area-ex" data-i18n="cap2_ex">Ex: Pipeline que conecta 9 plataformas de mídia e entrega relatório regional às 3h da manhã.</p>
-          <p class="cap-tech">Python / REST APIs / ETL·ELT / GitHub Actions / n8n / Google Sheets API</p>
+          <div class="cap-row-body">
+            <p class="cap-row-desc" data-i18n="cap2_desc">Automatizo rotinas recorrentes de coleta, tratamento e consolidação de dados — eliminando trabalho manual e garantindo disponibilidade de informação no início de cada dia operacional.</p>
+            <p class="cap-row-ex" data-i18n="cap2_ex">Ex: Pipeline que conecta 9 plataformas de mídia e entrega relatório regional às 3h da manhã.</p>
+            <p class="cap-tech">Python / REST APIs / ETL·ELT / GitHub Actions / n8n / Google Sheets API</p>
+          </div>
         </div>
 
-        <div class="cap-area">
-          <div class="cap-area-header">
-            <span class="cap-area-num">03</span>
-            <h3 class="cap-area-title" data-i18n="cap3_title">Integração e confiabilidade de dados</h3>
+        <div class="cap-row" data-reveal>
+          <div class="cap-row-head">
+            <h3 class="cap-row-title" data-i18n="cap3_title">Marketing Analytics &amp; Tracking</h3>
           </div>
-          <p class="cap-area-desc" data-i18n="cap3_desc">Conecto fontes díspares — APIs, CRMs, bancos, planilhas — e estruturo regras de validação e padronização para que os dados reflitam a realidade operacional, não o que o sistema assumiu.</p>
-          <p class="cap-area-ex" data-i18n="cap3_ex">Ex: Meta CAPI + TikTok CAPI server-side, auditoria de divergências entre plataforma e CRM.</p>
-          <p class="cap-tech">GA4 / GTM / Meta CAPI / TikTok Events API / BigQuery / CRM / Python</p>
+          <div class="cap-row-body">
+            <p class="cap-row-desc" data-i18n="cap3_desc">Conecto fontes díspares — APIs, CRMs, bancos, planilhas — e estruturo regras de validação e padronização para que os dados reflitam a realidade operacional, não o que o sistema assumiu.</p>
+            <p class="cap-row-ex" data-i18n="cap3_ex">Ex: Meta CAPI + TikTok CAPI server-side, auditoria de divergências entre plataforma e CRM.</p>
+            <p class="cap-tech">GA4 / GTM / Meta CAPI / TikTok Events API / BigQuery / CRM / Python</p>
+          </div>
         </div>
 
       </div>
@@ -382,116 +381,60 @@
 
       <div class="proj-index-table">
 
-        <div class="proj-index-row proj-index-row--header" aria-hidden="true">
-          <span data-i18n="idx_col_name">Projeto</span>
-          <span data-i18n="idx_col_stack">Stack</span>
-          <span data-i18n="idx_col_type">Tipo</span>
-          <span></span>
-        </div>
-
         <div class="proj-index-cat" data-category="bi" data-i18n="cat_bi">BI &amp; Analytics</div>
 
         <div class="proj-index-row" data-project="looq-challenge" data-category="bi" tabindex="0" role="button" aria-label="Abrir case: Desafio Técnico Looqbox">
-          <span class="proj-index-name">
-            <img class="proj-index-thumb" src="assets/screenshots/looq-challenge.png" alt="" aria-hidden="true" width="32" height="22">
-            <span data-i18n="p10_title">Desafio Técnico Looqbox</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p10_title">Desafio Técnico Looqbox</span>
           <span class="proj-index-stack">Python · SQL · pandas · matplotlib</span>
-          <span class="proj-index-type" data-i18n="pt_challenge">Case Técnico</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-            <a href="assets/demos/looq-challenge.html" target="_blank" rel="noopener" class="proj-btn-demo proj-index-btn">▶ Demo</a>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-cat" data-category="pipeline" data-i18n="cat_pipeline">Data Pipelines &amp; Automação</div>
 
         <div class="proj-index-row" data-project="leads-processor" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Tratamento de Dados">
-          <span class="proj-index-name">
-            <span data-i18n="p2_title">Pipeline de Tratamento de Dados</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p2_title">Pipeline de Tratamento de Dados</span>
           <span class="proj-index-stack">JavaScript · Client-side</span>
-          <span class="proj-index-type" data-i18n="pt_open">Open Source</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-            <a href="https://github.com/Lucas-Mrl/leads-processor" target="_blank" rel="noopener" class="proj-btn-gh proj-index-btn" data-i18n="p_gh">GitHub</a>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-row" data-project="email-clickup" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Automação de Workflow Operacional">
-          <span class="proj-index-name">
-            <span data-i18n="p5_title">Automação de Workflow Operacional</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p5_title">Automação de Workflow Operacional</span>
           <span class="proj-index-stack">n8n · Graph API · Oracle Cloud</span>
-          <span class="proj-index-type" data-i18n="pt_tool">Ferramenta Interna</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-row" data-project="meta-tax-calc" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Calculadora de Imposto Meta Ads">
-          <span class="proj-index-name">
-            <img class="proj-index-thumb" src="assets/screenshots/meta-tax-calc.png" alt="" aria-hidden="true" width="32" height="22">
-            <span data-i18n="p11_title">Calculadora de Imposto Meta Ads</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p11_title">Calculadora de Imposto Meta Ads</span>
           <span class="proj-index-stack">React · Vite · JavaScript</span>
-          <span class="proj-index-type" data-i18n="pt_open">Open Source</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-            <a href="assets/demos/meta-tax-calc.html" target="_blank" rel="noopener" class="proj-btn-demo proj-index-btn">▶ Demo</a>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-cat" data-category="tracking" data-i18n="cat_tracking">Integração &amp; Eventos Server-Side</div>
 
         <div class="proj-index-row" data-project="meta-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: Meta Conversions API">
-          <span class="proj-index-name">
-            <span data-i18n="p4_title">Pipeline de Eventos Server-Side · Meta</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p4_title">Pipeline de Eventos Server-Side · Meta</span>
           <span class="proj-index-stack">Meta CAPI · Python · GTM</span>
-          <span class="proj-index-type" data-i18n="pt_client">Client Work</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-row" data-project="tiktok-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: TikTok Events API">
-          <span class="proj-index-name">
-            <span data-i18n="p6_title">Pipeline de Eventos Server-Side · TikTok</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p6_title">Pipeline de Eventos Server-Side · TikTok</span>
           <span class="proj-index-stack">TikTok Events API · GTM</span>
-          <span class="proj-index-type" data-i18n="pt_client">Client Work</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-cat" data-category="ai" data-i18n="cat_ai">AI &amp; Experimentação</div>
 
         <div class="proj-index-row" data-project="whisper-transcriber" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: Transcritor de Call em Tempo Real">
-          <span class="proj-index-name">
-            <img class="proj-index-thumb" src="assets/screenshots/whisper-transcriber.png" alt="" aria-hidden="true" width="32" height="22">
-            <span data-i18n="p12_title">Transcritor de Call em Tempo Real</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p12_title">Transcritor de Call em Tempo Real</span>
           <span class="proj-index-stack">Python · faster-whisper · sounddevice</span>
-          <span class="proj-index-type" data-i18n="pt_personal">Projeto Pessoal</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-            <a href="assets/demos/whisper-transcriber.html" target="_blank" rel="noopener" class="proj-btn-demo proj-index-btn">▶ Demo</a>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
         <div class="proj-index-row" data-project="ai-analytics" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: AI Ad Metrics Analyzer">
-          <span class="proj-index-name">
-            <img class="proj-index-thumb" src="assets/screenshots/ai-analytics.png" alt="" aria-hidden="true" width="32" height="22">
-            <span data-i18n="p3_title">AI Ad Metrics Analyzer</span>
-          </span>
+          <span class="proj-index-name" data-i18n="p3_title">AI Ad Metrics Analyzer</span>
           <span class="proj-index-stack">Python · Streamlit · LLM · Ad APIs</span>
-          <span class="proj-index-type" data-i18n="pt_personal">Projeto Pessoal</span>
-          <span class="proj-index-actions">
-            <button class="proj-btn-case proj-index-btn" data-i18n="p_case">Ver Projeto ↗</button>
-            <a href="assets/demos/ai-metrics.html" target="_blank" rel="noopener" class="proj-btn-demo proj-index-btn">▶ Demo</a>
-          </span>
+          <span class="proj-index-arrow" aria-hidden="true">↗</span>
         </div>
 
       </div>
