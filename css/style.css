@@ -728,11 +728,13 @@ section { padding: 100px 0; }
 
 /* Clip reveal system */
 [data-clip-reveal] {
-  clip-path: inset(100% 0 0 0);
-  transition: clip-path .75s cubic-bezier(.4,0,.2,1);
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .75s cubic-bezier(.4,0,.2,1), transform .75s cubic-bezier(.4,0,.2,1);
 }
 [data-clip-reveal].clip-visible {
-  clip-path: inset(0% 0 0 0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Featured cases hover micro-interactions */
@@ -1615,6 +1617,6 @@ footer {
   }
   html { scroll-behavior: auto; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
-  [data-clip-reveal] { clip-path: none !important; transition: none !important; }
+  [data-clip-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-avail, .hero-title span, .hero-role, .hero-desc, .hero-stack-line, .hero-foot { animation: none !important; }
 }
