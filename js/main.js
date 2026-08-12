@@ -4,52 +4,24 @@
 const i18n = {
   pt: {
     // NAV
-    nav_resolve:  "Soluções",
-    nav_capabilities: "Capacidades",
     nav_exp:      "Experiência",
     nav_projects: "Projetos",
     nav_about:    "Sobre",
     nav_cv:       "Baixar CV",
 
     // HERO
-    hero_badge:    "Data Analytics · BI · Analytics Engineering · Marketing Analytics",
-    hero_subtitle: "Data Analytics & BI · Python · SQL · BigQuery · Power BI",
     hero_tagline:  "Construo pipelines, dashboards e automações que conectam mídia, CRM e dados operacionais a decisões de negócio.",
-    hero_focus:    "Aberto a oportunidades em Data Analytics, BI, Analytics Engineering e Marketing Analytics.",
     hero_availability: "→ Aberto a oportunidades · Ourinhos, SP",
     hero_stats_context: "¹ Indicadores de operações em que atuei diretamente. Dados sensíveis preservados por confidencialidade.",
-    hm_budget:     "Verba Gerenciada",
-    hm_platforms:  "Plataformas",
-    hm_stores:     "Lojas",
     hm_manual:     "↓ trabalho manual",
     hm_sources:    "fontes integradas",
     hm_units:      "unidades analisadas",
-    hm_context:   "Indicadores de operações em que atuei diretamente. Dados sensíveis preservados por confidencialidade.",
     cta_cases:     "Ver Projetos",
     cta_cv:        "Baixar CV",
-    cta_contact:   "Falar Comigo",
     cta_linkedin:  "Conectar no LinkedIn ↗",
     cta_email:     "E-mail",
 
-    // LINEAGE MAP
-    lineage_n1: "Fontes & APIs",
-    lineage_n2: "Normalização",
-    lineage_n3: "Modelagem",
-    lineage_n4: "BI & Alertas",
-    lineage_n5: "Decisão",
-    lineage_l1: "ingestão",
-    lineage_l2: "tratamento",
-    lineage_l3: "estrutura",
-    lineage_l4: "visualização",
-    lineage_l5: "output",
-    lineage_t1: "Sistemas, CRMs, APIs de mídia, planilhas e bancos de dados",
-    lineage_t2: "Normalização, deduplicação e reconciliação entre fontes",
-    lineage_t3: "Modelagem, agregação por regional, pattern-matching e CPL cruzado",
-    lineage_t4: "Dashboards, relatórios automáticos e alertas operacionais",
-    lineage_t5: "Análise acionável e recomendações práticas para o negócio",
-
     // CAPABILITIES
-    cap_tag:    "especialidades",
     cap_title:  "Especialidades",
     cap1_title: "Analytics & BI",
     cap1_desc:  "SQL, BigQuery e Python para modelagem de dados, análise de funil e construção de dashboards executivos e operacionais. Foco em leitura de performance, identificação de gargalos e apoio à decisão de negócio — não em visualização pela visualização.",
@@ -64,15 +36,11 @@ const i18n = {
     // PROJECT INDEX
     idx_tag:      "índice",
     idx_title:    "Todos os projetos",
-    idx_desc:     "Clique em qualquer linha para ver o case completo.",
     idx_col_name: "Projeto",
     idx_col_stack:"Stack",
     idx_col_type: "Tipo",
 
     // CASES EM DESTAQUE
-    cd_tag:       "trabalho selecionado",
-    cd_title:     "Trabalho Selecionado",
-    cd_desc:      "Projetos reais com problema definido, solução construída e impacto mensurável.",
     cd_p1_problem: "280+ lojas e 16 regionais sem visão centralizada. Desenvolvi aplicação analítica com FastAPI + MySQL, autenticação por perfil de acesso e drill-down por loja, regional e canal.",
     cd_p2_problem: "Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.",
     cd_p3_problem: "Consolidação de 9 plataformas feita manualmente — horas de trabalho por regional, por dia. Automatizei coleta, normalização e entrega: dados disponíveis toda manhã sem intervenção.",
@@ -85,66 +53,6 @@ const i18n = {
     cd_lbl_manual:    "↓ manual",
     cd_lbl_apis:      "APIs",
 
-    // O QUE RESOLVO
-    resolve_tag:   "clareza",
-    resolve_title: "Onde gero clareza",
-    resolve_desc:  "Problemas reais de dados, operação e análise que resolvo com BI, automação, integração e visualização.",
-    r1_title: "Dados espalhados entre sistemas",
-    r1_desc:  "Consolido dados de planilhas, CRMs, APIs, bancos e plataformas em visões únicas para análise — sem copiar e colar entre fontes.",
-    r2_title: "Relatórios manuais e demorados",
-    r2_desc:  "Automatizo rotinas de coleta, tratamento e exportação de dados — o que levava horas passa a rodar sem intervenção, diariamente.",
-    r3_title: "Baixa confiabilidade nos indicadores",
-    r3_desc:  "Estruturo regras, validações e padronizações para que os dados reflitam a realidade da operação — e não o que a planilha assumiu.",
-    r4_title: "Falta de visão executiva",
-    r4_desc:  "Crio dashboards e análises que facilitam a leitura de performance, operação e oportunidades para quem precisa decidir.",
-    r5_title: "Processos sem integração",
-    r5_desc:  "Conecto ferramentas, APIs e fluxos para diminuir retrabalho, centralizar informações e reduzir dependência de processos manuais.",
-    r6_title: "Dificuldade em transformar dados em decisão",
-    r6_desc:  "Organizo indicadores, recortes e análises para apoiar decisões práticas de negócio — do nível operacional ao executivo.",
-
-    // O QUE CONSTRUO
-    wib_tag:    "soluções",
-    wib_title:  "O que construo",
-    wib_desc:   "Quatro tipos de solução que aparecem repetidamente em operações de dados reais.",
-    wib1_title: "Dashboards Executivos",
-    wib1_desc:  "Visões claras para acompanhamento de KPIs, operação e performance — projetadas para quem toma a decisão, não para impressionar tecnicamente.",
-    wib2_title: "Pipelines e Automações",
-    wib2_desc:  "Coleta, tratamento e atualização de dados com menos trabalho manual — o que levava horas passa a rodar automaticamente.",
-    wib3_title: "Integrações de Dados",
-    wib3_desc:  "Conexão entre APIs, CRMs, bancos, planilhas e ferramentas internas para centralizar informações dispersas.",
-    wib4_title: "Análises Operacionais",
-    wib4_desc:  "Leitura de dados para identificar gargalos, oportunidades e inconsistências — traduzindo números em recomendações práticas.",
-
-    // SKILLS
-    skills_tag:   "stack",
-    skills_title: "Ferramentas & Contexto de Uso",
-    skills_desc:  "Não só o que uso — mas para que uso cada coisa.",
-    sc1_title: "Dados & Análise",
-    sc1_ctx:   "Para consultas, modelagem e exploração de dados estruturados — base de qualquer análise ou automação.",
-    sc2_title: "BI & Visualização",
-    sc2_ctx:   "Para criar visões executivas, painéis operacionais e indicadores que apoiam decisão em diferentes níveis da organização.",
-    sc3_title: "Automação & Integração",
-    sc3_ctx:   "Para automatizar coleta, tratamento e exportação de dados, e integrar sistemas via API — eliminando rotinas manuais recorrentes.",
-    sc4_title: "Dados de Marketing & Eventos",
-    sc4_ctx:   "Para análise de aquisição, funil de conversão e integração de eventos server-side com plataformas externas — contexto de onde a maioria dos meus cases foi construída.",
-
-    // COMO TRABALHO
-    proc_tag:   "método",
-    proc_title: "Como trabalho",
-    proc_desc:  "Do problema à recomendação — como estruturo o trabalho analítico na prática.",
-    ps1_title: "Entendo a decisão que precisa ser tomada",
-    ps1_desc:  "Antes de qualquer dado ou ferramenta: qual pergunta de negócio precisa ser respondida? Qual decisão vai mudar com essa análise?",
-    ps2_title: "Mapeio as fontes de dados disponíveis",
-    ps2_desc:  "Plataformas de mídia, CRM, banco de dados, planilhas, APIs — identifico o que existe, o que está confiável e o que precisa ser estruturado.",
-    ps3_title: "Estruturo coleta, tratamento e padronização",
-    ps3_desc:  "ETL, normalização, deduplicação, reconciliação entre fontes — os dados precisam ser confiáveis antes de virarem análise.",
-    ps4_title: "Crio visualizações e indicadores acionáveis",
-    ps4_desc:  "Dashboards, relatórios, exportações Excel — projetados para quem vai tomar a decisão, não para impressionar tecnicamente.",
-    ps5_title: "Automatizo o que for recorrente",
-    ps5_desc:  "Se uma tarefa vai se repetir toda semana, ela vira script, pipeline ou automação. Tempo manual é o recurso mais caro de uma operação de dados.",
-    ps6_title: "Transformo análise em recomendação prática",
-    ps6_desc:  "O entregável final não é um gráfico — é uma resposta: o que fazer, onde cortar, o que escalar, o que investigar mais.",
-
     // EXPERIÊNCIA
     exp_tag:     "experiência",
     exp_title:   "Onde atuei",
@@ -153,10 +61,9 @@ const i18n = {
     exp1_period: "Fev 2025 — presente",
     exp1_role:   "Analista de Dados e BI",
     exp1_loc:    "Media.k · Remoto · Cliente: AudioNova Brasil",
-    exp1_desc:   "Desenvolvimento da infraestrutura analítica de uma operação nacional de saúde auditiva — conectando dados de mídia, CRM e operação via Python, SQL, APIs e BI. Responsável por pipelines, dashboards, automações e integrações de ponta a ponta.",
+    exp1_desc:   "Infraestrutura analítica de uma operação nacional de saúde auditiva com 280+ lojas e 16 regionais — pipelines, dashboards, automações e integrações de ponta a ponta.",
     exp1_b1:     "Pipeline de dados em Python conectando 9 APIs de mídia — coleta, normalização e consolidação automática por regional, com redução de ~90% no trabalho manual diário",
     exp1_b2:     "Dashboard web interno (FastAPI + MySQL) para análise de performance por loja, regional e canal — autenticação por perfil, filtros e exportação de 280+ unidades",
-    exp1_b3:     "Integração server-side de eventos de conversão (Meta CAPI, TikTok CAPI): implementação, auditoria de divergências entre plataforma e CRM, e reporte direto ao cliente",
     exp1_b4:     "Ad-level analytics: drill-down por anúncio individual cruzando dados de plataforma com leads e agendamentos reais do CRM — visibilidade de CPA real por criativo",
 
     exp2_period: "Mar 2025 — Out 2025",
@@ -194,20 +101,11 @@ const i18n = {
     edu3_desc:  "Comunidade Sobral de Tráfego Pago · SQL · Python · BI · CRO · Growth · Automações · Engenharia de dados.",
 
     // PROJETOS
-    proj_tag:   "portfólio",
-    proj_title: "Todos os projetos",
-    proj_desc:  "Clique em qualquer card para ver o case completo.",
     conf_text:  "Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.",
     cat_bi:       "BI & Analytics",
     cat_pipeline: "Data Pipelines & Automação",
     cat_tracking: "Integração & Eventos Server-Side",
     cat_ai:       "AI & Experimentação",
-
-    filter_all:      "Todos",
-    filter_bi:       "BI & Analytics",
-    filter_pipeline: "Pipelines",
-    filter_tracking: "Integração",
-    filter_ai:       "AI",
 
     pt_open:      "Open Source",
     pt_client:    "Client Work",
@@ -240,14 +138,8 @@ const i18n = {
     p12_title: "Transcritor de Call em Tempo Real",
     p12_desc:  "Script que transcreve calls de trabalho em tempo real usando Whisper rodando localmente — sem bots, sem servidores externos, sem custo. Captura áudio do sistema e salva a transcrição com timestamps.",
     // DIFERENCIAIS
-    diff_tag:   "diferenciais",
-    diff_title: "Diferenciais da minha atuação",
-    d1_title: "Não analiso mídia isolada",
-    d1_desc:  "Conecto investimento, leads, lojas, CRM e jornada do usuário. O número da plataforma precisa dialogar com o que chegou no CRM e o que virou venda.",
     d2_title: "Não dependo só de dashboard",
     d2_desc:  "Quando os dados precisam ser estruturados antes de virar análise, eu construo o pipeline. Não terceirizo o problema técnico para depois poder fazer a análise.",
-    d3_title: "Tenho visão de negócio",
-    d3_desc:  "Traduzo métricas técnicas em recomendações práticas. CPL alto não é um número — é um sinal de onde o funil está quebrando ou onde a segmentação errou.",
     d4_title: "Base técnica para executar",
     d4_desc:  "Python, SQL, APIs, tracking server-side, BI e automação — quando não existe ferramenta pronta, eu construo. Isso reduz a dependência de engenharia em problemas analíticos e operacionais de marketing.",
     d5_title: "Entendo os dois extremos",
@@ -258,7 +150,6 @@ const i18n = {
     about_title: "Dados que\nviram decisão.",
     about_p1:    "Profissional de dados com formação em tecnologia e base construída em operações reais de mídia e marketing. Comecei gerenciando tráfego pago e percebi que mesmo boa estratégia fica limitada quando os dados não são confiáveis — foi o que me levou a focar em analytics, BI e automação.",
     about_p2:    "Hoje atuo onde existe problema concreto: dado fragmentado entre sistemas, relatório manual recorrente, decisão tomada sem visibilidade real. Construo pipelines, dashboards e integrações que conectam fontes dispersas e transformam dados operacionais em decisões mais rápidas e confiáveis.",
-    about_p3:    "",
 
     contact_wa:    "WhatsApp",
     contact_email: "E-mail",
@@ -283,52 +174,24 @@ const i18n = {
 
   en: {
     // NAV
-    nav_resolve:  "Solutions",
-    nav_capabilities: "Capabilities",
     nav_exp:      "Experience",
     nav_projects: "Projects",
     nav_about:    "About",
     nav_cv:       "Download CV",
 
     // HERO
-    hero_badge:    "Data Analytics · BI · Analytics Engineering · Marketing Analytics",
-    hero_subtitle: "Data Analytics & BI · Python · SQL · BigQuery · Power BI",
     hero_tagline:  "I build pipelines, dashboards and automations that connect media, CRM and operational data to business decisions.",
-    hero_focus:    "Open to roles in Data Analytics, BI, Analytics Engineering, and Marketing Analytics.",
     hero_availability: "→ Open to opportunities · Ourinhos, SP",
     hero_stats_context: "¹ Figures from operations I worked on directly. Sensitive data preserved for confidentiality.",
-    hm_budget:     "Managed Budget",
-    hm_platforms:  "Platforms",
-    hm_stores:     "Stores",
     hm_manual:     "↓ manual work",
     hm_sources:    "sources integrated",
     hm_units:      "units analyzed",
-    hm_context:   "Figures from operations I worked on directly. Sensitive data preserved for confidentiality.",
     cta_cases:     "See Projects",
     cta_cv:        "Download CV",
-    cta_contact:   "Get in Touch",
     cta_linkedin:  "Connect on LinkedIn ↗",
     cta_email:     "Email",
 
-    // LINEAGE MAP
-    lineage_n1: "Sources & APIs",
-    lineage_n2: "Normalization",
-    lineage_n3: "Modeling",
-    lineage_n4: "BI & Alerts",
-    lineage_n5: "Decision",
-    lineage_l1: "ingestion",
-    lineage_l2: "processing",
-    lineage_l3: "structure",
-    lineage_l4: "visualization",
-    lineage_l5: "output",
-    lineage_t1: "Systems, CRMs, media APIs, spreadsheets and databases",
-    lineage_t2: "Normalization, deduplication and cross-source reconciliation",
-    lineage_t3: "Modeling, regional aggregation, pattern-matching and cross-source CPL",
-    lineage_t4: "Dashboards, automated reports and operational alerts",
-    lineage_t5: "Actionable analysis and practical business recommendations",
-
     // CAPABILITIES
-    cap_tag:    "expertise",
     cap_title:  "Expertise",
     cap1_title: "Analytics & BI",
     cap1_desc:  "SQL, BigQuery, and Python for data modeling, funnel analysis, and executive/operational dashboards. Focus on performance reading, bottleneck identification, and business decision support — not visualization for its own sake.",
@@ -343,15 +206,11 @@ const i18n = {
     // PROJECT INDEX
     idx_tag:      "index",
     idx_title:    "All projects",
-    idx_desc:     "Click any row to see the full case study.",
     idx_col_name: "Project",
     idx_col_stack:"Stack",
     idx_col_type: "Type",
 
     // CASES EM DESTAQUE
-    cd_tag:       "selected work",
-    cd_title:     "Selected Work",
-    cd_desc:      "Real projects with a defined problem, a built solution and measurable impact.",
     cd_p1_problem: "280+ stores and 16 regions with no centralized view. I built an analytics app with FastAPI + MySQL, profile-based authentication and drill-down by store, region and channel.",
     cd_p2_problem: "Performance analysis limited to campaign level. I built a dashboard crossing platform data with CRM leads and appointments — drill-down to individual ad.",
     cd_p3_problem: "Consolidating 9 platforms was done manually — hours of work per region, per day. I automated collection, normalization and delivery: data available every morning without intervention.",
@@ -364,66 +223,6 @@ const i18n = {
     cd_lbl_manual:    "↓ manual",
     cd_lbl_apis:      "APIs",
 
-    // WHAT I SOLVE
-    resolve_tag:   "clarity",
-    resolve_title: "Where I create clarity",
-    resolve_desc:  "Real data, operations, and analysis problems I solve with BI, automation, integration, and visualization.",
-    r1_title: "Data scattered across systems",
-    r1_desc:  "I consolidate data from spreadsheets, CRMs, APIs, databases, and platforms into unified views for analysis — no more copying and pasting between sources.",
-    r2_title: "Slow, manual reporting",
-    r2_desc:  "I automate collection, processing, and export routines — what used to take hours runs without intervention, daily.",
-    r3_title: "Low data reliability",
-    r3_desc:  "I structure rules, validations, and standardizations so that data reflects operational reality — not what a spreadsheet assumed.",
-    r4_title: "Lack of executive visibility",
-    r4_desc:  "I build dashboards and analyses that make it easy to read performance, operations, and opportunities for those who need to decide.",
-    r5_title: "Processes without integration",
-    r5_desc:  "I connect tools, APIs, and workflows to reduce rework, centralize information, and cut reliance on manual processes.",
-    r6_title: "Difficulty turning data into decisions",
-    r6_desc:  "I organize indicators, breakdowns, and analyses to support practical business decisions — from operational to executive level.",
-
-    // WHAT I BUILD
-    wib_tag:    "solutions",
-    wib_title:  "What I build",
-    wib_desc:   "Four types of solution that appear repeatedly in real data operations.",
-    wib1_title: "Executive Dashboards",
-    wib1_desc:  "Clear views for tracking KPIs, operations, and performance — designed for decision-makers, not to impress technically.",
-    wib2_title: "Pipelines & Automations",
-    wib2_desc:  "Data collection, processing, and updating with less manual work — what used to take hours runs automatically.",
-    wib3_title: "Data Integrations",
-    wib3_desc:  "Connecting APIs, CRMs, databases, spreadsheets, and internal tools to centralize scattered information.",
-    wib4_title: "Operational Analytics",
-    wib4_desc:  "Data analysis to identify bottlenecks, opportunities, and inconsistencies — translating numbers into practical recommendations.",
-
-    // SKILLS
-    skills_tag:   "stack",
-    skills_title: "Tools & Context of Use",
-    skills_desc:  "Not just what I use — but what I use each thing for.",
-    sc1_title: "Data & Analysis",
-    sc1_ctx:   "For queries, modeling, and structured data exploration — the foundation of any analysis or automation.",
-    sc2_title: "BI & Visualization",
-    sc2_ctx:   "To create executive views, operational dashboards, and metrics that support decisions at every organizational level.",
-    sc3_title: "Automation & Integration",
-    sc3_ctx:   "To automate data collection, processing, and export, and to integrate systems via API — eliminating recurring manual routines.",
-    sc4_title: "Marketing Data & Events",
-    sc4_ctx:   "For acquisition analysis, conversion funnels, and server-side event integration with external platforms — the context where most of my cases were built.",
-
-    // HOW I WORK
-    proc_tag:   "method",
-    proc_title: "How I work",
-    proc_desc:  "From problem to recommendation — how I structure analytical work in practice.",
-    ps1_title: "I understand the decision that needs to be made",
-    ps1_desc:  "Before any data or tool: what business question needs answering? What decision will change as a result of this analysis?",
-    ps2_title: "I map available data sources",
-    ps2_desc:  "Media platforms, CRM, databases, spreadsheets, APIs — I identify what exists, what's reliable, and what needs to be structured.",
-    ps3_title: "I structure collection, processing, and standardization",
-    ps3_desc:  "ETL, normalization, deduplication, cross-source reconciliation — data needs to be trustworthy before it becomes analysis.",
-    ps4_title: "I build actionable visualizations and metrics",
-    ps4_desc:  "Dashboards, reports, Excel exports — designed for the decision-maker, not to impress technically.",
-    ps5_title: "I automate what's recurring",
-    ps5_desc:  "If a task will repeat every week, it becomes a script, pipeline, or automation. Manual time is the most expensive resource in a data operation.",
-    ps6_title: "I turn analysis into practical recommendations",
-    ps6_desc:  "The final deliverable isn't a chart — it's an answer: what to do, where to cut, what to scale, what to investigate further.",
-
     // EXPERIENCE
     exp_tag:     "experience",
     exp_title:   "Where I've worked",
@@ -432,10 +231,9 @@ const i18n = {
     exp1_period: "Feb 2025 — present",
     exp1_role:   "Data & BI Analyst",
     exp1_loc:    "Media.k · Remote · Client: AudioNova Brasil",
-    exp1_desc:   "Building the analytics infrastructure for a national hearing health operation — connecting media, CRM and operational data via Python, SQL, APIs and BI. Responsible for end-to-end pipelines, dashboards, automations and integrations.",
+    exp1_desc:   "Analytics infrastructure for a national hearing health operation with 280+ stores and 16 regions — pipelines, dashboards, automations and integrations end to end.",
     exp1_b1:     "Python data pipeline connecting 9 media APIs — collection, normalization and automatic consolidation by region, with ~90% reduction in daily manual work",
     exp1_b2:     "Internal web dashboard (FastAPI + MySQL) for store, region and channel performance — auth by profile, filters and export for 280+ units",
-    exp1_b3:     "Server-side event integration (Meta CAPI, TikTok CAPI): implementation, CRM-vs-platform divergence audits, and direct client reporting",
     exp1_b4:     "Ad-level analytics: drill-down per individual ad crossing platform data with real CRM leads and appointments — real CPA visibility per creative",
 
     exp2_period: "Mar 2025 — Oct 2025",
@@ -473,20 +271,11 @@ const i18n = {
     edu3_desc:  "Sobral Paid Traffic Community · SQL · Python · BI · CRO · Growth · Automation · Data Engineering.",
 
     // PROJECTS
-    proj_tag:   "portfolio",
-    proj_title: "All projects",
-    proj_desc:  "Click any card to see the full case study.",
     conf_text:  "Sensitive data has been anonymized for confidentiality. The case studies preserve the logic and structure of each solution without exposing private client information.",
     cat_bi:       "BI & Analytics",
     cat_pipeline: "Data Pipelines & Automation",
     cat_tracking: "Integration & Server-Side Events",
     cat_ai:       "AI & Experimentation",
-
-    filter_all:      "All",
-    filter_bi:       "BI & Analytics",
-    filter_pipeline: "Pipelines",
-    filter_tracking: "Integration",
-    filter_ai:       "AI",
 
     pt_open:      "Open Source",
     pt_client:    "Client Work",
@@ -519,14 +308,8 @@ const i18n = {
     p12_title: "Real-Time Call Transcriber",
     p12_desc:  "Script that transcribes work calls in real time using Whisper running locally — no bots, no external servers, no cost. Captures system audio and saves the transcript with timestamps.",
     // DIFFERENTIALS
-    diff_tag:   "differentials",
-    diff_title: "What sets my work apart",
-    d1_title: "I don't analyze media in isolation",
-    d1_desc:  "I connect spend, leads, stores, CRM, and user journey. Platform numbers need to align with what hit the CRM and what turned into a sale.",
     d2_title: "I don't depend solely on dashboards",
     d2_desc:  "When data needs to be structured before it can be analyzed, I build the pipeline. I don't outsource the technical problem and wait to do the analysis later.",
-    d3_title: "I have a business mindset",
-    d3_desc:  "I translate technical metrics into practical recommendations. A high CPL isn't just a number — it's a signal of where the funnel is breaking or where targeting went wrong.",
     d4_title: "Technical foundation to execute",
     d4_desc:  "Python, SQL, APIs, server-side tracking, BI and automation — when there's no ready-made tool, I build it. This reduces dependency on engineering for analytical and operational marketing problems.",
     d5_title: "I understand both ends",
@@ -537,7 +320,6 @@ const i18n = {
     about_title: "Data that\nbecomes decisions.",
     about_p1:    "Data professional with a technology background built through real operations in media and marketing. I started managing paid traffic and realized that even good strategy is limited when the data isn't reliable — that's what led me to focus on analytics, BI and automation.",
     about_p2:    "Today I work where there's a concrete problem: data fragmented across systems, recurring manual reports, decisions made without real visibility. I build pipelines, dashboards and integrations that connect scattered sources and turn operational data into faster, more reliable decisions.",
-    about_p3:    "",
 
     contact_wa:    "WhatsApp",
     contact_email: "Email",
@@ -2215,6 +1997,47 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 /* ============================================================
+   SCROLL PROGRESS
+============================================================ */
+const scrollProgressEl = document.getElementById('scroll-progress');
+if (scrollProgressEl) {
+  window.addEventListener('scroll', () => {
+    const docH = document.documentElement.scrollHeight - window.innerHeight;
+    const pct  = docH > 0 ? (window.scrollY / docH) * 100 : 0;
+    scrollProgressEl.style.width = pct + '%';
+  }, { passive: true });
+}
+
+/* ============================================================
+   NAVBAR ACTIVE SECTION
+============================================================ */
+(function () {
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+  const sections = [
+    { id: 'cases-destaque', href: '#cases-destaque' },
+    { id: 'experience',     href: '#experience' },
+    { id: 'about',          href: '#about' },
+  ];
+
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const href = '#' + entry.target.id;
+      const link = document.querySelector(`.nav-links a[href="${href}"]`);
+      if (!link) return;
+      if (entry.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '-64px 0px -40% 0px' });
+
+  sections.forEach(s => {
+    const el = document.getElementById(s.id);
+    if (el) sectionObs.observe(el);
+  });
+})();
+
+/* ============================================================
    MOBILE MENU
 ============================================================ */
 const menuBtn = document.getElementById('menuBtn');
@@ -2253,6 +2076,20 @@ const ro = new IntersectionObserver((entries) => {
 }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+
+/* ============================================================
+   CLIP REVEAL (screenshots)
+============================================================ */
+const clipObs = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('clip-visible');
+      clipObs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('[data-clip-reveal]').forEach(el => clipObs.observe(el));
 
 /* ============================================================
    MODAL
@@ -2478,38 +2315,6 @@ document.querySelectorAll('.js-project').forEach(block => {
     card.addEventListener('mouseleave', () => { isHovered = false; deactivate(); });
     card.addEventListener('focusin', () => { isHovered = true; activate(); });
     card.addEventListener('focusout', () => { isHovered = false; deactivate(); });
-  });
-})();
-
-/* ============================================================
-   PROJECT INDEX FILTERS
-============================================================ */
-(function () {
-  const filterBtns = document.querySelectorAll('.proj-filter-btn');
-  const rows = document.querySelectorAll('.proj-index-row[data-category]');
-  const cats = document.querySelectorAll('.proj-index-cat[data-category]');
-
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
-
-      filterBtns.forEach(b => b.classList.remove('proj-filter-btn--active'));
-      btn.classList.add('proj-filter-btn--active');
-
-      if (filter === 'all') {
-        rows.forEach(r => r.removeAttribute('hidden'));
-        cats.forEach(c => c.removeAttribute('hidden'));
-      } else {
-        rows.forEach(r => {
-          if (r.getAttribute('data-category') === filter) r.removeAttribute('hidden');
-          else r.setAttribute('hidden', '');
-        });
-        cats.forEach(c => {
-          if (c.getAttribute('data-category') === filter) c.removeAttribute('hidden');
-          else c.setAttribute('hidden', '');
-        });
-      }
-    });
   });
 })();
 

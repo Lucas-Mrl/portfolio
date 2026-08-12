@@ -49,6 +49,8 @@
 </head>
 <body>
 
+  <div id="scroll-progress" aria-hidden="true"></div>
+
   <a href="#main-content" class="skip-link" data-i18n-skip="Pular para o conteúdo principal">Pular para o conteúdo principal</a>
 
   <!-- =========================================================
@@ -82,19 +84,16 @@
        HERO
   ========================================================= -->
   <section id="hero">
+    <div class="hero-bg-text" aria-hidden="true">LM.</div>
     <div class="hero-inner">
-      <div class="hero-meta-row">
-        <p class="hero-avail" data-i18n="hero_availability">→ Aberto a oportunidades · Ourinhos, SP</p>
-        <span class="hero-year" aria-hidden="true">2026</span>
-      </div>
+      <p class="hero-avail" data-i18n="hero_availability">→ Aberto a oportunidades · Ourinhos, SP</p>
       <h1 class="hero-title">
         <span>Lucas</span>
         <span>Morales</span>
       </h1>
+      <p class="hero-role">Data Analytics &amp; BI</p>
       <p class="hero-desc" data-i18n="hero_tagline">Construo pipelines, dashboards e automações que conectam mídia, CRM e dados operacionais a decisões de negócio.</p>
-      <div class="hero-shot" aria-hidden="true">
-        <img src="assets/screenshots/store-analytics.png" alt="" width="1080" height="680" loading="eager" class="hero-screenshot">
-      </div>
+      <p class="hero-stack-line">Python · SQL · BigQuery · Power BI</p>
       <div class="hero-foot">
         <div class="hero-metrics">
           <div class="hm-item">
@@ -123,9 +122,6 @@
      CASES EM DESTAQUE
 ========================================================= -->
 <section id="cases-destaque">
-  <div class="cases-ed-header container" data-reveal>
-    <span class="section-label" data-i18n="cd_tag">trabalho selecionado</span>
-  </div>
 
   <!-- Case 01: Full-width editorial -->
   <article class="case-ed case-ed--full js-project" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Store-Level Analytics">
@@ -136,7 +132,7 @@
       </div>
       <h2 class="case-ed-title" data-i18n="p8_title">Store-Level<br>Analytics</h2>
     </div>
-    <div class="case-ed-img-wrap">
+    <div class="case-ed-img-wrap" data-clip-reveal>
       <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics — dashboard de performance por loja" class="case-ed-img" width="1200" height="700">
     </div>
     <div class="container">
@@ -161,7 +157,7 @@
 
   <!-- Case 02: Split (image dominant) -->
   <article class="case-ed case-ed--split js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Ad-Level Analytics">
-    <div class="case-split-img">
+    <div class="case-split-img" data-clip-reveal>
       <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" class="case-ed-img" width="900" height="620">
     </div>
     <div class="case-split-body">
@@ -229,7 +225,6 @@
   <section id="capabilities">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="cap_tag">especialidades</span>
         <h2 data-i18n="cap_title">Especialidades</h2>
       </div>
       <div class="cap-list">
@@ -292,11 +287,10 @@
               <span class="exp-company">Media.k</span>
               <span class="exp-location" data-i18n="exp1_loc">Ourinhos, SP · Remoto · Cliente: AudioNova Brasil</span>
             </div>
-            <p class="exp-desc" data-i18n="exp1_desc">Atuo na conta AudioNova — operação de saúde auditiva com 280+ lojas e múltiplas regionais. Sou responsável pelo desenvolvimento da infraestrutura analítica que sustenta as decisões operacionais: pipelines de dados, dashboards, automações e integrações entre sistemas. A gestão de campanhas em plataformas de mídia é parte do contexto, não o centro da atuação.</p>
+            <p class="exp-desc" data-i18n="exp1_desc">Infraestrutura analítica de uma operação nacional de saúde auditiva com 280+ lojas e 16 regionais — pipelines, dashboards, automações e integrações de ponta a ponta.</p>
             <ul class="exp-bullets">
               <li data-i18n="exp1_b1">Desenvolvimento e manutenção de pipeline de dados conectando 9 APIs — coleta, normalização e consolidação automática por regional</li>
               <li data-i18n="exp1_b2">Dashboard web interno para análise de performance por loja, regional e canal — com autenticação, filtros e exportação de dados de 280+ unidades</li>
-              <li data-i18n="exp1_b3">Relatório diário automatizado: redução de até 90% em trabalho manual de consolidação, dados disponíveis toda manhã antes do horário de trabalho</li>
               <li data-i18n="exp1_b4">Integração server-side de eventos de conversão (Meta CAPI, TikTok CAPI), auditoria de divergências entre plataforma e CRM, e apresentação de resultados diretamente ao cliente</li>
             </ul>
             <p class="exp-tech">Python · SQL · BigQuery · FastAPI · MySQL · APIs · ETL · Dashboards · Meta CAPI · TikTok CAPI</p>
@@ -375,14 +369,6 @@
         <span data-i18n="conf_text">Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.</span>
       </div>
 
-      <div class="proj-filters" role="group" aria-label="Filtrar projetos por categoria">
-        <button class="proj-filter-btn proj-filter-btn--active" data-filter="all" data-i18n="filter_all">Todos</button>
-        <button class="proj-filter-btn" data-filter="bi" data-i18n="filter_bi">BI &amp; Analytics</button>
-        <button class="proj-filter-btn" data-filter="pipeline" data-i18n="filter_pipeline">Pipelines</button>
-        <button class="proj-filter-btn" data-filter="tracking" data-i18n="filter_tracking">Integração</button>
-        <button class="proj-filter-btn" data-filter="ai" data-i18n="filter_ai">AI</button>
-      </div>
-
       <div class="proj-index-table">
 
         <div class="proj-index-cat" data-category="bi" data-i18n="cat_bi">BI &amp; Analytics</div>
@@ -454,7 +440,7 @@
   <section id="about">
     <div class="container">
       <div class="about-grid">
-        <div class="about-photo-col" data-reveal>
+        <div class="about-photo-col" data-reveal data-clip-reveal>
           <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" class="about-photo" width="320" height="427">
         </div>
         <div class="about-main" data-reveal>
