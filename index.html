@@ -15,19 +15,24 @@
   <meta property="og:title"       content="Lucas Morales | Data Analyst · BI &amp; Analytics Engineer" />
   <meta property="og:description" content="Python, SQL, BigQuery e Power BI em pipelines de dados, dashboards e automações — conectando mídia, CRM e dados operacionais a decisões de negócio." />
   <meta property="og:url"         content="https://lucas-mrl.github.io/portfolio/" />
-  <meta property="og:image"       content="https://lucas-mrl.github.io/portfolio/assets/og-image.png" />
+  <meta property="og:image"       content="https://lucas-mrl.github.io/portfolio/assets/og-image.svg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:site_name"   content="Lucas Morales" />
   <meta property="og:locale"      content="pt_BR" />
   <meta name="twitter:card"       content="summary_large_image" />
   <meta name="twitter:title"      content="Lucas Morales | Data Analyst · BI &amp; Analytics Engineer" />
   <meta name="twitter:description" content="Python, SQL, BigQuery e Power BI em pipelines, dashboards e automações para operações de dados." />
+  <meta name="twitter:image"      content="https://lucas-mrl.github.io/portfolio/assets/og-image.svg" />
+  <!-- Note: Converting og-image.svg to PNG would improve OG preview on Twitter/X and some scrapers -->
 
   <!-- Favicon inline SVG -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%236768E8'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='sans-serif' font-weight='800' font-size='14'>LM</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%230B0B0D'/><text x='50%' y='56%' dominant-baseline='middle' text-anchor='middle' fill='%238283F0' font-family='Georgia,serif' font-weight='400' font-size='13'>LM.</text></svg>" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 
@@ -66,8 +71,12 @@
       </ul>
       <div class="nav-right">
         <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn-cv-nav" data-i18n="nav_cv">CV ↗</a>
-        <button class="lang-toggle" id="langToggle" aria-label="Toggle language"><span class="lang-opt" id="langPT" aria-pressed="true">PT</span><span class="lang-sep" aria-hidden="true">·</span><span class="lang-opt" id="langEN" aria-pressed="false">EN</span></button>
-        <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
+        <div class="lang-toggle" role="group" aria-label="Idioma / Language">
+          <button class="lang-btn" id="langPT" aria-pressed="true">PT</button>
+          <span class="lang-sep" aria-hidden="true">·</span>
+          <button class="lang-btn" id="langEN" aria-pressed="false">EN</button>
+        </div>
+        <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
@@ -86,7 +95,7 @@
   <section id="hero">
     <div class="hero-bg-text" aria-hidden="true">LM.</div>
     <div class="hero-inner">
-      <p class="hero-avail" data-i18n="hero_availability">→ Aberto a oportunidades · Ourinhos, SP</p>
+      <p class="hero-avail" data-i18n="hero_availability">Aberto a oportunidades · Ourinhos, SP</p>
       <h1 class="hero-title">
         <span>Lucas</span>
         <span>Morales</span>
@@ -124,7 +133,7 @@
 <section id="cases-destaque">
 
   <!-- Case 01: Full-width editorial -->
-  <article class="case-ed case-ed--full js-project" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Store-Level Analytics">
+  <article class="case-ed case-ed--full js-project" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif">
     <div class="container">
       <div class="case-ed-intro">
         <span class="case-num">01</span>
@@ -156,7 +165,7 @@
   </article>
 
   <!-- Case 02: Split (image dominant) -->
-  <article class="case-ed case-ed--split js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Ad-Level Analytics">
+  <article class="case-ed case-ed--split js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
     <div class="case-split-img" data-clip-reveal>
       <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" class="case-ed-img" width="900" height="620">
     </div>
@@ -180,7 +189,7 @@
   </article>
 
   <!-- Case 03: Text composition (no screenshot) -->
-  <article class="case-ed case-ed--text js-project" data-project="media-reports" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Automação Multi-Fonte">
+  <article class="case-ed case-ed--text js-project" data-project="media-reports">
     <div class="container">
       <div class="case-ed-intro">
         <span class="case-num">03</span>
@@ -211,7 +220,7 @@
             <div class="cpt-block">
               <span class="cpt-val">16</span>
               <span class="cpt-lbl">regionais</span>
-              <span class="cpt-sub" data-i18n="cd_lbl_manual">dados disponíveis toda manhã</span>
+              <span class="cpt-sub" data-i18n="cd_lbl_delivery">dados disponíveis toda manhã</span>
             </div>
           </div>
           <div class="case-text-metric"><span class="ctm-val">90%</span><span class="ctm-lbl" data-i18n="cd_lbl_manual">↓ trabalho manual</span></div>
@@ -234,8 +243,7 @@
             <h3 class="cap-row-title" data-i18n="cap1_title">Analytics &amp; BI</h3>
           </div>
           <div class="cap-row-body">
-            <p class="cap-row-desc" data-i18n="cap1_desc">Estruturo modelos de dados e crio dashboards executivos e operacionais — projetados para quem toma decisão, não para impressionar tecnicamente.</p>
-            <p class="cap-row-ex" data-i18n="cap1_ex">Ex: Dashboard de 280+ lojas com drill-down por regional, canal e período.</p>
+            <p class="cap-row-desc" data-i18n="cap1_desc">Dashboards executivos e operacionais, modelagem de dados e análise de performance. Foco em decisão, não em visualização pela visualização.</p>
             <p class="cap-tech">SQL / BigQuery / Python / Power BI / Looker Studio / MySQL / FastAPI</p>
           </div>
         </div>
@@ -245,8 +253,7 @@
             <h3 class="cap-row-title" data-i18n="cap2_title">Data Pipelines &amp; Automação</h3>
           </div>
           <div class="cap-row-body">
-            <p class="cap-row-desc" data-i18n="cap2_desc">Automatizo rotinas recorrentes de coleta, tratamento e consolidação de dados — eliminando trabalho manual e garantindo disponibilidade de informação no início de cada dia operacional.</p>
-            <p class="cap-row-ex" data-i18n="cap2_ex">Ex: Pipeline que conecta 9 plataformas de mídia e entrega relatório regional às 3h da manhã.</p>
+            <p class="cap-row-desc" data-i18n="cap2_desc">Pipelines de coleta, normalização e consolidação — Python conectando APIs, CRMs, bancos e planilhas. Elimino trabalho manual recorrente.</p>
             <p class="cap-tech">Python / REST APIs / ETL·ELT / GitHub Actions / n8n / Google Sheets API</p>
           </div>
         </div>
@@ -256,8 +263,7 @@
             <h3 class="cap-row-title" data-i18n="cap3_title">Marketing Analytics &amp; Tracking</h3>
           </div>
           <div class="cap-row-body">
-            <p class="cap-row-desc" data-i18n="cap3_desc">Conecto fontes díspares — APIs, CRMs, bancos, planilhas — e estruturo regras de validação e padronização para que os dados reflitam a realidade operacional, não o que o sistema assumiu.</p>
-            <p class="cap-row-ex" data-i18n="cap3_ex">Ex: Meta CAPI + TikTok CAPI server-side, auditoria de divergências entre plataforma e CRM.</p>
+            <p class="cap-row-desc" data-i18n="cap3_desc">Análise de aquisição, funil e eventos server-side com GA4, GTM, Meta CAPI e TikTok Events API. Entendo mídia e infraestrutura.</p>
             <p class="cap-tech">GA4 / GTM / Meta CAPI / TikTok Events API / BigQuery / CRM / Python</p>
           </div>
         </div>
@@ -285,7 +291,7 @@
             <div class="exp-title-row">
               <h3 class="exp-role" data-i18n="exp1_role">Analista de Dados e BI</h3>
               <span class="exp-company">Media.k</span>
-              <span class="exp-location" data-i18n="exp1_loc">Ourinhos, SP · Remoto · Cliente: AudioNova Brasil</span>
+              <span class="exp-location" data-i18n="exp1_loc">Remoto · Cliente: AudioNova Brasil</span>
             </div>
             <p class="exp-desc" data-i18n="exp1_desc">Infraestrutura analítica de uma operação nacional de saúde auditiva com 280+ lojas e 16 regionais — pipelines, dashboards, automações e integrações de ponta a ponta.</p>
             <ul class="exp-bullets">
@@ -360,14 +366,10 @@
   <section id="project-index">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="section-label" data-i18n="idx_tag">índice</span>
-        <h2 data-i18n="idx_title">Todos os projetos</h2>
+        <h2 data-i18n="idx_title">Outros projetos</h2>
       </div>
 
-      <div class="conf-notice" data-reveal>
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        <span data-i18n="conf_text">Dados sensíveis foram anonimizados por confidencialidade. Os cases preservam a lógica e a estrutura das soluções, sem expor informações privadas de clientes.</span>
-      </div>
+      <p class="conf-notice" data-reveal data-i18n="conf_text">Cases preservam a lógica das soluções; dados sensíveis foram anonimizados.</p>
 
       <div class="proj-index-table">
 
@@ -449,9 +451,9 @@
           <p data-i18n="about_p1">Profissional de dados com formação em tecnologia e base construída em operações reais de mídia e marketing. Comecei gerenciando tráfego pago e percebi que mesmo boa estratégia fica limitada quando os dados não são confiáveis — foi o que me levou a focar em analytics, BI e automação.</p>
           <p data-i18n="about_p2">Hoje atuo onde existe problema concreto: dado fragmentado entre sistemas, relatório manual recorrente, decisão tomada sem visibilidade real. Construo pipelines, dashboards e integrações que conectam fontes dispersas e transformam dados operacionais em decisões mais rápidas e confiáveis.</p>
           <ul class="about-diffs">
-            <li data-i18n="d2_title">Não dependo só de dashboard</li>
-            <li data-i18n="d4_title">Base técnica para executar</li>
-            <li data-i18n="d5_title">Entendo os dois extremos</li>
+            <li data-i18n="d2_title">Pipeline completo: coleta, tratamento e análise</li>
+            <li data-i18n="d4_title">Base técnica em mídia e infraestrutura analítica</li>
+            <li data-i18n="d5_title">Do dado bruto à recomendação prática</li>
           </ul>
           <div class="about-contact-links">
             <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="about-contact-link">LinkedIn ↗</a>
@@ -528,7 +530,7 @@
   <section id="cta-section">
     <div class="container">
       <div class="cta-editorial" data-reveal>
-        <h2 class="cta-title" data-i18n="cta_title">Busco oportunidades em Data Analytics, BI, Analytics Engineering e Marketing Analytics — preferencialmente remoto.</h2>
+        <h2 class="cta-title" data-i18n="cta_title">Buscando alguém que conecte dados, operação e decisão? Estou disponível para oportunidades em Data Analytics, BI e Analytics Engineering.</h2>
         <div class="cta-links">
           <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="cta-link" data-i18n="cta_linkedin">LinkedIn ↗</a>
           <a href="mailto:moraleslucas003@gmail.com" class="cta-link" data-i18n="cta_email">E-mail ↗</a>
@@ -542,11 +544,11 @@
   <!-- =========================================================
        FOOTER
   ========================================================= -->
-  <footer>
+  <footer class="site-footer">
     <div class="container">
       <div class="footer-inner">
         <span class="nav-logo">LM<span class="accent">.</span></span>
-        <p class="footer-copy" data-i18n="footer_text">Feito com HTML, CSS &amp; JS puro · Atualizado em agosto/2026</p>
+        <p class="footer-copy" data-i18n="footer_text">© 2026 Lucas Morales · Data Analytics &amp; BI</p>
         <div class="footer-links">
           <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" data-i18n="contact_wa">WhatsApp</a>
           <a href="mailto:moraleslucas003@gmail.com" data-i18n="contact_email">E-mail</a>
@@ -560,7 +562,7 @@
   </main>
 
   <!-- MODAL -->
-  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" inert aria-hidden="true">
     <div class="modal-overlay" id="modalOverlay"></div>
     <div class="modal-box" tabindex="-1">
       <button class="modal-x" id="modalX" aria-label="Fechar">
@@ -570,6 +572,11 @@
     </div>
   </div>
 
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/i18n.js" defer></script>
+  <script src="js/projects.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

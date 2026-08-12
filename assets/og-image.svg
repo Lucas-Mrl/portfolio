@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0B0B0D"/>
+  <rect x="0" y="0" width="1200" height="2" fill="#8283F0" opacity="0.5"/>
+  <text x="80" y="240" font-family="Georgia,serif" font-size="88" fill="#F2F0EB" opacity="1">Lucas</text>
+  <text x="80" y="340" font-family="Georgia,serif" font-size="88" fill="#F2F0EB" opacity="1">Morales</text>
+  <text x="80" y="420" font-family="Arial,sans-serif" font-size="28" fill="#8283F0" font-weight="400">Data Analytics &amp; BI</text>
+  <text x="80" y="468" font-family="Arial,sans-serif" font-size="20" fill="#B5B2AB">Python · SQL · BigQuery · Power BI</text>
+  <text x="80" y="560" font-family="Arial,sans-serif" font-size="16" fill="#888690">lucas-mrl.github.io/portfolio</text>
+</svg>
