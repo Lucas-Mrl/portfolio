@@ -99,7 +99,7 @@
   ========================================================= -->
   <section id="hero">
     <div class="hero-layout">
-      <div class="hero-left">
+      <div class="hero-col-left">
 
         <p class="hero-availability" data-i18n="hero_availability">→ Aberto a oportunidades · Ourinhos, SP</p>
 
@@ -112,51 +112,13 @@
 
         <p class="hero-tagline" data-i18n="hero_tagline">Construo pipelines, dashboards e automações que conectam mídia, CRM e dados operacionais a decisões de negócio.</p>
 
-        <div class="hero-stats" data-reveal>
+        <div class="hero-stats">
           <span class="hs-item"><span class="hs-val">90%</span><span class="hs-lbl" data-i18n="hm_manual">↓ trabalho manual</span></span>
           <span class="hs-sep" aria-hidden="true">·</span>
           <span class="hs-item"><span class="hs-val">9+</span><span class="hs-lbl" data-i18n="hm_sources">fontes integradas</span></span>
           <span class="hs-sep" aria-hidden="true">·</span>
           <span class="hs-item"><span class="hs-val">280+</span><span class="hs-lbl" data-i18n="hm_units">unidades analisadas</span></span>
           <span class="hs-note" data-i18n="hero_stats_context">¹ Indicadores de operações em que atuei diretamente. Dados sensíveis preservados por confidencialidade.</span>
-        </div>
-
-        <!-- Data Lineage Map -->
-        <div class="lineage-map" role="img" aria-label="Fluxo de trabalho: da coleta de dados à decisão operacional">
-          <div class="lineage-node">
-            <div class="lineage-node-box" tabindex="0" data-tooltip-key="lineage_t1" data-tooltip="Sistemas, CRMs, APIs de mídia, planilhas e bancos de dados">
-              <span data-i18n="lineage_n1">Fontes &amp; APIs</span>
-            </div>
-            <span class="lineage-node-label" data-i18n="lineage_l1">ingestão</span>
-          </div>
-          <div class="lineage-connector" aria-hidden="true"><div class="lineage-connector-line"></div></div>
-          <div class="lineage-node">
-            <div class="lineage-node-box" tabindex="0" data-tooltip-key="lineage_t2" data-tooltip="Normalização, deduplicação e reconciliação entre fontes">
-              <span data-i18n="lineage_n2">Normalização</span>
-            </div>
-            <span class="lineage-node-label" data-i18n="lineage_l2">tratamento</span>
-          </div>
-          <div class="lineage-connector" aria-hidden="true"><div class="lineage-connector-line"></div></div>
-          <div class="lineage-node">
-            <div class="lineage-node-box" tabindex="0" data-tooltip-key="lineage_t3" data-tooltip="Modelagem, agregação por regional, pattern-matching e CPL cruzado">
-              <span data-i18n="lineage_n3">Modelagem</span>
-            </div>
-            <span class="lineage-node-label" data-i18n="lineage_l3">estrutura</span>
-          </div>
-          <div class="lineage-connector" aria-hidden="true"><div class="lineage-connector-line"></div></div>
-          <div class="lineage-node">
-            <div class="lineage-node-box lineage-node-box--active" tabindex="0" data-tooltip-key="lineage_t4" data-tooltip="Dashboards, relatórios automáticos e alertas operacionais">
-              <span data-i18n="lineage_n4">BI &amp; Alertas</span>
-            </div>
-            <span class="lineage-node-label" data-i18n="lineage_l4">visualização</span>
-          </div>
-          <div class="lineage-connector" aria-hidden="true"><div class="lineage-connector-line"></div></div>
-          <div class="lineage-node">
-            <div class="lineage-node-box" tabindex="0" data-tooltip-key="lineage_t5" data-tooltip="Análise acionável e recomendações práticas para o negócio">
-              <span data-i18n="lineage_n5">Decisão</span>
-            </div>
-            <span class="lineage-node-label" data-i18n="lineage_l5">output</span>
-          </div>
         </div>
 
         <div class="hero-ctas">
@@ -166,15 +128,12 @@
             Baixar CV
           </a>
         </div>
-        <div class="hero-ctas-secondary">
-          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="btn btn-ghost-sm">LinkedIn ↗</a>
-          <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="btn btn-ghost-sm">GitHub ↗</a>
-          <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="btn btn-ghost-sm" data-i18n="cta_contact">Falar Comigo ↗</a>
-        </div>
 
       </div>
+      <div class="hero-col-right" aria-hidden="true">
+        <img src="assets/screenshots/store-analytics.png" class="hero-screenshot" alt="" width="580" height="380" loading="eager">
+      </div>
     </div>
-    <div class="hero-scroll-hint"><div class="scroll-bar"></div></div>
   </section>
 
   <!-- =========================================================
@@ -188,58 +147,55 @@
       <p class="section-desc" data-i18n="cd_desc">Projetos reais com problema definido, solução construída e impacto mensurável.</p>
     </div>
 
-    <div class="cd-grid">
+    <div class="cases-list">
 
-      <article class="cd-card cd-card--main proj-card" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif">
-        <div class="proj-overlay"><span class="proj-overlay-cta">Ver projeto ↗</span></div>
-        <div class="cd-visual">
+      <article class="case-block proj-card" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif">
+        <div class="case-visual">
           <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics">
         </div>
-        <div class="cd-body">
-          <div class="cd-meta">
+        <div class="case-body">
+          <div class="case-meta">
             <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-            <span class="cd-stack">FastAPI · MySQL · SQL · Auth</span>
+            <span class="case-tech">FastAPI · MySQL · SQL · Auth</span>
           </div>
-          <h3 class="cd-title" data-i18n="p8_title">Store-Level Analytics</h3>
-          <p class="cd-problem" data-i18n="cd_p1_problem">280+ lojas e 16 regionais sem visão centralizada. Desenvolvi aplicação analítica com FastAPI + MySQL, autenticação por perfil de acesso e drill-down por loja, regional e canal.</p>
-          <div class="cd-impacts">
-            <div class="cd-impact-item"><span class="cd-impact-val">280+</span><span class="cd-impact-lbl" data-i18n="cd_lbl_units">unidades</span></div>
-            <div class="cd-impact-item"><span class="cd-impact-val">16</span><span class="cd-impact-lbl" data-i18n="cd_lbl_regions">regionais</span></div>
-            <div class="cd-impact-item"><span class="cd-impact-val">14</span><span class="cd-impact-lbl" data-i18n="cd_lbl_channels">canais</span></div>
+          <h3 class="case-title" data-i18n="p8_title">Store-Level Analytics</h3>
+          <p class="case-desc" data-i18n="cd_p1_problem">280+ lojas e 16 regionais sem visão centralizada. Desenvolvi aplicação analítica com FastAPI + MySQL, autenticação por perfil de acesso e drill-down por loja, regional e canal.</p>
+          <div class="case-impacts">
+            <div class="case-impact-item"><span class="case-impact-val">280+</span><span class="case-impact-lbl" data-i18n="cd_lbl_units">unidades</span></div>
+            <div class="case-impact-item"><span class="case-impact-val">16</span><span class="case-impact-lbl" data-i18n="cd_lbl_regions">regionais</span></div>
+            <div class="case-impact-item"><span class="case-impact-val">14</span><span class="case-impact-lbl" data-i18n="cd_lbl_channels">canais</span></div>
           </div>
-          <div class="cd-actions">
+          <div class="case-actions">
             <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
             <a href="assets/demos/store-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
           </div>
         </div>
       </article>
 
-      <article class="cd-card cd-card--vertical proj-card" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
-        <div class="proj-overlay"><span class="proj-overlay-cta">Ver projeto ↗</span></div>
-        <div class="cd-visual">
+      <article class="case-block case-block--reversed proj-card" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
+        <div class="case-visual">
           <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics">
         </div>
-        <div class="cd-body">
-          <div class="cd-meta">
+        <div class="case-body">
+          <div class="case-meta">
             <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-            <span class="cd-stack">Python · SQL · FastAPI · MySQL</span>
+            <span class="case-tech">Python · SQL · FastAPI · MySQL</span>
           </div>
-          <h3 class="cd-title" data-i18n="p7_title">Ad-Level Analytics</h3>
-          <p class="cd-problem" data-i18n="cd_p2_problem">Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.</p>
-          <div class="cd-impacts">
-            <div class="cd-impact-item"><span class="cd-impact-val">CRM</span><span class="cd-impact-lbl" data-i18n="cd_lbl_crm">integrado</span></div>
-            <div class="cd-impact-item"><span class="cd-impact-val">↑</span><span class="cd-impact-lbl" data-i18n="cd_lbl_granularity">granularidade</span></div>
+          <h3 class="case-title" data-i18n="p7_title">Ad-Level Analytics</h3>
+          <p class="case-desc" data-i18n="cd_p2_problem">Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.</p>
+          <div class="case-impacts">
+            <div class="case-impact-item"><span class="case-impact-val">CRM</span><span class="case-impact-lbl" data-i18n="cd_lbl_crm">integrado</span></div>
+            <div class="case-impact-item"><span class="case-impact-val">↑</span><span class="case-impact-lbl" data-i18n="cd_lbl_granularity">granularidade</span></div>
           </div>
-          <div class="cd-actions">
+          <div class="case-actions">
             <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
             <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
           </div>
         </div>
       </article>
 
-      <article class="cd-card proj-card" data-project="media-reports">
-        <div class="proj-overlay"><span class="proj-overlay-cta">Ver projeto ↗</span></div>
-        <div class="cd-visual cd-visual--flow">
+      <article class="case-block proj-card" data-project="media-reports">
+        <div class="case-visual case-visual--flow">
           <div class="cd-flow-diagram">
             <div class="cd-flow-sources">
               <span>Meta</span><span>Google</span><span>TikTok</span>
@@ -252,18 +208,18 @@
             <div class="cd-flow-output">Google Sheets<br>16 regionais</div>
           </div>
         </div>
-        <div class="cd-body">
-          <div class="cd-meta">
+        <div class="case-body">
+          <div class="case-meta">
             <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
-            <span class="cd-stack">Python · APIs · GitHub Actions</span>
+            <span class="case-tech">Python · APIs · GitHub Actions</span>
           </div>
-          <h3 class="cd-title" data-i18n="p1_title">Pipeline de Automação Multi-Fonte</h3>
-          <p class="cd-problem" data-i18n="cd_p3_problem">Consolidação de 9 plataformas feita manualmente — horas de trabalho por regional, por dia. Automatizei coleta, normalização e entrega: dados disponíveis toda manhã sem intervenção.</p>
-          <div class="cd-impacts">
-            <div class="cd-impact-item"><span class="cd-impact-val">90%</span><span class="cd-impact-lbl" data-i18n="cd_lbl_manual">↓ manual</span></div>
-            <div class="cd-impact-item"><span class="cd-impact-val">9+</span><span class="cd-impact-lbl" data-i18n="cd_lbl_apis">APIs</span></div>
+          <h3 class="case-title" data-i18n="p1_title">Pipeline de Automação Multi-Fonte</h3>
+          <p class="case-desc" data-i18n="cd_p3_problem">Consolidação de 9 plataformas feita manualmente — horas de trabalho por regional, por dia. Automatizei coleta, normalização e entrega: dados disponíveis toda manhã sem intervenção.</p>
+          <div class="case-impacts">
+            <div class="case-impact-item"><span class="case-impact-val">90%</span><span class="case-impact-lbl" data-i18n="cd_lbl_manual">↓ manual</span></div>
+            <div class="case-impact-item"><span class="case-impact-val">9+</span><span class="case-impact-lbl" data-i18n="cd_lbl_apis">APIs</span></div>
           </div>
-          <div class="cd-actions">
+          <div class="case-actions">
             <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
           </div>
         </div>
@@ -289,15 +245,7 @@
           </div>
           <p class="cap-area-desc" data-i18n="cap1_desc">Estruturo modelos de dados e crio dashboards executivos e operacionais — projetados para quem toma decisão, não para impressionar tecnicamente.</p>
           <p class="cap-area-ex" data-i18n="cap1_ex">Ex: Dashboard de 280+ lojas com drill-down por regional, canal e período.</p>
-          <div class="cap-area-tools">
-            <span class="cap-tool">SQL</span>
-            <span class="cap-tool">BigQuery</span>
-            <span class="cap-tool">Python</span>
-            <span class="cap-tool">Power BI</span>
-            <span class="cap-tool">Looker Studio</span>
-            <span class="cap-tool">MySQL</span>
-            <span class="cap-tool">FastAPI</span>
-          </div>
+          <p class="cap-tech">SQL / BigQuery / Python / Power BI / Looker Studio / MySQL / FastAPI</p>
         </div>
 
         <div class="cap-area">
@@ -307,14 +255,7 @@
           </div>
           <p class="cap-area-desc" data-i18n="cap2_desc">Automatizo rotinas recorrentes de coleta, tratamento e consolidação de dados — eliminando trabalho manual e garantindo disponibilidade de informação no início de cada dia operacional.</p>
           <p class="cap-area-ex" data-i18n="cap2_ex">Ex: Pipeline que conecta 9 plataformas de mídia e entrega relatório regional às 3h da manhã.</p>
-          <div class="cap-area-tools">
-            <span class="cap-tool">Python</span>
-            <span class="cap-tool">REST APIs</span>
-            <span class="cap-tool">ETL / ELT</span>
-            <span class="cap-tool">GitHub Actions</span>
-            <span class="cap-tool">n8n</span>
-            <span class="cap-tool">Google Sheets API</span>
-          </div>
+          <p class="cap-tech">Python / REST APIs / ETL·ELT / GitHub Actions / n8n / Google Sheets API</p>
         </div>
 
         <div class="cap-area">
@@ -324,14 +265,7 @@
           </div>
           <p class="cap-area-desc" data-i18n="cap3_desc">Conecto fontes díspares — APIs, CRMs, bancos, planilhas — e estruturo regras de validação e padronização para que os dados reflitam a realidade operacional, não o que o sistema assumiu.</p>
           <p class="cap-area-ex" data-i18n="cap3_ex">Ex: Meta CAPI + TikTok CAPI server-side, auditoria de divergências entre plataforma e CRM.</p>
-          <div class="cap-area-tools">
-            <span class="cap-tool">GA4 / GTM</span>
-            <span class="cap-tool">Meta CAPI</span>
-            <span class="cap-tool">TikTok Events API</span>
-            <span class="cap-tool">BigQuery</span>
-            <span class="cap-tool">CRM</span>
-            <span class="cap-tool">Python</span>
-          </div>
+          <p class="cap-tech">GA4 / GTM / Meta CAPI / TikTok Events API / BigQuery / CRM / Python</p>
         </div>
 
       </div>
@@ -372,9 +306,7 @@
               <li data-i18n="exp1_b3">Relatório diário automatizado: redução de até 90% em trabalho manual de consolidação, dados disponíveis toda manhã antes do horário de trabalho</li>
               <li data-i18n="exp1_b4">Integração server-side de eventos de conversão (Meta CAPI, TikTok CAPI), auditoria de divergências entre plataforma e CRM, e apresentação de resultados diretamente ao cliente</li>
             </ul>
-            <div class="exp-tags">
-              <span>Python</span><span>SQL</span><span>BigQuery</span><span>FastAPI</span><span>MySQL</span><span>APIs</span><span>ETL</span><span>Dashboards</span><span>Meta CAPI</span><span>TikTok CAPI</span>
-            </div>
+            <p class="exp-tech">Python · SQL · BigQuery · FastAPI · MySQL · APIs · ETL · Dashboards · Meta CAPI · TikTok CAPI</p>
           </div>
         </div>
 
@@ -400,9 +332,7 @@
               <li data-i18n="exp2_b3">Rastreamento avançado com GA4 e GTM, eventos customizados e auditorias de jornada de conversão</li>
               <li data-i18n="exp2_b4">ETL/ELT com Python, Pandas e BigQuery; automações com n8n e Make; integração com Hotmart e CRMs</li>
             </ul>
-            <div class="exp-tags">
-              <span>Looker Studio</span><span>Power BI</span><span>BigQuery</span><span>GA4</span><span>GTM</span><span>Python</span><span>n8n</span>
-            </div>
+            <p class="exp-tech">Looker Studio · Power BI · BigQuery · GA4 · GTM · Python · n8n</p>
           </div>
         </div>
 
@@ -427,9 +357,7 @@
               <li data-i18n="exp3_b1">Acompanhamento de ROAS, CAC, CPA e conversão em campanhas Google Ads e Meta Ads; otimizações com base em análise de funil</li>
               <li data-i18n="exp3_b2">Relatórios e dashboards em Excel e Notion — redução de ~50% no tempo de apresentação de resultados para clientes</li>
             </ul>
-            <div class="exp-tags">
-              <span>Meta Ads</span><span>Google Ads</span><span>ROAS</span><span>Análise de Funil</span><span>Excel</span>
-            </div>
+            <p class="exp-tech">Meta Ads · Google Ads · ROAS · Análise de Funil · Excel</p>
           </div>
         </div>
 
@@ -449,9 +377,7 @@
             <p class="exp-desc" data-i18n="exp4_desc">
               Ciclo completo para negócios locais: campanhas no Google Ads e Meta Ads, criação de landing pages, copywriting, análise de métricas e otimização de conversão. Foi onde desenvolvi a base prática em aquisição de clientes e análise de jornada.
             </p>
-            <div class="exp-tags">
-              <span>Google Ads</span><span>Meta Ads</span><span>CRO</span><span>Copywriting</span><span>Landing Pages</span>
-            </div>
+            <p class="exp-tech">Google Ads · Meta Ads · CRO · Copywriting · Landing Pages</p>
           </div>
         </div>
 
@@ -686,27 +612,21 @@
         <span class="section-label" data-i18n="test_tag">referências</span>
         <h2 data-i18n="test_title">O que dizem</h2>
       </div>
-      <div class="test-grid">
-        <div class="test-card" data-reveal>
-          <p class="test-text" data-i18n="t1_text">Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.</p>
-          <div class="test-author">
-            <div class="test-avatar">J</div>
-            <div>
-              <span class="test-name" data-i18n="t1_name">Colega de equipe</span>
-              <span class="test-role" data-i18n="t1_role">Media.k · LinkedIn</span>
-            </div>
-          </div>
-        </div>
-        <div class="test-card" data-reveal>
-          <p class="test-text" data-i18n="t2_text">A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.</p>
-          <div class="test-author">
-            <div class="test-avatar">M</div>
-            <div>
-              <span class="test-name" data-i18n="t2_name">Gestor de conta</span>
-              <span class="test-role" data-i18n="t2_role">AudioNova · LinkedIn</span>
-            </div>
-          </div>
-        </div>
+      <div class="testimonials-list">
+        <blockquote class="testimonial" data-reveal>
+          <p class="testimonial-text" data-i18n="t1_text">Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.</p>
+          <footer class="testimonial-author">
+            <span class="testimonial-name" data-i18n="t1_name">Colega de equipe</span>
+            <span class="testimonial-role" data-i18n="t1_role">Media.k · LinkedIn</span>
+          </footer>
+        </blockquote>
+        <blockquote class="testimonial" data-reveal>
+          <p class="testimonial-text" data-i18n="t2_text">A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.</p>
+          <footer class="testimonial-author">
+            <span class="testimonial-name" data-i18n="t2_name">Gestor de conta</span>
+            <span class="testimonial-role" data-i18n="t2_role">AudioNova · LinkedIn</span>
+          </footer>
+        </blockquote>
       </div>
     </div>
   </section>
@@ -716,7 +636,7 @@
   ========================================================= -->
   <section id="cta-section">
     <div class="container">
-      <div class="cta-box" data-reveal>
+      <div class="cta-editorial" data-reveal>
         <span class="section-label" data-i18n="cta_tag">contato</span>
         <h2 class="cta-title" data-i18n="cta_title">Busco oportunidades em Data Analytics, BI, Analytics Engineering e Marketing Analytics — preferencialmente remoto.</h2>
         <p class="cta-desc" data-i18n="cta_desc">Python · SQL · BigQuery · Power BI · APIs</p>

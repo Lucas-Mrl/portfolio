@@ -2454,8 +2454,8 @@ document.querySelectorAll('.proj-index-row[data-project]').forEach(row => {
 ============================================================ */
 (function () {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.cd-card[data-gif]').forEach(card => {
-    const img = card.querySelector('.cd-visual img');
+  document.querySelectorAll('.case-block[data-gif]').forEach(card => {
+    const img = card.querySelector('.case-visual img');
     if (!img) return;
     const staticSrc = img.getAttribute('src');
     const gifSrc = card.getAttribute('data-gif');
