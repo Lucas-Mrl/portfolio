@@ -278,7 +278,7 @@ const i18n = {
     cta_title: "Busco oportunidades em Data Analytics, BI, Analytics Engineering e Marketing Analytics — preferencialmente remoto.",
     cta_desc:  "Python · SQL · BigQuery · Power BI · APIs",
 
-    footer_text: "HTML, CSS & JS puro · 2025",
+    footer_text: "HTML, CSS & JS puro · ago/2026",
   },
 
   en: {
@@ -557,7 +557,7 @@ const i18n = {
     cta_title: "Looking for opportunities in Data Analytics, BI, Analytics Engineering and Marketing Analytics — remote preferred.",
     cta_desc:  "Python · SQL · BigQuery · Power BI · APIs",
 
-    footer_text: "Pure HTML, CSS & JS · 2025",
+    footer_text: "Pure HTML, CSS & JS · Aug/2026",
   }
 };
 
