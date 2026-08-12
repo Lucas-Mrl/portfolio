@@ -56,21 +56,7 @@
   ========================================================= -->
   <nav id="navbar">
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <svg class="nav-logo-mark" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <!-- nodes -->
-          <circle cx="2"  cy="8"  r="2"   fill="currentColor" opacity=".5"/>
-          <circle cx="8"  cy="2"  r="2"   fill="currentColor" opacity=".8"/>
-          <circle cx="14" cy="8"  r="2"   fill="currentColor"/>
-          <circle cx="8"  cy="14" r="1.5" fill="currentColor" opacity=".6"/>
-          <!-- edges -->
-          <line x1="3.4"  y1="7.3"  x2="6.6"  y2="3"   stroke="currentColor" stroke-width="1"   opacity=".45"/>
-          <line x1="9.4"  y1="2.7"  x2="12.6" y2="7.3"  stroke="currentColor" stroke-width="1"   opacity=".6"/>
-          <line x1="3.4"  y1="8.7"  x2="6.9"  y2="12.8" stroke="currentColor" stroke-width=".85" opacity=".35"/>
-          <line x1="9.1"  y1="13.3" x2="12.6" y2="8.7"  stroke="currentColor" stroke-width=".85" opacity=".35"/>
-        </svg>
-        LM<span class="accent">.</span>
-      </a>
+      <a href="#hero" class="nav-logo">LM<span class="accent">.</span></a>
       <ul class="nav-links">
         <li><a href="#capabilities"   data-i18n="nav_capabilities">Capacidades</a></li>
         <li><a href="#cases-destaque" data-i18n="nav_projects">Projetos</a></li>
@@ -149,7 +135,7 @@
 
     <div class="cases-list">
 
-      <article class="case-block proj-card" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif">
+      <article class="case-block js-project" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Store-Level Analytics">
         <div class="case-visual">
           <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics">
         </div>
@@ -172,7 +158,7 @@
         </div>
       </article>
 
-      <article class="case-block case-block--reversed proj-card" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
+      <article class="case-block case-block--reversed js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Ad-Level Analytics">
         <div class="case-visual">
           <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics">
         </div>
@@ -194,18 +180,15 @@
         </div>
       </article>
 
-      <article class="case-block proj-card" data-project="media-reports">
+      <article class="case-block js-project" data-project="media-reports" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Automação">
         <div class="case-visual case-visual--flow">
-          <div class="cd-flow-diagram">
-            <div class="cd-flow-sources">
-              <span>Meta</span><span>Google</span><span>TikTok</span>
-              <span>Pinterest</span><span>Taboola</span><span>Bing</span>
-              <span>X Ads</span><span>Kwai</span><span>YouTube</span>
-            </div>
-            <div class="cd-flow-arrow">→</div>
-            <div class="cd-flow-engine">pipeline.py</div>
-            <div class="cd-flow-arrow">→</div>
-            <div class="cd-flow-output">Google Sheets<br>16 regionais</div>
+          <div class="case-flow-text">
+            <p class="case-flow-label">9+ fontes</p>
+            <p class="case-flow-sources">Meta · Google · TikTok · Bing · X Ads<br>Pinterest · Taboola · Kwai · YouTube</p>
+            <p class="case-flow-arrow">↓</p>
+            <p class="case-flow-engine">Python — coleta, normalização e consolidação</p>
+            <p class="case-flow-arrow">↓</p>
+            <p class="case-flow-output">16 regionais · dados disponíveis toda manhã</p>
           </div>
         </div>
         <div class="case-body">
@@ -295,7 +278,7 @@
                 <span class="exp-company">Media.k</span>
                 <span class="exp-location" data-i18n="exp1_loc">Ourinhos, SP · Remoto · Cliente: AudioNova Brasil</span>
               </div>
-              <span class="exp-badge exp-badge--current" data-i18n="exp_current">Atual</span>
+              <span class="exp-status-current" data-i18n="exp_current">● Atual</span>
             </div>
             <p class="exp-desc" data-i18n="exp1_desc">
               Atuo na conta AudioNova — operação de saúde auditiva com 280+ lojas e múltiplas regionais. Sou responsável pelo desenvolvimento da infraestrutura analítica que sustenta as decisões operacionais: pipelines de dados, dashboards, automações e integrações entre sistemas. A gestão de campanhas em plataformas de mídia é parte do contexto, não o centro da atuação.
@@ -419,7 +402,7 @@
 
         <div class="proj-index-cat" data-category="bi" data-i18n="cat_bi">BI &amp; Analytics</div>
 
-        <div class="proj-index-row proj-card" data-project="looq-challenge" data-category="bi" tabindex="0" role="button" aria-label="Abrir case: Desafio Técnico Looqbox">
+        <div class="proj-index-row" data-project="looq-challenge" data-category="bi" tabindex="0" role="button" aria-label="Abrir case: Desafio Técnico Looqbox">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/looq-challenge.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p10_title">Desafio Técnico Looqbox</span>
@@ -434,7 +417,7 @@
 
         <div class="proj-index-cat" data-category="pipeline" data-i18n="cat_pipeline">Data Pipelines &amp; Automação</div>
 
-        <div class="proj-index-row proj-card" data-project="leads-processor" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Tratamento de Dados">
+        <div class="proj-index-row" data-project="leads-processor" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Tratamento de Dados">
           <span class="proj-index-name">
             <span data-i18n="p2_title">Pipeline de Tratamento de Dados</span>
           </span>
@@ -446,7 +429,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="email-clickup" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Automação de Workflow Operacional">
+        <div class="proj-index-row" data-project="email-clickup" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Automação de Workflow Operacional">
           <span class="proj-index-name">
             <span data-i18n="p5_title">Automação de Workflow Operacional</span>
           </span>
@@ -457,7 +440,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="meta-tax-calc" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Calculadora de Imposto Meta Ads">
+        <div class="proj-index-row" data-project="meta-tax-calc" data-category="pipeline" tabindex="0" role="button" aria-label="Abrir case: Calculadora de Imposto Meta Ads">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/meta-tax-calc.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p11_title">Calculadora de Imposto Meta Ads</span>
@@ -472,7 +455,7 @@
 
         <div class="proj-index-cat" data-category="tracking" data-i18n="cat_tracking">Integração &amp; Eventos Server-Side</div>
 
-        <div class="proj-index-row proj-card" data-project="meta-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: Meta Conversions API">
+        <div class="proj-index-row" data-project="meta-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: Meta Conversions API">
           <span class="proj-index-name">
             <span data-i18n="p4_title">Pipeline de Eventos Server-Side · Meta</span>
           </span>
@@ -483,7 +466,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="tiktok-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: TikTok Events API">
+        <div class="proj-index-row" data-project="tiktok-capi" data-category="tracking" tabindex="0" role="button" aria-label="Abrir case: TikTok Events API">
           <span class="proj-index-name">
             <span data-i18n="p6_title">Pipeline de Eventos Server-Side · TikTok</span>
           </span>
@@ -496,7 +479,7 @@
 
         <div class="proj-index-cat" data-category="ai" data-i18n="cat_ai">AI &amp; Experimentação</div>
 
-        <div class="proj-index-row proj-card" data-project="whisper-transcriber" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: Transcritor de Call em Tempo Real">
+        <div class="proj-index-row" data-project="whisper-transcriber" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: Transcritor de Call em Tempo Real">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/whisper-transcriber.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p12_title">Transcritor de Call em Tempo Real</span>
@@ -509,7 +492,7 @@
           </span>
         </div>
 
-        <div class="proj-index-row proj-card" data-project="ai-analytics" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: AI Ad Metrics Analyzer">
+        <div class="proj-index-row" data-project="ai-analytics" data-category="ai" tabindex="0" role="button" aria-label="Abrir case: AI Ad Metrics Analyzer">
           <span class="proj-index-name">
             <img class="proj-index-thumb" src="assets/screenshots/ai-analytics.png" alt="" aria-hidden="true" width="32" height="22">
             <span data-i18n="p3_title">AI Ad Metrics Analyzer</span>
@@ -531,45 +514,28 @@
   ========================================================= -->
   <section id="about">
     <div class="container">
-      <div class="about-wrap">
-        <div class="about-left" data-reveal>
-          <div class="about-profile">
-            <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" class="about-photo" width="200" height="267">
-            <div class="about-profile-text">
-              <span class="section-label" data-i18n="about_tag">sobre</span>
-              <h2 class="about-heading" data-i18n="about_title">Dados que<br>viram decisão.</h2>
-            </div>
-          </div>
+      <div class="about-grid">
+        <div class="about-photo-col" data-reveal>
+          <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" class="about-photo" width="240" height="320">
+        </div>
+        <div class="about-main" data-reveal>
+          <span class="section-label" data-i18n="about_tag">sobre</span>
+          <h2 class="about-heading" data-i18n="about_title">Dados que<br>viram decisão.</h2>
           <p data-i18n="about_p1">Profissional de dados com formação em tecnologia e base construída em operações reais de mídia e marketing. Comecei gerenciando tráfego pago e percebi que mesmo boa estratégia fica limitada quando os dados não são confiáveis — foi o que me levou a focar em analytics, BI e automação.</p>
           <p data-i18n="about_p2">Hoje atuo onde existe problema concreto: dado fragmentado entre sistemas, relatório manual recorrente, decisão tomada sem visibilidade real. Construo pipelines, dashboards e integrações que conectam fontes dispersas e transformam dados operacionais em decisões mais rápidas e confiáveis.</p>
-          <!-- Diferenciais fundidos na seção Sobre -->
           <ul class="about-diffs">
             <li data-i18n="d2_title">Não dependo só de dashboard</li>
             <li data-i18n="d4_title">Base técnica para executar</li>
             <li data-i18n="d5_title">Entendo os dois extremos</li>
           </ul>
-        </div>
-
-        <div class="about-right" data-reveal>
-          <div class="contact-grid">
-            <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="contact-card contact-card--wa">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              <span data-i18n="contact_wa">WhatsApp</span>
-            </a>
-            <button class="contact-card contact-card--email" id="copyEmailBtn" data-email="moraleslucas003@gmail.com">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
-              <span class="contact-email-label">moraleslucas003@gmail.com</span>
-            </button>
-            <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="contact-card contact-card--li">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="contact-card contact-card--gh">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub</span>
-            </a>
+          <div class="about-contact-links">
+            <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="about-contact-link">LinkedIn ↗</a>
+            <button class="about-contact-link" id="copyEmailBtn" data-email="moraleslucas003@gmail.com">E-mail ↗</button>
+            <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="about-contact-link">GitHub ↗</a>
+            <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="about-contact-link" data-i18n="contact_wa">WhatsApp ↗</a>
           </div>
-
+        </div>
+        <div class="about-edu-col" data-reveal>
           <div class="edu-editorial">
             <span class="edu-editorial-label" data-i18n="edu_tag">formação</span>
             <div class="edu-line">
@@ -658,15 +624,7 @@
   <footer>
     <div class="container">
       <div class="footer-inner">
-        <span class="nav-logo">
-          <svg class="nav-logo-mark" width="14" height="14" viewBox="0 0 14 14" fill="currentColor" aria-hidden="true">
-            <rect x="0" y="8" width="2.5" height="6" opacity=".5"/>
-            <rect x="3.5" y="5.5" width="2.5" height="8.5" opacity=".65"/>
-            <rect x="7" y="3" width="2.5" height="11" opacity=".8"/>
-            <rect x="10.5" y="0" width="2.5" height="14"/>
-          </svg>
-          LM<span class="accent">.</span>
-        </span>
+        <span class="nav-logo">LM<span class="accent">.</span></span>
         <p class="footer-copy" data-i18n="footer_text">Feito com HTML, CSS &amp; JS puro · Atualizado em junho/2026</p>
         <div class="footer-links">
           <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" data-i18n="contact_wa">WhatsApp</a>

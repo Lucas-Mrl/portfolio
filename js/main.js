@@ -2429,8 +2429,9 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
 });
 
-document.querySelectorAll('.proj-card').forEach(card => {
+document.querySelectorAll('[data-project]').forEach(card => {
   const key = card.getAttribute('data-project');
+  if (!key) return;
   card.addEventListener('click', e => {
     if (e.target.closest('.proj-btn-gh')) return;
     if (e.target.closest('.proj-btn-demo')) return;
@@ -2440,11 +2441,12 @@ document.querySelectorAll('.proj-card').forEach(card => {
   if (btn) btn.addEventListener('click', e => { e.stopPropagation(); openModal(key); });
 });
 
-document.querySelectorAll('.proj-index-row[data-project]').forEach(row => {
-  row.addEventListener('keydown', e => {
+// Keyboard support for case-block (featured cases)
+document.querySelectorAll('.js-project').forEach(block => {
+  block.addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
-      openModal(row.getAttribute('data-project'));
+      openModal(block.getAttribute('data-project'));
     }
   });
 });
