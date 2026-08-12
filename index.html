@@ -27,7 +27,7 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="css/style.css" />
 
@@ -58,23 +58,21 @@
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">LM<span class="accent">.</span></a>
       <ul class="nav-links">
-        <li><a href="#capabilities"   data-i18n="nav_capabilities">Capacidades</a></li>
         <li><a href="#cases-destaque" data-i18n="nav_projects">Projetos</a></li>
         <li><a href="#experience"     data-i18n="nav_exp">Experiência</a></li>
         <li><a href="#about"          data-i18n="nav_about">Sobre</a></li>
       </ul>
       <div class="nav-right">
-        <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn-cv-nav" data-i18n="nav_cv">Baixar CV</a>
+        <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn-cv-nav" data-i18n="nav_cv">CV ↗</a>
         <button class="lang-toggle" id="langToggle" aria-label="Toggle language"><span class="lang-opt" id="langPT" aria-pressed="true">PT</span><span class="lang-sep" aria-hidden="true">·</span><span class="lang-opt" id="langEN" aria-pressed="false">EN</span></button>
         <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu"><span></span><span></span><span></span></button>
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#capabilities"   data-i18n="nav_capabilities">Capacidades</a>
       <a href="#cases-destaque" data-i18n="nav_projects">Projetos</a>
       <a href="#experience"     data-i18n="nav_exp">Experiência</a>
       <a href="#about"          data-i18n="nav_about">Sobre</a>
-      <a href="assets/Lucas_Morales_CV_Geral.pdf" download data-i18n="nav_cv">Baixar CV</a>
+      <a href="assets/Lucas_Morales_CV_Geral.pdf" download data-i18n="nav_cv">CV ↗</a>
     </div>
   </nav>
 
@@ -84,40 +82,39 @@
        HERO
   ========================================================= -->
   <section id="hero">
-    <div class="hero-layout">
-      <div class="hero-col-left">
-
-        <p class="hero-availability" data-i18n="hero_availability">→ Aberto a oportunidades · Ourinhos, SP</p>
-
-        <h1 class="hero-title">
-          <span class="hero-name">Lucas</span>
-          <span class="hero-name">Morales</span>
-        </h1>
-
-        <p class="hero-subtitle" data-i18n="hero_subtitle">Data Analytics &amp; BI · Python · SQL · BigQuery · Power BI</p>
-
-        <p class="hero-tagline" data-i18n="hero_tagline">Construo pipelines, dashboards e automações que conectam mídia, CRM e dados operacionais a decisões de negócio.</p>
-
-        <div class="hero-stats">
-          <span class="hs-item"><span class="hs-val">90%</span><span class="hs-lbl" data-i18n="hm_manual">↓ trabalho manual</span></span>
-          <span class="hs-sep" aria-hidden="true">·</span>
-          <span class="hs-item"><span class="hs-val">9+</span><span class="hs-lbl" data-i18n="hm_sources">fontes integradas</span></span>
-          <span class="hs-sep" aria-hidden="true">·</span>
-          <span class="hs-item"><span class="hs-val">280+</span><span class="hs-lbl" data-i18n="hm_units">unidades analisadas</span></span>
-          <span class="hs-note" data-i18n="hero_stats_context">¹ Indicadores de operações em que atuei diretamente. Dados sensíveis preservados por confidencialidade.</span>
-        </div>
-
-        <div class="hero-ctas">
-          <a href="#cases-destaque" class="btn btn-primary" data-i18n="cta_cases">Ver Projetos</a>
-          <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn btn-secondary" data-i18n="cta_cv">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Baixar CV
-          </a>
-        </div>
-
+    <div class="hero-inner">
+      <div class="hero-meta-row">
+        <p class="hero-avail" data-i18n="hero_availability">→ Aberto a oportunidades · Ourinhos, SP</p>
+        <span class="hero-year" aria-hidden="true">2026</span>
       </div>
-      <div class="hero-col-right" aria-hidden="true">
-        <img src="assets/screenshots/store-analytics.png" class="hero-screenshot" alt="" width="580" height="380" loading="eager">
+      <h1 class="hero-title">
+        <span>Lucas</span>
+        <span>Morales</span>
+      </h1>
+      <p class="hero-desc" data-i18n="hero_tagline">Construo pipelines, dashboards e automações que conectam mídia, CRM e dados operacionais a decisões de negócio.</p>
+      <div class="hero-shot" aria-hidden="true">
+        <img src="assets/screenshots/store-analytics.png" alt="" width="1080" height="680" loading="eager" class="hero-screenshot">
+      </div>
+      <div class="hero-foot">
+        <div class="hero-metrics">
+          <div class="hm-item">
+            <span class="hm-val">90%</span>
+            <span class="hm-lbl" data-i18n="hm_manual">↓ trabalho manual</span>
+          </div>
+          <div class="hm-item">
+            <span class="hm-val">9+</span>
+            <span class="hm-lbl" data-i18n="hm_sources">fontes integradas</span>
+          </div>
+          <div class="hm-item">
+            <span class="hm-val">280+</span>
+            <span class="hm-lbl" data-i18n="hm_units">unidades analisadas</span>
+          </div>
+          <p class="hm-note" data-i18n="hero_stats_context">¹ Indicadores de operações em que atuei diretamente.</p>
+        </div>
+        <nav class="hero-ctas" aria-label="Ações principais">
+          <a href="#cases-destaque" class="hero-cta-primary" data-i18n="cta_cases">Ver projetos ↓</a>
+          <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="hero-cta-secondary" data-i18n="cta_cv">CV ↗</a>
+        </nav>
       </div>
     </div>
   </section>
@@ -126,90 +123,106 @@
      CASES EM DESTAQUE
 ========================================================= -->
 <section id="cases-destaque">
-  <div class="container">
-    <div class="section-header" data-reveal>
-      <span class="section-label" data-i18n="cd_tag">trabalho selecionado</span>
-      <h2 data-i18n="cd_title">Trabalho Selecionado</h2>
-      <p class="section-desc" data-i18n="cd_desc">Projetos reais com problema definido, solução construída e impacto mensurável.</p>
-    </div>
-
-    <div class="cases-list">
-
-      <article class="case-block js-project" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Store-Level Analytics">
-        <div class="case-visual">
-          <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics">
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-            <span class="case-tech">FastAPI · MySQL · SQL · Auth</span>
-          </div>
-          <h3 class="case-title" data-i18n="p8_title">Store-Level Analytics</h3>
-          <p class="case-desc" data-i18n="cd_p1_problem">280+ lojas e 16 regionais sem visão centralizada. Desenvolvi aplicação analítica com FastAPI + MySQL, autenticação por perfil de acesso e drill-down por loja, regional e canal.</p>
-          <div class="case-impacts">
-            <div class="case-impact-item"><span class="case-impact-val">280+</span><span class="case-impact-lbl" data-i18n="cd_lbl_units">unidades</span></div>
-            <div class="case-impact-item"><span class="case-impact-val">16</span><span class="case-impact-lbl" data-i18n="cd_lbl_regions">regionais</span></div>
-            <div class="case-impact-item"><span class="case-impact-val">14</span><span class="case-impact-lbl" data-i18n="cd_lbl_channels">canais</span></div>
-          </div>
-          <div class="case-actions">
-            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-            <a href="assets/demos/store-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="case-block case-block--reversed js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Ad-Level Analytics">
-        <div class="case-visual">
-          <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics">
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span class="proj-type proj-type--client" data-i18n="pt_client">Client Work</span>
-            <span class="case-tech">Python · SQL · FastAPI · MySQL</span>
-          </div>
-          <h3 class="case-title" data-i18n="p7_title">Ad-Level Analytics</h3>
-          <p class="case-desc" data-i18n="cd_p2_problem">Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.</p>
-          <div class="case-impacts">
-            <div class="case-impact-item"><span class="case-impact-val">CRM</span><span class="case-impact-lbl" data-i18n="cd_lbl_crm">integrado</span></div>
-            <div class="case-impact-item"><span class="case-impact-val">↑</span><span class="case-impact-lbl" data-i18n="cd_lbl_granularity">granularidade</span></div>
-          </div>
-          <div class="case-actions">
-            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-            <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="proj-btn-demo">▶ Ver Demo</a>
-          </div>
-        </div>
-      </article>
-
-      <article class="case-block js-project" data-project="media-reports" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Automação">
-        <div class="case-visual case-visual--flow">
-          <div class="case-flow-text">
-            <p class="case-flow-label">9+ fontes</p>
-            <p class="case-flow-sources">Meta · Google · TikTok · Bing · X Ads<br>Pinterest · Taboola · Kwai · YouTube</p>
-            <p class="case-flow-arrow">↓</p>
-            <p class="case-flow-engine">Python — coleta, normalização e consolidação</p>
-            <p class="case-flow-arrow">↓</p>
-            <p class="case-flow-output">16 regionais · dados disponíveis toda manhã</p>
-          </div>
-        </div>
-        <div class="case-body">
-          <div class="case-meta">
-            <span class="proj-type proj-type--tool" data-i18n="pt_tool">Ferramenta Interna</span>
-            <span class="case-tech">Python · APIs · GitHub Actions</span>
-          </div>
-          <h3 class="case-title" data-i18n="p1_title">Pipeline de Automação Multi-Fonte</h3>
-          <p class="case-desc" data-i18n="cd_p3_problem">Consolidação de 9 plataformas feita manualmente — horas de trabalho por regional, por dia. Automatizei coleta, normalização e entrega: dados disponíveis toda manhã sem intervenção.</p>
-          <div class="case-impacts">
-            <div class="case-impact-item"><span class="case-impact-val">90%</span><span class="case-impact-lbl" data-i18n="cd_lbl_manual">↓ manual</span></div>
-            <div class="case-impact-item"><span class="case-impact-val">9+</span><span class="case-impact-lbl" data-i18n="cd_lbl_apis">APIs</span></div>
-          </div>
-          <div class="case-actions">
-            <button class="proj-btn-case" data-i18n="p_case">Ver Case ↗</button>
-          </div>
-        </div>
-      </article>
-
-    </div>
+  <div class="cases-ed-header container" data-reveal>
+    <span class="section-label" data-i18n="cd_tag">trabalho selecionado</span>
   </div>
+
+  <!-- Case 01: Full-width editorial -->
+  <article class="case-ed case-ed--full js-project" data-project="store-analytics" data-gif="assets/screenshots/store-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Store-Level Analytics">
+    <div class="container">
+      <div class="case-ed-intro">
+        <span class="case-num">01</span>
+        <span class="case-ed-type proj-type--client" data-i18n="pt_client">Client Work</span>
+      </div>
+      <h2 class="case-ed-title" data-i18n="p8_title">Store-Level<br>Analytics</h2>
+    </div>
+    <div class="case-ed-img-wrap">
+      <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics — dashboard de performance por loja" class="case-ed-img" width="1200" height="700">
+    </div>
+    <div class="container">
+      <div class="case-ed-foot">
+        <div class="case-ed-desc-col">
+          <p class="case-ed-desc" data-i18n="cd_p1_problem">280+ lojas e 16 regionais sem visão centralizada. Desenvolvi aplicação analítica com FastAPI + MySQL, autenticação por perfil de acesso e drill-down por loja, regional e canal.</p>
+        </div>
+        <div class="case-ed-meta-col">
+          <div class="case-ed-numbers">
+            <div class="ce-num-item"><span class="ce-val">280+</span><span class="ce-lbl" data-i18n="cd_lbl_units">unidades</span></div>
+            <div class="ce-num-item"><span class="ce-val">16</span><span class="ce-lbl" data-i18n="cd_lbl_regions">regionais</span></div>
+          </div>
+          <div class="case-ed-actions">
+            <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
+            <a href="assets/demos/store-analytics.html" target="_blank" rel="noopener" class="ce-link">Demo ↗</a>
+          </div>
+          <p class="case-ed-stack">FastAPI · MySQL · SQL · Auth</p>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Case 02: Split (image dominant) -->
+  <article class="case-ed case-ed--split js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif" tabindex="0" role="button" aria-label="Abrir case: Ad-Level Analytics">
+    <div class="case-split-img">
+      <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" class="case-ed-img" width="900" height="620">
+    </div>
+    <div class="case-split-body">
+      <div class="case-ed-intro">
+        <span class="case-num">02</span>
+        <span class="case-ed-type proj-type--client" data-i18n="pt_client">Client Work</span>
+      </div>
+      <h2 class="case-ed-title" data-i18n="p7_title">Ad-Level<br>Analytics</h2>
+      <p class="case-ed-desc" data-i18n="cd_p2_problem">Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.</p>
+      <div class="case-ed-numbers">
+        <div class="ce-num-item"><span class="ce-val">CRM</span><span class="ce-lbl" data-i18n="cd_lbl_crm">integrado</span></div>
+        <div class="ce-num-item"><span class="ce-val">↑</span><span class="ce-lbl" data-i18n="cd_lbl_granularity">granularidade</span></div>
+      </div>
+      <div class="case-ed-actions">
+        <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
+        <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="ce-link">Demo ↗</a>
+      </div>
+      <p class="case-ed-stack">Python · SQL · FastAPI · MySQL</p>
+    </div>
+  </article>
+
+  <!-- Case 03: Text composition (no screenshot) -->
+  <article class="case-ed case-ed--text js-project" data-project="media-reports" tabindex="0" role="button" aria-label="Abrir case: Pipeline de Automação Multi-Fonte">
+    <div class="container">
+      <div class="case-ed-intro">
+        <span class="case-num">03</span>
+        <span class="case-ed-type" data-i18n="pt_tool">Ferramenta Interna</span>
+      </div>
+      <div class="case-text-layout">
+        <div class="case-text-left">
+          <h2 class="case-ed-title" data-i18n="p1_title">Pipeline<br>Multi-Fonte</h2>
+          <p class="case-ed-desc" data-i18n="cd_p3_problem">Consolidação de 9 plataformas feita manualmente — horas de trabalho por regional, por dia. Automatizei coleta, normalização e entrega: dados disponíveis toda manhã sem intervenção.</p>
+          <div class="case-ed-actions">
+            <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
+          </div>
+          <p class="case-ed-stack">Python · APIs · GitHub Actions</p>
+        </div>
+        <div class="case-text-right">
+          <div class="case-pipeline-text">
+            <div class="cpt-block">
+              <span class="cpt-val">9+</span>
+              <span class="cpt-lbl" data-i18n="cd_lbl_apis">fontes</span>
+              <p class="cpt-detail">Meta · Google · TikTok · Bing · X Ads · Pinterest · Taboola · Kwai · YouTube</p>
+            </div>
+            <span class="cpt-arrow">↓</span>
+            <div class="cpt-block">
+              <span class="cpt-step">Python</span>
+              <span class="cpt-sub">coleta + normalização</span>
+            </div>
+            <span class="cpt-arrow">↓</span>
+            <div class="cpt-block">
+              <span class="cpt-val">16</span>
+              <span class="cpt-lbl">regionais</span>
+              <span class="cpt-sub" data-i18n="cd_lbl_manual">dados disponíveis toda manhã</span>
+            </div>
+          </div>
+          <div class="case-text-metric"><span class="ctm-val">90%</span><span class="ctm-lbl" data-i18n="cd_lbl_manual">↓ trabalho manual</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
 </section>
 
   <!-- CAPACIDADES -->
@@ -217,7 +230,7 @@
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="section-label" data-i18n="cap_tag">capacidades</span>
-        <h2 data-i18n="cap_title">O que construo e como penso</h2>
+        <h2 data-i18n="cap_title">O que construo<br>e como penso</h2>
       </div>
       <div class="cap-grid">
 
@@ -266,23 +279,17 @@
       <div class="exp-list">
 
         <div class="exp-item" data-reveal>
-          <div class="exp-aside">
-            <div class="exp-line-dot exp-line-dot--active"></div>
-            <div class="exp-line-track"></div>
+          <div class="exp-period-col">
             <span class="exp-period" data-i18n="exp1_period">Fev 2025 — presente</span>
+            <span class="exp-status-current" data-i18n="exp_current">● Atual</span>
           </div>
           <div class="exp-body">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role" data-i18n="exp1_role">Analista de Dados e BI</h3>
-                <span class="exp-company">Media.k</span>
-                <span class="exp-location" data-i18n="exp1_loc">Ourinhos, SP · Remoto · Cliente: AudioNova Brasil</span>
-              </div>
-              <span class="exp-status-current" data-i18n="exp_current">● Atual</span>
+            <div class="exp-title-row">
+              <h3 class="exp-role" data-i18n="exp1_role">Analista de Dados e BI</h3>
+              <span class="exp-company">Media.k</span>
+              <span class="exp-location" data-i18n="exp1_loc">Ourinhos, SP · Remoto · Cliente: AudioNova Brasil</span>
             </div>
-            <p class="exp-desc" data-i18n="exp1_desc">
-              Atuo na conta AudioNova — operação de saúde auditiva com 280+ lojas e múltiplas regionais. Sou responsável pelo desenvolvimento da infraestrutura analítica que sustenta as decisões operacionais: pipelines de dados, dashboards, automações e integrações entre sistemas. A gestão de campanhas em plataformas de mídia é parte do contexto, não o centro da atuação.
-            </p>
+            <p class="exp-desc" data-i18n="exp1_desc">Atuo na conta AudioNova — operação de saúde auditiva com 280+ lojas e múltiplas regionais. Sou responsável pelo desenvolvimento da infraestrutura analítica que sustenta as decisões operacionais: pipelines de dados, dashboards, automações e integrações entre sistemas. A gestão de campanhas em plataformas de mídia é parte do contexto, não o centro da atuação.</p>
             <ul class="exp-bullets">
               <li data-i18n="exp1_b1">Desenvolvimento e manutenção de pipeline de dados conectando 9 APIs — coleta, normalização e consolidação automática por regional</li>
               <li data-i18n="exp1_b2">Dashboard web interno para análise de performance por loja, regional e canal — com autenticação, filtros e exportação de dados de 280+ unidades</li>
@@ -294,22 +301,16 @@
         </div>
 
         <div class="exp-item" data-reveal>
-          <div class="exp-aside">
-            <div class="exp-line-dot"></div>
-            <div class="exp-line-track"></div>
+          <div class="exp-period-col">
             <span class="exp-period" data-i18n="exp2_period">Mar 2025 — Out 2025</span>
           </div>
           <div class="exp-body">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role" data-i18n="exp2_role">Analista de Dados e BI</h3>
-                <span class="exp-company">Idiomus</span>
-                <span class="exp-location" data-i18n="exp2_loc">Educação Digital · Expansão Internacional</span>
-              </div>
+            <div class="exp-title-row">
+              <h3 class="exp-role" data-i18n="exp2_role">Analista de Dados e BI</h3>
+              <span class="exp-company">Idiomus</span>
+              <span class="exp-location" data-i18n="exp2_loc">Educação Digital · Expansão Internacional</span>
             </div>
-            <p class="exp-desc" data-i18n="exp2_desc">
-              Operação de educação digital com campanhas de alto volume em múltiplos países. Atuei em análise de dados, performance de mídia e estruturação de processos de mensuração durante um período em que a operação registrou crescimento de aproximadamente 20% no faturamento — apoiando decisões de marketing com análises de funil, cohort, dashboards e dados de aquisição.
-            </p>
+            <p class="exp-desc" data-i18n="exp2_desc">Operação de educação digital com campanhas de alto volume em múltiplos países. Atuei em análise de dados, performance de mídia e estruturação de processos de mensuração durante um período em que a operação registrou crescimento de aproximadamente 20% no faturamento — apoiando decisões de marketing com análises de funil, cohort, dashboards e dados de aquisição.</p>
             <ul class="exp-bullets">
               <li data-i18n="exp2_b1">Análise de dados de aquisição e funil em múltiplos países; dashboards executivos em Looker Studio, Power BI e Excel para equipes de marketing, produto e gestão</li>
               <li data-i18n="exp2_b3">Rastreamento avançado com GA4 e GTM, eventos customizados e auditorias de jornada de conversão</li>
@@ -320,22 +321,16 @@
         </div>
 
         <div class="exp-item" data-reveal>
-          <div class="exp-aside">
-            <div class="exp-line-dot"></div>
-            <div class="exp-line-track"></div>
+          <div class="exp-period-col">
             <span class="exp-period" data-i18n="exp3_period">Set 2024 — Mar 2025</span>
           </div>
           <div class="exp-body">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role" data-i18n="exp3_role">Gestor de Tráfego e Funis de Venda</h3>
-                <span class="exp-company">Senden Mídias</span>
-                <span class="exp-location" data-i18n="exp3_loc">Setor de Delivery · 13 contas simultâneas</span>
-              </div>
+            <div class="exp-title-row">
+              <h3 class="exp-role" data-i18n="exp3_role">Gestor de Tráfego e Funis de Venda</h3>
+              <span class="exp-company">Senden Mídias</span>
+              <span class="exp-location" data-i18n="exp3_loc">Setor de Delivery · 13 contas simultâneas</span>
             </div>
-            <p class="exp-desc" data-i18n="exp3_desc">
-              Gestão simultânea de até 13 clientes no setor de delivery. Foco em ROAS, conversão e eficiência de investimento, com análise de funil, relatórios estruturados e otimização baseada em dados.
-            </p>
+            <p class="exp-desc" data-i18n="exp3_desc">Gestão simultânea de até 13 clientes no setor de delivery. Foco em ROAS, conversão e eficiência de investimento, com análise de funil, relatórios estruturados e otimização baseada em dados.</p>
             <ul class="exp-bullets">
               <li data-i18n="exp3_b1">Acompanhamento de ROAS, CAC, CPA e conversão em campanhas Google Ads e Meta Ads; otimizações com base em análise de funil</li>
               <li data-i18n="exp3_b2">Relatórios e dashboards em Excel e Notion — redução de ~50% no tempo de apresentação de resultados para clientes</li>
@@ -344,22 +339,17 @@
           </div>
         </div>
 
-        <div class="exp-item" data-reveal>
-          <div class="exp-aside">
-            <div class="exp-line-dot exp-line-dot--dim"></div>
+        <div class="exp-item exp-item--dim" data-reveal>
+          <div class="exp-period-col">
             <span class="exp-period" data-i18n="exp4_period">Anterior a Set 2024</span>
           </div>
           <div class="exp-body">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role" data-i18n="exp4_role">Gestor de Tráfego e Marketing Digital</h3>
-                <span class="exp-company" data-i18n="exp4_company">Autônomo</span>
-                <span class="exp-location" data-i18n="exp4_loc">Empresas locais · Ourinhos, SP</span>
-              </div>
+            <div class="exp-title-row">
+              <h3 class="exp-role" data-i18n="exp4_role">Gestor de Tráfego e Marketing Digital</h3>
+              <span class="exp-company" data-i18n="exp4_company">Autônomo</span>
+              <span class="exp-location" data-i18n="exp4_loc">Empresas locais · Ourinhos, SP</span>
             </div>
-            <p class="exp-desc" data-i18n="exp4_desc">
-              Ciclo completo para negócios locais: campanhas no Google Ads e Meta Ads, criação de landing pages, copywriting, análise de métricas e otimização de conversão. Foi onde desenvolvi a base prática em aquisição de clientes e análise de jornada.
-            </p>
+            <p class="exp-desc" data-i18n="exp4_desc">Ciclo completo para negócios locais: campanhas no Google Ads e Meta Ads, criação de landing pages, copywriting, análise de métricas e otimização de conversão. Foi onde desenvolvi a base prática em aquisição de clientes e análise de jornada.</p>
             <p class="exp-tech">Google Ads · Meta Ads · CRO · Copywriting · Landing Pages</p>
           </div>
         </div>
@@ -375,7 +365,6 @@
       <div class="section-header" data-reveal>
         <span class="section-label" data-i18n="idx_tag">índice</span>
         <h2 data-i18n="idx_title">Todos os projetos</h2>
-        <p class="section-desc" data-i18n="idx_desc">Clique em qualquer linha para ver o case completo.</p>
       </div>
 
       <div class="conf-notice" data-reveal>
@@ -506,6 +495,9 @@
         </div>
 
       </div>
+      <div class="proj-preview" id="projPreview" aria-hidden="true">
+        <img id="projPreviewImg" src="" alt="">
+      </div>
     </div>
   </section>
 
@@ -516,7 +508,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-photo-col" data-reveal>
-          <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" class="about-photo" width="240" height="320">
+          <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" class="about-photo" width="320" height="427">
         </div>
         <div class="about-main" data-reveal>
           <span class="section-label" data-i18n="about_tag">sobre</span>
@@ -603,17 +595,13 @@
   <section id="cta-section">
     <div class="container">
       <div class="cta-editorial" data-reveal>
-        <span class="section-label" data-i18n="cta_tag">contato</span>
         <h2 class="cta-title" data-i18n="cta_title">Busco oportunidades em Data Analytics, BI, Analytics Engineering e Marketing Analytics — preferencialmente remoto.</h2>
-        <p class="cta-desc" data-i18n="cta_desc">Python · SQL · BigQuery · Power BI · APIs</p>
-        <div class="cta-btns">
-          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="cta_linkedin">Conectar no LinkedIn ↗</a>
-          <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn btn-secondary" data-i18n="cta_cv">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Baixar CV
-          </a>
-          <a href="mailto:moraleslucas003@gmail.com" class="btn btn-outline" data-i18n="cta_email">E-mail</a>
+        <div class="cta-links">
+          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="cta-link" data-i18n="cta_linkedin">LinkedIn ↗</a>
+          <a href="mailto:moraleslucas003@gmail.com" class="cta-link" data-i18n="cta_email">E-mail ↗</a>
+          <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="cta-link" data-i18n="cta_cv">CV ↗</a>
         </div>
+        <p class="cta-stack">Python · SQL · BigQuery · Power BI · APIs</p>
       </div>
     </div>
   </section>

@@ -2456,8 +2456,8 @@ document.querySelectorAll('.js-project').forEach(block => {
 ============================================================ */
 (function () {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.case-block[data-gif]').forEach(card => {
-    const img = card.querySelector('.case-visual img');
+  document.querySelectorAll('.case-ed[data-gif]').forEach(card => {
+    const img = card.querySelector('img:not(.proj-index-thumb)');
     if (!img) return;
     const staticSrc = img.getAttribute('src');
     const gifSrc = card.getAttribute('data-gif');
@@ -2512,6 +2512,39 @@ document.querySelectorAll('.js-project').forEach(block => {
     });
   });
 })();
+
+/* ---- Project index hover preview ---- */
+const projPreview = document.getElementById('projPreview');
+const projPreviewImg = document.getElementById('projPreviewImg');
+
+if (projPreview && projPreviewImg) {
+  const previewSrcs = {
+    'store-analytics':    'assets/screenshots/store-analytics.png',
+    'ad-analytics':       'assets/screenshots/ad-analytics.png',
+    'looq-challenge':     'assets/screenshots/looq-challenge.png',
+    'meta-tax-calc':      'assets/screenshots/meta-tax-calc.png',
+    'whisper-transcriber':'assets/screenshots/whisper-transcriber.png',
+    'ai-analytics':       'assets/screenshots/ai-analytics.png',
+  };
+
+  document.querySelectorAll('.proj-index-row[data-project]').forEach(row => {
+    const key = row.getAttribute('data-project');
+    const src = previewSrcs[key];
+    if (!src) return;
+
+    row.addEventListener('mouseenter', () => {
+      projPreviewImg.src = src;
+      // position preview relative to hovered row
+      const rowRect = row.getBoundingClientRect();
+      const tableRect = row.closest('.proj-index-table').getBoundingClientRect();
+      projPreview.style.top = (rowRect.top - tableRect.top - 20) + 'px';
+      projPreview.classList.add('visible');
+    });
+    row.addEventListener('mouseleave', () => {
+      projPreview.classList.remove('visible');
+    });
+  });
+}
 
 /* ============================================================
    COPY EMAIL
