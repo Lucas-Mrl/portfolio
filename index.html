@@ -65,9 +65,12 @@
     <div class="nav-inner">
       <a href="#hero" class="nav-logo">LM<span class="accent">.</span></a>
       <ul class="nav-links">
-        <li><a href="#cases-destaque" data-i18n="nav_projects">Projetos</a></li>
-        <li><a href="#experience"     data-i18n="nav_exp">Experiência</a></li>
-        <li><a href="#about"          data-i18n="nav_about">Sobre</a></li>
+        <li><a href="#cases-destaque"  data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="#capabilities"    data-i18n="nav_capabilities">Especialidades</a></li>
+        <li><a href="#experience"      data-i18n="nav_exp">Experiência</a></li>
+        <li><a href="#project-index"   data-i18n="nav_idx">Outros Projetos</a></li>
+        <li><a href="#about"           data-i18n="nav_about">Sobre</a></li>
+        <li><a href="#testimonials"    data-i18n="nav_testimonials">Referências</a></li>
       </ul>
       <div class="nav-right">
         <a href="assets/Lucas_Morales_CV_Geral.pdf" download class="btn-cv-nav" data-i18n="nav_cv">CV ↗</a>
@@ -80,9 +83,12 @@
       </div>
     </div>
     <div class="mobile-menu" id="mobileMenu">
-      <a href="#cases-destaque" data-i18n="nav_projects">Projetos</a>
-      <a href="#experience"     data-i18n="nav_exp">Experiência</a>
-      <a href="#about"          data-i18n="nav_about">Sobre</a>
+      <a href="#cases-destaque"  data-i18n="nav_projects">Projetos</a>
+      <a href="#capabilities"    data-i18n="nav_capabilities">Especialidades</a>
+      <a href="#experience"      data-i18n="nav_exp">Experiência</a>
+      <a href="#project-index"   data-i18n="nav_idx">Outros Projetos</a>
+      <a href="#about"           data-i18n="nav_about">Sobre</a>
+      <a href="#testimonials"    data-i18n="nav_testimonials">Referências</a>
       <a href="assets/Lucas_Morales_CV_Geral.pdf" download data-i18n="nav_cv">CV ↗</a>
     </div>
   </nav>
@@ -142,7 +148,7 @@
       <h2 class="case-ed-title" data-i18n="p8_title">Store-Level<br>Analytics</h2>
     </div>
     <div class="case-ed-img-wrap" data-clip-reveal>
-      <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics — dashboard de performance por loja" class="case-ed-img" width="1200" height="700">
+      <img src="assets/screenshots/store-analytics.png" loading="lazy" alt="Store-Level Analytics — dashboard de performance por loja" data-i18n-alt="img_store_alt" class="case-ed-img" width="1200" height="700">
     </div>
     <div class="container">
       <div class="case-ed-foot">
@@ -167,7 +173,7 @@
   <!-- Case 02: Split (image dominant) -->
   <article class="case-ed case-ed--split js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
     <div class="case-split-img" data-clip-reveal>
-      <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" class="case-ed-img" width="900" height="620">
+      <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" data-i18n-alt="img_ad_alt" class="case-ed-img" width="900" height="620">
     </div>
     <div class="case-split-body">
       <div class="case-ed-intro">
@@ -214,12 +220,12 @@
             <span class="cpt-arrow">↓</span>
             <div class="cpt-block">
               <span class="cpt-step">Python</span>
-              <span class="cpt-sub">coleta + normalização</span>
+              <span class="cpt-sub" data-i18n="cpt_sub_pipeline">coleta + normalização</span>
             </div>
             <span class="cpt-arrow">↓</span>
             <div class="cpt-block">
               <span class="cpt-val">16</span>
-              <span class="cpt-lbl">regionais</span>
+              <span class="cpt-lbl" data-i18n="cd_lbl_regions">regionais</span>
               <span class="cpt-sub" data-i18n="cd_lbl_delivery">dados disponíveis toda manhã</span>
             </div>
           </div>
@@ -338,7 +344,7 @@
               <li data-i18n="exp3_b1">Acompanhamento de ROAS, CAC, CPA e conversão em campanhas Google Ads e Meta Ads; otimizações com base em análise de funil</li>
               <li data-i18n="exp3_b2">Relatórios e dashboards em Excel e Notion — redução de ~50% no tempo de apresentação de resultados para clientes</li>
             </ul>
-            <p class="exp-tech">Meta Ads · Google Ads · ROAS · Análise de Funil · Excel</p>
+            <p class="exp-tech" data-i18n="exp3_tech">Meta Ads · Google Ads · ROAS · Análise de Funil · Excel</p>
           </div>
         </div>
 
@@ -443,7 +449,7 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-photo-col" data-reveal>
-          <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" class="about-photo" width="320" height="427">
+          <img src="assets/lucas-morales.jpg" alt="Lucas Morales — Analista de Dados e BI" data-i18n-alt="img_lucas_alt" class="about-photo" width="320" height="427">
         </div>
         <div class="about-main" data-reveal>
           <span class="section-label" data-i18n="about_tag">sobre</span>
@@ -457,7 +463,7 @@
           </ul>
           <div class="about-contact-links">
             <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="about-contact-link">LinkedIn ↗</a>
-            <button class="about-contact-link" id="copyEmailBtn" data-email="moraleslucas003@gmail.com">E-mail ↗</button>
+            <button class="about-contact-link" id="copyEmailBtn" data-email="moraleslucas003@gmail.com" data-i18n="cta_email">E-mail ↗</button>
             <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="about-contact-link">GitHub ↗</a>
             <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" class="about-contact-link" data-i18n="contact_wa">WhatsApp ↗</a>
           </div>
@@ -509,15 +515,21 @@
         <blockquote class="testimonial" data-reveal>
           <p class="testimonial-text" data-i18n="t1_text">Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.</p>
           <footer class="testimonial-author">
-            <span class="testimonial-name" data-i18n="t1_name">Colega de equipe</span>
-            <span class="testimonial-role" data-i18n="t1_role">Media.k · LinkedIn</span>
+            <div class="testimonial-avatar" aria-hidden="true">JA</div>
+            <div class="testimonial-author-info">
+              <span class="testimonial-name" data-i18n="t1_name">Colega de equipe</span>
+              <span class="testimonial-role" data-i18n="t1_role">Media.k · LinkedIn</span>
+            </div>
           </footer>
         </blockquote>
         <blockquote class="testimonial" data-reveal>
           <p class="testimonial-text" data-i18n="t2_text">A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.</p>
           <footer class="testimonial-author">
-            <span class="testimonial-name" data-i18n="t2_name">Gestor de conta</span>
-            <span class="testimonial-role" data-i18n="t2_role">AudioNova · LinkedIn</span>
+            <div class="testimonial-avatar" aria-hidden="true">MF</div>
+            <div class="testimonial-author-info">
+              <span class="testimonial-name" data-i18n="t2_name">Gestor de conta</span>
+              <span class="testimonial-role" data-i18n="t2_role">AudioNova · LinkedIn</span>
+            </div>
           </footer>
         </blockquote>
       </div>
@@ -565,7 +577,7 @@
   <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" inert aria-hidden="true">
     <div class="modal-overlay" id="modalOverlay"></div>
     <div class="modal-box" tabindex="-1">
-      <button class="modal-x" id="modalX" aria-label="Fechar">
+      <button class="modal-x" id="modalX" aria-label="Fechar" data-i18n-aria-modal-x="true">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
       </button>
       <div id="modalContent"></div>

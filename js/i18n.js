@@ -8,6 +8,9 @@ const i18n = {
     nav_projects: "Projetos",
     nav_about:    "Sobre",
     nav_cv:       "CV ↗",
+    nav_capabilities:   "Especialidades",
+    nav_idx:            "Outros Projetos",
+    nav_testimonials:   "Referências",
 
     // HERO
     hero_tagline:  "Construo pipelines, dashboards e automações que conectam mídia, CRM e dados operacionais a decisões de negócio.",
@@ -74,6 +77,7 @@ const i18n = {
     exp3_desc:   "Gestão de performance com foco em ROAS, funil de conversão e análise de dados de aquisição — base que desenvolveu entendimento profundo de métricas de marketing antes da transição para Analytics.",
     exp3_b1:     "Acompanhamento de ROAS, CAC, CPA e conversão em campanhas Google Ads e Meta Ads; otimizações com base em análise de funil",
     exp3_b2:     "Relatórios e dashboards em Excel e Notion — redução de ~50% no tempo de apresentação de resultados para clientes",
+    exp3_tech: "Meta Ads · Google Ads · ROAS · Análise de Funil · Excel",
 
     exp4_period:  "Anterior a Set 2024",
     exp4_role:    "Gestor de Tráfego e Marketing Digital",
@@ -93,6 +97,8 @@ const i18n = {
     cert3: "Meta Blueprint — Meta Ads",
     edu3_title: "Formação Complementar",
     edu3_desc:  "Sobral · SQL · Python · BI · CRO · Growth · Automações",
+
+    cpt_sub_pipeline: "coleta + normalização",
 
     // PROJETOS
     conf_text:  "Cases preservam a lógica das soluções; dados sensíveis foram anonimizados.",
@@ -138,6 +144,9 @@ const i18n = {
     d5_title: "Do dado bruto à recomendação prática",
 
     // SOBRE
+    img_store_alt: "Store-Level Analytics — dashboard de performance por loja",
+    img_ad_alt:    "Ad-Level Analytics — drill-down até o anúncio individual",
+    img_lucas_alt: "Lucas Morales — Analista de Dados e BI",
     about_tag:   "sobre",
     about_title: "Dados que<br>viram decisão.",
     about_p1:    "Profissional de dados com formação em tecnologia e base construída em operações reais de mídia e marketing. Comecei gerenciando tráfego pago e percebi que mesmo boa estratégia fica limitada quando os dados não são confiáveis — foi o que me levou a focar em analytics, BI e automação.",
@@ -158,7 +167,7 @@ const i18n = {
 
     // CTA
     cta_tag:      "contato",
-    cta_title:    "Buscando alguém que conecte dados, operação e decisão? Estou disponível para oportunidades em Data Analytics, BI e Analytics Engineering.",
+    cta_title: "Buscando alguém que conecte dados, operação e decisão? Estou disponível para trabalho remoto — Brasil, Estados Unidos, Austrália, Portugal e Canadá.",
     cta_linkedin: "LinkedIn ↗",
 
     footer_text: "© 2026 Lucas Morales · Data Analytics & BI",
@@ -174,6 +183,9 @@ const i18n = {
     nav_projects: "Projects",
     nav_about:    "About",
     nav_cv:       "CV ↗",
+    nav_capabilities:   "Expertise",
+    nav_idx:            "Other Projects",
+    nav_testimonials:   "References",
 
     // HERO
     hero_tagline:  "I build pipelines, dashboards and automations that connect media, CRM and operational data to business decisions.",
@@ -240,6 +252,7 @@ const i18n = {
     exp3_desc:   "Performance management focused on ROAS, conversion funnels, and acquisition data analysis — the foundation that built deep marketing metrics understanding before transitioning to Analytics.",
     exp3_b1:     "ROAS, CAC, CPA, and conversion tracking across Google Ads and Meta Ads campaigns; funnel-driven optimizations",
     exp3_b2:     "Reports and dashboards in Excel and Notion — ~50% reduction in client results presentation time",
+    exp3_tech: "Meta Ads · Google Ads · ROAS · Funnel Analysis · Excel",
 
     exp4_period:  "Before Sep 2024",
     exp4_role:    "Digital Marketing & Performance",
@@ -260,6 +273,8 @@ const i18n = {
     edu3_title: "Complementary Training",
     edu3_desc:  "Sobral Paid Traffic Community · SQL · Python · BI · CRO · Growth · Automation · Data Engineering.",
 
+    cpt_sub_pipeline: "collection + normalization",
+
     // PROJECTS
     conf_text:  "Case studies preserve solution logic; sensitive data has been anonymized.",
     cat_bi:       "BI & Analytics",
@@ -272,7 +287,7 @@ const i18n = {
     pt_tool:      "Internal Tool",
     pt_personal:  "Personal Project",
     pt_challenge: "Tech Challenge",
-    p_case:      "Ver Case ↗",
+    p_case:      "View Case ↗",
     p_gh:        "GitHub",
 
     p1_title: "Multi-Source<br>Pipeline",
@@ -304,6 +319,9 @@ const i18n = {
     d5_title: "From raw data to practical recommendation",
 
     // ABOUT
+    img_store_alt: "Store-Level Analytics — store performance dashboard",
+    img_ad_alt:    "Ad-Level Analytics — drill-down to individual ad",
+    img_lucas_alt: "Lucas Morales — Data Analytics & BI Analyst",
     about_tag:   "about",
     about_title: "Data that<br>drives decisions.",
     about_p1:    "Data professional with a technology background built through real operations in media and marketing. I started managing paid traffic and realized that even good strategy is limited when the data isn't reliable — that's what led me to focus on analytics, BI and automation.",
@@ -324,7 +342,7 @@ const i18n = {
 
     // CTA
     cta_tag:      "contact",
-    cta_title:    "Looking for someone who connects data, operations and decisions? I'm available for roles in Data Analytics, BI and Analytics Engineering.",
+    cta_title: "Looking for someone who connects data, operations and decisions? Available for remote work — Brazil, United States, Australia, Portugal and Canada.",
     cta_linkedin: "LinkedIn ↗",
 
     footer_text: "© 2026 Lucas Morales · Data Analytics & BI",

@@ -35,6 +35,24 @@ function setLang(l) {
   if (menuBtn && i18n[l] && i18n[l].menu_open) {
     menuBtn.setAttribute('aria-label', i18n[l].menu_open);
   }
+
+  // Update proj-index-row aria-labels (not expressible as static data-i18n)
+  const openCasePfx = l === 'pt' ? 'Abrir case:' : 'Open case:';
+  document.querySelectorAll('.proj-index-row[data-project]').forEach(row => {
+    const nameEl = row.querySelector('.proj-index-name');
+    if (nameEl) row.setAttribute('aria-label', openCasePfx + ' ' + nameEl.textContent.trim());
+  });
+
+  // Update image alt texts
+  document.querySelectorAll('[data-i18n-alt]').forEach(img => {
+    const key = img.getAttribute('data-i18n-alt');
+    const val = i18n[l] && i18n[l][key];
+    if (val) img.setAttribute('alt', val);
+  });
+
+  // Update modal-x aria-label
+  const modalXBtn = document.getElementById('modalX');
+  if (modalXBtn) modalXBtn.setAttribute('aria-label', l === 'pt' ? 'Fechar modal' : 'Close modal');
 }
 
 document.getElementById('langPT').addEventListener('click', () => setLang('pt'));
@@ -67,8 +85,11 @@ if (scrollProgressEl) {
   const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
   const sections = [
     { id: 'cases-destaque', href: '#cases-destaque' },
+    { id: 'capabilities',   href: '#capabilities' },
     { id: 'experience',     href: '#experience' },
+    { id: 'project-index',  href: '#project-index' },
     { id: 'about',          href: '#about' },
+    { id: 'testimonials',   href: '#testimonials' },
   ];
 
   const sectionObs = new IntersectionObserver((entries) => {
@@ -114,30 +135,60 @@ window.addEventListener('resize', () => {
 /* ============================================================
    REVEAL ON SCROLL
 ============================================================ */
-const ro = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 90);
-      ro.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+if (prefersReducedMotion) {
+  document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+  document.querySelectorAll('[data-clip-reveal]').forEach(el => el.classList.add('clip-visible'));
+} else {
+  // Safety net: force-reveal any element currently in viewport
+  function forceRevealInViewport() {
+    document.querySelectorAll('[data-reveal]:not(.visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('visible');
+      }
+    });
+    document.querySelectorAll('[data-clip-reveal]:not(.clip-visible)').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        el.classList.add('clip-visible');
+      }
+    });
+  }
 
-/* ============================================================
-   CLIP REVEAL (screenshots)
-============================================================ */
-const clipObs = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('clip-visible');
-      clipObs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
+  const ro = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 60);
+        ro.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px' });
 
-document.querySelectorAll('[data-clip-reveal]').forEach(el => clipObs.observe(el));
+  document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
+
+  const clipObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('clip-visible');
+        clipObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0 });
+
+  document.querySelectorAll('[data-clip-reveal]').forEach(el => clipObs.observe(el));
+
+  // Run immediately (catches elements already in viewport on load)
+  setTimeout(forceRevealInViewport, 80);
+
+  // Run after scroll stops (catches jump navigation: anchor clicks, End key, Ctrl+F)
+  let _revealTimer;
+  window.addEventListener('scroll', () => {
+    clearTimeout(_revealTimer);
+    _revealTimer = setTimeout(forceRevealInViewport, 160);
+  }, { passive: true });
+}
 
 /* ============================================================
    MODAL

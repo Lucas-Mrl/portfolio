@@ -128,6 +128,12 @@ section { padding: 100px 0; }
 }
 [data-reveal].visible { opacity: 1; transform: translateY(0); }
 
+/* Respect prefers-reduced-motion — belt and suspenders with JS */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; }
+  [data-clip-reveal] { opacity: 1 !important; transform: none !important; }
+}
+
 /* ====================================================
    NAVBAR
 ==================================================== */
@@ -1143,25 +1149,60 @@ section { padding: 100px 0; }
 .testimonials-list {
   display: flex;
   flex-direction: column;
-  gap: 0;
-  border-top: 1px solid var(--line);
+  gap: 20px;
 }
 .testimonial {
-  padding: 56px 0;
-  border-bottom: 1px solid var(--line);
-  max-width: 800px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 40px 48px;
+  max-width: 840px;
+  position: relative;
 }
-.testimonial:last-child { border-bottom: none; }
+.testimonial::before {
+  content: '\201C';
+  position: absolute;
+  top: 28px;
+  right: 40px;
+  font-family: var(--serif);
+  font-size: 4rem;
+  color: var(--line);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
 .testimonial-text {
   font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.2vw, 1.5rem);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
   color: var(--text);
   opacity: .88;
-  line-height: 1.65;
+  line-height: 1.7;
   margin-bottom: 28px;
   font-style: normal;
 }
-.testimonial-author { display: flex; flex-direction: column; gap: 3px; }
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+.testimonial-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--surface2);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  color: var(--subtle);
+  flex-shrink: 0;
+  font-family: var(--sans);
+  font-weight: 600;
+}
+.testimonial-author-info { display: flex; flex-direction: column; gap: 2px; }
 .testimonial-name { font-size: .875rem; font-weight: 500; color: var(--text); }
 .testimonial-role { font-size: .75rem; color: var(--subtle); }
 
