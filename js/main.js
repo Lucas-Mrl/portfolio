@@ -341,6 +341,7 @@ function openModal(key, fromDeepLink) {
   if (!data) return;
   _lastFocused = document.activeElement;
   mContent.innerHTML = buildModal(data[lang] || data['pt'], data.demo, key);
+  if (window._animateCountersIn) window._animateCountersIn(mContent);
   modal.classList.add('open');
   modal.removeAttribute('inert');
   modal.setAttribute('aria-hidden', 'false');
@@ -467,6 +468,60 @@ if (projPreview && projPreviewImg) {
     });
   });
 }
+
+/* ============================================================
+   NUMBER COUNTER ANIMATION
+============================================================ */
+(function () {
+  if (prefersReducedMotion) return;
+
+  function parseCountVal(text) {
+    const m = text.trim().match(/^(\d+(?:\.\d+)?)(.*)$/);
+    if (!m) return null;
+    const n = parseFloat(m[1]);
+    if (n === 0) return null;
+    return { value: n, suffix: m[2] || '', isInt: !m[1].includes('.') };
+  }
+
+  function animateCount(el, target, suffix, isInt, duration) {
+    duration = duration || 950;
+    const start = performance.now();
+    function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+    function tick(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const val = easeOut(p) * target;
+      el.textContent = (isInt ? Math.round(val) : val.toFixed(1)) + suffix;
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = (isInt ? target : target.toFixed(1)) + suffix;
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // On-page numeric elements
+  const countObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      countObs.unobserve(entry.target);
+      const parsed = parseCountVal(entry.target.textContent);
+      if (!parsed) return;
+      animateCount(entry.target, parsed.value, parsed.suffix, parsed.isInt);
+    });
+  }, { threshold: 0.6 });
+
+  document.querySelectorAll('.hm-val, .ce-val, .cpt-val, .ctm-val').forEach(el => {
+    if (parseCountVal(el.textContent)) countObs.observe(el);
+  });
+
+  // Export so openModal can call it
+  window._animateCountersIn = function (container) {
+    if (prefersReducedMotion) return;
+    container.querySelectorAll('.m-impact-val').forEach(el => {
+      const parsed = parseCountVal(el.textContent);
+      if (!parsed) return;
+      animateCount(el, parsed.value, parsed.suffix, parsed.isInt);
+    });
+  };
+})();
 
 /* ============================================================
    COPY EMAIL
