@@ -56,7 +56,7 @@ const i18n = {
     exp_current: "● Atual",
 
     exp1_period: "Fev 2026 — presente",
-    exp1_role:   "Analista de Dados e BI",
+    exp1_role:   "Data & BI Analyst | Marketing Analytics",
     exp1_loc:    "Remoto · Cliente: AudioNova Brasil",
     exp1_desc:   "Infraestrutura analítica de uma operação nacional de saúde auditiva com 280+ lojas e 16 regionais — pipelines, dashboards, automações e integrações de ponta a ponta.",
     exp1_b1:     "Pipeline de dados em Python conectando 9 APIs de mídia — coleta, normalização e consolidação automática por regional, com redução de ~90% no trabalho manual diário",
@@ -64,7 +64,7 @@ const i18n = {
     exp1_b4:     "Ad-level analytics: drill-down por anúncio individual cruzando dados de plataforma com leads e agendamentos reais do CRM — visibilidade de CPA real por criativo",
 
     exp2_period: "Mar 2025 — Out 2025",
-    exp2_role:   "Analista de Dados e BI",
+    exp2_role:   "Growth Analytics & BI Analyst",
     exp2_loc:    "Educação Digital · Expansão Internacional",
     exp2_desc:   "Análise de dados e mensuração em operação de educação digital com campanhas de alto volume em múltiplos países. Atuei estruturando processos de dados, rastreamento e dashboards durante período com ~20% de crescimento no faturamento.",
     exp2_b1:     "Análise de aquisição e funil em múltiplos países; dashboards executivos em Looker Studio, Power BI e Excel para equipes de marketing, produto e gestão",
@@ -96,7 +96,7 @@ const i18n = {
     cert2: "Google Ads — Search, Display & Performance Max",
     cert3: "Meta Blueprint — Meta Ads",
     edu3_title: "Formação Complementar",
-    edu3_desc:  "Sobral · SQL · Python · BI · CRO · Growth · Automações",
+    edu3_desc:  "Comunidade Sobral de Tráfego · SQL · Python · BI · CRO · Growth · Automações · Engenharia de Dados",
 
     cpt_sub_pipeline: "coleta + normalização",
 
@@ -231,7 +231,7 @@ const i18n = {
     exp_current: "● Current",
 
     exp1_period: "Feb 2026 — present",
-    exp1_role:   "Data & BI Analyst",
+    exp1_role:   "Data & BI Analyst | Marketing Analytics",
     exp1_loc:    "Remote · Client: AudioNova Brasil",
     exp1_desc:   "Analytics infrastructure for a national hearing health operation with 280+ stores and 16 regions — pipelines, dashboards, automations and integrations end to end.",
     exp1_b1:     "Python data pipeline connecting 9 media APIs — collection, normalization and automatic consolidation by region, with ~90% reduction in daily manual work",
@@ -239,7 +239,7 @@ const i18n = {
     exp1_b4:     "Ad-level analytics: drill-down per individual ad crossing platform data with real CRM leads and appointments — real CPA visibility per creative",
 
     exp2_period: "Mar 2025 — Oct 2025",
-    exp2_role:   "Data & BI Analyst",
+    exp2_role:   "Growth Analytics & BI Analyst",
     exp2_loc:    "Digital Education · International Expansion",
     exp2_desc:   "Data analysis and measurement at a digital education operation with high-volume campaigns across multiple countries. Structured data processes, tracking, and dashboards during a period with ~20% revenue growth.",
     exp2_b1:     "Acquisition and funnel data analysis across multiple countries; executive dashboards in Looker Studio, Power BI, and Excel for marketing, product, and management teams",
