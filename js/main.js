@@ -133,65 +133,15 @@ window.addEventListener('resize', () => {
 }, { passive: true });
 
 /* ============================================================
-   REVEAL ON SCROLL
+   REVEAL
+   Content is visible by default in CSS (no opacity:0 gate).
+   We still add the classes immediately so any JS that checks
+   for .visible/.clip-visible finds them set as expected.
 ============================================================ */
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (prefersReducedMotion) {
-  document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
-  document.querySelectorAll('[data-clip-reveal]').forEach(el => el.classList.add('clip-visible'));
-} else {
-  // Safety net: force-reveal any element that the user has already scrolled to or past.
-  // Condition: rect.top < innerHeight catches (a) elements in viewport and
-  // (b) elements fully above the viewport (rect.top negative, rect.bottom negative) —
-  // which are the ones that get missed on instant jumps via End/anchor clicks.
-  function forceRevealInViewport() {
-    document.querySelectorAll('[data-reveal]:not(.visible)').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        el.classList.add('visible');
-      }
-    });
-    document.querySelectorAll('[data-clip-reveal]:not(.clip-visible)').forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight) {
-        el.classList.add('clip-visible');
-      }
-    });
-  }
-
-  const ro = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 60);
-        ro.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0, rootMargin: '0px' });
-
-  document.querySelectorAll('[data-reveal]').forEach(el => ro.observe(el));
-
-  const clipObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('clip-visible');
-        clipObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0 });
-
-  document.querySelectorAll('[data-clip-reveal]').forEach(el => clipObs.observe(el));
-
-  // Run immediately (catches elements already in viewport on load)
-  setTimeout(forceRevealInViewport, 80);
-
-  // Run after scroll stops (catches jump navigation: anchor clicks, End key, Ctrl+F)
-  let _revealTimer;
-  window.addEventListener('scroll', () => {
-    clearTimeout(_revealTimer);
-    _revealTimer = setTimeout(forceRevealInViewport, 160);
-  }, { passive: true });
-}
+document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
+document.querySelectorAll('[data-clip-reveal]').forEach(el => el.classList.add('clip-visible'));
 
 /* ============================================================
    MODAL

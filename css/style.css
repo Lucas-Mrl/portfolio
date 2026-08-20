@@ -130,19 +130,14 @@ section { padding: var(--sp-6) 0; }
 
 /* ====================================================
    REVEAL
+   Content is visible by default — no scroll-gating.
+   JS adds .visible/.clip-visible immediately on load
+   for forward-compat; CSS treats both states as visible.
 ==================================================== */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity .65s var(--ease), transform .65s var(--ease);
-}
-[data-reveal].visible { opacity: 1; transform: translateY(0); }
-
-/* Respect prefers-reduced-motion — belt and suspenders with JS */
-@media (prefers-reduced-motion: reduce) {
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-  [data-clip-reveal] { opacity: 1 !important; transform: none !important; }
-}
+[data-reveal]          { opacity: 1; transform: none; }
+[data-reveal].visible  { opacity: 1; transform: none; }
+[data-clip-reveal]             { opacity: 1; transform: none; }
+[data-clip-reveal].clip-visible { opacity: 1; transform: none; }
 
 /* ====================================================
    NAVBAR
@@ -503,23 +498,28 @@ section { padding: var(--sp-6) 0; }
 
 /* All case-ed share this base */
 .case-ed {
-  border-top: 1px solid var(--line);
-  padding: 80px 0;
+  border-top: 2px solid rgba(var(--accent-rgb), 0.22);
+  padding: 96px 0;
   cursor: pointer;
   transition: none;
 }
-.case-ed:last-child { border-bottom: 1px solid var(--line); }
+.case-ed:first-child { border-top: none; }
+.case-ed:last-child { padding-bottom: 96px; }
 
 .case-ed-intro {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 20px;
+  align-items: baseline;
+  gap: 20px;
+  margin-bottom: 16px;
 }
 .case-num {
-  font-size: .8rem;
-  color: var(--subtle);
-  font-variant-numeric: tabular-nums;
+  font-family: var(--mono);
+  font-size: 3.8rem;
+  font-weight: 400;
+  color: var(--accent);
+  opacity: 0.28;
+  line-height: 1;
+  letter-spacing: -0.04em;
 }
 .case-ed-type {
   font-size: .75rem;
@@ -652,63 +652,19 @@ section { padding: var(--sp-6) 0; }
   display: block;
 }
 
-/* Case 02: Split — Project Stage */
-.case-ed--split {
-  display: grid;
-  grid-template-columns: 57% 43%;
-  gap: 0;
-  padding: 0;
-}
-.case-split-img {
-  overflow: hidden;
-  background: var(--stage);
-  padding: 40px;
+/* Pipeline visualization inside stage block (Case 03) */
+.case-ed-img-wrap--pipeline {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.case-split-img .case-ed-img {
-  width: 100%;
-  height: auto;
-  max-height: 440px;
-  border-radius: 2px;
-  border: none;
-  object-fit: cover;
-  object-position: 50% 30%;
-  box-shadow: 0 4px 24px rgba(0,0,0,.18);
-}
-.case-split-body {
-  padding: 72px 56px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  justify-content: center;
-}
-.case-split-body .case-ed-numbers { border-top: none; padding-top: 0; }
-
-/* Case 03: Text composition */
-.case-ed--text .case-text-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  padding-top: 20px;
-}
-.case-text-left {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.case-text-right {
-  padding-top: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
+  min-height: 280px;
 }
 .case-pipeline-text {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  max-width: 440px;
+  width: 100%;
 }
 .cpt-block {
   display: flex;
@@ -719,51 +675,33 @@ section { padding: var(--sp-6) 0; }
   font-family: var(--serif);
   font-size: 2.2rem;
   font-weight: 400;
-  color: var(--text);
+  color: #0f0f13;
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .cpt-lbl {
   font-size: .78rem;
-  color: var(--subtle);
+  color: rgba(11,11,13,.5);
 }
 .cpt-detail {
-  font-size: .8rem;
-  color: var(--muted);
+  font-size: .78rem;
+  color: rgba(11,11,13,.62);
   line-height: 1.6;
-  max-width: 320px;
+  max-width: 380px;
 }
 .cpt-step {
   font-size: 1rem;
   font-weight: 500;
-  color: var(--text);
+  color: #0f0f13;
 }
 .cpt-sub {
   font-size: .78rem;
-  color: var(--muted);
+  color: rgba(11,11,13,.55);
 }
 .cpt-arrow {
   font-size: 1.2rem;
-  color: var(--subtle);
+  color: rgba(11,11,13,.3);
   padding: 4px 0;
-}
-.case-text-metric {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 20px;
-}
-.ctm-val {
-  font-family: var(--serif);
-  font-size: 3rem;
-  font-weight: 400;
-  color: var(--text);
-  line-height: 1;
-  letter-spacing: -0.02em;
-}
-.ctm-lbl {
-  font-size: .75rem;
-  color: var(--subtle);
 }
 
 /* Buttons used in cases */
@@ -812,11 +750,7 @@ section { padding: var(--sp-6) 0; }
 .case-ed:hover .case-ed-img-wrap {
   filter: brightness(1.015);
 }
-.case-ed:hover .case-split-img {
-  filter: brightness(1.015);
-}
 .case-ed-img-wrap { transition: filter .3s var(--ease); }
-.case-split-img { transition: filter .3s var(--ease); }
 
 /* js-project focus */
 .js-project:focus-visible {
@@ -1573,7 +1507,6 @@ section { padding: var(--sp-6) 0; }
 @media (max-width: 1199px) {
   .about-grid { grid-template-columns: 240px 1fr 200px; gap: 40px; }
   .about-photo-col { padding: 20px 20px 28px; }
-  .case-split-body { padding: 64px 44px; }
 }
 
 /* ---- Tall notebook / short desktop (height 800–950px, width ≥ 1100px) ---- */
@@ -1627,21 +1560,6 @@ section { padding: var(--sp-6) 0; }
 
 /* ---- Tablet portrait (≤ 899px) ---- */
 @media (max-width: 899px) {
-  /* Cases: split → stack */
-  .case-ed--split { grid-template-columns: 1fr; }
-  .case-split-img {
-    padding: 28px 32px;
-    justify-content: center;
-    align-items: center;
-  }
-  .case-split-img .case-ed-img {
-    max-height: 340px;
-    border-radius: var(--r);
-    box-shadow: none;
-  }
-  .case-split-body { padding: 40px 32px; }
-  .case-ed--text .case-text-layout { grid-template-columns: 1fr; gap: 40px; }
-
   /* Testimonials */
   .testimonials-list { grid-template-columns: 1fr; gap: 0; }
 
@@ -1680,10 +1598,9 @@ section { padding: var(--sp-6) 0; }
   .case-ed { padding: 52px 0; }
   .case-ed-title { font-size: clamp(2rem, 9vw, 3.6rem); }
   .case-ed--full .case-ed-img-wrap { padding: 20px 20px 0; }
-  .case-split-img { padding: 20px; }
-  .case-split-img .case-ed-img { max-height: 300px; border-radius: var(--r); box-shadow: none; }
-  .case-split-body { padding: 32px 20px; }
   .case-ed-img { box-shadow: none; }
+  .case-num { font-size: 2.6rem; }
+  .case-ed { padding: 64px 0; }
 
   /* Experience */
   .exp-item { grid-template-columns: 1fr; gap: 12px; }
@@ -1859,8 +1776,7 @@ section { padding: var(--sp-6) 0; }
     transition-duration: .01ms !important;
   }
   html { scroll-behavior: auto; }
-  [data-reveal] { opacity: 1 !important; transform: none !important; }
-  [data-clip-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  /* [data-reveal]/[data-clip-reveal] already opacity:1 by default — no override needed */
   .hero-avail, .hero-title span, .hero-role, .hero-desc, .hero-stack-line, .hero-foot, .hero-bg-text { animation: none !important; }
   .hero-bg-text { opacity: 0.12 !important; }
   .live-dot { animation: none !important; }

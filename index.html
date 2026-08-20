@@ -174,66 +174,81 @@
     </div>
   </article>
 
-  <!-- Case 02: Split (image dominant) -->
-  <article class="case-ed case-ed--split js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
-    <div class="case-split-img" data-clip-reveal>
-      <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" data-i18n-alt="img_ad_alt" class="case-ed-img" width="900" height="620">
-    </div>
-    <div class="case-split-body">
+  <!-- Case 02: Full editorial (unified) -->
+  <article class="case-ed case-ed--full js-project" data-project="ad-analytics" data-gif="assets/screenshots/ad-analytics.gif">
+    <div class="container">
       <div class="case-ed-intro">
         <span class="case-num">02</span>
         <span class="case-ed-type proj-type--client" data-i18n="pt_client">Client Work</span>
       </div>
       <h2 class="case-ed-title" data-i18n="p7_title">Ad-Level<br>Analytics</h2>
-      <p class="case-ed-desc" data-i18n="cd_p2_problem">Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.</p>
-      <div class="case-ed-numbers">
-        <div class="ce-num-item"><span class="ce-val">CRM</span><span class="ce-lbl" data-i18n="cd_lbl_crm">integrado</span></div>
-        <div class="ce-num-item"><span class="ce-val">↑</span><span class="ce-lbl" data-i18n="cd_lbl_granularity">granularidade</span></div>
+    </div>
+    <div class="case-ed-img-wrap" data-clip-reveal>
+      <img src="assets/screenshots/ad-analytics.png" loading="lazy" alt="Ad-Level Analytics — drill-down até o anúncio individual" data-i18n-alt="img_ad_alt" class="case-ed-img" width="900" height="620">
+    </div>
+    <div class="container">
+      <div class="case-ed-foot">
+        <div class="case-ed-desc-col">
+          <p class="case-ed-desc" data-i18n="cd_p2_problem">Análise de performance limitada ao nível de campanha. Construí dashboard que cruza dados de plataformas com leads e agendamentos do CRM — drill-down até o anúncio individual.</p>
+        </div>
+        <div class="case-ed-meta-col">
+          <div class="case-ed-numbers">
+            <div class="ce-num-item"><span class="ce-val">CRM</span><span class="ce-lbl" data-i18n="cd_lbl_crm">integrado</span></div>
+            <div class="ce-num-item"><span class="ce-val">↑</span><span class="ce-lbl" data-i18n="cd_lbl_granularity">granularidade</span></div>
+          </div>
+          <div class="case-ed-actions">
+            <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
+            <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="ce-link ce-link--live"><span class="live-dot" aria-hidden="true"></span>Demo ↗</a>
+          </div>
+          <p class="case-ed-stack">Python · SQL · FastAPI · MySQL</p>
+        </div>
       </div>
-      <div class="case-ed-actions">
-        <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
-        <a href="assets/demos/ad-analytics.html" target="_blank" rel="noopener" class="ce-link ce-link--live"><span class="live-dot" aria-hidden="true"></span>Demo ↗</a>
-      </div>
-      <p class="case-ed-stack">Python · SQL · FastAPI · MySQL</p>
     </div>
   </article>
 
-  <!-- Case 03: Text composition (no screenshot) -->
-  <article class="case-ed case-ed--text js-project" data-project="media-reports">
+  <!-- Case 03: Full editorial (unified) — pipeline visualization in stage block -->
+  <article class="case-ed case-ed--full js-project" data-project="media-reports">
     <div class="container">
       <div class="case-ed-intro">
         <span class="case-num">03</span>
         <span class="case-ed-type" data-i18n="pt_tool">Ferramenta Interna</span>
       </div>
-      <div class="case-text-layout">
-        <div class="case-text-left">
-          <h2 class="case-ed-title" data-i18n="p1_title">Pipeline<br>Multi-Fonte</h2>
+      <h2 class="case-ed-title" data-i18n="p1_title">Pipeline<br>Multi-Fonte</h2>
+    </div>
+    <div class="case-ed-img-wrap case-ed-img-wrap--pipeline" data-clip-reveal>
+      <div class="case-pipeline-text">
+        <div class="cpt-block">
+          <span class="cpt-val" data-count-to="9" data-suffix="+">9+</span>
+          <span class="cpt-lbl" data-i18n="cd_lbl_apis">fontes</span>
+          <p class="cpt-detail">Meta · Google · TikTok · Bing · X Ads · Pinterest · Taboola · Kwai · YouTube</p>
+        </div>
+        <span class="cpt-arrow">↓</span>
+        <div class="cpt-block">
+          <span class="cpt-step">Python</span>
+          <span class="cpt-sub" data-i18n="cpt_sub_pipeline">coleta + normalização</span>
+        </div>
+        <span class="cpt-arrow">↓</span>
+        <div class="cpt-block">
+          <span class="cpt-val" data-count-to="16">16</span>
+          <span class="cpt-lbl" data-i18n="cd_lbl_regions">regionais</span>
+          <span class="cpt-sub" data-i18n="cd_lbl_delivery">dados disponíveis toda manhã</span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="case-ed-foot">
+        <div class="case-ed-desc-col">
           <p class="case-ed-desc" data-i18n="cd_p3_problem">Consolidação de 9 plataformas feita manualmente — horas de trabalho por regional, por dia. Automatizei coleta, normalização e entrega: dados disponíveis toda manhã sem intervenção.</p>
+        </div>
+        <div class="case-ed-meta-col">
+          <div class="case-ed-numbers">
+            <div class="ce-num-item"><span class="ce-val" data-count-to="90" data-suffix="%">90%</span><span class="ce-lbl" data-i18n="cd_lbl_manual">↓ manual</span></div>
+            <div class="ce-num-item"><span class="ce-val" data-count-to="9" data-suffix="+">9+</span><span class="ce-lbl" data-i18n="cd_lbl_apis">fontes</span></div>
+          </div>
           <div class="case-ed-actions">
             <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
           </div>
           <p class="case-ed-stack">Python · APIs · GitHub Actions</p>
-        </div>
-        <div class="case-text-right">
-          <div class="case-pipeline-text">
-            <div class="cpt-block">
-              <span class="cpt-val" data-count-to="9" data-suffix="+">9+</span>
-              <span class="cpt-lbl" data-i18n="cd_lbl_apis">fontes</span>
-              <p class="cpt-detail">Meta · Google · TikTok · Bing · X Ads · Pinterest · Taboola · Kwai · YouTube</p>
-            </div>
-            <span class="cpt-arrow">↓</span>
-            <div class="cpt-block">
-              <span class="cpt-step">Python</span>
-              <span class="cpt-sub" data-i18n="cpt_sub_pipeline">coleta + normalização</span>
-            </div>
-            <span class="cpt-arrow">↓</span>
-            <div class="cpt-block">
-              <span class="cpt-val" data-count-to="16">16</span>
-              <span class="cpt-lbl" data-i18n="cd_lbl_regions">regionais</span>
-              <span class="cpt-sub" data-i18n="cd_lbl_delivery">dados disponíveis toda manhã</span>
-            </div>
-          </div>
-          <div class="case-text-metric"><span class="ctm-val" data-count-to="90" data-suffix="%">90%</span><span class="ctm-lbl" data-i18n="cd_lbl_manual">↓ trabalho manual</span></div>
         </div>
       </div>
     </div>
