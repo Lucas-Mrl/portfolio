@@ -463,16 +463,21 @@ if (projPreview && projPreviewImg) {
     animateCount(el, target, suffix, isInt);
   }
 
-  // Observe all elements that declare a count target
-  const countObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      countObs.unobserve(entry.target);
-      initCounter(entry.target);
+  // Scroll-based trigger: simpler and more reliable than IO threshold.
+  // Fires when the element's top enters the lower 90% of the viewport.
+  // `data-counted` guard on animateCount prevents double-animation.
+  function checkCounters() {
+    document.querySelectorAll('[data-count-to]:not([data-counted])').forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        initCounter(el);
+      }
     });
-  }, { threshold: 0.6 });
+  }
 
-  document.querySelectorAll('[data-count-to]').forEach(el => countObs.observe(el));
+  window.addEventListener('scroll', checkCounters, { passive: true });
+  // Initial pass — catches above-fold counters (hero metrics)
+  setTimeout(checkCounters, 120);
 
   // Export so openModal can animate impact values after inject
   window._animateCountersIn = function (container) {
