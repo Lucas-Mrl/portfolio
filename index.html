@@ -100,6 +100,10 @@
   ========================================================= -->
   <section id="hero">
     <div class="hero-bg-text" aria-hidden="true">LM.</div>
+    <svg class="hero-sparkline" aria-hidden="true" viewBox="0 0 340 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <polyline class="sparkline-path" points="0,65 35,52 70,58 105,34 140,43 175,20 210,32 245,14 280,22 320,8 340,16"/>
+      <circle class="sparkline-dot" cx="340" cy="16" r="3"/>
+    </svg>
     <div class="hero-inner">
       <p class="hero-avail" data-i18n="hero_availability">Aberto a oportunidades · Ourinhos, SP</p>
       <h1 class="hero-title">
@@ -112,15 +116,15 @@
       <div class="hero-foot">
         <div class="hero-metrics">
           <div class="hm-item">
-            <span class="hm-val">90%</span>
+            <span class="hm-val" data-count-to="90" data-suffix="%">90%</span>
             <span class="hm-lbl" data-i18n="hm_manual">↓ trabalho manual</span>
           </div>
           <div class="hm-item">
-            <span class="hm-val">9+</span>
+            <span class="hm-val" data-count-to="9" data-suffix="+">9+</span>
             <span class="hm-lbl" data-i18n="hm_sources">fontes integradas</span>
           </div>
           <div class="hm-item">
-            <span class="hm-val">280+</span>
+            <span class="hm-val" data-count-to="280" data-suffix="+">280+</span>
             <span class="hm-lbl" data-i18n="hm_units">unidades analisadas</span>
           </div>
           <p class="hm-note" data-i18n="hero_stats_context">¹ Indicadores de operações em que atuei diretamente.</p>
@@ -157,8 +161,8 @@
         </div>
         <div class="case-ed-meta-col">
           <div class="case-ed-numbers">
-            <div class="ce-num-item"><span class="ce-val">280+</span><span class="ce-lbl" data-i18n="cd_lbl_units">unidades</span></div>
-            <div class="ce-num-item"><span class="ce-val">16</span><span class="ce-lbl" data-i18n="cd_lbl_regions">regionais</span></div>
+            <div class="ce-num-item"><span class="ce-val" data-count-to="280" data-suffix="+">280+</span><span class="ce-lbl" data-i18n="cd_lbl_units">unidades</span></div>
+            <div class="ce-num-item"><span class="ce-val" data-count-to="16">16</span><span class="ce-lbl" data-i18n="cd_lbl_regions">regionais</span></div>
           </div>
           <div class="case-ed-actions">
             <button class="proj-btn-case ce-btn" data-i18n="p_case">Ver Case ↗</button>
@@ -213,7 +217,7 @@
         <div class="case-text-right">
           <div class="case-pipeline-text">
             <div class="cpt-block">
-              <span class="cpt-val">9+</span>
+              <span class="cpt-val" data-count-to="9" data-suffix="+">9+</span>
               <span class="cpt-lbl" data-i18n="cd_lbl_apis">fontes</span>
               <p class="cpt-detail">Meta · Google · TikTok · Bing · X Ads · Pinterest · Taboola · Kwai · YouTube</p>
             </div>
@@ -224,12 +228,12 @@
             </div>
             <span class="cpt-arrow">↓</span>
             <div class="cpt-block">
-              <span class="cpt-val">16</span>
+              <span class="cpt-val" data-count-to="16">16</span>
               <span class="cpt-lbl" data-i18n="cd_lbl_regions">regionais</span>
               <span class="cpt-sub" data-i18n="cd_lbl_delivery">dados disponíveis toda manhã</span>
             </div>
           </div>
-          <div class="case-text-metric"><span class="ctm-val">90%</span><span class="ctm-lbl" data-i18n="cd_lbl_manual">↓ trabalho manual</span></div>
+          <div class="case-text-metric"><span class="ctm-val" data-count-to="90" data-suffix="%">90%</span><span class="ctm-lbl" data-i18n="cd_lbl_manual">↓ trabalho manual</span></div>
         </div>
       </div>
     </div>
@@ -246,6 +250,7 @@
 
         <div class="cap-row" data-reveal>
           <div class="cap-row-head">
+            <svg class="cap-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="3 20 21 20"/></svg>
             <h3 class="cap-row-title" data-i18n="cap1_title">Analytics &amp; BI</h3>
           </div>
           <div class="cap-row-body">
@@ -256,6 +261,7 @@
 
         <div class="cap-row" data-reveal>
           <div class="cap-row-head">
+            <svg class="cap-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 9v12"/><path d="M21 15.5A9 9 0 0 1 9 6"/></svg>
             <h3 class="cap-row-title" data-i18n="cap2_title">Data Pipelines &amp; Automação</h3>
           </div>
           <div class="cap-row-body">
@@ -266,6 +272,7 @@
 
         <div class="cap-row" data-reveal>
           <div class="cap-row-head">
+            <svg class="cap-icon" aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
             <h3 class="cap-row-title" data-i18n="cap3_title">Marketing Analytics &amp; Tracking</h3>
           </div>
           <div class="cap-row-body">
@@ -562,10 +569,10 @@
         <span class="nav-logo">LM<span class="accent">.</span></span>
         <p class="footer-copy" data-i18n="footer_text">© 2026 Lucas Morales · Data Analytics &amp; BI</p>
         <div class="footer-links">
-          <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" data-i18n="contact_wa">WhatsApp</a>
-          <a href="mailto:moraleslucas003@gmail.com" data-i18n="contact_email">E-mail</a>
-          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener">LinkedIn</a>
-          <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://wa.me/55149988343594" target="_blank" rel="noopener" data-i18n="contact_wa" class="footer-link-item"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+          <a href="mailto:moraleslucas003@gmail.com" data-i18n="contact_email" class="footer-link-item"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>E-mail</a>
+          <a href="https://linkedin.com/in/lucas-morales-267202271" target="_blank" rel="noopener" class="footer-link-item"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
+          <a href="https://github.com/Lucas-Mrl" target="_blank" rel="noopener" class="footer-link-item"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>GitHub</a>
         </div>
       </div>
     </div>

@@ -60,7 +60,7 @@ body::after {
   inset: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
   background-size: 200px 200px;
-  opacity: 0.024;
+  opacity: 0.065;
   pointer-events: none;
   z-index: var(--z-grain);
 }
@@ -335,7 +335,7 @@ section { padding: var(--sp-6) 0; }
 }
 @keyframes lmFadeIn {
   from { opacity: 0; }
-  to   { opacity: 0.042; }
+  to   { opacity: 0.12; }
 }
 
 .hero-inner {
@@ -827,21 +827,21 @@ section { padding: var(--sp-6) 0; }
 /* ====================================================
    CAPABILITIES
 ==================================================== */
-#capabilities { background: var(--surface); padding: 80px 0; }
-
-#capabilities { position: relative; overflow: hidden; }
-#capabilities::before {
-  content: '';
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 50%;
-  height: 80%;
-  background: radial-gradient(ellipse at center, rgba(130,131,240,.04) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
+#capabilities {
+  background: var(--stage);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
 }
 #capabilities .container { position: relative; z-index: 1; }
+/* All text on stage (light) background */
+#capabilities .section-header h2 { color: #0f0f13; }
+#capabilities .section-label { color: rgba(11,11,13,.5); }
+#capabilities .cap-row { border-top-color: rgba(11,11,13,.15); }
+#capabilities .cap-row-title { color: #0f0f13; }
+#capabilities .cap-row-desc { color: rgba(11,11,13,.72); }
+#capabilities .cap-tech { color: rgba(11,11,13,.45); }
+#capabilities .cap-icon { color: rgba(11,11,13,.55); }
 
 .cap-list { display: flex; flex-direction: column; }
 
@@ -1205,15 +1205,17 @@ section { padding: var(--sp-6) 0; }
 /* ====================================================
    TESTIMONIALS
 ==================================================== */
-#testimonials { background: var(--bg); padding: 80px 0; }
+#testimonials { background: var(--stage); padding: 80px 0; }
+#testimonials .section-label { color: rgba(11,11,13,.5); }
+#testimonials .section-header h2 { color: #0f0f13; }
 .testimonials-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 .testimonial {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: rgba(11,11,13,.06);
+  border: 1px solid rgba(11,11,13,.15);
   border-radius: var(--r);
   padding: 40px 48px;
   max-width: 840px;
@@ -1226,7 +1228,7 @@ section { padding: var(--sp-6) 0; }
   right: 40px;
   font-family: var(--serif);
   font-size: 4rem;
-  color: var(--line);
+  color: rgba(11,11,13,.12);
   line-height: 1;
   pointer-events: none;
   user-select: none;
@@ -1234,8 +1236,7 @@ section { padding: var(--sp-6) 0; }
 .testimonial-text {
   font-family: var(--serif);
   font-size: clamp(1.05rem, 2vw, 1.3rem);
-  color: var(--text);
-  opacity: .88;
+  color: rgba(11,11,13,.82);
   line-height: 1.7;
   margin-bottom: 28px;
   font-style: italic;
@@ -1245,26 +1246,26 @@ section { padding: var(--sp-6) 0; }
   align-items: center;
   gap: 12px;
   padding-top: 20px;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid rgba(11,11,13,.15);
 }
 .testimonial-avatar {
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--surface2);
-  border: 1px solid var(--line);
+  background: rgba(11,11,13,.12);
+  border: 1px solid rgba(11,11,13,.2);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: .75rem;
-  color: var(--subtle);
+  color: rgba(11,11,13,.6);
   flex-shrink: 0;
   font-family: var(--sans);
   font-weight: 600;
 }
 .testimonial-author-info { display: flex; flex-direction: column; gap: 2px; }
-.testimonial-name { font-size: .875rem; font-weight: 500; color: var(--text); }
-.testimonial-role { font-size: .75rem; color: var(--subtle); font-style: italic; }
+.testimonial-name { font-size: .875rem; font-weight: 500; color: #0f0f13; }
+.testimonial-role { font-size: .75rem; color: rgba(11,11,13,.5); font-style: italic; }
 
 /* ====================================================
    CTA
@@ -1744,6 +1745,112 @@ section { padding: var(--sp-6) 0; }
   section { padding: 48px 0; }
 }
 
+/* ====================================================
+   SPARKLINE — hero data graphic
+==================================================== */
+.hero-sparkline {
+  position: absolute;
+  bottom: var(--sp-5);
+  right: 0;
+  width: min(380px, 42vw);
+  height: 80px;
+  pointer-events: none;
+  opacity: 0;
+  animation: sparkFade 0.6s var(--ease) 2.2s both;
+}
+.sparkline-path {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation: drawSparkline 2s ease-out 1.6s forwards;
+}
+.sparkline-dot {
+  fill: var(--accent);
+  opacity: 0;
+  animation: dotAppear 0.4s ease-out 3.5s both;
+}
+@keyframes sparkFade {
+  from { opacity: 0; }
+  to   { opacity: 0.22; }
+}
+@keyframes drawSparkline {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes dotAppear {
+  from { opacity: 0; transform: scale(0); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ====================================================
+   CAP-ICON — capability section icons
+==================================================== */
+.cap-row-head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.cap-icon {
+  display: block;
+  color: rgba(11,11,13,.55);
+  flex-shrink: 0;
+}
+
+/* ====================================================
+   SECTION-LABEL — accent dot marker
+==================================================== */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+/* On stage backgrounds the dot uses dark color */
+#capabilities .section-label::before,
+#testimonials .section-label::before {
+  background: rgba(11,11,13,.4);
+}
+
+/* ====================================================
+   FOOTER LINK ICONS
+==================================================== */
+.footer-link-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-link-item svg {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity var(--t);
+}
+.footer-link-item:hover svg { opacity: 1; }
+
+/* ====================================================
+   SECTION ENTRY RULES — visible boundaries between dark sections
+==================================================== */
+#experience {
+  border-top: 1px solid rgba(var(--accent-rgb), 0.22);
+}
+#project-index {
+  border-top: 1px solid rgba(var(--accent-rgb), 0.22);
+}
+/* Stage→dark transitions get a slightly stronger accent rule */
+#experience {
+  border-top-color: rgba(var(--accent-rgb), 0.35);
+}
+
 /* ---- Reduced motion ---- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -1755,6 +1862,8 @@ section { padding: var(--sp-6) 0; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   [data-clip-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
   .hero-avail, .hero-title span, .hero-role, .hero-desc, .hero-stack-line, .hero-foot, .hero-bg-text { animation: none !important; }
-  .hero-bg-text { opacity: 0.042 !important; }
+  .hero-bg-text { opacity: 0.12 !important; }
   .live-dot { animation: none !important; }
+  .sparkline-path { animation: none !important; stroke-dashoffset: 0 !important; }
+  .hero-sparkline { animation: none !important; opacity: 0.18 !important; }
 }

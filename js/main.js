@@ -141,17 +141,20 @@ if (prefersReducedMotion) {
   document.querySelectorAll('[data-reveal]').forEach(el => el.classList.add('visible'));
   document.querySelectorAll('[data-clip-reveal]').forEach(el => el.classList.add('clip-visible'));
 } else {
-  // Safety net: force-reveal any element currently in viewport
+  // Safety net: force-reveal any element that the user has already scrolled to or past.
+  // Condition: rect.top < innerHeight catches (a) elements in viewport and
+  // (b) elements fully above the viewport (rect.top negative, rect.bottom negative) —
+  // which are the ones that get missed on instant jumps via End/anchor clicks.
   function forceRevealInViewport() {
     document.querySelectorAll('[data-reveal]:not(.visible)').forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
+      if (rect.top < window.innerHeight) {
         el.classList.add('visible');
       }
     });
     document.querySelectorAll('[data-clip-reveal]:not(.clip-visible)').forEach(el => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
+      if (rect.top < window.innerHeight) {
         el.classList.add('clip-visible');
       }
     });
@@ -201,11 +204,15 @@ const mX       = document.getElementById('modalX');
 function buildModal(data, demo, slug) {
   const bullets = data.solution.bullets.map(b => `<li>${b}</li>`).join('');
   const stack   = data.stack.map(s => `<span>${s}</span>`).join('');
-  const impact  = data.impact.items.map(i => `
+  const impact  = data.impact.items.map(i => {
+    const m = String(i.value).trim().match(/^(\d+(?:\.\d+)?)(.*)$/);
+    const countAttrs = m ? ` data-count-to="${m[1]}" data-suffix="${m[2] || ''}"` : '';
+    return `
     <div class="m-impact-item">
-      <span class="m-impact-val">${i.value}</span>
+      <span class="m-impact-val"${countAttrs}>${i.value}</span>
       <span class="m-impact-label">${i.label}</span>
-    </div>`).join('');
+    </div>`;
+  }).join('');
   const ghBtn = data.github
     ? `<a href="${data.github}" target="_blank" rel="noopener" class="m-link-gh">GitHub ↗</a>` : '';
   const demoBtn = demo
@@ -471,20 +478,18 @@ if (projPreview && projPreviewImg) {
 
 /* ============================================================
    NUMBER COUNTER ANIMATION
+   Target values come from data-count-to / data-suffix HTML attributes,
+   NOT from textContent — this prevents race conditions with setLang()
+   or any other code that might touch the DOM between load and IO fire.
+   Each element gets data-counted="1" on first animation start, so even
+   if the observer fires multiple times it only animates once.
 ============================================================ */
 (function () {
   if (prefersReducedMotion) return;
 
-  function parseCountVal(text) {
-    const m = text.trim().match(/^(\d+(?:\.\d+)?)(.*)$/);
-    if (!m) return null;
-    const n = parseFloat(m[1]);
-    if (n === 0) return null;
-    return { value: n, suffix: m[2] || '', isInt: !m[1].includes('.') };
-  }
-
-  function animateCount(el, target, suffix, isInt, duration) {
-    duration = duration || 950;
+  function animateCount(el, target, suffix, isInt) {
+    el.setAttribute('data-counted', '1');
+    const duration = 950;
     const start = performance.now();
     function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
     function tick(now) {
@@ -497,28 +502,33 @@ if (projPreview && projPreviewImg) {
     requestAnimationFrame(tick);
   }
 
-  // On-page numeric elements
+  function initCounter(el) {
+    if (el.hasAttribute('data-counted')) return;
+    const raw = el.getAttribute('data-count-to');
+    if (!raw) return;
+    const target = parseFloat(raw);
+    if (!target) return;
+    const suffix = el.getAttribute('data-suffix') || '';
+    const isInt = !raw.includes('.');
+    animateCount(el, target, suffix, isInt);
+  }
+
+  // Observe all elements that declare a count target
   const countObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       countObs.unobserve(entry.target);
-      const parsed = parseCountVal(entry.target.textContent);
-      if (!parsed) return;
-      animateCount(entry.target, parsed.value, parsed.suffix, parsed.isInt);
+      initCounter(entry.target);
     });
   }, { threshold: 0.6 });
 
-  document.querySelectorAll('.hm-val, .ce-val, .cpt-val, .ctm-val').forEach(el => {
-    if (parseCountVal(el.textContent)) countObs.observe(el);
-  });
+  document.querySelectorAll('[data-count-to]').forEach(el => countObs.observe(el));
 
-  // Export so openModal can call it
+  // Export so openModal can animate impact values after inject
   window._animateCountersIn = function (container) {
     if (prefersReducedMotion) return;
-    container.querySelectorAll('.m-impact-val').forEach(el => {
-      const parsed = parseCountVal(el.textContent);
-      if (!parsed) return;
-      animateCount(el, parsed.value, parsed.suffix, parsed.isInt);
+    container.querySelectorAll('[data-count-to]').forEach(el => {
+      requestAnimationFrame(() => initCounter(el));
     });
   };
 })();
