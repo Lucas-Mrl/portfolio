@@ -53,6 +53,7 @@
   </script>
 </head>
 <body>
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
 
   <div id="scroll-progress" aria-hidden="true"></div>
 
@@ -103,6 +104,10 @@
     <svg class="hero-sparkline" aria-hidden="true" viewBox="0 0 340 72" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
       <polyline class="sparkline-path" points="0,65 35,52 70,58 105,34 140,43 175,20 210,32 245,14 280,22 320,8 340,16"/>
       <circle class="sparkline-dot" cx="340" cy="16" r="3"/>
+      <circle class="sparkline-moving-dot" r="2.5">
+        <animateMotion dur="5s" repeatCount="indefinite" calcMode="linear"
+          path="M0,65 L35,52 L70,58 L105,34 L140,43 L175,20 L210,32 L245,14 L280,22 L320,8 L340,16"/>
+      </circle>
     </svg>
     <div class="hero-inner">
       <p class="hero-avail" data-i18n="hero_availability">Aberto a oportunidades · Ourinhos, SP</p>
@@ -270,7 +275,9 @@
           </div>
           <div class="cap-row-body">
             <p class="cap-row-desc" data-i18n="cap1_desc">Dashboards executivos e operacionais, modelagem de dados e análise de performance. Foco em decisão, não em visualização pela visualização.</p>
-            <p class="cap-tech">SQL / BigQuery / Python / Power BI / Looker Studio / MySQL / FastAPI</p>
+            <div class="cap-tech">
+              <span>SQL</span><span>BigQuery</span><span>Python</span><span>Power BI</span><span>Looker Studio</span><span>MySQL</span><span>FastAPI</span>
+            </div>
           </div>
         </div>
 
@@ -281,7 +288,9 @@
           </div>
           <div class="cap-row-body">
             <p class="cap-row-desc" data-i18n="cap2_desc">Pipelines de coleta, normalização e consolidação — Python conectando APIs, CRMs, bancos e planilhas. Elimino trabalho manual recorrente.</p>
-            <p class="cap-tech">Python / REST APIs / ETL·ELT / GitHub Actions / n8n / Google Sheets API</p>
+            <div class="cap-tech">
+              <span>Python</span><span>REST APIs</span><span>ETL·ELT</span><span>GitHub Actions</span><span>n8n</span><span>Google Sheets API</span>
+            </div>
           </div>
         </div>
 
@@ -292,7 +301,9 @@
           </div>
           <div class="cap-row-body">
             <p class="cap-row-desc" data-i18n="cap3_desc">Análise de aquisição, funil e eventos server-side com GA4, GTM, Meta CAPI e TikTok Events API. Entendo mídia e infraestrutura.</p>
-            <p class="cap-tech">GA4 / GTM / Meta CAPI / TikTok Events API / BigQuery / CRM / Python</p>
+            <div class="cap-tech">
+              <span>GA4</span><span>GTM</span><span>Meta CAPI</span><span>TikTok Events API</span><span>BigQuery</span><span>CRM</span><span>Python</span>
+            </div>
           </div>
         </div>
 
@@ -398,6 +409,14 @@
       </div>
 
       <p class="conf-notice" data-reveal data-i18n="conf_text">Cases preservam a lógica das soluções; dados sensíveis foram anonimizados.</p>
+
+      <div class="proj-filter-row" role="group" aria-label="Filtrar por categoria">
+        <button class="proj-filter-chip proj-filter-chip--active" data-filter="all" data-i18n="filter_all">Todos</button>
+        <button class="proj-filter-chip proj-filter-chip--bi"       data-filter="bi"       data-i18n="cat_bi">BI &amp; Analytics</button>
+        <button class="proj-filter-chip proj-filter-chip--pipeline" data-filter="pipeline" data-i18n="cat_pipeline">Data Pipelines</button>
+        <button class="proj-filter-chip proj-filter-chip--tracking" data-filter="tracking" data-i18n="cat_tracking">Tracking</button>
+        <button class="proj-filter-chip proj-filter-chip--ai"       data-filter="ai"       data-i18n="cat_ai">AI</button>
+      </div>
 
       <div class="proj-index-table">
 
@@ -537,7 +556,7 @@
         <blockquote class="testimonial" data-reveal>
           <p class="testimonial-text" data-i18n="t1_text">Lucas conseguiu transformar uma rotina manual complexa em um processo muito mais rápido e confiável. O que demorava horas passou a rodar automaticamente — sem perda de qualidade nos dados.</p>
           <footer class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">JA</div>
+            <div class="testimonial-avatar testimonial-avatar--1" aria-hidden="true">JA</div>
             <div class="testimonial-author-info">
               <span class="testimonial-name" data-i18n="t1_name">Colega de equipe</span>
               <span class="testimonial-role" data-i18n="t1_role">Media.k · LinkedIn</span>
@@ -547,7 +566,7 @@
         <blockquote class="testimonial" data-reveal>
           <p class="testimonial-text" data-i18n="t2_text">A visão por loja e regional facilitou muito a leitura de performance da operação. Conseguimos identificar gargalos específicos que antes ficavam escondidos nos números consolidados.</p>
           <footer class="testimonial-author">
-            <div class="testimonial-avatar" aria-hidden="true">MF</div>
+            <div class="testimonial-avatar testimonial-avatar--2" aria-hidden="true">MF</div>
             <div class="testimonial-author-info">
               <span class="testimonial-name" data-i18n="t2_name">Gestor de conta</span>
               <span class="testimonial-role" data-i18n="t2_role">AudioNova · LinkedIn</span>
@@ -608,6 +627,10 @@
 
   <!-- Toast -->
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <script src="js/i18n.js" defer></script>
   <script src="js/projects.js" defer></script>

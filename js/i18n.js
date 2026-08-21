@@ -35,6 +35,7 @@ const i18n = {
 
     // PROJECT INDEX
     idx_title:    "Outros projetos",
+    filter_all:   "Todos",
 
     // CASES EM DESTAQUE
     cd_p1_problem: "280+ lojas e 16 regionais sem visão centralizada. Desenvolvi aplicação analítica com FastAPI + MySQL, autenticação por perfil de acesso e drill-down por loja, regional e canal.",
@@ -210,6 +211,7 @@ const i18n = {
 
     // PROJECT INDEX
     idx_title:    "Other projects",
+    filter_all:   "All",
 
     // CASES
     cd_p1_problem: "280+ stores and 16 regions with no centralized view. I built an analytics app with FastAPI + MySQL, profile-based authentication and drill-down by store, region and channel.",

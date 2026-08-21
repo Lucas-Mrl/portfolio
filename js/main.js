@@ -511,6 +511,27 @@ if (copyBtn && toastEl) {
   });
 }
 
+/* ---- Category filter chips ---- */
+(function () {
+  const chips = document.querySelectorAll('.proj-filter-chip');
+  if (!chips.length) return;
+  chips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      const filter = chip.getAttribute('data-filter');
+      chips.forEach(c => c.classList.remove('proj-filter-chip--active'));
+      chip.classList.add('proj-filter-chip--active');
+      document.querySelectorAll('.proj-index-row').forEach(row => {
+        const show = filter === 'all' || row.getAttribute('data-category') === filter;
+        show ? row.removeAttribute('hidden') : row.setAttribute('hidden', '');
+      });
+      document.querySelectorAll('.proj-index-cat').forEach(cat => {
+        const show = filter === 'all' || cat.getAttribute('data-category') === filter;
+        show ? cat.removeAttribute('hidden') : cat.setAttribute('hidden', '');
+      });
+    });
+  });
+})();
+
 /* ============================================================
    INIT
 ============================================================ */
@@ -530,3 +551,34 @@ function handleDeepLink(hash) {
 }
 
 handleDeepLink(location.hash);
+
+/* ============================================================
+   BACK TO TOP
+============================================================ */
+const backToTopBtn = document.getElementById('backToTop');
+if (backToTopBtn) {
+  window.addEventListener('scroll', () => {
+    backToTopBtn.classList.toggle('visible', window.scrollY > window.innerHeight * 0.7);
+  }, { passive: true });
+  backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+/* ============================================================
+   CURSOR CUSTOMIZADO
+============================================================ */
+(function () {
+  if (prefersReducedMotion) return;
+  if (window.matchMedia('(hover: none)').matches) return;
+  const dot = document.getElementById('cursorDot');
+  if (!dot) return;
+  window.addEventListener('mousemove', e => {
+    dot.style.left = e.clientX + 'px';
+    dot.style.top  = e.clientY + 'px';
+    dot.classList.add('visible');
+  }, { passive: true });
+  document.addEventListener('mouseleave', () => dot.classList.remove('visible'));
+  document.addEventListener('mouseover', e => {
+    const isClickable = e.target.closest('a, button, [role="button"], .proj-index-row, .case-ed');
+    dot.classList.toggle('expanded', !!isClickable);
+  });
+})()
